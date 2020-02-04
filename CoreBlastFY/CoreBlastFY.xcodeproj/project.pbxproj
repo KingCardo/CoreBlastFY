@@ -7,13 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A8CBA9423E9109800D0D6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9323E9109800D0D6BD /* AppDelegate.swift */; };
-		7A8CBA9623E9109800D0D6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9523E9109800D0D6BD /* SceneDelegate.swift */; };
-		7A8CBA9823E9109800D0D6BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9723E9109800D0D6BD /* ViewController.swift */; };
-		7A8CBA9B23E9109800D0D6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9923E9109800D0D6BD /* Main.storyboard */; };
-		7A8CBA9D23E9109B00D0D6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9C23E9109B00D0D6BD /* Assets.xcassets */; };
-		7A8CBAA023E9109B00D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBA9E23E9109B00D0D6BD /* LaunchScreen.storyboard */; };
 		7A8CBAAB23E9109B00D0D6BD /* CoreBlastFYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */; };
+		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
+		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
+		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
+		7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */; };
+		7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABF23E9120600D0D6BD /* Main.storyboard */; };
+		7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */; };
+		7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */; };
+		7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC923E9122500D0D6BD /* UserAPI.swift */; };
+		7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */; };
+		7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */; };
+		7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACC23E9122500D0D6BD /* Looper.swift */; };
+		7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACD23E9122500D0D6BD /* Firebase.swift */; };
+		7A8CBAD523E9122500D0D6BD /* QueuePlayerLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACE23E9122500D0D6BD /* QueuePlayerLooper.swift */; };
+		7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */; };
+		7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */; };
+		7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAD923E9122D00D0D6BD /* Fonts.swift */; };
+		7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADA23E9122D00D0D6BD /* Colors.swift */; };
+		7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */; };
+		7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */; };
+		7A8CBAE323E9127500D0D6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBAE223E9127500D0D6BD /* Assets.xcassets */; };
+		7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */; };
+		7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAE623E9129700D0D6BD /* UserManager.swift */; };
+		7A8CBAEB23E9129F00D0D6BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAEA23E9129F00D0D6BD /* SettingsViewController.swift */; };
+		7A8CBAF023E912B100D0D6BD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAED23E912B100D0D6BD /* Workout.swift */; };
+		7A8CBAF123E912B100D0D6BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAEE23E912B100D0D6BD /* User.swift */; };
+		7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAEF23E912B100D0D6BD /* Exercise.swift */; };
+		7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAF423E912BA00D0D6BD /* ExerciseWorker.swift */; };
+		7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAF823E912C700D0D6BD /* PreWorkoutInteractor.swift */; };
+		7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAF923E912C700D0D6BD /* PreWorkoutViewController.swift */; };
+		7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAFA23E912C700D0D6BD /* PreWorkoutModels.swift */; };
+		7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAFB23E912C700D0D6BD /* PreWorkoutRouter.swift */; };
+		7A8CBB1A23E912C700D0D6BD /* PreWorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAFC23E912C700D0D6BD /* PreWorkoutPresenter.swift */; };
+		7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAFD23E912C700D0D6BD /* PreWorkoutWorker.swift */; };
+		7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAFF23E912C700D0D6BD /* PreWorkoutView.swift */; };
+		7A8CBB1D23E912C700D0D6BD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0023E912C700D0D6BD /* LoadingView.swift */; };
+		7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0223E912C700D0D6BD /* ProgressionPicController.swift */; };
+		7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0323E912C700D0D6BD /* ProgressionPic.swift */; };
+		7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */; };
+		7A8CBB2123E912C700D0D6BD /* ProgressionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */; };
+		7A8CBB2223E912C700D0D6BD /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */; };
+		7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */; };
+		7A8CBB2423E912C700D0D6BD /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */; };
+		7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */; };
+		7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */; };
+		7A8CBB2723E912C700D0D6BD /* WorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0C23E912C700D0D6BD /* WorkoutRouter.swift */; };
+		7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0D23E912C700D0D6BD /* WorkoutModels.swift */; };
+		7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */; };
+		7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1023E912C700D0D6BD /* VideoView.swift */; };
+		7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1123E912C700D0D6BD /* WorkoutView.swift */; };
+		7A8CBB2C23E912C700D0D6BD /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */; };
+		7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */; };
+		7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,16 +74,63 @@
 
 /* Begin PBXFileReference section */
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A8CBA9323E9109800D0D6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A8CBA9523E9109800D0D6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A8CBA9723E9109800D0D6BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7A8CBA9A23E9109800D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7A8CBA9C23E9109B00D0D6BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A8CBA9F23E9109B00D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBlastFYTests.swift; sourceTree = "<group>"; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A8CBAB623E9113100D0D6BD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreBlastFY.entitlements; sourceTree = "<group>"; };
+		7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7A8CBABE23E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A8CBAC023E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7A8CBAC923E9122500D0D6BD /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLooper.swift; sourceTree = "<group>"; };
+		7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloudkit.swift; sourceTree = "<group>"; };
+		7A8CBACC23E9122500D0D6BD /* Looper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Looper.swift; sourceTree = "<group>"; };
+		7A8CBACD23E9122500D0D6BD /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		7A8CBACE23E9122500D0D6BD /* QueuePlayerLooper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuePlayerLooper.swift; sourceTree = "<group>"; };
+		7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalPersistence+Exercises.swift"; sourceTree = "<group>"; };
+		7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7A8CBAD923E9122D00D0D6BD /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7A8CBADA23E9122D00D0D6BD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapLayout.swift; sourceTree = "<group>"; };
+		7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		7A8CBAE223E9127500D0D6BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Desktop/CoreBlast-master/CoreBlast/Assets.xcassets"; sourceTree = "<group>"; };
+		7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		7A8CBAE623E9129700D0D6BD /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		7A8CBAEA23E9129F00D0D6BD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7A8CBAED23E912B100D0D6BD /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		7A8CBAEE23E912B100D0D6BD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7A8CBAEF23E912B100D0D6BD /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7A8CBAF423E912BA00D0D6BD /* ExerciseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseWorker.swift; sourceTree = "<group>"; };
+		7A8CBAF823E912C700D0D6BD /* PreWorkoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutInteractor.swift; sourceTree = "<group>"; };
+		7A8CBAF923E912C700D0D6BD /* PreWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutViewController.swift; sourceTree = "<group>"; };
+		7A8CBAFA23E912C700D0D6BD /* PreWorkoutModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutModels.swift; sourceTree = "<group>"; };
+		7A8CBAFB23E912C700D0D6BD /* PreWorkoutRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutRouter.swift; sourceTree = "<group>"; };
+		7A8CBAFC23E912C700D0D6BD /* PreWorkoutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutPresenter.swift; sourceTree = "<group>"; };
+		7A8CBAFD23E912C700D0D6BD /* PreWorkoutWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutWorker.swift; sourceTree = "<group>"; };
+		7A8CBAFF23E912C700D0D6BD /* PreWorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreWorkoutView.swift; sourceTree = "<group>"; };
+		7A8CBB0023E912C700D0D6BD /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7A8CBB0223E912C700D0D6BD /* ProgressionPicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionPicController.swift; sourceTree = "<group>"; };
+		7A8CBB0323E912C700D0D6BD /* ProgressionPic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionPic.swift; sourceTree = "<group>"; };
+		7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionPicCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionCollectionViewController.swift; sourceTree = "<group>"; };
+		7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewControllerOld.swift; sourceTree = "<group>"; };
+		7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataManager.swift; sourceTree = "<group>"; };
+		7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutWorker.swift; sourceTree = "<group>"; };
+		7A8CBB0C23E912C700D0D6BD /* WorkoutRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutRouter.swift; sourceTree = "<group>"; };
+		7A8CBB0D23E912C700D0D6BD /* WorkoutModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutModels.swift; sourceTree = "<group>"; };
+		7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutInteractor.swift; sourceTree = "<group>"; };
+		7A8CBB1023E912C700D0D6BD /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		7A8CBB1123E912C700D0D6BD /* WorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */,
+				7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +159,7 @@
 				7A8CBA9223E9109800D0D6BD /* CoreBlastFY */,
 				7A8CBAA923E9109B00D0D6BD /* CoreBlastFYTests */,
 				7A8CBA9123E9109800D0D6BD /* Products */,
+				7A8CBAB523E9113100D0D6BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +175,16 @@
 		7A8CBA9223E9109800D0D6BD /* CoreBlastFY */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBA9323E9109800D0D6BD /* AppDelegate.swift */,
-				7A8CBA9523E9109800D0D6BD /* SceneDelegate.swift */,
-				7A8CBA9723E9109800D0D6BD /* ViewController.swift */,
-				7A8CBA9923E9109800D0D6BD /* Main.storyboard */,
-				7A8CBA9C23E9109B00D0D6BD /* Assets.xcassets */,
-				7A8CBA9E23E9109B00D0D6BD /* LaunchScreen.storyboard */,
+				7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */,
+				7A8CBABB23E9120600D0D6BD /* Main */,
+				7A8CBAC823E9122500D0D6BD /* Services */,
+				7A8CBAEC23E912B100D0D6BD /* Models */,
+				7A8CBAD723E9122D00D0D6BD /* Helpers */,
+				7A8CBAF323E912BA00D0D6BD /* Workers */,
+				7A8CBAF623E912C700D0D6BD /* Scenes */,
+				7A8CBAE923E9129F00D0D6BD /* Settings */,
+				7A8CBAE423E9129700D0D6BD /* User */,
+				7A8CBAE223E9127500D0D6BD /* Assets.xcassets */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFY;
@@ -97,6 +197,168 @@
 				7A8CBAAC23E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFYTests;
+			sourceTree = "<group>";
+		};
+		7A8CBAB523E9113100D0D6BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */,
+				7A8CBAB623E9113100D0D6BD /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A8CBABB23E9120600D0D6BD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */,
+				7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */,
+				7A8CBABF23E9120600D0D6BD /* Main.storyboard */,
+				7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */,
+				7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7A8CBAC823E9122500D0D6BD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAC923E9122500D0D6BD /* UserAPI.swift */,
+				7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */,
+				7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */,
+				7A8CBACC23E9122500D0D6BD /* Looper.swift */,
+				7A8CBACD23E9122500D0D6BD /* Firebase.swift */,
+				7A8CBACE23E9122500D0D6BD /* QueuePlayerLooper.swift */,
+				7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7A8CBAD723E9122D00D0D6BD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */,
+				7A8CBAD923E9122D00D0D6BD /* Fonts.swift */,
+				7A8CBADA23E9122D00D0D6BD /* Colors.swift */,
+				7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */,
+				7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7A8CBAE423E9129700D0D6BD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */,
+				7A8CBAE623E9129700D0D6BD /* UserManager.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		7A8CBAE923E9129F00D0D6BD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAEA23E9129F00D0D6BD /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7A8CBAEC23E912B100D0D6BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAED23E912B100D0D6BD /* Workout.swift */,
+				7A8CBAEE23E912B100D0D6BD /* User.swift */,
+				7A8CBAEF23E912B100D0D6BD /* Exercise.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A8CBAF323E912BA00D0D6BD /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAF423E912BA00D0D6BD /* ExerciseWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		7A8CBAF623E912C700D0D6BD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
+				7A8CBB0123E912C700D0D6BD /* Progression */,
+				7A8CBB0623E912C700D0D6BD /* Workout */,
+				7A8CBB1323E912C700D0D6BD /* Onboarding */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7A8CBAF723E912C700D0D6BD /* PreWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAF823E912C700D0D6BD /* PreWorkoutInteractor.swift */,
+				7A8CBAF923E912C700D0D6BD /* PreWorkoutViewController.swift */,
+				7A8CBAFA23E912C700D0D6BD /* PreWorkoutModels.swift */,
+				7A8CBAFB23E912C700D0D6BD /* PreWorkoutRouter.swift */,
+				7A8CBAFC23E912C700D0D6BD /* PreWorkoutPresenter.swift */,
+				7A8CBAFD23E912C700D0D6BD /* PreWorkoutWorker.swift */,
+				7A8CBAFE23E912C700D0D6BD /* Views */,
+			);
+			path = PreWorkout;
+			sourceTree = "<group>";
+		};
+		7A8CBAFE23E912C700D0D6BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBAFF23E912C700D0D6BD /* PreWorkoutView.swift */,
+				7A8CBB0023E912C700D0D6BD /* LoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A8CBB0123E912C700D0D6BD /* Progression */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBB0223E912C700D0D6BD /* ProgressionPicController.swift */,
+				7A8CBB0323E912C700D0D6BD /* ProgressionPic.swift */,
+				7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */,
+				7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */,
+			);
+			path = Progression;
+			sourceTree = "<group>";
+		};
+		7A8CBB0623E912C700D0D6BD /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */,
+				7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */,
+				7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */,
+				7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */,
+				7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */,
+				7A8CBB0C23E912C700D0D6BD /* WorkoutRouter.swift */,
+				7A8CBB0D23E912C700D0D6BD /* WorkoutModels.swift */,
+				7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */,
+				7A8CBB0F23E912C700D0D6BD /* Views */,
+				7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		7A8CBB0F23E912C700D0D6BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBB1023E912C700D0D6BD /* VideoView.swift */,
+				7A8CBB1123E912C700D0D6BD /* WorkoutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A8CBB1323E912C700D0D6BD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */,
+				7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +442,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8CBAA023E9109B00D0D6BD /* LaunchScreen.storyboard in Resources */,
-				7A8CBA9D23E9109B00D0D6BD /* Assets.xcassets in Resources */,
-				7A8CBA9B23E9109800D0D6BD /* Main.storyboard in Resources */,
+				7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */,
+				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
+				7A8CBAE323E9127500D0D6BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +462,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8CBA9823E9109800D0D6BD /* ViewController.swift in Sources */,
-				7A8CBA9423E9109800D0D6BD /* AppDelegate.swift in Sources */,
-				7A8CBA9623E9109800D0D6BD /* SceneDelegate.swift in Sources */,
+				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
+				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
+				7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */,
+				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
+				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
+				7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */,
+				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
+				7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */,
+				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
+				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
+				7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */,
+				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
+				7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */,
+				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
+				7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */,
+				7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */,
+				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
+				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
+				7A8CBAD523E9122500D0D6BD /* QueuePlayerLooper.swift in Sources */,
+				7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */,
+				7A8CBB2C23E912C700D0D6BD /* WorkoutViewModel.swift in Sources */,
+				7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */,
+				7A8CBB2723E912C700D0D6BD /* WorkoutRouter.swift in Sources */,
+				7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */,
+				7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */,
+				7A8CBAF123E912B100D0D6BD /* User.swift in Sources */,
+				7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */,
+				7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */,
+				7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */,
+				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
+				7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */,
+				7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */,
+				7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */,
+				7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */,
+				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
+				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
+				7A8CBB1D23E912C700D0D6BD /* LoadingView.swift in Sources */,
+				7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */,
+				7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */,
+				7A8CBB2123E912C700D0D6BD /* ProgressionCollectionViewController.swift in Sources */,
+				7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */,
+				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
+				7A8CBAF023E912B100D0D6BD /* Workout.swift in Sources */,
+				7A8CBAEB23E9129F00D0D6BD /* SettingsViewController.swift in Sources */,
+				7A8CBB2423E912C700D0D6BD /* WorkoutViewController.swift in Sources */,
+				7A8CBB1A23E912C700D0D6BD /* PreWorkoutPresenter.swift in Sources */,
+				7A8CBB2223E912C700D0D6BD /* WorkoutPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,20 +531,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A8CBA9923E9109800D0D6BD /* Main.storyboard */ = {
+		7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7A8CBA9A23E9109800D0D6BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7A8CBA9E23E9109B00D0D6BD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A8CBA9F23E9109B00D0D6BD /* Base */,
+				7A8CBABE23E9120600D0D6BD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7A8CBABF23E9120600D0D6BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A8CBAC023E9120600D0D6BD /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -294,7 +600,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -348,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -362,9 +668,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreBlastFY/CoreBlastFY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,9 +688,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreBlastFY/CoreBlastFY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
