@@ -38,7 +38,11 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.prefersLargeTitles = true
         
         viewControllers = [progressionNavController, workoutNavController, settingsNavController]
-        selectedViewController = viewControllers?[1]
+        if UserDefaults.standard.bool(forKey: onboardingKey) {
+            selectedViewController = viewControllers?[1]
+        } else {
+            selectedViewController = viewControllers?[0]
+        }
 //        let progressionTabBarItem = UITabBarItem(title: "Flexx", image: nil, selectedImage: nil)
 //        let workoutTabBarItem = UITabBarItem(title: "Workout", image: nil, selectedImage: nil)
 //        let settingsTabBarItem = UITabBarItem(title: "Settings", image: nil, selectedImage: nil)

@@ -15,9 +15,18 @@ class User: Codable {
     var totalPoints: Int = 0
     var lastWorkoutComplete: Date?
     var nextWorkout: Date {
-        return Date() + 86400
-       // return lastWorkoutComplete != nil ? (lastWorkoutComplete! + 86400) : nil
+        guard let selectedTime = selectedTime else { return Date() + 86400 }
+        
+        return selectedTime.addingTimeInterval(86400)
     }
+//    {
+//        var dateComponents = DateComponents()
+//        dateComponents.calendar = Calendar.current
+//        dateComponents.weekday = 2
+//    }
+    var selectedTime: Date?
+    
+    //var selectedDays: [String] = ["Monday", "Tuesday", "Thursday", "Friday"]
     
     enum Level: String, Codable, CaseIterable {
         case beginner = "Beginner"

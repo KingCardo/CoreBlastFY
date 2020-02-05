@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,17 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let success = ExerciseStorage.loadExercises()
         if !success {
-            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
-            worker.fetchExercises { (exercises, error) in
-                if !exercises.isEmpty {
-                    print("done fetching, RWRWR")
-                        ExerciseStorage.exercises = exercises
-                        ExerciseStorage.save()
-                    } else {
-                        //TODO: Handle error
-                        print(error?.localizedDescription)
-                    }
-                }
+//            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
+//            worker.fetchExercises { (exercises, error) in
+//                if !exercises.isEmpty {
+//                    print("done fetching, RWRWR")
+//                        ExerciseStorage.exercises = exercises
+//                        ExerciseStorage.save()
+//                    } else {
+//                        //TODO: Handle error
+//                        print(error?.localizedDescription)
+//                    }
+//                }
         }
     
         return true

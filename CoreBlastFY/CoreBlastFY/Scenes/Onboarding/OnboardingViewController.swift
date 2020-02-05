@@ -12,23 +12,68 @@ import AVFoundation
 let onboardingKey = "hasViewedWalkThrough"
 
 class OnboardingViewController: UIViewController {
-    
+ 
     var headingLabel = UILabel()
     var contentLabel = UILabel()
-    var contentImageView = UIImageView()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
     var videoView = UIView()
     var index = 0
     var heading = ""
-    var imageFile = ""
     var content = ""
-    var progressBar = UIProgressView()
+   
+    var datePicker = CustomDatePicker()
+    var date = Date()
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    class CustomDatePicker: UIDatePicker {
+        let titleLabel = UILabel()
+   
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            addSubview(titleLabel)
+         
+            titleLabel.text = "Reminder"
+            titleLabel.textAlignment = .center
+            titleLabel.font = UIFont.makeAvenirNext(size: 25)
+
+            titleLabel.backgroundColor = .white
+     
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            titleLabel.bottomAnchor.constraint(equalTo: topAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
     }
     
+    private func configureDatePicker() {
+        datePicker.datePickerMode = .time
+        datePicker.addTarget(self, action: #selector(grabInputFromUser), for: .editingDidEnd)
+        
+        view.addSubview(datePicker)
+        datePicker.backgroundColor = .white
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        datePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        
+    }
+    
+    @objc func grabInputFromUser(_ sender: UIDatePicker) {
+        date = sender.date
+        UserAPI.user.selectedTime = sender.date
+        print(date)
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -60,11 +105,9 @@ class OnboardingViewController: UIViewController {
         contentLabel.font = UIFont.systemFont(ofSize: 32, weight: .medium)
         contentLabel.numberOfLines = 0
     }
+
     
     @objc private func handleTapAnimation() {
-        if index == 3 {
-            print("RWRWRW, this is the right page")
-        }
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.headingLabel.transform = CGAffineTransform(translationX: -30, y: 0)
         }) { (_) in
@@ -82,6 +125,9 @@ class OnboardingViewController: UIViewController {
                 
             }) { (_) in
                 self.forwardButton.alpha = 1
+                if self.index == 3 {
+                    self.configureDatePicker()
+                      }
             }
         }
     }
@@ -137,24 +183,16 @@ class OnboardingViewController: UIViewController {
         case 0...2:
             let pageViewController = parent as! OnboardingPageViewController
             pageViewController.forward(index: index)
-            
+             
         case 3: //Done Button
-            
-            //validate stuff from textfields and pickers
-            
-            
-            
-            
+             
+            grabInputFromUser(datePicker)
+          
             UserDefaults.standard.set(true, forKey: onboardingKey)
-                let homeVC = HomeViewController()
-               if let appDelegate = UIApplication.shared.delegate,
-                            let appWindow = appDelegate.window!
-                             {
-                                appWindow.rootViewController = homeVC
-                            //rootViewController.present(homeVC, animated: true, completion: nil)
-                        }
             
-            dismiss(animated: true, completion: nil)
+            let homeVC = HomeViewController()
+            homeVC.modalPresentationStyle = .fullScreen
+            show(homeVC, sender: self)
         default: break
         }
     }

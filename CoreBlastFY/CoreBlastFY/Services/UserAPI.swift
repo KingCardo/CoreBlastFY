@@ -9,7 +9,7 @@
 import Foundation
 
 class UserAPI: UserInfoStoreProtocol {
-    static var user: User = User()
+    static var user = User()
     
     func fetchUserInfo(completion: @escaping(User?, UserInfoStoreError?) -> Void) {
         completion(UserAPI.user, nil)

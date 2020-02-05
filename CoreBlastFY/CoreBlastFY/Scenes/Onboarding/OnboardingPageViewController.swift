@@ -12,9 +12,9 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
     
     var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Programs!", "Workout Reminder!"]
    
-    var pageContent = ["Where being Forever Young is a mentality, lifestyle, and choice!",
-                       "Consistency is Key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",
-                       "All Programs are Goal Oriented to get you the results your looking for as safely and efficiently as possible! \nIf you're ready for change, work hard, be consistent and have fun!",
+    var pageContent = ["Forever Young is a mentality, lifestyle, and choice!",
+                       "Consistency is key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",
+                       "All programs are Goal Oriented to get you the results you're looking for as safely and efficiently as possible! \nIf you're ready for change, work hard, be consistent and have fun!",
                        "What days and times would you like to be reminded to workout?"
         ]
     
@@ -30,6 +30,10 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         }
         
     }
+    
+    override var prefersStatusBarHidden: Bool {
+           return true
+       }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! OnboardingViewController).index

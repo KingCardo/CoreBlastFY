@@ -23,7 +23,7 @@ class PreWorkoutPresenter: PreWorkoutPresentationLogic {
 let dateFormatter: DateFormatter = {
       let dateFormatter = DateFormatter()
       dateFormatter.dateStyle = .long
-      dateFormatter.timeStyle = .medium
+      dateFormatter.timeStyle = .short
       return dateFormatter
     }()
   // MARK: Do something
@@ -32,7 +32,9 @@ let dateFormatter: DateFormatter = {
     
     let user = response.user
     
-    let displayedUserInfo = PreWorkout.FetchUser.ViewModel.UserDetails(name: user.name, coreLevel: user.coreLevel.rawValue, totalPoints: "\(user.totalPoints)", nextLevel: user.nextLevel.rawValue, nextWorkoutDate: dateFormatter.string(from: user.nextWorkout))
+    
+    
+    let displayedUserInfo = PreWorkout.FetchUser.ViewModel.UserDetails(name: user.name, coreLevel: user.coreLevel.rawValue, totalPoints: "\(user.totalPoints)", nextLevel: user.nextLevel.rawValue, nextWorkoutDate: dateFormatter.string(from: user.nextWorkout ?? Date() + 86400))
     let viewModel = PreWorkout.FetchUser.ViewModel(userDetails: displayedUserInfo)
     viewController?.displayPreWorkoutViewModel(viewModel: viewModel)
   }

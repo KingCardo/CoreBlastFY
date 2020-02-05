@@ -60,6 +60,7 @@
 		7A8CBB2C23E912C700D0D6BD /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */; };
 		7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */; };
 		7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */; };
+		7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		7A8CBAC823E9122500D0D6BD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */,
 				7A8CBAC923E9122500D0D6BD /* UserAPI.swift */,
 				7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */,
 				7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */,
@@ -486,6 +489,7 @@
 				7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */,
 				7A8CBB2723E912C700D0D6BD /* WorkoutRouter.swift in Sources */,
 				7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */,
+				7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */,
 				7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */,
 				7A8CBAF123E912B100D0D6BD /* User.swift in Sources */,
 				7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */,
@@ -677,7 +681,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlastFY;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -697,7 +701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlastFY;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

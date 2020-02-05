@@ -25,14 +25,6 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
         
-       // let operation = CKQueryOperation(query: query)
-//        operation.recordFetchedBlock = { record in
-//            if let exercise = Exercise(record: record) {
-//            self.exercises.append(exercise)
-//
-//        }
-        
-        
         publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
@@ -45,7 +37,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                 completion(self.exercises, nil)
         }
         }
-        //publicDatabase.add(operation)
+    
     }
     
     //TO DO: edit this when new exercises avaialable
