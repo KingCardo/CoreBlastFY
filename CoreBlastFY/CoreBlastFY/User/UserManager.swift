@@ -17,8 +17,6 @@ func isPassedMoreThan(days: Int, fromDate date : Date, toDate date2 : Date) -> B
 
 class UserManager {
     
-   // static var user: User = User()
-    
     static func decrementPoint() -> Bool {
         let today = Date()
         guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return false }

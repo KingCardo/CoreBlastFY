@@ -27,14 +27,14 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
-      super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-      setup()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder)
     {
-      super.init(coder: aDecoder)
-      setup()
+        super.init(coder: aDecoder)
+        setup()
     }
     // MARK: Setup
     
@@ -51,10 +51,10 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         router.dataStore = interactor
     }
     
-     private func setupNavigationBar() {
-            navigationItem.title = "Workout"
+    private func setupNavigationBar() {
+        navigationItem.title = "Workout"
         view.backgroundColor = .white
-        }
+    }
     
     // MARK: Routing
     
@@ -70,7 +70,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         setupNavigationBar()
         fetchWorkout()
     }
-
+    
     
     // MARK: Do something
     

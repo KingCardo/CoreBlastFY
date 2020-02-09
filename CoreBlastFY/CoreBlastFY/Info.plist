@@ -68,5 +68,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find some good parks near you to get some fresh air!</string>
 </dict>
 </plist>
