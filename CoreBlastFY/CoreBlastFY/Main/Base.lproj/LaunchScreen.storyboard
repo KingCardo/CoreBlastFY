@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B56-3U-y4b" secondAttribute="trailing" id="d1s-IK-QdO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B56-3U-y4b" secondAttribute="bottom" id="fYW-O6-zCt"/>

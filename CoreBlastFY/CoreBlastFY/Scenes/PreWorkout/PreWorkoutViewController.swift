@@ -97,7 +97,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     private func setupNavigationBar() {
         navigationItem.title = "Workout"
-        view.backgroundColor = .white
+        view.backgroundColor = .black
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {

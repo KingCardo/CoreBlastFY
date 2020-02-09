@@ -61,6 +61,7 @@
 		7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */; };
 		7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */; };
 		7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */; };
+		7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB3523EF49A300D0D6BD /* PulsingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7A8CBB3523EF49A300D0D6BD /* PulsingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +314,7 @@
 		7A8CBAFE23E912C700D0D6BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A8CBB3523EF49A300D0D6BD /* PulsingView.swift */,
 				7A8CBAFF23E912C700D0D6BD /* PreWorkoutView.swift */,
 				7A8CBB0023E912C700D0D6BD /* LoadingView.swift */,
 			);
@@ -474,6 +477,7 @@
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
 				7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */,
 				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
+				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
 				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
 				7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */,
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,

@@ -21,6 +21,7 @@ class OnboardingViewController: UIViewController {
     var index = 0
     var heading = ""
     var content = ""
+    var imageView = UIImageView()
    
     var datePicker = CustomDatePicker()
     var date = Date()
@@ -30,13 +31,16 @@ class OnboardingViewController: UIViewController {
    
         override init(frame: CGRect) {
             super.init(frame: frame)
+            
+            setValue(UIColor.white, forKeyPath: "textColor")
             addSubview(titleLabel)
          
             titleLabel.text = "Reminder"
+            titleLabel.textColor = .white
             titleLabel.textAlignment = .center
             titleLabel.font = UIFont.makeAvenirNext(size: 25)
 
-            titleLabel.backgroundColor = .white
+            titleLabel.backgroundColor = .goatBlack
      
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -58,7 +62,7 @@ class OnboardingViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(grabInputFromUser), for: .editingDidEnd)
         
         view.addSubview(datePicker)
-        datePicker.backgroundColor = .white
+        datePicker.backgroundColor = .goatBlack
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -66,6 +70,17 @@ class OnboardingViewController: UIViewController {
         datePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
         
+    }
+    
+    private func configureImageView() {
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = #imageLiteral(resourceName: "IMG_2308")
     }
     
     @objc func grabInputFromUser(_ sender: UIDatePicker) {
@@ -76,6 +91,7 @@ class OnboardingViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        //configureImageView()
         setupUI()
         setupLabels()
         view.backgroundColor = .goatBlack
@@ -92,17 +108,17 @@ class OnboardingViewController: UIViewController {
         }
         
         setupForwardButton()
-        forwardButton.alpha = 0
+        
         setupPageControl()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAnimation)))
     }
     
     private func setupLabels() {
         headingLabel.textColor = .white
-        headingLabel.font = UIFont.boldSystemFont(ofSize: 40)
+        headingLabel.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40)
         headingLabel.numberOfLines = 0
         contentLabel.textColor = .white
-        contentLabel.font = UIFont.systemFont(ofSize: 32, weight: .medium)
+        contentLabel.font = UIFont.preferredFont(forTextStyle: .body).withSize(28)
         contentLabel.numberOfLines = 0
     }
 
@@ -138,9 +154,11 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupForwardButton() {
+        forwardButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         forwardButton.backgroundColor = .goatBlue
         forwardButton.layer.cornerRadius = 12
         forwardButton.clipsToBounds = true
+        forwardButton.alpha = 0
         forwardButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchDown)
     }
   
@@ -156,7 +174,7 @@ class OnboardingViewController: UIViewController {
         
         view.addSubview(forwardButton)
         forwardButton.translatesAutoresizingMaskIntoConstraints = false
-        forwardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12).isActive = true
+        forwardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16).isActive = true
         forwardButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         forwardButton.widthAnchor.constraint(equalToConstant: 74).isActive = true
         forwardButton.heightAnchor.constraint(equalToConstant: 44).isActive = true

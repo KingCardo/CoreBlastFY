@@ -19,7 +19,7 @@ class SettingsViewController: UITableViewController {
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         navigationItem.title = "Settings"
        // buildItems()
     }

@@ -43,6 +43,8 @@ final class LoadingView: UIView {
         let label = UILabel()
         label.font = UIFont.makeAvenirNext(size: 200)
         label.textAlignment = .center
+        label.backgroundColor = .black
+        label.textColor = .white
         return label
     }()
     

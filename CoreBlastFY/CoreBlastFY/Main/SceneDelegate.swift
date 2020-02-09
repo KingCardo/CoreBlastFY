@@ -16,8 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      
         self.window = self.window ?? UIWindow()
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
-                   let pageViewController = OnboardingPageViewController()
-//                   present(pageViewController, animated: true, completion: nil)
+            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
             self.window!.rootViewController = pageViewController
         } else {
         self.window!.rootViewController = HomeViewController()

@@ -15,7 +15,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
     var pageContent = ["Forever Young is a mentality, lifestyle, and choice!",
                        "Consistency is key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",
                        "All programs are Goal Oriented to get you the results you're looking for as safely and efficiently as possible! \nIf you're ready for change, work hard, be consistent and have fun!",
-                       "What days and times would you like to be reminded to workout?"
+                       "What time would you like to be reminded to workout?"
         ]
     
     override func viewDidLoad() {

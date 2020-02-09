@@ -23,8 +23,8 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        view.backgroundColor = .white
-        collectionView.backgroundColor = .white
+        view.backgroundColor = .black
+        collectionView.backgroundColor = .black
         screenWidth = view.frame.width
         screenHeight = view.frame.height
          collectionView.decelerationRate = .fast
@@ -151,7 +151,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     private lazy var progressionView: UIView = {
         let pgView = UIView()
-        pgView.backgroundColor = .white
+        pgView.backgroundColor = .black
         pgView.translatesAutoresizingMaskIntoConstraints = false
         return pgView
     }()
@@ -175,13 +175,14 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! We'll do weekly progression pics to stay motivated and on track to reach your goals!"
-        label.font = UIFont.makeAvenirNext(size: 26)
+        label.font = UIFont.makeAvenirNext(size: 32)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!
         label.numberOfLines = 0
         label.textAlignment = .center
         label.clipsToBounds = true
-        label.textColor = .black
+        label.textColor = .white
+        label.textAlignment = .left
         return label
     }()
     
