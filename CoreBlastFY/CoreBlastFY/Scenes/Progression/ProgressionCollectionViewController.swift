@@ -38,6 +38,11 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        view.setNeedsDisplay()
+        view.setNeedsLayout()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpCameraButton()

@@ -41,6 +41,8 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
     
     func routeToNutritionScene() {
         let destination = NutritonViewController()
+        //destination.modalPresentationStyle = .blurOverFullScreen
+        //destination.modalTransitionStyle = .crossDissolve
         navigateTo(source: viewController!, destination: destination)
     }
     

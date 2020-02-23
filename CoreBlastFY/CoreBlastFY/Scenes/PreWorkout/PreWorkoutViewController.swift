@@ -99,11 +99,16 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         navigationItem.title = "Workout"
         view.backgroundColor = .black
     }
+    @objc private func startWorkout() {
+            displayLoadingView()
+    }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
         preworkoutView = PreWorkoutView(viewModel: viewModel)
         guard let preworkoutView = preworkoutView else { return }
         view.addSubview(preworkoutView)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(startWorkout))
+        preworkoutView.addGestureRecognizer(gesture)
         
         preworkoutView.preWorkoutViewController = self
         preworkoutView.translatesAutoresizingMaskIntoConstraints = false

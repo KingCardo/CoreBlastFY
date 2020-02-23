@@ -17,7 +17,7 @@ class OnboardingViewController: UIViewController {
     var contentLabel = UILabel()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
-    var videoView = UIView()
+    //var videoView = UIView()
     var index = 0
     var heading = ""
     var content = ""
@@ -174,8 +174,8 @@ class OnboardingViewController: UIViewController {
         
         view.addSubview(forwardButton)
         forwardButton.translatesAutoresizingMaskIntoConstraints = false
-        forwardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16).isActive = true
-        forwardButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        forwardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        forwardButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         forwardButton.widthAnchor.constraint(equalToConstant: 74).isActive = true
         forwardButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         

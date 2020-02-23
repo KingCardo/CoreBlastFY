@@ -26,6 +26,10 @@ class PreWorkoutView: UIView {
 //            print("RWRWRW not working")
 //        }
 //    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
     
     
     init(frame: CGRect = .zero, viewModel: PreWorkout.FetchUser.ViewModel) {

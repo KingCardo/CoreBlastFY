@@ -29,24 +29,17 @@ class WorkoutWorker {
         completion(workout)
     }
 }
+
+let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "squat", ofType: "MOV")!)
+let squat = Exercise(name: "Squat", tip: "full range of motion", level: .beginner, type: .stationary, videoURL: squatVideoPath)//Exercise(name: "Squat", tip: "full range of motion", videoURL: squatVideoPath)
+
+let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "askip", ofType: "MOV")!)
+
+let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, type: .stationary, videoURL: askipVideoPath) //Exercise(name: "A-Skip", tip: "Bounce in Rhythm", videoURL: askipVideoPath)
     
-//    var exerciseInfoDataStore: ExerciseInfoStoreProtocol
-//
-//    init(exerciseInfoDataStore: ExerciseInfoStoreProtocol) {
-//        self.exerciseInfoDataStore = exerciseInfoDataStore
-//    }
-//
-//    func fetchExercises(completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
-//        exerciseInfoDataStore.fetchExercises { (exercises, error) in
-//            if exercises.count > 0 {
-//                completion(exercises, nil)
-//            } else {
-//                completion([], ExerciseInfoStoreError.CannotFetch(error?.localizedDescription))
-//            }
-//        }
-//    }
-//}
-//
+let exercisesMock = [squat, askip]
+
+
 enum WorkoutInfoStoreResult<U> {
     case Success(result: U)
     case Failure(error: WorkoutInfoStoreError)

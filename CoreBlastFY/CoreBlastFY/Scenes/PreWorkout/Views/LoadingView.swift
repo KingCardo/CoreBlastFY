@@ -27,8 +27,7 @@ final class LoadingView: UIView {
         
         if seconds < 1 {
             timer.invalidate()
-            UIView.animate(withDuration: 1, delay: 0.2, options: .curveEaseOut, animations: { [weak self] in
-               // self?.removeFromSuperview()
+            UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseOut, animations: { [weak self] in
             }, completion: nil)
             seconds = 3
             isRunning = false

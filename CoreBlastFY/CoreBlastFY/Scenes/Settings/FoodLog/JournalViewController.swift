@@ -42,7 +42,7 @@ class JournalViewController: UIViewController {
     }
     
     func setupNavBar() {
-        navigationItem.title = "Workout Log"
+        navigationItem.title = "Food Log"
     }
     
     var createEntryButton = UIButton()
@@ -103,7 +103,8 @@ extension JournalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            EntryController.shared.entries.remove(at: indexPath.row)
+            let entry = EntryController.shared.entries[indexPath.row]
+            EntryController.shared.deleteEntry(entry: entry)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

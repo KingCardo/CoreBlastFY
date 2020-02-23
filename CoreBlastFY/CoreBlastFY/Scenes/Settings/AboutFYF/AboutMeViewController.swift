@@ -23,7 +23,7 @@ class AboutMeViewController: UIViewController {
         tv.isSelectable = false
         tv.text = data
         tv.textColor = .white
-        tv.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        tv.font = UIFont.makeAvenirNext(size: 24)
         tv.backgroundColor = .clear
         return tv
     }()

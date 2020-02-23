@@ -35,10 +35,12 @@ struct Exercise: Codable {
        // case rest
     }
     
-    init(name: String, tip: String = "", videoURL: String = "") {
+    init(name: String, tip: String = "",level: Exercise.Level, type: Movement, videoURL: URL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!) {
         self.name = name
         self.tip = tip
-        self.video = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
+        self.video = videoURL
+        self.level = level
+        //"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
        // self.videoURL = videoURL
     }
     

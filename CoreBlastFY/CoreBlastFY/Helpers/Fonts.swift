@@ -26,7 +26,7 @@ struct Fonts {
 extension UIFont {
     static func makeAvenirNext(size: CGFloat) -> UIFont? {
         let font = UIFont(name: "Avenir Next", size: size)!
-        let fontMetrics = UIFontMetrics(forTextStyle: .headline)
+        let fontMetrics = UIFontMetrics(forTextStyle: .body)
         return fontMetrics.scaledFont(for: font)
     }
     

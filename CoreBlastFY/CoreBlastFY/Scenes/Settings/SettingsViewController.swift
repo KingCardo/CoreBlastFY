@@ -86,7 +86,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     
     private func setupUI() {
         view.backgroundColor = .black
-        navigationItem.title = "Settings"
+        navigationItem.title = "More"
     }
 
     override init(style: UITableView.Style) {

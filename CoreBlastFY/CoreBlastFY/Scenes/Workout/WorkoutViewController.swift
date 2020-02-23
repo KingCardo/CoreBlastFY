@@ -51,9 +51,13 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         router.dataStore = interactor
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        view.setNeedsDisplay()
+        view.setNeedsLayout()
+    }
+    
     private func setupNavigationBar() {
-        navigationItem.title = "Workout"
-        view.backgroundColor = .white
+        view.backgroundColor = .black
     }
     
     // MARK: Routing

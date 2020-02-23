@@ -54,7 +54,7 @@ class WorkoutView: UIView {
         if setNumber <= numberOfSets {
             setNumber += 1
             setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
-            UIView.animate(withDuration: 2.0) { [weak self] in
+            UIView.animate(withDuration: 1.0) { [weak self] in
                 self?.setCountLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
                 self?.setCountLabel.transform = .identity
             }
@@ -74,7 +74,7 @@ class WorkoutView: UIView {
     private func updateExerciseViews() {
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        videoView.player?.advanceToNextItem()
+        videoView.player?.player?.advanceToNextItem()
     }
     
     func runTimer() {
@@ -96,12 +96,7 @@ class WorkoutView: UIView {
             exerciseTimer.invalidate()
             restTimer.invalidate()
             workoutComplete?()
-//            rootViewController?.preworkoutView = nil
-//            rootViewController?.workout = nil
-            //rootViewController?.setupPreWorkoutUI()
-//            rootViewController?.navigationItem.rightBarButtonItem = nil
-//             rootViewController?.workoutView = nil
-//            self.removeFromSuperview()
+
         }
     }
     
@@ -115,17 +110,21 @@ class WorkoutView: UIView {
         exerciseDuration = workoutViewModel.workoutDetails.secondsOfExercise
         restDuration = workoutViewModel.workoutDetails.secondsOfRest
         setDuration = workoutViewModel.workoutDetails.setDuration
-        let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap { $0.video }
-        videoView = VideoView(frame: frame, urls: videoUrls)
+        let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.video }
+        let array = Array(repeating: videoUrls, count: Int(workoutViewModel.workoutDetails.numberOfSets)!).flatMap({$0})
+        videoView = VideoView(frame: frame, urls: array, loopCount: -1)
+        
         super.init(frame: frame)
-        backgroundColor = .white
-        //videoView.workoutVideoModel = workoutViewModel
+        backgroundColor = .black
+        
         setCountLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        setCountLabel.textColor = .white
         
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         tipsLabel.numberOfLines = 0
-        tipsLabel.font = UIFont.systemFont(ofSize: Style.titleFontSize, weight: .semibold)
+        tipsLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        tipsLabel.textColor = .white
         
         let setCountLabelStackView = UIStackView(arrangedSubviews: [setCountLabel, tipsLabel])
         setCountLabelStackView.alignment = .leading
@@ -142,12 +141,14 @@ class WorkoutView: UIView {
         let exerciseLabel = UILabel()
         exerciseLabel.text = "Exercise"
         exerciseLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIFont.systemFont(ofSize: Style.dataFontSize, weight: .semibold)
+        exerciseNameLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)//UIFont.systemFont(ofSize: Style.dataFontSize, weight: .semibold)
+        exerciseNameLabel.textColor = .white
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
-        exerciseStackView.alignment = .center
+        exerciseStackView.alignment = .leading
         exerciseStackView.distribution = .fillEqually
         exerciseStackView.axis = .vertical
         exerciseStackView.spacing = Style.stackViewSpacing
@@ -160,8 +161,10 @@ class WorkoutView: UIView {
         let timeLeftLabel = UILabel()
         timeLeftLabel.text = "Time Remaining"
         timeLeftLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
-        durationLeftLabel.font = UIFont.systemFont(ofSize: Style.dataFontSize, weight: .semibold)
+        durationLeftLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
+        durationLeftLabel.textColor = .white
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
         durationStackView.alignment = .center
@@ -182,8 +185,8 @@ class WorkoutView: UIView {
         videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor).isActive = true
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor).isActive = true
         videoView.clipsToBounds = true
-        videoView.playerLayer?.backgroundColor = UIColor.red.cgColor
-        
+//        videoView.playerLayer?.backgroundColor = UIColor.gray.cgColor
+//
         runTimer()
     }
     

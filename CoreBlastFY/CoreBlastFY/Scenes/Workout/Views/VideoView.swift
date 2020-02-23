@@ -10,56 +10,31 @@ import UIKit
 import AVFoundation
 
 class VideoView: UIView {
+   
+    var looper: Looper?
+    var player: QueuePlayerLooper?
 
-    var player: AVQueuePlayer?
-    var playerLayer: AVPlayerLayer?
-
-    var urls: [URL]
-
-    init(frame: CGRect, urls: [URL]) {
-        self.urls = urls
+    init(frame: CGRect, urls: [URL], loopCount: Int) {
         super.init(frame: frame)
-        configurePlayerItems { [weak self] (success) in
-            if success {
-                self?.setupVideo()
-                self?.playVideo()
-            }
-        }
+        player = QueuePlayerLooper(videoURLs: urls, loopCount: loopCount)
+        looper = player
+        playVideo()
+
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private var playerItems = [AVPlayerItem]()
-    
-    private func configurePlayerItems(completion: @escaping(Bool) -> Void) {
-        let assetKeys = ["playable"]
-        urls.forEach { (url) in
-            print(url, "RWRWR")
-            let asset = AVAsset(url: url)
-            let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: assetKeys)
-            playerItems.append(playerItem)
-
-        }
-        completion(true)
-    }
-
-     private func setupVideo() {
-        player = AVQueuePlayer(items: playerItems)
-        player?.isMuted = true
-        playerLayer = AVPlayerLayer(player: player)
-        playerLayer!.frame = self.bounds
-        playerLayer!.videoGravity = .resizeAspectFill
-        self.layer.addSublayer(playerLayer!)
-    }
-
     func playVideo() {
-        player?.play()
-        print(player?.status.rawValue, "RWRWRW")
+        looper?.start(in: layer)
     }
 
     func pauseVideo() {
-        player?.pause()
+        looper?.stop()
+    }
+    
+    deinit {
+        pauseVideo()
     }
 }

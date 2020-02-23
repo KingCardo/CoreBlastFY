@@ -30,8 +30,8 @@ enum Settings {
               }
         var items: [SettingsItem] = [
         .about,
-        .nutrition,
         .notifications,
+        .nutrition,
         .foodLog,
         .parks,
         .inAppPurchase

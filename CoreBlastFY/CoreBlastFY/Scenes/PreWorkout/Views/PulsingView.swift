@@ -37,7 +37,7 @@ class PulsingView: UIView {
         let label = UILabel()
         label.text = "Start".uppercased()
         label.textAlignment = .center
-        label.font = UIFont.makeAvenirNext(size: 32)//UIFont.preferredFont(forTextStyle: .headline).withSize(34)
+        label.font = UIFont.makeAvenirNext(size: 32)
         label.textColor = .white
         label.backgroundColor = UIColor.goatBlue
         label.isUserInteractionEnabled = true
@@ -46,9 +46,9 @@ class PulsingView: UIView {
     
     weak var preWorkoutView: PreWorkoutView?
     
-    @objc private func startWorkout() {
-            self.preWorkoutView?.preWorkoutViewController?.displayLoadingView()
-    }
+//    @objc private func startWorkout() {
+//            self.preWorkoutView?.preWorkoutViewController?.displayLoadingView()
+//    }
     
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
@@ -64,8 +64,6 @@ class PulsingView: UIView {
     
     private func setupPercentageLabel() {
         addSubview(percentageLabel)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(startWorkout))
-        percentageLabel.addGestureRecognizer(gesture)
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         percentageLabel.center = center
     }
