@@ -115,6 +115,10 @@ class QueuePlayerLooper : NSObject, Looper {
         playerLayer = nil
     }
     
+    func advanceToNextItem() {
+        player?.advanceToNextItem()
+    }
+    
     // MARK: Convenience
     
     private func startObserving() {
@@ -155,31 +159,31 @@ class QueuePlayerLooper : NSObject, Looper {
                 print("Play queue emptied out due to bad player item. End looping")
                 stop()
             }
-//            else {
-//                // If `loopCount` has been set, check if looping needs to stop.
-//                if numberOfTimesToPlay > 0 {
-//                    numberOfTimesPlayed += 1
+            else {
+                // If `loopCount` has been set, check if looping needs to stop.
+                if numberOfTimesToPlay > 0 {
+                    numberOfTimesPlayed += 1
+
+                    if numberOfTimesPlayed >= numberOfTimesToPlay {
+                        print("Looped \(numberOfTimesToPlay) times. Stopping.");
+                        stop()
+                    }
+                }
+
+                /*
+                 Append the previous current item to the player's queue. An initial
+                 change from a nil currentItem yields NSNull here. Check to make
+                 sure the class is AVPlayerItem before appending it to the end
+                 of the queue.
+                 */
+//                if let itemRemoved = change?[.oldKey] as? AVPlayerItem {
+//                    itemRemoved.seek(to: CMTime.zero, completionHandler: nil)
 //
-//                    if numberOfTimesPlayed >= numberOfTimesToPlay {
-//                        print("Looped \(numberOfTimesToPlay) times. Stopping.");
-//                        stop()
-//                    }
+//                    stopObserving()
+//                    player.insert(itemRemoved, after: nil)
+//                    startObserving()
 //                }
-//
-//                /*
-//                 Append the previous current item to the player's queue. An initial
-//                 change from a nil currentItem yields NSNull here. Check to make
-//                 sure the class is AVPlayerItem before appending it to the end
-//                 of the queue.
-//                 */
-////                if let itemRemoved = change?[.oldKey] as? AVPlayerItem {
-////                    itemRemoved.seek(to: CMTime.zero, completionHandler: nil)
-////
-////                    stopObserving()
-////                    player.insert(itemRemoved, after: nil)
-////                    startObserving()
-////                }
-//            }
+            }
         }
         else if context == &ObserverContexts.currentItemStatus {
             guard let newPlayerItemStatus = change?[.newKey] as? AVPlayerItem.Status else { return }

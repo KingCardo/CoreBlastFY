@@ -74,7 +74,7 @@ class WorkoutView: UIView {
     private func updateExerciseViews() {
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        videoView.player?.player?.advanceToNextItem()
+        videoView.looper?.advanceToNextItem()
     }
     
     func runTimer() {
@@ -95,12 +95,12 @@ class WorkoutView: UIView {
             workoutTimer.invalidate()
             exerciseTimer.invalidate()
             restTimer.invalidate()
-            workoutComplete?()
+            workoutComplete?(true)
 
         }
     }
     
-    var workoutComplete: (() -> Void)?
+    var workoutComplete: ((Bool) -> Void)?
     
     init(frame: CGRect, rootVC: UIViewController, viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
         rootViewController = rootVC as? WorkoutViewController

@@ -75,6 +75,17 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         fetchWorkout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//         workoutView?.workoutComplete { (success) in
+//            if success == true {
+//
+//            } else {
+//
+//            }
+//        }
+    }
+    
     
     // MARK: Do something
     

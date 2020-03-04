@@ -10,11 +10,11 @@ import UIKit
 
 protocol Looper {
     
-    var inProgress: Bool? { get set }
-    
     init(videoURLs: [URL], loopCount: Int)
     
     func start(in layer: CALayer)
     
     func stop()
+    
+    func advanceToNextItem()
 }

@@ -63,9 +63,7 @@ struct Workout: Codable {
     }
     
     var workoutDuration: Double {
-        switch user.coreLevel {
-        default: return Double(((numberOfExercises - 1) * secondsOfExercise + (secondsOfRest)) * numberOfSets)
-        }
+        return Double(((numberOfExercises - 1) * secondsOfExercise + (secondsOfRest)) * numberOfSets)
     }
     
     var setDuration: Double {

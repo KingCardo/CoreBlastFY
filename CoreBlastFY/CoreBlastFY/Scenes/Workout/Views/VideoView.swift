@@ -12,12 +12,11 @@ import AVFoundation
 class VideoView: UIView {
    
     var looper: Looper?
-    var player: QueuePlayerLooper?
 
     init(frame: CGRect, urls: [URL], loopCount: Int) {
         super.init(frame: frame)
-        player = QueuePlayerLooper(videoURLs: urls, loopCount: loopCount)
-        looper = player
+        looper = PlayerLooper(videoURLs: urls, loopCount: loopCount)
+
         playVideo()
 
     }
@@ -28,6 +27,10 @@ class VideoView: UIView {
 
     func playVideo() {
         looper?.start(in: layer)
+    }
+    
+    func advanceToNextItem() {
+        looper?.advanceToNextItem()
     }
 
     func pauseVideo() {

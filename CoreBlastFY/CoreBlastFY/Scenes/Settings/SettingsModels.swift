@@ -33,8 +33,8 @@ enum Settings {
         .notifications,
         .nutrition,
         .foodLog,
-        .parks,
-        .inAppPurchase
+        //.parks,
+        //.inAppPurchase
         ]
     }
     struct ViewModel {
