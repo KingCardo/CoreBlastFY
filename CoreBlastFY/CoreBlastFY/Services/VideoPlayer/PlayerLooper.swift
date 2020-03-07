@@ -84,6 +84,7 @@ class PlayerLooper: NSObject, Looper {
     func start(in parentLayer: CALayer) {
         superViewLayer = parentLayer
         player = AVQueuePlayer()
+        player?.isMuted = true 
         guard let playerItem = playerItems.first else { stop(); return }
         self.playerLooper = AVPlayerLooper(player: player!, templateItem: playerItem)
         self.startObserving()
