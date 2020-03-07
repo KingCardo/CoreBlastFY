@@ -33,7 +33,7 @@ class NutritonViewController: UIViewController, UICollisionBehaviorDelegate {
         
         animator = UIDynamicAnimator(referenceView: self.view)
         gravity = UIGravityBehavior()
-        
+
         animator.addBehavior(gravity)
         gravity.magnitude = 4
         

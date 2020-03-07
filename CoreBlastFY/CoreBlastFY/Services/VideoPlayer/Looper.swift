@@ -10,7 +10,7 @@ import UIKit
 
 protocol Looper {
     
-    init(videoURLs: [URL], loopCount: Int)
+    init(videoURLs: [URL], loopCount: Int, numberOfSets: Int)
     
     func start(in layer: CALayer)
     

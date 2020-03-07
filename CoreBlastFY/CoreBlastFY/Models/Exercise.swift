@@ -14,7 +14,14 @@ struct Exercise: Codable {
     var tip: String
     var type: Movement = .stationary
     var level: Exercise.Level?
-    var video: URL?
+    var videoURL: URL?
+    var videoData: Data?
+     {
+        didSet {
+           // self.videoURL = 
+        }
+    }
+    
    // var downloadUrl: URL? {
 //        return URL(string: videoURL)
 //    }
@@ -38,7 +45,9 @@ struct Exercise: Codable {
     init(name: String, tip: String = "",level: Exercise.Level, type: Movement, videoURL: URL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!) {
         self.name = name
         self.tip = tip
-        self.video = videoURL
+        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
+        print(path, "RWRWPath")
+        self.videoURL = path
         self.level = level
         //"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
        // self.videoURL = videoURL
@@ -52,7 +61,19 @@ struct Exercise: Codable {
         let type = record["type"] as? String ?? ""
         self.type = Exercise.Movement(rawValue: type) ?? .stationary
         if let asset = record["video"] as? CKAsset {
-            self.video = asset.fileURL
+            self.videoURL = asset.fileURL!
+            do {
+                let data = try Data(contentsOf: self.videoURL!)
+                self.videoData = data
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let archiveURL = documentsDirectory.appendingPathComponent("\(self.name)").appendingPathExtension("mov")
+                try? videoData?.write(to: archiveURL)
+                
+                print(archiveURL, "RWRWDP")
+                self.videoURL = archiveURL
+            } catch let error {
+                print(error)
+            }
         }
     }
     

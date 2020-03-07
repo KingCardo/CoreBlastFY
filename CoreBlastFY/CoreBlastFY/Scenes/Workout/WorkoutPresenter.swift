@@ -33,7 +33,6 @@ class WorkoutPresenter: WorkoutPresentationLogic
     
     func presentWorkout(response: WorkoutInfo.FetchWorkout.Response) {
         let workout = response.workout
-        print(workout.exercises)
         
         let workoutDetails = WorkoutInfo.FetchWorkout.ViewModel.WorkoutDetails(nextWorkout: "\(UserAPI.user.nextWorkout)",
             secondsOfRest: Double(workout.secondsOfRest),

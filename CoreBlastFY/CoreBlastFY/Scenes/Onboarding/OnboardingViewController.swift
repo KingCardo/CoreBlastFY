@@ -208,6 +208,8 @@ class OnboardingViewController: UIViewController {
           
             UserDefaults.standard.set(true, forKey: onboardingKey)
             
+            //TO DO: DIsplay loading vc if exercises arent finished downloading then show HOMEVC
+            
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             show(homeVC, sender: self)

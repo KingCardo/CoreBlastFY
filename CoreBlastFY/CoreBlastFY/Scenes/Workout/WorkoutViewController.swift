@@ -36,6 +36,11 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         super.init(coder: aDecoder)
         setup()
     }
+    
+    deinit {
+        workoutView?.workoutFinished()
+        workoutView = nil
+    }
     // MARK: Setup
     
     private func setup() {
@@ -72,18 +77,15 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        self.tabBarController?.tabBar.isHidden = true
         fetchWorkout()
+        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//         workoutView?.workoutComplete { (success) in
-//            if success == true {
-//
-//            } else {
-//
-//            }
-//        }
+    @objc private func workoutComplete() {
+        showPreWorkoutUI()
+        workoutView = nil
     }
     
     
@@ -100,7 +102,9 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     private func showWorkoutUI(with viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(showPreWorkoutUI))
+        
+        //change to pause
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(showPreWorkoutUI))
         if workoutView == nil {
             workoutView = WorkoutView(frame: self.view.frame, rootVC: self, viewModel: viewModel)
         }
@@ -116,8 +120,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     @objc private func showPreWorkoutUI() {
         self.navigationController?.popViewController(animated: true)
-        //routeToPreWorkoutScene()
-        self.navigationController?.navigationItem.leftBarButtonItem = nil
+        //self.navigationController?.navigationItem.leftBarButtonItem = nil
         
     }
     

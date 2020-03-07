@@ -13,12 +13,10 @@ class VideoView: UIView {
    
     var looper: Looper?
 
-    init(frame: CGRect, urls: [URL], loopCount: Int) {
+    init(frame: CGRect, urls: [URL], loopCount: Int, numberOfSets: Int) {
         super.init(frame: frame)
-        looper = PlayerLooper(videoURLs: urls, loopCount: loopCount)
-
-        playVideo()
-
+        looper = PlayerLooper(videoURLs: urls, loopCount: loopCount, numberOfSets: numberOfSets)
+       // playVideo()
     }
 
     required init?(coder: NSCoder) {

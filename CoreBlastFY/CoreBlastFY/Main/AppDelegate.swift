@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         ExerciseStorage.exercises = exercises
                         ExerciseStorage.save()
                     } else {
-                        //TODO: Handle error
+                        //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
                         print(error?.localizedDescription)
                     }
                 }

@@ -111,18 +111,6 @@ class PreWorkoutView: UIView {
         startWorkoutButton.translatesAutoresizingMaskIntoConstraints = false
         startWorkoutButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
         startWorkoutButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
-//        let gesture = UITapGestureRecognizer(target: startWorkoutButton, action: #selector(startWorkout(sender:)))
-//
-//        startWorkoutButton.addGestureRecognizer(gesture)
-
-        
-        //        addSubview(welcomeLabel)
-        //               welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        //        welcomeLabel.bottomAnchor.constraint(equalTo: startWorkoutButton.topAnchor, constant: -32).isActive = true
-        //        welcomeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        //        welcomeLabel.leadingAnchor.constraint(equalTo: startWorkoutButton.leadingAnchor).isActive = true
-        //        welcomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        
         
         let nextWorkoutLabel = UILabel()
         nextWorkoutLabel.text = "Next Workout"

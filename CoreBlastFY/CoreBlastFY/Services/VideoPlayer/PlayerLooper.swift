@@ -12,7 +12,7 @@ import AVFoundation
 class PlayerLooper: NSObject, Looper {
     // MARK: Types
 
-    weak var superViewLayer: CALayer?
+    var superViewLayer: CALayer?
     
     private struct ObserverContexts {
         static var isLooping = 0
@@ -44,7 +44,7 @@ class PlayerLooper: NSObject, Looper {
 
     // MARK: Looper
 
-    required init(videoURLs: [URL], loopCount: Int) {
+    required init(videoURLs: [URL], loopCount: Int, numberOfSets: Int) {
         self.videoURL = videoURLs
         self.numberOfTimesToPlay = loopCount
 
@@ -57,18 +57,21 @@ class PlayerLooper: NSObject, Looper {
             playerItem.asset.loadValuesAsynchronously(forKeys: [ObserverContexts.playerItemDurationKey], completionHandler: {()->Void in
     
                   DispatchQueue.main.async(execute: {
-//                      guard let player = self.player else { return }
 
                       var durationError: NSError? = nil
                       let durationStatus = playerItem.asset.statusOfValue(forKey: ObserverContexts.playerItemDurationKey, error: &durationError)
                       guard durationStatus == .loaded else { fatalError("Failed to load duration property with error: \(durationError)") }
 
-                     // self.playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
-                    //  self.startObserving()
-                     // player.play()
                   })
               })
               }
+        
+        let array = Array(repeating: playerItems, count: numberOfSets).flatMap({$0})
+        playerItems = array
+    }
+    
+    deinit {
+        stop()
     }
 
     func advanceToNextItem() {
@@ -90,8 +93,11 @@ class PlayerLooper: NSObject, Looper {
         playerLayer.frame = parentLayer.bounds
         parentLayer.addSublayer(playerLayer)
         player?.play()
-
       
+    }
+    
+    func pause() {
+         player?.pause()
     }
 
     func stop() {

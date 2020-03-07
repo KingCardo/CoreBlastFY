@@ -38,6 +38,7 @@ class ExerciseStorage {
         
         do {
             self.exercises = try jsonDecoder.decode([Exercise].self, from: decodedData)
+            print(self.exercises.map { $0.videoURL})
             return true
         } catch let error {
             print(error)

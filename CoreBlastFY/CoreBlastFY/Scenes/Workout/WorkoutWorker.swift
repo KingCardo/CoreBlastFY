@@ -39,7 +39,6 @@ let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, 
     
 let exercisesMock = [squat, askip]
 
-
 enum WorkoutInfoStoreResult<U> {
     case Success(result: U)
     case Failure(error: WorkoutInfoStoreError)

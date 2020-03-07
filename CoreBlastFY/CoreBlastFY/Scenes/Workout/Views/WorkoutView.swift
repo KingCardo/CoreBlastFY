@@ -8,6 +8,8 @@
 
 import UIKit
 
+let workoutCompleteNotification = NSNotification.Name("workoutCompleteNotification")
+
 class WorkoutView: UIView {
 
     private var setNumber = 1
@@ -31,17 +33,8 @@ class WorkoutView: UIView {
     private var restTimer = Timer()
     private var timerIsRunning = false
     
-    private func runExerciseTimer() {
-        exerciseTimer = Timer.scheduledTimer(timeInterval: exerciseDuration, target: self, selector: #selector(fireExerciseTimer), userInfo: nil, repeats: true)
-    }
-    
-    private func runRestTimer() {
-        restTimer = Timer.scheduledTimer(timeInterval: setDuration, target: self, selector: #selector(fireRestTimer), userInfo: nil, repeats: true)
-    }
-    
-    var videoView: VideoView
+    var videoView: VideoView?
     private var exercises: [Exercise]
-   
     private var setDuration: TimeInterval
     private var exerciseDuration: TimeInterval
     private var restDuration: TimeInterval
@@ -54,6 +47,7 @@ class WorkoutView: UIView {
         if setNumber <= numberOfSets {
             setNumber += 1
             setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
+            //TO DO: - make reusable
             UIView.animate(withDuration: 1.0) { [weak self] in
                 self?.setCountLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
                 self?.setCountLabel.transform = .identity
@@ -70,12 +64,14 @@ class WorkoutView: UIView {
         updateExerciseViews()
 
     }
-   
-    private func updateExerciseViews() {
-        tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
-        exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        videoView.looper?.advanceToNextItem()
-    }
+    
+    private func runExerciseTimer() {
+        exerciseTimer = Timer.scheduledTimer(timeInterval: exerciseDuration, target: self, selector: #selector(fireExerciseTimer), userInfo: nil, repeats: true)
+     }
+     
+     private func runRestTimer() {
+        restTimer = Timer.scheduledTimer(timeInterval: setDuration, target: self, selector: #selector(fireRestTimer), userInfo: nil, repeats: true)
+     }
     
     func runTimer() {
         runExerciseTimer()
@@ -89,18 +85,33 @@ class WorkoutView: UIView {
             workoutDuration -= 1//0.01
             durationLeftLabel.text = timeString(time: workoutDuration)
         } else {
-            UserManager.incrementPoint()
-            UserManager.calculateLevel(totalPoints: UserAPI.user.totalPoints)
             timerIsRunning = false
-            workoutTimer.invalidate()
-            exerciseTimer.invalidate()
-            restTimer.invalidate()
-            workoutComplete?(true)
-
+            UserManager.incrementPoint()
+                   UserManager.calculateLevel(totalPoints: UserAPI.user.totalPoints)
+            workoutFinished()
         }
     }
+    private func invalidateTimers() {
+        workoutTimer.invalidate()
+        exerciseTimer.invalidate()
+        restTimer.invalidate()
+    }
     
-    var workoutComplete: ((Bool) -> Void)?
+    func workoutFinished() {
+            videoView = nil
+            invalidateTimers()
+            workoutComplete()
+    }
+    
+    private func updateExerciseViews() {
+        tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
+        exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
+        videoView?.looper?.advanceToNextItem()
+    }
+    
+    var workoutComplete = {
+        NotificationCenter.default.post(name: workoutCompleteNotification, object: nil)
+    }
     
     init(frame: CGRect, rootVC: UIViewController, viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
         rootViewController = rootVC as? WorkoutViewController
@@ -110,11 +121,13 @@ class WorkoutView: UIView {
         exerciseDuration = workoutViewModel.workoutDetails.secondsOfExercise
         restDuration = workoutViewModel.workoutDetails.secondsOfRest
         setDuration = workoutViewModel.workoutDetails.setDuration
-        let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.video }
-        let array = Array(repeating: videoUrls, count: Int(workoutViewModel.workoutDetails.numberOfSets)!).flatMap({$0})
-        videoView = VideoView(frame: frame, urls: array, loopCount: -1)
-        
+        let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
+       // let array = Array(repeating: videoUrls, count: Int(workoutViewModel.workoutDetails.numberOfSets)!).flatMap({$0})
+        videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         super.init(frame: frame)
+        
+        guard let videoView = videoView else { return }
+        
         backgroundColor = .black
         
         setCountLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
@@ -135,8 +148,7 @@ class WorkoutView: UIView {
         addSubview(setCountLabelStackView)
         setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
-        setCountLabelStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Style.Dimension.edgeInsets.left).isActive = true
-        
+        setCountLabelStackView.topAnchor.constraint(equalTo: topAnchor, constant: Style.stackViewTop).isActive = true
         
         let exerciseLabel = UILabel()
         exerciseLabel.text = "Exercise"
@@ -144,7 +156,7 @@ class WorkoutView: UIView {
         exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)//UIFont.systemFont(ofSize: Style.dataFontSize, weight: .semibold)
+        exerciseNameLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
         exerciseNameLabel.textColor = .white
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
@@ -156,7 +168,7 @@ class WorkoutView: UIView {
         addSubview(exerciseStackView)
         exerciseStackView.translatesAutoresizingMaskIntoConstraints = false
         exerciseStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
-        exerciseStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
+        exerciseStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
         let timeLeftLabel = UILabel()
         timeLeftLabel.text = "Time Remaining"
@@ -172,22 +184,29 @@ class WorkoutView: UIView {
         durationStackView.axis = .vertical
         durationStackView.spacing = Style.stackViewSpacing
         
+//        let containerStackView = UIStackView(arrangedSubviews: [exerciseStackView, durationStackView])
+//        containerStackView.alignment = .center
+//        containerStackView.distribution = .fillEqually
+//        containerStackView.axis = .horizontal
+//        containerStackView.spacing = Style.stackViewSpacing
+//        
         addSubview(durationStackView)
         durationStackView.translatesAutoresizingMaskIntoConstraints = false
-        durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.bottom).isActive = true
-        durationStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
+        //durationStackView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.Dimension.edgeInsets.top).isActive = true
+        //durationStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.left).isActive = true
+        durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
+        durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
         addSubview(videoView)
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        videoView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-        videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor).isActive = true
-        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor).isActive = true
+        videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.Dimension.edgeInsets.top).isActive = true
+        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -8).isActive = true
         videoView.clipsToBounds = true
-//        videoView.playerLayer?.backgroundColor = UIColor.gray.cgColor
-//
+        videoView.playVideo()
         runTimer()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -200,9 +219,10 @@ extension WorkoutView {
           static let titleFontSize: CGFloat = 18
           static let dataFontSize: CGFloat = 22
           static let stackViewSpacing: CGFloat = 4
+          static let stackViewTop: CGFloat = 8
           
           enum Dimension {
-              static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 0)
+              static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 20)
           }
       }
 }

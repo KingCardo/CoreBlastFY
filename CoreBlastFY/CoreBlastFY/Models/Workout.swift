@@ -20,31 +20,23 @@ struct Workout: Codable {
     
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]
-        let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, type: .stationary, videoURL: squatVideoPath)//Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth")
+        let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, type: .stationary, videoURL: squatVideoPath)
         
         switch user.coreLevel {
             
         case .beginner:
             exercises = self.exercises.filter({$0.level == .beginner })
-            exercises.append(rest)
-            return exercises
         case .novice:
             exercises = self.exercises.filter({$0.level == .novice })
-            exercises.append(rest)
-            return exercises
         case .solid:
             exercises = self.exercises.filter({$0.level == .solid })
-            exercises.append(rest)
-            return exercises
         case .advanced:
             exercises = self.exercises.filter({$0.level == .advanced })
-            exercises.append(rest)
-            return exercises
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
-            exercises.append(rest)
-            return exercises
         }
+        //exercises.append(rest)
+        return exercises
     }
     
     
@@ -71,12 +63,17 @@ struct Workout: Codable {
     }
     
     var secondsOfExercise: Int {
-        switch user.coreLevel {
-        case .beginner: return 15
-        case .novice: return 25
-        case .solid: return 40
-        case .advanced: return 55
-        case .rockstar: return 70
+        switch user.totalPoints {
+        case 0...4: return 20
+        case 5...15: return 25
+        case 16...20: return 30
+        case 21...25: return 35
+        case 26...30: return 40
+        case 31...35: return 45
+        case 36...40: return 50
+        case 41...45: return 55
+        case 46...50: return 60
+        default: return 60
         }
     }
     
@@ -84,9 +81,9 @@ struct Workout: Codable {
         switch user.coreLevel {
         case .beginner: return 15
         case .novice: return 10
-        case .solid: return 5
-        case .advanced: return 3
-        case .rockstar: return 1
+        case .solid: return 7
+        case .advanced: return 5
+        case .rockstar: return 3
         }
     }
 }

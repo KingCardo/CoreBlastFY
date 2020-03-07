@@ -74,8 +74,9 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
             fetchUserInfo()
+        //self.tabBarController?.tabBar.layer.zPosition = -1
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: Setup
@@ -116,6 +117,12 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         preworkoutView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         preworkoutView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         preworkoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        //TO DO: - use reusable version
+//        UIView.animate(withDuration: 1.0) { [weak self] in
+//        self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
+//        self?.preworkoutView?.totalPointsLevel.transform = .identity
+//        }
     }
     
     // MARK: Do something
@@ -143,18 +150,6 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         loadingSpinner?.removeFromSuperview()
         loadingSpinner = nil
     }
-    
-    // func fetchExercises() {
-    //        displayLoadingSpinner()
-    //
-    //        let fetchExercise = ExerciseStorage.loadExercises()
-    //        if !fetchExercise {
-    //            let request = PreWorkout.FetchExercises.Request()
-    //            interactor?.fetchExercises(request: request)
-    //        } else {
-    //           interactor?.exercises = ExerciseStorage.exercises
-    //        }
-    //  }
     
     private func fetchUserInfo() {
         let request = PreWorkout.FetchUser.Request()

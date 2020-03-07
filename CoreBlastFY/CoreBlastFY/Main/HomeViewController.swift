@@ -30,9 +30,12 @@ class HomeViewController: UITabBarController {
         let workoutViewController = PreWorkoutViewController()
         let workoutNavController = UINavigationController(rootViewController: workoutViewController)
         workoutNavController.navigationItem.title = "Flexx"
+        workoutNavController.navigationBar.barStyle = .black
+        workoutNavController.navigationBar.tintColor = .white
+        workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "workout"), selectedImage: nil)
-        workoutNavController.navigationBar.prefersLargeTitles = true
-        workoutNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//        workoutNavController.navigationBar.prefersLargeTitles = true
+//        workoutNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
