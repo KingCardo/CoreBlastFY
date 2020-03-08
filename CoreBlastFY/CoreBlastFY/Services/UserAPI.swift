@@ -13,6 +13,5 @@ class UserAPI: UserInfoStoreProtocol {
     
     func fetchUserInfo(completion: @escaping(User?, UserInfoStoreError?) -> Void) {
         completion(UserAPI.user, nil)
-       // completion(type(of: self).user, nil)
     }
 }

@@ -16,11 +16,6 @@ struct Exercise: Codable {
     var level: Exercise.Level?
     var videoURL: URL?
     var videoData: Data?
-     {
-        didSet {
-           // self.videoURL = 
-        }
-    }
     
    // var downloadUrl: URL? {
 //        return URL(string: videoURL)
@@ -39,18 +34,14 @@ struct Exercise: Codable {
         case dynamic
         case dynamicWeighted
         case sixPack
-       // case rest
     }
     
     init(name: String, tip: String = "",level: Exercise.Level, type: Movement, videoURL: URL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!) {
         self.name = name
         self.tip = tip
         let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
-        print(path, "RWRWPath")
         self.videoURL = path
         self.level = level
-        //"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
-       // self.videoURL = videoURL
     }
     
     init?(record: CKRecord) {

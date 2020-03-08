@@ -77,9 +77,6 @@
 		7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */; };
 		7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */; };
 		7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */; };
-		7A8CBB7D23F0CA7800D0D6BD /* sidelunge.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7923F0CA7600D0D6BD /* sidelunge.MOV */; };
-		7A8CBB7E23F0CA7800D0D6BD /* rdlstretch.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7A23F0CA7700D0D6BD /* rdlstretch.MOV */; };
-		7A8CBB7F23F0CA7800D0D6BD /* squat_sv.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7B23F0CA7800D0D6BD /* squat_sv.MOV */; };
 		7A8CBB8023F0CA7800D0D6BD /* squat.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */; };
 		7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
@@ -172,9 +169,6 @@
 		7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackElementViewController.swift; sourceTree = "<group>"; };
 		7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
-		7A8CBB7923F0CA7600D0D6BD /* sidelunge.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sidelunge.MOV; sourceTree = "<group>"; };
-		7A8CBB7A23F0CA7700D0D6BD /* rdlstretch.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = rdlstretch.MOV; sourceTree = "<group>"; };
-		7A8CBB7B23F0CA7800D0D6BD /* squat_sv.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat_sv.MOV; sourceTree = "<group>"; };
 		7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat.MOV; sourceTree = "<group>"; };
 		7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = askip.MOV; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -225,17 +219,14 @@
 			children = (
 				7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */,
 				7A8CBABB23E9120600D0D6BD /* Main */,
+				7A8CBAD723E9122D00D0D6BD /* Helpers */,
 				7A8CBAC823E9122500D0D6BD /* Services */,
 				7A8CBAEC23E912B100D0D6BD /* Models */,
-				7A8CBAD723E9122D00D0D6BD /* Helpers */,
 				7A8CBAF323E912BA00D0D6BD /* Workers */,
 				7A8CBAF623E912C700D0D6BD /* Scenes */,
 				7A8CBAE423E9129700D0D6BD /* User */,
 				7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */,
-				7A8CBB7A23F0CA7700D0D6BD /* rdlstretch.MOV */,
-				7A8CBB7923F0CA7600D0D6BD /* sidelunge.MOV */,
 				7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */,
-				7A8CBB7B23F0CA7800D0D6BD /* squat_sv.MOV */,
 				7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
@@ -565,11 +556,8 @@
 				7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */,
 				7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
-				7A8CBB7F23F0CA7800D0D6BD /* squat_sv.MOV in Resources */,
 				7A8CBB8023F0CA7800D0D6BD /* squat.MOV in Resources */,
-				7A8CBB7D23F0CA7800D0D6BD /* sidelunge.MOV in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
-				7A8CBB7E23F0CA7800D0D6BD /* rdlstretch.MOV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
