@@ -76,14 +76,18 @@ class PlayerLooper: NSObject, Looper {
 
     func advanceToNextItem() {
         stop()
+        guard !playerItems.isEmpty else { return }
         playerItems.removeFirst()
         guard let superViewLayer = superViewLayer else { return }
+        guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
+        superViewLayer.frame = superViewSuperLayer
         start(in: superViewLayer)
     }
     
     func start(in parentLayer: CALayer) {
         superViewLayer = parentLayer
         player = AVQueuePlayer()
+        player?.isMuted = true 
         guard let playerItem = playerItems.first else { stop(); return }
         self.playerLooper = AVPlayerLooper(player: player!, templateItem: playerItem)
         self.startObserving()
@@ -92,6 +96,7 @@ class PlayerLooper: NSObject, Looper {
         guard let playerLayer = playerLayer else { fatalError("Error creating player layer") }
         playerLayer.frame = parentLayer.bounds
         parentLayer.addSublayer(playerLayer)
+       
         player?.play()
       
     }
