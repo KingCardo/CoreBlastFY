@@ -21,7 +21,9 @@ class UserManager {
         let today = Date()
         guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return false }
         if isPassedMoreThan(days: 2, fromDate: lastWorkout, toDate: today) {
+            if UserAPI.user.totalPoints > 0 {
             UserAPI.user.totalPoints -= 1
+            }
         save()
             return true
         } else {
