@@ -22,7 +22,7 @@ enum Settings {
          enum SettingsItem: String {
                   case about = "About FYF"
                   case notifications = "Notifications"
-                  case nutrition = "Nutrition"
+                  //case nutrition = "Nutrition"
                   case foodLog = "Food Log"
                   case parks = "Nearby Parks"
                   case extras = "Extras"
@@ -32,7 +32,7 @@ enum Settings {
         var items: [SettingsItem] = [
         .about,
         //.notifications,
-        .nutrition,
+        //.nutrition,
         .foodLog,
         .reportAProblem
         //.parks,
