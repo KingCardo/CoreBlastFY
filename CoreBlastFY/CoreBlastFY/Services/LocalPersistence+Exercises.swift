@@ -10,7 +10,13 @@ import Foundation
 
 class ExerciseStorage {
     
-    static var exercises: [Exercise] = []
+    static var exercises: [Exercise] = [] {
+        didSet {
+            DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("ExercisesLoadedNotification"), object: self)
+            }
+        }
+    }
     
     static func save() {
         

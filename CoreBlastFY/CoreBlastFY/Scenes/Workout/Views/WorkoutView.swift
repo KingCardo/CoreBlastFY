@@ -122,7 +122,6 @@ class WorkoutView: UIView {
         restDuration = workoutViewModel.workoutDetails.secondsOfRest
         setDuration = workoutViewModel.workoutDetails.setDuration
         let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
-       // let array = Array(repeating: videoUrls, count: Int(workoutViewModel.workoutDetails.numberOfSets)!).flatMap({$0})
         videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         super.init(frame: frame)
         

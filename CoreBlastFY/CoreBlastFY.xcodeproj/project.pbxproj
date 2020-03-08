@@ -83,6 +83,7 @@
 		7A8CBB8023F0CA7800D0D6BD /* squat.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */; };
 		7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
+		7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat.MOV; sourceTree = "<group>"; };
 		7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = askip.MOV; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +422,7 @@
 			children = (
 				7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */,
 				7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */,
+				7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */,
 				7A8CBB3D23EF936700D0D6BD /* SettingsWorker.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
+				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
 				7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */,
 				7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */,
 				7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */,

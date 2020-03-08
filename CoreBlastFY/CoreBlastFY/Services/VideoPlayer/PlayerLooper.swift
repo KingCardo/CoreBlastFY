@@ -76,8 +76,11 @@ class PlayerLooper: NSObject, Looper {
 
     func advanceToNextItem() {
         stop()
+        guard !playerItems.isEmpty else { return }
         playerItems.removeFirst()
         guard let superViewLayer = superViewLayer else { return }
+        guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
+        superViewLayer.frame = superViewSuperLayer
         start(in: superViewLayer)
     }
     
@@ -93,6 +96,7 @@ class PlayerLooper: NSObject, Looper {
         guard let playerLayer = playerLayer else { fatalError("Error creating player layer") }
         playerLayer.frame = parentLayer.bounds
         parentLayer.addSublayer(playerLayer)
+       
         player?.play()
       
     }
