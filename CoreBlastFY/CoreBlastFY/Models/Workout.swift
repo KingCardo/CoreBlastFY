@@ -20,7 +20,7 @@ struct Workout: Codable {
     
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]
-        let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, type: .stationary, videoURL: squatVideoPath)
+//        let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, type: .stationary, videoURL: squatVideoPath)
         
         switch user.coreLevel {
             

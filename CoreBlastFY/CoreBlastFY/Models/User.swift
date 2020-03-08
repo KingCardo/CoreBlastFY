@@ -19,14 +19,18 @@ class User: Codable {
         
         return selectedTime.addingTimeInterval(86400)
     }
-//    {
-//        var dateComponents = DateComponents()
-//        dateComponents.calendar = Calendar.current
-//        dateComponents.weekday = 2
-//    }
-    var selectedTime: Date?
     
-    //var selectedDays: [String] = ["Monday", "Tuesday", "Thursday", "Friday"]
+    var selectedHour: Int?
+    var selectedMinute: Int?
+    
+    var selectedTime: Date? {
+        didSet {
+            guard let selectedTime = selectedTime else { return }
+           let (hour, minute) = getHourAndMinuteFromDate(date: selectedTime)
+            selectedHour = hour
+            selectedMinute = minute
+        }
+    }
     
     enum Level: String, Codable, CaseIterable {
         case beginner = "Beginner"

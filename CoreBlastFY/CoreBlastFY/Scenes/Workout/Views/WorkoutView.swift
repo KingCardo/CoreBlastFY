@@ -43,6 +43,14 @@ class WorkoutView: UIView {
         return number
     }
     
+//    static func pause() {
+//        invalidateTimers()
+//    }
+//
+//    static func unpause() {
+//
+//    }
+    
     @objc func fireRestTimer() {
         if setNumber <= numberOfSets {
             setNumber += 1
@@ -62,7 +70,6 @@ class WorkoutView: UIView {
             iteration = 0
         }
         updateExerciseViews()
-
     }
     
     private func runExerciseTimer() {

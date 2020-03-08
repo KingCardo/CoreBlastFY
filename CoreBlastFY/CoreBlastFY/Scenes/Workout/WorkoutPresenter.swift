@@ -34,7 +34,7 @@ class WorkoutPresenter: WorkoutPresentationLogic
     func presentWorkout(response: WorkoutInfo.FetchWorkout.Response) {
         let workout = response.workout
         
-        let workoutDetails = WorkoutInfo.FetchWorkout.ViewModel.WorkoutDetails(nextWorkout: "\(UserAPI.user.nextWorkout)",
+        let workoutDetails = WorkoutInfo.FetchWorkout.ViewModel.WorkoutDetails(
             secondsOfRest: Double(workout.secondsOfRest),
             secondsOfExercise: Double(workout.secondsOfExercise),
             setDuration: workout.setDuration,

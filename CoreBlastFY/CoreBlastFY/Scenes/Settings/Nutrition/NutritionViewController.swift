@@ -47,6 +47,11 @@ class NutritonViewController: UIViewController, UICollisionBehaviorDelegate {
         }
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//      dismiss(animated: true, completion: nil)
+//    }
+    
     func addViewController(atOffset offset:CGFloat, dataForVC data: String?, nutritionData: String?) -> UIView? {
         
         let frameForView = self.view.bounds.offsetBy(dx: 0, dy: self.view.bounds.size.height - offset)

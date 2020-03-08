@@ -31,13 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let threeDays: Double = 259200
         application.setMinimumBackgroundFetchInterval(threeDays)
+        
         UserManager.loadUserFromFile()
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
 
-        if UserAPI.user.totalPoints > 3 {
-            registerForNotifications()
-        }
+        registerForNotifications()
         
         //TO DO: - fix user id issue
         print(UserAPI.user.id, "RWRWR")
@@ -49,12 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises { (exercises, error) in
                 if !exercises.isEmpty {
-                    print("done fetching, RWRWR")
                         ExerciseStorage.exercises = exercises
                         ExerciseStorage.save()
                     } else {
                         //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
-                        print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                     }
                 }
         }

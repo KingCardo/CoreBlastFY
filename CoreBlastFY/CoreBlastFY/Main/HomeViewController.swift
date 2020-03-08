@@ -34,8 +34,6 @@ class HomeViewController: UITabBarController {
         workoutNavController.navigationBar.tintColor = .white
         workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "workout"), selectedImage: nil)
-//        workoutNavController.navigationBar.prefersLargeTitles = true
-//        workoutNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
@@ -49,10 +47,6 @@ class HomeViewController: UITabBarController {
         } else {
             selectedViewController = viewControllers?[0]
         }
-//        let progressionTabBarItem = UITabBarItem(title: "Flexx", image: nil, selectedImage: nil)
-//        let workoutTabBarItem = UITabBarItem(title: "Workout", image: nil, selectedImage: nil)
-//        let settingsTabBarItem = UITabBarItem(title: "Settings", image: nil, selectedImage: nil)
-        //tabBar.items = [progressionTabBarItem, workoutTabBarItem, settingsTabBarItem]
     }
 
     private func setupTabBar() {

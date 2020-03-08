@@ -134,7 +134,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         let item = interactor?.items[indexPath.row]
         switch item {
         case .about: routeToAboutScene()
-        case .notifications: routeToNotificationsScene()
+       // case .notifications: routeToNotificationsScene()
         case .nutrition: routeToNutritionScene()
         case .foodLog: routeToFoodLogScene()
         case .parks: routeToParksScene()
