@@ -34,8 +34,6 @@ class PreWorkoutRouter: NSObject, PreWorkoutRoutingLogic, PreWorkoutDataPassing 
         
         guard let preWorkoutDataStore = preWorkoutDataStore else { return }
         guard var destinationDataStore = destination.router?.dataStore else { return }
-        
-        print(destinationDataStore, "RWRW")
         passExercisesToWorkoutScene(source: preWorkoutDataStore, destination: &destinationDataStore)
         navigateToWorkoutScene(source: source, destination: destination)
         
@@ -50,7 +48,6 @@ class PreWorkoutRouter: NSObject, PreWorkoutRoutingLogic, PreWorkoutDataPassing 
   // MARK: Passing data
 
  private func passExercisesToWorkoutScene(source: PreWorkoutDataStore, destination: inout WorkoutDataStore) {
-    print(source.exercises.count, "RWRW")
       destination.exercises = source.exercises
   }
 }

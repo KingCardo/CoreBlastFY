@@ -22,10 +22,12 @@ class PreWorkoutPresenter: PreWorkoutPresentationLogic {
     
 let dateFormatter: DateFormatter = {
       let dateFormatter = DateFormatter()
-      dateFormatter.dateStyle = .long
+      dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+      dateFormatter.dateFormat = "HH:mm"
       dateFormatter.timeStyle = .short
       return dateFormatter
     }()
+    
   // MARK: Do something
   
   func presentUser(response: PreWorkout.FetchUser.Response) {

@@ -59,8 +59,6 @@ struct Exercise: Codable {
                 let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                 let archiveURL = documentsDirectory.appendingPathComponent("\(self.name)").appendingPathExtension("mov")
                 try? videoData?.write(to: archiveURL)
-                
-                print(archiveURL, "RWRWDP")
                 self.videoURL = archiveURL
             } catch let error {
                 print(error)
