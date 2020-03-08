@@ -27,12 +27,14 @@ enum Settings {
                   case parks = "Nearby Parks"
                   case extras = "Extras"
                   case inAppPurchase = "In-App Purchase"
+                  case reportAProblem = "Contact Us"
               }
         var items: [SettingsItem] = [
         .about,
         //.notifications,
         .nutrition,
         .foodLog,
+        .reportAProblem
         //.parks,
         //.inAppPurchase
         ]

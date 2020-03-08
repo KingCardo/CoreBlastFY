@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol SettingsDisplayLogic: class {
     func displayItems(viewModel: [Settings.Items.ViewModel.DisplayItem])
@@ -69,6 +70,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         getItems()
+        
     }
     
     // MARK: Do something
@@ -137,7 +139,8 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
        // case .notifications: routeToNotificationsScene()
         case .nutrition: routeToNutritionScene()
         case .foodLog: routeToFoodLogScene()
-        case .parks: routeToParksScene()
+      //  case .parks: routeToParksScene()
+        case .reportAProblem: contactUsButtonTapped()
        // case .inAppPurchase: route
         default: break
         }
@@ -153,6 +156,28 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
+    }
+}
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+ func contactUsButtonTapped() {
+        
+        guard MFMailComposeViewController.canSendMail() else { return }
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        mailComposer.setToRecipients(["foreveryoungfitnessX@gmail.com"])
+        mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?") 
+        
+        present(mailComposer, animated: true)
+        if !MFMailComposeViewController.canSendMail() {
+            // TO DO: Error handle
+            print("Cant send email, RWRW")
+            return
+        }
     }
 }
 
