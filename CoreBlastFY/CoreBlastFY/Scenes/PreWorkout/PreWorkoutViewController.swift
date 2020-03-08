@@ -75,8 +75,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
             fetchUserInfo()
-        //self.tabBarController?.tabBar.layer.zPosition = -1
-        self.tabBarController?.tabBar.isHidden = false
+            self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: Setup
@@ -119,10 +118,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         preworkoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         //TO DO: - use reusable version
-//        UIView.animate(withDuration: 1.0) { [weak self] in
-//        self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
-//        self?.preworkoutView?.totalPointsLevel.transform = .identity
-//        }
+        UIView.animate(withDuration: 1.0) { [weak self] in
+        self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
+        self?.preworkoutView?.totalPointsLevel.transform = .identity
+        }
     }
     
     // MARK: Do something

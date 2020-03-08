@@ -86,6 +86,7 @@ class OnboardingViewController: UIViewController {
     @objc func grabInputFromUser(_ sender: UIDatePicker) {
         date = sender.date
         UserAPI.user.selectedTime = sender.date
+        UserManager.save()
         timeToWorkoutMNotification()
         timeToWorkoutTNotification()
         timeToWorkoutWNotification()
