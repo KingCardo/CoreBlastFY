@@ -45,11 +45,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         viewControllers = [progressionNavController, workoutNavController, nutritionVC, settingsNavController]
-        if UserDefaults.standard.bool(forKey: onboardingKey) {
-            selectedViewController = viewControllers?[1]
-        } else {
-            selectedViewController = viewControllers?[0]
-        }
+        selectedViewController = viewControllers?[1]
     }
 
     private func setupTabBar() {
