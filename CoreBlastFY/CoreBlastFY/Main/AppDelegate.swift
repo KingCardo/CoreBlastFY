@@ -35,8 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserManager.loadUserFromFile()
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
-
-        registerForNotifications()
         
         //TO DO: - fix user id issue
         print(UserAPI.user.id, "RWRWID")

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -41,6 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
+        
+        DispatchQueue.main.async {
+        NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
+        }
+        
         UserManager.save()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).

@@ -17,7 +17,7 @@ class OnboardingViewController: UIViewController {
     var contentLabel = UILabel()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
-    //var videoView = UIView()
+    
     var index = 0
     var heading = ""
     var content = ""
@@ -87,16 +87,10 @@ class OnboardingViewController: UIViewController {
         date = sender.date
         UserAPI.user.selectedTime = sender.date
         UserManager.save()
-        timeToWorkoutMNotification()
-        timeToWorkoutTNotification()
-        timeToWorkoutWNotification()
-        timeToWorkoutTHNotification()
-        timeToWorkoutFNotification()
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        //configureImageView()
         setupUI()
         setupLabels()
         view.backgroundColor = .goatBlack

@@ -62,6 +62,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     private func setupNavigationBar() {
+        self.tabBarController?.tabBar.isHidden = true
         view.backgroundColor = .black
     }
     
@@ -77,10 +78,19 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        self.tabBarController?.tabBar.isHidden = true
-        fetchWorkout()
-        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
         
+        fetchWorkout()
+        registerObservers()
+        
+    }
+    
+    private func registerObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseWorkout), name: PauseWorkoutNotification, object: nil)
+    }
+    
+    @objc private func pauseWorkout() {
+        workoutView?.pauseWorkout()
     }
     
     @objc private func workoutComplete() {
@@ -120,7 +130,6 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     @objc private func showPreWorkoutUI() {
         self.navigationController?.popViewController(animated: true)
-        //self.navigationController?.navigationItem.leftBarButtonItem = nil
         
     }
     

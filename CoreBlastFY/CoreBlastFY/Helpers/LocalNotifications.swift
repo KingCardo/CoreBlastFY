@@ -40,8 +40,13 @@ func registerForNotifications() {
                 prepareRelaxNotification()
                 prepareThurNotification()
                 prepareFriNotification()
+                timeToWorkoutMNotification()
+                timeToWorkoutTNotification()
+                timeToWorkoutWNotification()
+                timeToWorkoutTHNotification()
+                timeToWorkoutFNotification()
                 notificationsAllowed = true
-                UserDefaults.standard.set(true, forKey: notificationsAllowedKey)
+                UserDefaults.standard.set(notificationsAllowed, forKey: notificationsAllowedKey)
             }
         }
     }

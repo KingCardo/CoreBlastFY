@@ -43,13 +43,9 @@ class WorkoutView: UIView {
         return number
     }
     
-//    static func pause() {
-//        invalidateTimers()
-//    }
-//
-//    static func unpause() {
-//
-//    }
+    func pauseWorkout() {
+         print("pause workout")
+    }
     
     @objc func fireRestTimer() {
         if setNumber <= numberOfSets {
