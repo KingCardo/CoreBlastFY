@@ -33,6 +33,13 @@ func registerForNotifications() {
     if !notificationsAllowed {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if granted {
+                mealPrepNotification()
+                prepareProgressionPicNotification()
+                prepareWHWNotification()
+                prepareMFNotification()
+                prepareRelaxNotification()
+                prepareThurNotification()
+                prepareFriNotification()
                 notificationsAllowed = true
                 UserDefaults.standard.set(true, forKey: notificationsAllowedKey)
             }

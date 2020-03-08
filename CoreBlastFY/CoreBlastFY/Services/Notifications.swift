@@ -10,7 +10,144 @@ import Foundation
 import UserNotifications
 
 let notificationCenter = UNUserNotificationCenter.current()
-func prepareNotification() {
+
+func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "hh:mm"
+    let calendar = Calendar.current
+    let comp = calendar.dateComponents([.hour, .minute], from: date)
+    let hour = comp.hour
+    let minute = comp.minute
+    return (hour, minute)
+}
+
+func timeToWorkoutMNotification() {
+    //Create user notification
+       let content = UNMutableNotificationContent()
+       content.title = "Time to get a workout in!"
+       content.body = "You want results or regret?"
+       content.sound = UNNotificationSound.default
+       
+       var dateComponents = DateComponents()
+       dateComponents.calendar = Calendar.current
+       
+       dateComponents.weekday = 2
+       dateComponents.hour = UserAPI.user.selectedHour
+       dateComponents.minute = UserAPI.user.selectedMinute
+       // Create the trigger as a repeating event.
+       let trigger = UNCalendarNotificationTrigger(
+           dateMatching: dateComponents, repeats: true)
+       
+       let request = UNNotificationRequest(identifier: "workoutM", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+}
+func timeToWorkoutTNotification() {
+    //Create user notification
+       let content = UNMutableNotificationContent()
+       content.title = "Time to get a workout in!"
+       content.body = "You want results or regret?"
+       content.sound = UNNotificationSound.default
+       
+       var dateComponents = DateComponents()
+       dateComponents.calendar = Calendar.current
+       
+       dateComponents.weekday = 3
+       dateComponents.hour = UserAPI.user.selectedHour
+       dateComponents.minute = UserAPI.user.selectedMinute
+       // Create the trigger as a repeating event.
+       let trigger = UNCalendarNotificationTrigger(
+           dateMatching: dateComponents, repeats: true)
+       
+       let request = UNNotificationRequest(identifier: "workoutT", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+}
+func timeToWorkoutWNotification() {
+    //Create user notification
+       let content = UNMutableNotificationContent()
+       content.title = "Time to get a workout in!"
+       content.body = "You want results or regret?"
+       content.sound = UNNotificationSound.default
+       
+       var dateComponents = DateComponents()
+       dateComponents.calendar = Calendar.current
+       
+       dateComponents.weekday = 4
+       dateComponents.hour = UserAPI.user.selectedHour
+       dateComponents.minute = UserAPI.user.selectedMinute
+       // Create the trigger as a repeating event.
+       let trigger = UNCalendarNotificationTrigger(
+           dateMatching: dateComponents, repeats: true)
+       
+       let request = UNNotificationRequest(identifier: "workoutW", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+}
+func timeToWorkoutTHNotification() {
+    //Create user notification
+       let content = UNMutableNotificationContent()
+       content.title = "Time to get a workout in!"
+       content.body = "You want results or regret?"
+       content.sound = UNNotificationSound.default
+       
+       var dateComponents = DateComponents()
+       dateComponents.calendar = Calendar.current
+       
+       dateComponents.weekday = 5
+       dateComponents.hour = UserAPI.user.selectedHour
+       dateComponents.minute = UserAPI.user.selectedMinute
+       // Create the trigger as a repeating event.
+       let trigger = UNCalendarNotificationTrigger(
+           dateMatching: dateComponents, repeats: true)
+       
+       let request = UNNotificationRequest(identifier: "workoutTH", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+}
+func timeToWorkoutFNotification() {
+    //Create user notification
+       let content = UNMutableNotificationContent()
+       content.title = "Time to get a workout in!"
+       content.body = "You want results or regret?"
+       content.sound = UNNotificationSound.default
+       
+       var dateComponents = DateComponents()
+       dateComponents.calendar = Calendar.current
+       
+       dateComponents.weekday = 6
+       dateComponents.hour = UserAPI.user.selectedHour
+       dateComponents.minute = UserAPI.user.selectedMinute
+       // Create the trigger as a repeating event.
+       let trigger = UNCalendarNotificationTrigger(
+           dateMatching: dateComponents, repeats: true)
+       
+       let request = UNNotificationRequest(identifier: "workoutF", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+}
+
+func mealPrepNotification() {
     
     //Create user notification
     let content = UNMutableNotificationContent()
@@ -23,7 +160,6 @@ func prepareNotification() {
     
     dateComponents.weekday = 1
     dateComponents.hour = 14
-    
     
     // Create the trigger as a repeating event.
     let trigger = UNCalendarNotificationTrigger(
@@ -48,8 +184,8 @@ func prepareProgressionPicNotification() {
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
     
-    dateComponents.weekday = 1
-    dateComponents.hour = 20
+    dateComponents.weekday = 7
+    dateComponents.hour = 12
     
     
     // Create the trigger as a repeating event.
@@ -130,7 +266,7 @@ func prepareRelaxNotification() {
     dateComponents.calendar = Calendar.current
     
     dateComponents.weekday = 7
-    dateComponents.hour = 12
+    dateComponents.hour = 9
     
     
     // Create the trigger as a repeating event.
