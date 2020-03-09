@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EntryController.shared.loadFromFile()
         
         //TO DO: - fix user id issue
-        print(UserAPI.user.id, "RWRWID")
+        print(UserAPI.user.id as Any, "RWRWID")
         
         //FirebaseApp.configure()
 

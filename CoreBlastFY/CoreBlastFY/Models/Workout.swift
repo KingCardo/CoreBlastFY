@@ -20,10 +20,8 @@ struct Workout: Codable {
     
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]
-//        let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, type: .stationary, videoURL: squatVideoPath)
         
         switch user.coreLevel {
-            
         case .beginner:
             exercises = self.exercises.filter({$0.level == .beginner })
         case .novice:
@@ -35,7 +33,6 @@ struct Workout: Codable {
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
         }
-        //exercises.append(rest)
         return exercises
     }
     
@@ -55,7 +52,7 @@ struct Workout: Codable {
     }
     
     var workoutDuration: Double {
-        return Double(((numberOfExercises - 1) * secondsOfExercise + (secondsOfRest)) * numberOfSets)
+        return Double(((numberOfExercises) * secondsOfExercise) * numberOfSets)
     }
     
     var setDuration: Double {
@@ -77,13 +74,13 @@ struct Workout: Codable {
         }
     }
     
-    var secondsOfRest: Int {
-        switch user.coreLevel {
-        case .beginner: return 15
-        case .novice: return 10
-        case .solid: return 7
-        case .advanced: return 5
-        case .rockstar: return 3
-        }
-    }
+//    var secondsOfRest: Int {
+//        switch user.coreLevel {
+//        case .beginner: return 15
+//        case .novice: return 10
+//        case .solid: return 7
+//        case .advanced: return 5
+//        case .rockstar: return 3
+//        }
+//    }
 }

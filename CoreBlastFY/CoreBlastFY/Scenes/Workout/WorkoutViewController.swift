@@ -21,6 +21,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     var router: (NSObjectProtocol & WorkoutRoutingLogic & WorkoutDataPassing)?
     var workoutView: WorkoutView?
     var viewModel: WorkoutInfo.FetchWorkout.ViewModel?
+    var tapGesture: UITapGestureRecognizer?
     
     
     // MARK: Object lifecycle
@@ -81,6 +82,8 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         
         fetchWorkout()
         registerObservers()
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
+        view.addGestureRecognizer(tapGesture!)
         
     }
     
@@ -90,8 +93,22 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     @objc private func pauseWorkout() {
-        workoutView?.pauseWorkout()
+        handleStateOfWorkout(tapGesture!)
     }
+    
+    @objc private func handleStateOfWorkout(_ gesture: UITapGestureRecognizer) {
+              switch gesture.state {
+              case .ended :  print("handle state tapped")
+              guard workoutView != nil else { return }
+              if workoutView!.timerIsRunning {
+               workoutView?.pauseWorkout()
+                     } else {
+               workoutView?.videoView?.resume()
+               workoutView?.runTimer()
+                     }
+              default: break
+              }
+          }
     
     @objc private func workoutComplete() {
         showPreWorkoutUI()
@@ -112,9 +129,6 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     private func showWorkoutUI(with viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
-        
-        //change to pause
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(showPreWorkoutUI))
         if workoutView == nil {
             workoutView = WorkoutView(frame: self.view.frame, rootVC: self, viewModel: viewModel)
         }

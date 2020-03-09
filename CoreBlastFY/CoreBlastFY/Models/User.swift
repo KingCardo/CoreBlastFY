@@ -9,7 +9,11 @@
 import Foundation
 
 class User: Codable {
-    let id = UUID()
+    
+    init() {
+        self.id = UUID()
+    }
+    let id: UUID?
     var name: String?
     var coreLevel: Level = .beginner
     var totalPoints: Int = 0

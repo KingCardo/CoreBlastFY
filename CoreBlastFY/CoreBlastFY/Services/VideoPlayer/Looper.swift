@@ -14,7 +14,11 @@ protocol Looper {
     
     func start(in layer: CALayer)
     
+    func resume()
+    
     func stop()
+    
+    func pauseVideo()
     
     func advanceToNextItem()
 }

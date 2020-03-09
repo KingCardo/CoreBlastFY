@@ -25,7 +25,7 @@ enum WorkoutInfo
         }
         struct ViewModel {
             struct WorkoutDetails {
-                let secondsOfRest: TimeInterval
+               // let secondsOfRest: TimeInterval
                 let secondsOfExercise: TimeInterval
                 let setDuration: TimeInterval
                 let workoutDuration: String
