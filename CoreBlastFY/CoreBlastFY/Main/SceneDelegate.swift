@@ -8,6 +8,8 @@
 
 import UIKit
 
+let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -15,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         self.window = self.window ?? UIWindow()
-        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-            self.window!.rootViewController = pageViewController
-        } else {
+//        if !UserDefaults.standard.bool(forKey: onboardingKey) {
+//            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
+//            self.window!.rootViewController = pageViewController
+//        } else {
         self.window!.rootViewController = HomeViewController()
-        }
+       // }
         self.window!.makeKeyAndVisible()
         
         ProgressionPicController.shared.loadFromFile()
@@ -41,6 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
+        
+        DispatchQueue.main.async {
+        NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
+        }
+        
         UserManager.save()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).

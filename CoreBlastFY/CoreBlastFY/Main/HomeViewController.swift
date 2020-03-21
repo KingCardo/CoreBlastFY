@@ -13,6 +13,7 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        registerForNotifications()
     }
     
     private func setup() {

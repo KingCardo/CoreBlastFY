@@ -44,9 +44,9 @@ class ExerciseStorage {
         
         do {
             self.exercises = try jsonDecoder.decode([Exercise].self, from: decodedData)
-            print(self.exercises.map { $0.videoURL})
-            return true
+                return exercises.count > 0 ? true : false
         } catch let error {
+            //TO DO: handle error
             print(error)
             return false
         }

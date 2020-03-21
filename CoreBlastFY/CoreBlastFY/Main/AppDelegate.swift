@@ -35,27 +35,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserManager.loadUserFromFile()
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
-
-        registerForNotifications()
         
         //TO DO: - fix user id issue
-        print(UserAPI.user.id, "RWRWID")
+        print(UserAPI.user.id as Any, "RWRWID")
         
         //FirebaseApp.configure()
 
-        let success = ExerciseStorage.loadExercises()
-        if !success {
-            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
-            worker.fetchExercises { (exercises, error) in
-                if !exercises.isEmpty {
-                        ExerciseStorage.exercises = exercises
-                        ExerciseStorage.save()
-                    } else {
-                        //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
-                    print(error?.localizedDescription as Any)
-                    }
-                }
-        }
+//        let success = ExerciseStorage.loadExercises()
+//        if !success {
+//            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
+//            worker.fetchExercises { (exercises, error) in
+//                if !exercises.isEmpty {
+//                        ExerciseStorage.exercises = exercises
+//                        ExerciseStorage.save()
+//                    } else {
+//                        //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
+//                    print(error?.localizedDescription as Any)
+//                    }
+//                }
+//        }
     
         return true
     }

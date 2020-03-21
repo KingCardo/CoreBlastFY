@@ -101,7 +101,11 @@ class PlayerLooper: NSObject, Looper {
       
     }
     
-    func pause() {
+    func resume() {
+        player?.play()
+    }
+    
+    func pauseVideo() {
          player?.pause()
     }
 

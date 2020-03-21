@@ -17,7 +17,7 @@ class OnboardingViewController: UIViewController {
     var contentLabel = UILabel()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
-    //var videoView = UIView()
+    
     var index = 0
     var heading = ""
     var content = ""
@@ -87,16 +87,10 @@ class OnboardingViewController: UIViewController {
         date = sender.date
         UserAPI.user.selectedTime = sender.date
         UserManager.save()
-        timeToWorkoutMNotification()
-        timeToWorkoutTNotification()
-        timeToWorkoutWNotification()
-        timeToWorkoutTHNotification()
-        timeToWorkoutFNotification()
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        //configureImageView()
         setupUI()
         setupLabels()
         view.backgroundColor = .goatBlack
@@ -214,16 +208,16 @@ class OnboardingViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: onboardingKey)
             
             //TO DO: DIsplay loading vc if exercises arent finished downloading then show HOMEVC
-            if ExerciseStorage.exercises.isEmpty {
-                let loadingVC = LoadingViewController()
-                loadingVC.modalPresentationStyle = .fullScreen
-                show(loadingVC, sender: self)
-            } else {
+//            if ExerciseStorage.exercises.isEmpty {
+//                let loadingVC = LoadingViewController()
+//                loadingVC.modalPresentationStyle = .fullScreen
+//                show(loadingVC, sender: self)
+//            } else {
             
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             show(homeVC, sender: self)
-            }
+           // }
         default: break
         }
     }

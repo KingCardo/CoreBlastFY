@@ -11,15 +11,10 @@ import UIKit
 let workoutCompleteNotification = NSNotification.Name("workoutCompleteNotification")
 
 class WorkoutView: UIView {
-
+    
     private var setNumber = 1
     private var iteration = 0
     private var workoutDuration: TimeInterval
-    
-    private var frameOfVideoView: CGRect {
-        let height = self.frame.height * 0.6
-        return CGRect(x: 0, y: 0, width: self.frame.width, height: height)
-    }
     
     weak var rootViewController: WorkoutViewController?
     private var workoutViewModel: WorkoutInfo.FetchWorkout.ViewModel
@@ -28,31 +23,25 @@ class WorkoutView: UIView {
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
     private let exerciseNameLabel = UILabel()
+    private var displayLink: CADisplayLink!
     private var workoutTimer = Timer()
     private var exerciseTimer = Timer()
     private var restTimer = Timer()
-    private var timerIsRunning = false
+    var timerIsRunning = false
     
     var videoView: VideoView?
+   
     private var exercises: [Exercise]
-    private var setDuration: TimeInterval
-    private var exerciseDuration: TimeInterval
-    private var restDuration: TimeInterval
+    let setDuration: TimeInterval
+    let exerciseDuration: TimeInterval
+
     private var numberOfSets: Int {
         guard let number = Int(workoutViewModel.workoutDetails.numberOfSets) else { return 4 }
         return number
     }
     
-//    static func pause() {
-//        invalidateTimers()
-//    }
-//
-//    static func unpause() {
-//
-//    }
-    
     @objc func fireRestTimer() {
-        if setNumber <= numberOfSets {
+        if setNumber < numberOfSets {
             setNumber += 1
             setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
             //TO DO: - make reusable
@@ -72,32 +61,41 @@ class WorkoutView: UIView {
         updateExerciseViews()
     }
     
-    private func runExerciseTimer() {
-        exerciseTimer = Timer.scheduledTimer(timeInterval: exerciseDuration, target: self, selector: #selector(fireExerciseTimer), userInfo: nil, repeats: true)
-     }
-     
-     private func runRestTimer() {
-        restTimer = Timer.scheduledTimer(timeInterval: setDuration, target: self, selector: #selector(fireRestTimer), userInfo: nil, repeats: true)
-     }
-    
     func runTimer() {
-        runExerciseTimer()
-        runRestTimer()
-        workoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        workoutTimer = Timer.scheduledTimer(timeInterval: 0.95, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         timerIsRunning = true
     }
     
     @objc private func fireTimer() {
         if workoutDuration > 0 {
-            workoutDuration -= 1//0.01
+            workoutDuration -= 1
             durationLeftLabel.text = timeString(time: workoutDuration)
+            
+            if workoutDuration.truncatingRemainder(dividingBy: setDuration) == 0 {
+                fireRestTimer()
+            }
+            if workoutDuration.truncatingRemainder(dividingBy: exerciseDuration) == 0 {
+                fireExerciseTimer()
+            }
+            
         } else {
             timerIsRunning = false
-            UserManager.incrementPoint()
-                   UserManager.calculateLevel(totalPoints: UserAPI.user.totalPoints)
             workoutFinished()
         }
     }
+    
+    func resumeWorkout() {
+        timerIsRunning = true
+        runTimer()
+        videoView?.resume()
+    }
+    
+    func pauseWorkout() {
+        timerIsRunning = false
+           invalidateTimers()
+           videoView?.pauseVideo()
+       }
+    
     private func invalidateTimers() {
         workoutTimer.invalidate()
         exerciseTimer.invalidate()
@@ -105,15 +103,17 @@ class WorkoutView: UIView {
     }
     
     func workoutFinished() {
-            videoView = nil
-            invalidateTimers()
-            workoutComplete()
+        UserManager.incrementPoint()
+        UserManager.calculateLevel(totalPoints: UserAPI.user.totalPoints)
+        videoView = nil
+        invalidateTimers()
+        workoutComplete()
     }
     
     private func updateExerciseViews() {
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        videoView?.looper?.advanceToNextItem()
+        videoView?.advanceToNextItem()
     }
     
     var workoutComplete = {
@@ -124,9 +124,9 @@ class WorkoutView: UIView {
         rootViewController = rootVC as? WorkoutViewController
         workoutViewModel = viewModel
         workoutDuration = workoutViewModel.workoutDetails.workoutDurationDouble
+        
         exercises = workoutViewModel.workoutDetails.exercises
         exerciseDuration = workoutViewModel.workoutDetails.secondsOfExercise
-        restDuration = workoutViewModel.workoutDetails.secondsOfRest
         setDuration = workoutViewModel.workoutDetails.setDuration
         let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
         videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
@@ -202,9 +202,9 @@ class WorkoutView: UIView {
         videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop).isActive = true
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
         videoView.clipsToBounds = true
+        
         videoView.playVideo()
         runTimer()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -214,13 +214,13 @@ class WorkoutView: UIView {
 
 extension WorkoutView {
     enum Style {
-          static let titleFontSize: CGFloat = 18
-          static let dataFontSize: CGFloat = 22
-          static let stackViewSpacing: CGFloat = 4
-          static let stackViewTop: CGFloat = 8
-          
-          enum Dimension {
-              static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 20)
-          }
-      }
+        static let titleFontSize: CGFloat = 18
+        static let dataFontSize: CGFloat = 22
+        static let stackViewSpacing: CGFloat = 4
+        static let stackViewTop: CGFloat = 8
+        
+        enum Dimension {
+            static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 20)
+        }
+    }
 }

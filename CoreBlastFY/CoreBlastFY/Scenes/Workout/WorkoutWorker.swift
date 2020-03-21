@@ -12,10 +12,6 @@
 
 import Foundation
 
-//protocol WorkoutInfoStoreProtocol {
-//    func fetchWorkout(exercises: [Exercise], completion: @escaping(Workout?, WorkoutInfoStoreError?) -> Void)
-//}
-
 class WorkoutWorker {
     
     var dataStore: [Exercise]
@@ -30,14 +26,19 @@ class WorkoutWorker {
     }
 }
 
+
 let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "squat", ofType: "MOV")!)
-let squat = Exercise(name: "Squat", tip: "full range of motion", level: .beginner, type: .stationary, videoURL: squatVideoPath)
+let squat = Exercise(name: "Squat", tip: "full range of motion", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
 
 let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "askip", ofType: "MOV")!)
 
-let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, type: .stationary, videoURL: askipVideoPath)
+let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, movement: .stationary, videoURL: askipVideoPath)
+
+//TODO: - add rest video
+//let restVideoPath =
+let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
     
-let exercisesMock = [squat, askip]
+let exercisesMock = [squat, askip, rest]
 
 enum WorkoutInfoStoreResult<U> {
     case Success(result: U)
