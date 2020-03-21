@@ -35,14 +35,13 @@ class WorkoutPresenter: WorkoutPresentationLogic
         let workout = response.workout
         
         let workoutDetails = WorkoutInfo.FetchWorkout.ViewModel.WorkoutDetails(
-            /*secondsOfRest: Double(workout.secondsOfRest),*/
             secondsOfExercise: Double(workout.secondsOfExercise),
             setDuration: workout.setDuration,
             workoutDuration:
             timeString(time: workout.workoutDuration),
             workoutDurationDouble: workout.workoutDuration,
             numberOfSets: "\(workout.numberOfSets)",
-            exercises: workout.exercises)
+            exercises: workout.exercisesToReturn)
         let viewModel = WorkoutInfo.FetchWorkout.ViewModel(workoutDetails: workoutDetails)
         viewController?.displayWorkout(viewModel: viewModel)
     }

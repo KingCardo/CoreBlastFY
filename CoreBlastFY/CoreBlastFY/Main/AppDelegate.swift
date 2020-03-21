@@ -41,19 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //FirebaseApp.configure()
 
-        let success = ExerciseStorage.loadExercises()
-        if !success {
-            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
-            worker.fetchExercises { (exercises, error) in
-                if !exercises.isEmpty {
-                        ExerciseStorage.exercises = exercises
-                        ExerciseStorage.save()
-                    } else {
-                        //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
-                    print(error?.localizedDescription as Any)
-                    }
-                }
-        }
+//        let success = ExerciseStorage.loadExercises()
+//        if !success {
+//            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
+//            worker.fetchExercises { (exercises, error) in
+//                if !exercises.isEmpty {
+//                        ExerciseStorage.exercises = exercises
+//                        ExerciseStorage.save()
+//                    } else {
+//                        //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
+//                    print(error?.localizedDescription as Any)
+//                    }
+//                }
+//        }
     
         return true
     }

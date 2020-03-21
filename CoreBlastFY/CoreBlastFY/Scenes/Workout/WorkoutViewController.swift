@@ -42,6 +42,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         workoutView?.workoutFinished()
         workoutView = nil
     }
+    
     // MARK: Setup
     
     private func setup() {
@@ -93,22 +94,22 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     @objc private func pauseWorkout() {
-        handleStateOfWorkout(tapGesture!)
+        guard let tapGesture = tapGesture else { return }
+        handleStateOfWorkout(tapGesture)
     }
     
     @objc private func handleStateOfWorkout(_ gesture: UITapGestureRecognizer) {
-              switch gesture.state {
-              case .ended :  print("handle state tapped")
-              guard workoutView != nil else { return }
-              if workoutView!.timerIsRunning {
-               workoutView?.pauseWorkout()
-                     } else {
-               workoutView?.videoView?.resume()
-               workoutView?.runTimer()
-                     }
-              default: break
-              }
-          }
+        switch gesture.state {
+        case .ended :
+            guard workoutView != nil else { return }
+            if workoutView!.timerIsRunning {
+                workoutView?.pauseWorkout()
+            } else {
+                workoutView?.resumeWorkout()
+            }
+        default: break
+        }
+    }
     
     @objc private func workoutComplete() {
         showPreWorkoutUI()

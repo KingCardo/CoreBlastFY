@@ -12,14 +12,20 @@ import CloudKit
 struct Exercise: Codable {
     var name: String
     var tip: String
-    var type: Movement = .stationary
+    var movement: Movement = .stationary
     var level: Exercise.Level?
     var videoURL: URL?
     var videoData: Data?
+    var type: ExerciseType = .core
     
-   // var downloadUrl: URL? {
-//        return URL(string: videoURL)
-//    }
+    enum ExerciseType: String, Codable {
+        case core
+        case legs
+        case back
+        case chest
+        case arms
+        
+    }
     
     enum Level: String, Codable, CaseIterable {
         case beginner
@@ -33,14 +39,14 @@ struct Exercise: Codable {
         case stationary
         case dynamic
         case dynamicWeighted
-        case sixPack
+        case explosive
     }
     
-    init(name: String, tip: String = "",level: Exercise.Level, type: Movement, videoURL: URL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!) {
+    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, videoURL: URL) {
         self.name = name
         self.tip = tip
-        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
-        self.videoURL = path
+        //let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
+        self.videoURL = videoURL//path//videoURL
         self.level = level
     }
     
@@ -49,8 +55,10 @@ struct Exercise: Codable {
         self.tip = record["tip"] as? String ?? ""
         let level = record["level"] as? String ?? ""
         self.level = Exercise.Level(rawValue: level) ?? .beginner
-        let type = record["type"] as? String ?? ""
-        self.type = Exercise.Movement(rawValue: type) ?? .stationary
+        let movement = record["type"] as? String ?? ""
+        self.movement = Exercise.Movement(rawValue: movement) ?? .stationary
+        let exerciseType = record["exerciseType"] as? String ?? ""
+        self.type = Exercise.ExerciseType(rawValue: exerciseType) ?? .core
         if let asset = record["video"] as? CKAsset {
             self.videoURL = asset.fileURL!
             do {

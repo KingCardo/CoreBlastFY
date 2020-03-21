@@ -11,7 +11,7 @@ import AVFoundation
 
 class VideoView: UIView {
    
-    var looper: Looper?
+    private var looper: Looper?
 
     init(frame: CGRect, urls: [URL], loopCount: Int, numberOfSets: Int) {
         super.init(frame: frame)

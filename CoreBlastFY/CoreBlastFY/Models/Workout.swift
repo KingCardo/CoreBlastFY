@@ -33,6 +33,8 @@ struct Workout: Codable {
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
         }
+        //filter our rest exercise and add it
+        //exercises.append(rest)
         return exercises
     }
     
@@ -48,7 +50,7 @@ struct Workout: Codable {
     }
     
     var numberOfExercises: Int {
-        return exercises.count
+        return exercisesToReturn.count
     }
     
     var workoutDuration: Double {
@@ -73,14 +75,4 @@ struct Workout: Codable {
         default: return 60
         }
     }
-    
-//    var secondsOfRest: Int {
-//        switch user.coreLevel {
-//        case .beginner: return 15
-//        case .novice: return 10
-//        case .solid: return 7
-//        case .advanced: return 5
-//        case .rockstar: return 3
-//        }
-//    }
 }
