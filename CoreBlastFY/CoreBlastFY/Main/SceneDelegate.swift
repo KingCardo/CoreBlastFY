@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         self.window = self.window ?? UIWindow()
-//        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-//            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-//            self.window!.rootViewController = pageViewController
-//        } else {
+        if !UserDefaults.standard.bool(forKey: onboardingKey) {
+            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
+            self.window!.rootViewController = pageViewController
+        } else {
         self.window!.rootViewController = HomeViewController()
-       // }
+        }
         self.window!.makeKeyAndVisible()
         
         ProgressionPicController.shared.loadFromFile()

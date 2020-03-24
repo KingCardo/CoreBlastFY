@@ -46,7 +46,7 @@ struct Exercise: Codable {
         self.name = name
         self.tip = tip
         //let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
-        self.videoURL = videoURL//path//videoURL
+        self.videoURL = videoURL//path//
         self.level = level
     }
     

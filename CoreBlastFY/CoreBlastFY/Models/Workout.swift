@@ -33,8 +33,6 @@ struct Workout: Codable {
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
         }
-        //filter our rest exercise and add it
-        //exercises.append(rest)
         return exercises
     }
     

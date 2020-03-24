@@ -131,7 +131,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     private func showWorkoutUI(with viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
         if workoutView == nil {
-            workoutView = WorkoutView(frame: self.view.frame, rootVC: self, viewModel: viewModel)
+            workoutView = WorkoutView(frame: view.frame, rootVC: self, viewModel: viewModel)
         }
         guard let workoutView = workoutView else { return }
         view.addSubview(workoutView)
