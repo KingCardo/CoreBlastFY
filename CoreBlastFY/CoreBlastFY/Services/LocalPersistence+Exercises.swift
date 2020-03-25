@@ -8,6 +8,12 @@
 
 import Foundation
 
+let coreBeginnerKey = "beginner"
+let coreNoviceKey = "novice"
+let coreSolidKey = "solid"
+let coreAdvancedKey = "advanced"
+let coreRockstarKey = "rockstar"
+
 class ExerciseStorage {
     
     static var exercises: [Exercise] = [] {
@@ -53,18 +59,22 @@ class ExerciseStorage {
     }
     
     static func fetchExercises(with level: String) {
+        if !UserDefaults.standard.bool(forKey: level) {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises(of: level) { (exercises, error) in
                 if !exercises.isEmpty {
                     ExerciseStorage.exercises += exercises
-                    print(ExerciseStorage.exercises.count)
                     ExerciseStorage.save()
+                    UserDefaults.standard.set(true, forKey: level)
                 } else {
                     //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
                     print(error?.localizedDescription as Any)
                 }
             }
+        }
     }
+    
+    //TO DO: FIX - hanlde not fetching againuserde
     static func fetchCoreExercises() {
         ExerciseStorage.loadExercises()
 

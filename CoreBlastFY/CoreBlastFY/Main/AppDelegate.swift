@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //FirebaseApp.configure()
         ExerciseStorage.fetchCoreExercises()
+        print(UserAPI.user.id)
         
         return true
     }
