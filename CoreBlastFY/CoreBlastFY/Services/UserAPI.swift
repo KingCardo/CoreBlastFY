@@ -9,7 +9,16 @@
 import Foundation
 
 class UserAPI: UserInfoStoreProtocol {
-    static var user = User()
+    static var user: User {
+        get {
+            if let user = UserManager.loadUserFromFile() {
+                return user
+            } else {
+                return User()
+            }
+        }
+    }
+        
     
     func fetchUserInfo(completion: @escaping(User?, UserInfoStoreError?) -> Void) {
         completion(UserAPI.user, nil)

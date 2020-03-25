@@ -198,7 +198,7 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
         videoView.clipsToBounds = true
         
-        //videoView.playVideo()
+        videoView.playVideo()
         runTimer()
     }
     

@@ -62,18 +62,20 @@ class UserManager {
              
          }
          
-    static func loadUserFromFile() {
+    static func loadUserFromFile() -> User? {
             
              let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
              let archiveURL = documentsDirectory.appendingPathComponent("User").appendingPathExtension("json")
              
              let jsonDecoder = JSONDecoder()
-            guard let decodedData = try? Data(contentsOf: archiveURL) else { return }
+            guard let decodedData = try? Data(contentsOf: archiveURL) else { return nil }
             
              do {
-                UserAPI.user = try jsonDecoder.decode(User.self, from: decodedData)
+                let user = try jsonDecoder.decode(User.self, from: decodedData)
+                return user
              } catch let error {
                  print(error)
+                return nil
              }
          }
     }
