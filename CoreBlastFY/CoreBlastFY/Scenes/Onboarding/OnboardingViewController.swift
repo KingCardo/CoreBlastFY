@@ -24,6 +24,7 @@ class OnboardingViewController: UIViewController {
     var imageView = UIImageView()
    
     var datePicker = CustomDatePicker()
+    var nameTextField = UITextField()
     var date = Date()
     
     class CustomDatePicker: UIDatePicker {
@@ -69,7 +70,19 @@ class OnboardingViewController: UIViewController {
         datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         datePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
-        
+    }
+    
+    private func configureNameTextField() {
+        nameTextField.placeholder = "Name"
+       // nameTextField.delegate = self
+        nameTextField.backgroundColor = .white
+        view.addSubview(nameTextField)
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     private func configureImageView() {
@@ -98,10 +111,11 @@ class OnboardingViewController: UIViewController {
         contentLabel.text = content
         pageControl.numberOfPages = 4
         pageControl.currentPage = index
+        //nameTextField.delegate = self
         
         
         switch index {
-        case 0...2: forwardButton.setTitle("NEXT", for: .normal)
+        case 0...: forwardButton.setTitle("NEXT", for: .normal)
         case 3: forwardButton.setTitle("DONE", for: .normal)
         default: break
         }
@@ -140,7 +154,10 @@ class OnboardingViewController: UIViewController {
                 
             }) { (_) in
                 self.forwardButton.alpha = 1
-                if self.index == 3 {
+//                if self.index == 3 {
+//                    self.configureNameTextField()
+//                }
+                if self.index == 4 {
                     self.configureDatePicker()
                       }
             }
@@ -200,14 +217,13 @@ class OnboardingViewController: UIViewController {
         case 0...2:
             let pageViewController = parent as! OnboardingPageViewController
             pageViewController.forward(index: index)
-             
+    
         case 3: //Done Button
              
             grabInputFromUser(datePicker)
           
             UserDefaults.standard.set(true, forKey: onboardingKey)
             
-            //TO DO: DIsplay loading vc if exercises arent finished downloading then show HOMEVC
             if ExerciseStorage.exercises.isEmpty {
                 let loadingVC = LoadingViewController()
                 loadingVC.modalPresentationStyle = .fullScreen
@@ -224,3 +240,10 @@ class OnboardingViewController: UIViewController {
     
     
 }
+
+//extension OnboardingViewController: UITextFieldDelegate {
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        UserAPI.user.name = textField.text!
+//        textField.resignFirstResponder()
+//    }
+//}

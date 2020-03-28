@@ -22,7 +22,7 @@ class EntryCell: UITableViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: Methods

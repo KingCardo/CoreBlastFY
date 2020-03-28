@@ -60,7 +60,8 @@ class PlayerLooper: NSObject, Looper {
 
                       var durationError: NSError? = nil
                       let durationStatus = playerItem.asset.statusOfValue(forKey: ObserverContexts.playerItemDurationKey, error: &durationError)
-                    guard durationStatus == .loaded else { fatalError("Failed to load duration property with error: \(String(describing: durationError))") }
+                    guard durationStatus == .loaded else {
+                        print("Failed to load duration property with error: \(String(describing: durationError))"); return }
 
                   })
               })
@@ -93,7 +94,7 @@ class PlayerLooper: NSObject, Looper {
         self.startObserving()
         playerLayer = AVPlayerLayer(player: player)
 
-        guard let playerLayer = playerLayer else { fatalError("Error creating player layer") }
+        guard let playerLayer = playerLayer else { return }
         playerLayer.frame = parentLayer.bounds
         parentLayer.addSublayer(playerLayer)
        

@@ -223,7 +223,7 @@ func prepareProgressionPicNotification() {
         
         notificationCenter.add(request) { (error) in
             if error != nil {
-                // Handle any errors.
+                //TO DO: Handle any errors.
             }
         }
     }

@@ -47,14 +47,14 @@ class StackElementViewController: UIViewController {
         bodyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
         bodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         
-        let font = UIFont.init(name: "Avenir Next", size: 14)
+        let font = UIFont.init(name: "Avenir Next", size: 13)
         
         let fontMetrics = UIFontMetrics(forTextStyle: .body)
         bodyLabel.font =  fontMetrics.scaledFont(for: font!)
         bodyLabel.textColor = .white
+        bodyLabel.adjustsFontForContentSizeCategory = true
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
