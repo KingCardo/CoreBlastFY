@@ -23,17 +23,14 @@ class WorkoutView: UIView {
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
     private let exerciseNameLabel = UILabel()
-    private var displayLink: CADisplayLink!
     private var workoutTimer = Timer()
-    private var exerciseTimer = Timer()
-    private var restTimer = Timer()
     var timerIsRunning = false
     
-    var videoView: VideoView?
+    private var videoView: VideoView?
    
     private var exercises: [Exercise]
-    let setDuration: TimeInterval
-    let exerciseDuration: TimeInterval
+    private let setDuration: TimeInterval
+    private let exerciseDuration: TimeInterval
 
     private var numberOfSets: Int {
         guard let number = Int(workoutViewModel.workoutDetails.numberOfSets) else { return 4 }
@@ -67,7 +64,7 @@ class WorkoutView: UIView {
     }
     
     @objc private func fireTimer() {
-        if workoutDuration > 0 {
+        if workoutDuration > 1 {
             workoutDuration -= 1
             durationLeftLabel.text = timeString(time: workoutDuration)
             
@@ -92,14 +89,12 @@ class WorkoutView: UIView {
     
     func pauseWorkout() {
         timerIsRunning = false
-           invalidateTimers()
-           videoView?.pauseVideo()
+        invalidateTimers()
+        videoView?.pauseVideo()
        }
     
     private func invalidateTimers() {
         workoutTimer.invalidate()
-        exerciseTimer.invalidate()
-        restTimer.invalidate()
     }
     
     func workoutFinished() {
@@ -220,7 +215,7 @@ extension WorkoutView {
         static let stackViewTop: CGFloat = 8
         
         enum Dimension {
-            static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 20)
+            static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 44)
         }
     }
 }

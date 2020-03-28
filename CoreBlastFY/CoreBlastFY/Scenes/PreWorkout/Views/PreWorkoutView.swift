@@ -19,19 +19,6 @@ class PreWorkoutView: UIView {
     let welcomeLabel = UILabel()
     let startWorkoutButton = PulsingView()
     
-//    @objc private func startWorkout(sender: UITapGestureRecognizer) {
-//        if sender.state == .ended {
-//        self.preWorkoutViewController?.displayLoadingView()
-//        } else {
-//            print("RWRWRW not working")
-//        }
-//    }
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        setNeedsDisplay()
-        setNeedsLayout()
-    }
-    
-    
     init(frame: CGRect = .zero, viewModel: PreWorkout.FetchUser.ViewModel) {
         self.preWorkoutViewModel = viewModel
         super.init(frame: frame)

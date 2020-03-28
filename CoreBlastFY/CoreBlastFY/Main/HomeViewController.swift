@@ -36,8 +36,8 @@ class HomeViewController: UITabBarController {
         workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "workout"), selectedImage: nil)
         
-        let nutritionVC = NutritonViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Nutrition", image: #imageLiteral(resourceName: "icons8-dining-room-50"), selectedImage: nil)
+//        let nutritionVC = NutritonViewController()
+//        nutritionVC.tabBarItem = UITabBarItem(title: "Nutrition", image: #imageLiteral(resourceName: "icons8-dining-room-50"), selectedImage: nil)
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
@@ -45,7 +45,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        viewControllers = [progressionNavController, workoutNavController, nutritionVC, settingsNavController]
+        viewControllers = [progressionNavController, workoutNavController, /*nutritionVC,*/ settingsNavController]
         selectedViewController = viewControllers?[1]
     }
 

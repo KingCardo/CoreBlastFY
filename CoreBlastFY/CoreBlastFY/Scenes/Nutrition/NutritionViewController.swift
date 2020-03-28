@@ -47,10 +47,10 @@ class NutritonViewController: UIViewController, UICollisionBehaviorDelegate {
         }
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//      dismiss(animated: true, completion: nil)
-//    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        view.setNeedsDisplay()
+        view.setNeedsLayout()
+    }
     
     func addViewController(atOffset offset:CGFloat, dataForVC data: String?, nutritionData: String?) -> UIView? {
         

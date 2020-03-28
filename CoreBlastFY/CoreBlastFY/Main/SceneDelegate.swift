@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         self.window = self.window ?? UIWindow()
-//        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-//            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-//            self.window!.rootViewController = pageViewController
-//        } else {
+        if !UserDefaults.standard.bool(forKey: onboardingKey) {
+            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
+            self.window!.rootViewController = pageViewController
+        } else {
         self.window!.rootViewController = HomeViewController()
-       // }
+        }
         self.window!.makeKeyAndVisible()
         
         ProgressionPicController.shared.loadFromFile()
@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        UserManager.loadUserFromFile()
+        let _ = UserAPI.user
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     

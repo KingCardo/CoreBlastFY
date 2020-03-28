@@ -48,7 +48,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         setUpCameraButton()
         
         if ProgressionPicController.shared.noProgressionPics {
-            //cameraBarButtonItem.bounce(duration: 2.0)
+            cameraBarButtonItem.bounce(duration: 2.0)
            // cameraBarButtonItem.wiggle(duration: 2.0)
             self.collectionView?.isHidden = true
             setupProgressionView()

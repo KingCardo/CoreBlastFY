@@ -309,7 +309,6 @@
 				7A8CBB3A23EF936700D0D6BD /* SettingsModels.swift */,
 				7A8CBB3B23EF936700D0D6BD /* SettingsInteractor.swift */,
 				7A8CBB4323EFA3C400D0D6BD /* AboutFYF */,
-				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBB5D23EFA49E00D0D6BD /* Notifications */,
 				7A8CBB5E23EFA4B400D0D6BD /* FoodLog */,
 				7A8CBB5F23EFA4C600D0D6BD /* NearbyParks */,
@@ -342,6 +341,7 @@
 				7A8CBB0123E912C700D0D6BD /* Progression */,
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
+				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
 			path = Scenes;

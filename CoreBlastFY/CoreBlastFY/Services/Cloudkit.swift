@@ -21,8 +21,8 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         checkCloudKitAvailability()
     }
     
-    func fetchExercises(completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
-        let predicate = NSPredicate(value: true)
+    func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
+        let predicate = NSPredicate(format: "level == %@", level)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) { (records, error) in

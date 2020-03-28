@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ExerciseInfoStoreProtocol {
-    func fetchExercises(completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void)
+    func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void)
 }
 
 class ExerciseWorker {
@@ -20,9 +20,9 @@ class ExerciseWorker {
         self.exerciseInfoDataStore = exerciseInfoDataStore
     }
     
-    func fetchExercises(completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
+    func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
        
-        exerciseInfoDataStore.fetchExercises { (exercises, error) in
+        exerciseInfoDataStore.fetchExercises(of: level) { (exercises, error) in
             if !exercises.isEmpty {
                     completion(exercises, nil)
                 

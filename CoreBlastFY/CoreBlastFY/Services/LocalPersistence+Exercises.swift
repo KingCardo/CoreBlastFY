@@ -8,12 +8,18 @@
 
 import Foundation
 
+let coreBeginnerKey = "beginner"
+let coreNoviceKey = "novice"
+let coreSolidKey = "solid"
+let coreAdvancedKey = "advanced"
+let coreRockstarKey = "rockstar"
+
 class ExerciseStorage {
     
     static var exercises: [Exercise] = [] {
         didSet {
             DispatchQueue.main.async {
-            NotificationCenter.default.post(name: NSNotification.Name("ExercisesLoadedNotification"), object: self)
+                NotificationCenter.default.post(name: NSNotification.Name("ExercisesLoadedNotification"), object: self)
             }
         }
     }
@@ -33,7 +39,7 @@ class ExerciseStorage {
         }
         
     }
-    
+    @discardableResult
     static func loadExercises() -> Bool {
         
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -44,11 +50,41 @@ class ExerciseStorage {
         
         do {
             self.exercises = try jsonDecoder.decode([Exercise].self, from: decodedData)
-                return exercises.count > 0 ? true : false
+            return exercises.count > 0 ? true : false
         } catch let error {
             //TO DO: handle error
             print(error)
             return false
+        }
+    }
+    
+    static func fetchExercises(with level: String) {
+        if !UserDefaults.standard.bool(forKey: level) {
+            let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
+            worker.fetchExercises(of: level) { (exercises, error) in
+                if !exercises.isEmpty {
+                    ExerciseStorage.exercises += exercises
+                    ExerciseStorage.save()
+                    UserDefaults.standard.set(true, forKey: level)
+                } else {
+                    //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
+                    print(error?.localizedDescription as Any)
+                }
+            }
+        }
+    }
+    
+    //TO DO: FIX - hanlde not fetching againuserde
+    static func fetchCoreExercises() {
+        ExerciseStorage.loadExercises()
+
+        switch UserAPI.user.totalPoints {
+        case 0: ExerciseStorage.fetchExercises(with: "beginner")
+        case 14: ExerciseStorage.fetchExercises(with: "novice")
+        case 29: ExerciseStorage.fetchExercises(with: "solid")
+        case 44: ExerciseStorage.fetchExercises(with: "advanced")
+        case 59: ExerciseStorage.fetchExercises(with: "rockstar")
+        default: break
         }
     }
 }

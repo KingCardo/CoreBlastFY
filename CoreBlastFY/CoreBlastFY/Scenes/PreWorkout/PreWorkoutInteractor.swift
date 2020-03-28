@@ -30,20 +30,6 @@ class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
   var exercises: [Exercise] = ExerciseStorage.exercises
   
   // MARK: Do something
-    
-//    func fetchExercises(request: PreWorkout.FetchExercises.Request) {
-//        exerciseFetchWorker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
-//        exerciseFetchWorker?.fetchExercises(completion: { (exercises, error) in
-//            if !exercises.isEmpty {
-//                self.exercises = exercises
-//                ExerciseStorage.exercises = exercises
-//                ExerciseStorage.save()
-//            } else {
-//                //TODO: Handle error
-//                print(error?.localizedDescription)
-//            }
-//        })
-//    }
   
   func fetchUserInfo(request: PreWorkout.FetchUser.Request) {
     userInfoWorker = PreWorkoutWorker(userInfoStore: UserAPI())
