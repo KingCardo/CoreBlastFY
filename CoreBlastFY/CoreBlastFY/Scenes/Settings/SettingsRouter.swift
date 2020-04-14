@@ -47,7 +47,7 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
     }
     
     func routeToNotificationsScene() {
-        let destination = AboutMeViewController()
+        let destination = NotificationsViewController()
         navigateTo(source: viewController!, destination: destination)
     }
     
