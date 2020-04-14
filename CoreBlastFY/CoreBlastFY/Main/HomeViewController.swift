@@ -46,7 +46,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         viewControllers = [progressionNavController, workoutNavController, /*nutritionVC,*/ settingsNavController]
-        selectedViewController = viewControllers?[1]
+        selectedViewController = viewControllers?[0]
     }
 
     private func setupTabBar() {

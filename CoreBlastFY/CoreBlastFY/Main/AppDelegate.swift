@@ -35,12 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
-        
         //TO DO: - fix user id issue
         
         //FirebaseApp.configure()
-        ExerciseStorage.fetchCoreExercises()
-        print(UserAPI.user.id)
+       // ExerciseStorage.fetchCoreExercises()
+        UserAPI.user = UserManager.loadUserFromFile()
+        print(UserAPI.user.id ?? "2")
         
         return true
     }

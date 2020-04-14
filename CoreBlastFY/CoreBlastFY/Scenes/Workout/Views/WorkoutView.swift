@@ -124,9 +124,8 @@ class WorkoutView: UIView {
         exerciseDuration = workoutViewModel.workoutDetails.secondsOfExercise
         setDuration = workoutViewModel.workoutDetails.setDuration
         let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
-        videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         super.init(frame: frame)
-        
+        videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         guard let videoView = videoView else { return }
         
         backgroundColor = .black
@@ -196,8 +195,11 @@ class WorkoutView: UIView {
         videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop).isActive = true
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
-        videoView.clipsToBounds = true
-        
+        videoView.bounds = videoView.frame
+        layoutIfNeeded()
+
+        print(videoView.layer.frame, "RWRW")
+        print(videoView.layer.bounds, "RWRW")
         videoView.playVideo()
         runTimer()
     }

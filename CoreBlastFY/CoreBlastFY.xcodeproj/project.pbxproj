@@ -55,7 +55,6 @@
 		7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */; };
 		7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1023E912C700D0D6BD /* VideoView.swift */; };
 		7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1123E912C700D0D6BD /* WorkoutView.swift */; };
-		7A8CBB2C23E912C700D0D6BD /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */; };
 		7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */; };
 		7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */; };
 		7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */; };
@@ -147,7 +146,6 @@
 		7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutInteractor.swift; sourceTree = "<group>"; };
 		7A8CBB1023E912C700D0D6BD /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		7A8CBB1123E912C700D0D6BD /* WorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
-		7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 				7A8CBB0D23E912C700D0D6BD /* WorkoutModels.swift */,
 				7A8CBB0E23E912C700D0D6BD /* WorkoutInteractor.swift */,
 				7A8CBB0F23E912C700D0D6BD /* Views */,
-				7A8CBB1223E912C700D0D6BD /* WorkoutViewModel.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
 				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
 				7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */,
-				7A8CBB2C23E912C700D0D6BD /* WorkoutViewModel.swift in Sources */,
 				7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */,
 				7A8CBB2723E912C700D0D6BD /* WorkoutRouter.swift in Sources */,
 				7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */,

@@ -11,8 +11,6 @@ import AVFoundation
 
 class PlayerLooper: NSObject, Looper {
     // MARK: Types
-
-    var superViewLayer: CALayer?
     
     private struct ObserverContexts {
         static var isLooping = 0
@@ -31,7 +29,9 @@ class PlayerLooper: NSObject, Looper {
     private var player: AVQueuePlayer?
 
     private var playerLayer: AVPlayerLayer?
-
+    
+    var superViewLayer: CALayer?
+    
     private var playerLooper: AVPlayerLooper?
 
     private var isObserving = false
@@ -81,7 +81,8 @@ class PlayerLooper: NSObject, Looper {
         playerItems.removeFirst()
         guard let superViewLayer = superViewLayer else { return }
         guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
-        superViewLayer.frame = superViewSuperLayer
+       // superViewLayer.frame = superViewSuperLayer
+        superViewLayer.bounds = superViewSuperLayer
         start(in: superViewLayer)
     }
     
