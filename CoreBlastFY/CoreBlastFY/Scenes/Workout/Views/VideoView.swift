@@ -14,8 +14,12 @@ class VideoView: UIView {
     private var looper: Looper?
 
     init(frame: CGRect, urls: [URL], loopCount: Int, numberOfSets: Int) {
-        super.init(frame: frame)
+        
         looper = PlayerLooper(videoURLs: urls, loopCount: loopCount, numberOfSets: numberOfSets)
+        super.init(frame: frame)
+        clipsToBounds = true
+        contentMode = .scaleAspectFit
+        
     }
 
     required init?(coder: NSCoder) {

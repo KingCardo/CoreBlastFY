@@ -99,6 +99,8 @@ class OnboardingViewController: UIViewController {
     @objc func grabInputFromUser(_ sender: UIDatePicker) {
         date = sender.date
         UserAPI.user.selectedTime = sender.date
+        print(sender.date, "RWRW")
+        print(UserAPI.user.selectedTime, "RWRW")
         UserManager.save()
     }
  
@@ -157,7 +159,7 @@ class OnboardingViewController: UIViewController {
 //                if self.index == 3 {
 //                    self.configureNameTextField()
 //                }
-                if self.index == 4 {
+                if self.index == 3 {
                     self.configureDatePicker()
                       }
             }
@@ -224,16 +226,16 @@ class OnboardingViewController: UIViewController {
           
             UserDefaults.standard.set(true, forKey: onboardingKey)
             
-            if ExerciseStorage.exercises.isEmpty {
-                let loadingVC = LoadingViewController()
-                loadingVC.modalPresentationStyle = .fullScreen
-                show(loadingVC, sender: self)
-            } else {
+//            if ExerciseStorage.exercises.isEmpty {
+//                let loadingVC = LoadingViewController()
+//                loadingVC.modalPresentationStyle = .fullScreen
+//                show(loadingVC, sender: self)
+//            } else {
             
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             show(homeVC, sender: self)
-            }
+           // }
         default: break
         }
     }
