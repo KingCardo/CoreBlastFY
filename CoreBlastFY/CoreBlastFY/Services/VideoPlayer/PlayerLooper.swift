@@ -79,11 +79,11 @@ class PlayerLooper: NSObject, Looper {
         stop()
         guard !playerItems.isEmpty else { return }
         playerItems.removeFirst()
-        guard let superViewLayer = superViewLayer else { return }
-        guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
-       // superViewLayer.frame = superViewSuperLayer
-        superViewLayer.bounds = superViewSuperLayer
-        start(in: superViewLayer)
+//        guard let superViewLayer = superViewLayer else { return }
+//        guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
+//        superViewLayer.frame = superViewSuperLayer
+//        superViewLayer.bounds = superViewSuperLayer
+//        start(in: superViewLayer)
     }
     
     func start(in parentLayer: CALayer) {
@@ -94,6 +94,7 @@ class PlayerLooper: NSObject, Looper {
         self.playerLooper = AVPlayerLooper(player: player!, templateItem: playerItem)
         self.startObserving()
         playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.videoGravity = .resizeAspectFill
 
         guard let playerLayer = playerLayer else { return }
         playerLayer.frame = parentLayer.bounds

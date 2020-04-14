@@ -39,7 +39,6 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     deinit {
-        workoutView?.workoutFinished()
         workoutView = nil
     }
     

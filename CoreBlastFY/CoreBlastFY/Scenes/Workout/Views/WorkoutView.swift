@@ -125,8 +125,6 @@ class WorkoutView: UIView {
         setDuration = workoutViewModel.workoutDetails.setDuration
         let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
         super.init(frame: frame)
-        videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets: Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
-        guard let videoView = videoView else { return }
         
         backgroundColor = .black
         
@@ -189,19 +187,24 @@ class WorkoutView: UIView {
         durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
         durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
+        videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets:  Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
+        guard let videoView = videoView else { return }
+       
         addSubview(videoView)
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
         videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop).isActive = true
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
         videoView.bounds = videoView.frame
-        layoutIfNeeded()
-
-        print(videoView.layer.frame, "RWRW")
-        print(videoView.layer.bounds, "RWRW")
         videoView.playVideo()
+        
         runTimer()
+    }
+    
+    func setupVideoView(frame: CGRect, urls: [URL], numberOfSets: Int) {
+        videoView = VideoView(frame: frame, urls: urls, loopCount: -1, numberOfSets: numberOfSets)
     }
     
     required init?(coder: NSCoder) {
