@@ -115,10 +115,7 @@ extension EntryViewController: UITextFieldDelegate {
 
 extension EntryViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            return true
-        }
-        return false
+        return true
     }
     
 }
