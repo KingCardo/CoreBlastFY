@@ -31,7 +31,7 @@ enum Settings {
               }
         var items: [SettingsItem] = [
         .about,
-        //.notifications,
+        .notifications,
         //.nutrition,
         .foodLog,
         .reportAProblem

@@ -80,6 +80,13 @@
 		7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
 		7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */; };
+		7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */; };
+		7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */; };
+		7AC2C6902445363700B3BFC8 /* NotificationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68A2445363700B3BFC8 /* NotificationsRouter.swift */; };
+		7AC2C6912445363700B3BFC8 /* NotificationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68B2445363700B3BFC8 /* NotificationsModels.swift */; };
+		7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */; };
+		7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */; };
+		7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +178,13 @@
 		7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = askip.MOV; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
+		7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsWorker.swift; sourceTree = "<group>"; };
+		7AC2C68A2445363700B3BFC8 /* NotificationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRouter.swift; sourceTree = "<group>"; };
+		7AC2C68B2445363700B3BFC8 /* NotificationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsModels.swift; sourceTree = "<group>"; };
+		7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInteractor.swift; sourceTree = "<group>"; };
+		7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomDatePicker.swift; path = CoreBlastFY/Scenes/Onboarding/CustomDatePicker.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +291,7 @@
 		7A8CBAD723E9122D00D0D6BD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */,
 				7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */,
 				7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */,
 				7A8CBAD923E9122D00D0D6BD /* Fonts.swift */,
@@ -435,6 +450,12 @@
 		7A8CBB5D23EFA49E00D0D6BD /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */,
+				7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */,
+				7AC2C68A2445363700B3BFC8 /* NotificationsRouter.swift */,
+				7AC2C68B2445363700B3BFC8 /* NotificationsModels.swift */,
+				7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */,
+				7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -577,12 +598,15 @@
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
 				7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */,
 				7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */,
+				7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */,
 				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
 				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
+				7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */,
 				7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */,
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
 				7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */,
 				7A8CBB6C23EFA57B00D0D6BD /* AboutMeViewController.swift in Sources */,
+				7AC2C6902445363700B3BFC8 /* NotificationsRouter.swift in Sources */,
 				7A8CBB3F23EF936700D0D6BD /* SettingsModels.swift in Sources */,
 				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
 				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
@@ -591,6 +615,7 @@
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
 				7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */,
 				7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */,
+				7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */,
 				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
 				7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */,
 				7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */,
@@ -604,6 +629,7 @@
 				7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */,
 				7A8CBAF123E912B100D0D6BD /* User.swift in Sources */,
 				7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */,
+				7AC2C6912445363700B3BFC8 /* NotificationsModels.swift in Sources */,
 				7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */,
 				7A8CBB3C23EF936700D0D6BD /* SettingsPresenter.swift in Sources */,
 				7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */,
@@ -619,6 +645,7 @@
 				7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */,
 				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
 				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
+				7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */,
 				7A8CBB1D23E912C700D0D6BD /* LoadingView.swift in Sources */,
 				7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */,
 				7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */,
@@ -637,6 +664,7 @@
 				7A8CBB2223E912C700D0D6BD /* WorkoutPresenter.swift in Sources */,
 				7A8CBB4023EF936700D0D6BD /* SettingsInteractor.swift in Sources */,
 				7A8CBB7223EFA5F600D0D6BD /* Animations.swift in Sources */,
+				7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

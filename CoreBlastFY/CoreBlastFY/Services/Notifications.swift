@@ -38,7 +38,7 @@ func timeToWorkoutMNotification() {
        let trigger = UNCalendarNotificationTrigger(
            dateMatching: dateComponents, repeats: true)
        
-       let request = UNNotificationRequest(identifier: "workoutM", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: NotificationIDs.mondayID, content: content, trigger: trigger)
        
        notificationCenter.add(request) { (error) in
            if error != nil {
@@ -63,7 +63,7 @@ func timeToWorkoutTNotification() {
        let trigger = UNCalendarNotificationTrigger(
            dateMatching: dateComponents, repeats: true)
        
-       let request = UNNotificationRequest(identifier: "workoutT", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: NotificationIDs.tuesdayID, content: content, trigger: trigger)
        
        notificationCenter.add(request) { (error) in
            if error != nil {
@@ -88,7 +88,7 @@ func timeToWorkoutWNotification() {
        let trigger = UNCalendarNotificationTrigger(
            dateMatching: dateComponents, repeats: true)
        
-       let request = UNNotificationRequest(identifier: "workoutW", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: NotificationIDs.wednesdayID, content: content, trigger: trigger)
        
        notificationCenter.add(request) { (error) in
            if error != nil {
@@ -113,7 +113,7 @@ func timeToWorkoutTHNotification() {
        let trigger = UNCalendarNotificationTrigger(
            dateMatching: dateComponents, repeats: true)
        
-       let request = UNNotificationRequest(identifier: "workoutTH", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: NotificationIDs.thursdayID, content: content, trigger: trigger)
        
        notificationCenter.add(request) { (error) in
            if error != nil {
@@ -138,7 +138,7 @@ func timeToWorkoutFNotification() {
        let trigger = UNCalendarNotificationTrigger(
            dateMatching: dateComponents, repeats: true)
        
-       let request = UNNotificationRequest(identifier: "workoutF", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: NotificationIDs.fridayID, content: content, trigger: trigger)
        
        notificationCenter.add(request) { (error) in
            if error != nil {
@@ -335,3 +335,46 @@ func prepareRelaxNotification() {
             }
         }
     }
+
+
+
+struct NotificationIDs {
+    static let mondayID = "mondayID"
+    static let tuesdayID = "tuesdayID"
+    static let wednesdayID = "wednesdayID"
+    static let thursdayID = "thursdayID"
+    static let fridayID = "fridayID"
+    static let allIDs = [mondayID, tuesdayID, wednesdayID, thursdayID, fridayID]
+    
+    static func prepareNotification(id: String, weekday: Int, hour: Int, minute: Int, title: String = "Time to get a workout in!", body: String = "You want results or regret?") {
+        let content = UNMutableNotificationContent()
+               content.title = title
+               content.body = body
+               content.sound = UNNotificationSound.default
+               
+               var dateComponents = DateComponents()
+               dateComponents.calendar = Calendar.current
+               
+               dateComponents.weekday = weekday
+               dateComponents.hour = hour
+               
+               
+               // Create the trigger as a repeating event.
+               let trigger = UNCalendarNotificationTrigger(
+                   dateMatching: dateComponents, repeats: true)
+               
+               let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+               
+               notificationCenter.add(request) { (error) in
+                   if error != nil {
+                    print(error)
+                       // Handle any errors.
+                   }
+               }
+    }
+    
+    static func removeNotification(ids: [String]) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)
+    }
+    
+}
