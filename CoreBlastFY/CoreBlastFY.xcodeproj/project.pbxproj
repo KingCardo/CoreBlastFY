@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A8CBAAB23E9109B00D0D6BD /* CoreBlastFYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -87,6 +86,10 @@
 		7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */; };
 		7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */; };
 		7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */; };
+		7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */; };
+		7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */; };
+		7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */; };
+		7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +106,6 @@
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBlastFYTests.swift; sourceTree = "<group>"; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAB623E9113100D0D6BD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreBlastFY.entitlements; sourceTree = "<group>"; };
@@ -185,6 +187,10 @@
 		7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInteractor.swift; sourceTree = "<group>"; };
 		7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomDatePicker.swift; path = CoreBlastFY/Scenes/Onboarding/CustomDatePicker.swift; sourceTree = SOURCE_ROOT; };
+		7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutWorkerTests.swift; sourceTree = "<group>"; };
+		7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +254,7 @@
 		7A8CBAA923E9109B00D0D6BD /* CoreBlastFYTests */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */,
+				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
 				7A8CBAAC23E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFYTests;
@@ -490,6 +496,17 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */,
+				7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */,
+				7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */,
+				7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */,
+			);
+			path = PreWorkoutTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -672,7 +689,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8CBAAB23E9109B00D0D6BD /* CoreBlastFYTests.swift in Sources */,
+				7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */,
+				7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */,
+				7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */,
+				7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

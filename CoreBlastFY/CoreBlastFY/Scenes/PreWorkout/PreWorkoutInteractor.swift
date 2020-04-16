@@ -14,7 +14,6 @@ import Foundation
 
 protocol PreWorkoutBusinessLogic {
   func fetchUserInfo(request: PreWorkout.FetchUser.Request)
-  //func fetchExercises(request: PreWorkout.FetchExercises.Request)
 }
 
 protocol PreWorkoutDataStore {
@@ -25,8 +24,6 @@ class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
     
   var presenter: PreWorkoutPresentationLogic?
   var userInfoWorker: PreWorkoutWorker?
- // var exerciseFetchWorker: ExerciseWorker?
-  //var user: User?
   var exercises: [Exercise] = ExerciseStorage.exercises
   
   // MARK: Do something
@@ -38,9 +35,7 @@ class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
             // TO DO: Handle error
             print(error.localizedDescription)
         } else if let user = user {
-           // self.user = user
             let response = PreWorkout.FetchUser.Response(user: user)
-            print(user.selectedTime, "RWRW")
             self.presenter?.presentUser(response: response)
         }
     }

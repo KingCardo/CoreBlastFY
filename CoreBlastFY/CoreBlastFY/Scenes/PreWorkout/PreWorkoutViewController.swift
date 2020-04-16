@@ -12,8 +12,7 @@
 
 import UIKit
 
-protocol PreWorkoutDisplayLogic: class
-{
+protocol PreWorkoutDisplayLogic: class {
     func displayPreWorkoutViewModel(viewModel: PreWorkout.FetchUser.ViewModel)
 }
 
