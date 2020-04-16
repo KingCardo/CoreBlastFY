@@ -21,7 +21,8 @@ class WorkoutWorker {
     }
     
     func fetchWorkout(completion: @escaping(Workout) -> Void) {
-        let workout = Workout(user: UserAPI.user, exercises: self.dataStore)
+        let user = UserManager.loadUserFromFile()
+        let workout = Workout(user: user, exercises: self.dataStore)
         completion(workout)
     }
 }

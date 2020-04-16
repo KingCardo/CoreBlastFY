@@ -90,6 +90,10 @@
 		7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */; };
 		7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */; };
 		7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */; };
+		7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */; };
+		7AC2C6AE244910B100B3BFC8 /* WorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */; };
+		7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */; };
+		7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +195,10 @@
 		7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
 		7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutWorkerTests.swift; sourceTree = "<group>"; };
 		7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutPresenterTests.swift; sourceTree = "<group>"; };
+		7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutWorkerTests.swift; sourceTree = "<group>"; };
+		7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
+				7AC2C6A82449108F00B3BFC8 /* WorkoutTests */,
 				7A8CBAAC23E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFYTests;
@@ -507,6 +516,17 @@
 			path = PreWorkoutTests;
 			sourceTree = "<group>";
 		};
+		7AC2C6A82449108F00B3BFC8 /* WorkoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */,
+				7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */,
+				7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */,
+				7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */,
+			);
+			path = WorkoutTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -689,9 +709,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */,
+				7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */,
 				7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */,
 				7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */,
+				7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */,
 				7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */,
+				7AC2C6AE244910B100B3BFC8 /* WorkoutInteractorTests.swift in Sources */,
 				7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
