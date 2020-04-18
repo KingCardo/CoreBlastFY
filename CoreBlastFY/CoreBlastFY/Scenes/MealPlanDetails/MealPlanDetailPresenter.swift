@@ -23,7 +23,7 @@ class MealPlanDetailPresenter: MealPlanDetailPresentationLogic {
   
   func presentMealPlanDetails(response: MealPlanDetail.FetchDetails.Response) {
     let mealPlan = response.mealPlan
-    let displayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: mealPlan.title, summary: mealPlan.summary, description: mealPlan.description, planImage: nil /*UIImage(data: mealPlan.imageData)*/)
+    let displayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: mealPlan.title, summary: mealPlan.summary, description: mealPlan.description, planImage: mealPlan.image)
     let viewModel = MealPlanDetail.FetchDetails.ViewModel(displayedPlan: displayedPlan)
     viewController?.displayMealPlanDetails(viewModel: viewModel)
   }

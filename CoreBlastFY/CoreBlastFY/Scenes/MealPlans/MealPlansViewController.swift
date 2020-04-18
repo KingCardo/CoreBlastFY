@@ -104,9 +104,7 @@ extension MealPlansViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealPlansOverviewCollectionViewCell.id, for: indexPath) as? MealPlansOverviewCollectionViewCell else {
             return UICollectionViewCell() }
         let plan = displayedPlans[indexPath.item]
-        cell.item = plan
-        cell.backgroundColor = .white
-        
+        cell.configure(item: plan)
         return cell
         
     }

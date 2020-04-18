@@ -21,16 +21,16 @@ extension UIView {
     
     func createShadowLayer(view: UIView) {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.8).cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.clear.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         gradientLayer.frame = layer.bounds
         view.layer.addSublayer(gradientLayer)
         
         let saturateLayer = CALayer()
         saturateLayer.backgroundColor = UIColor.black.cgColor
         saturateLayer.frame = view.layer.bounds
-        saturateLayer.opacity = 0.3
+        saturateLayer.opacity = 0.4
         view.layer.addSublayer(saturateLayer)
     }
 }

@@ -17,13 +17,12 @@ class MealPlanAPI: GetPlansOverviewStore {
     }
 }
 
+let mockMP1 = MealPlan(title: "Tips for Success", summary: "Have no idea what you should be eating? This is for you!", imageData: Data(), description: "ngiorjgi;rgi;dng;irngi;rngirng'nkergner'kgnerglnergk/regnerkgng", image: #imageLiteral(resourceName: "mp1image"))
 
-let mockMP1 = MealPlan(title: "Tips for Success", summary: "Have no idea what you should be eating? This is for you!", imageData: Data(), description: "ngiorjgi;rgi;dng;irngi;rngirng'nkergner'kgnerglnergk/regnerkgng")
+let mockMP2 = MealPlan(title: "Shredded Meal Plan", summary: "Accelerate your gains with this fat burning plan!", imageData: Data(), description: "frfn;ewnfiwr;ngiergnreignrelkgnre;gnerlkngrkgegerkgnekgrg ejrg ", image: #imageLiteral(resourceName: "mp2image"))
 
-let mockMP2 = MealPlan(title: "Shredded Meal Plan", summary: "Accelerate your gains with this fat burning plan!", imageData: Data(), description: "frfn;ewnfiwr;ngiergnreignrelkgnre;gnerlkngrkgegerkgnekgrg ejrg ")
+let mockMP3 = MealPlan(title: "Gain while Chisel", summary: "This plan lets you gain muscle mass while making six pack gains!", imageData: Data(), description: "efbefbrlf;fner;fnkfneknferknfkerfnkerfkr", image: #imageLiteral(resourceName: "nutrition"))
 
-let mockMP3 = MealPlan(title: "Gain while Chisel", summary: "This plan lets you gain muscle mass while making six pack gains!", imageData: Data(), description: "efbefbrlf;fner;fnkfneknferknfkerfnkerfkr")
-
-let mockMP4 = MealPlan(title: "Franchiz Personal Plan", summary: "This is my current meal plan for the maintenance phase when you get where you want to be!", imageData: Data(), description: "rfjnrfnrengekrgergm;krngjer;gje;rbbgerjgerbjg")
+let mockMP4 = MealPlan(title: "Franchiz Personal Plan", summary: "This is my current meal plan for the maintenance phase when you get where you want to be!", imageData: Data(), description: "rfjnrfnrengekrgergm;krngjer;gje;rbbgerjgerbjg", image: #imageLiteral(resourceName: "inapppromopic"))
 
 let allMPs = [mockMP1, mockMP2, mockMP3, mockMP4]
