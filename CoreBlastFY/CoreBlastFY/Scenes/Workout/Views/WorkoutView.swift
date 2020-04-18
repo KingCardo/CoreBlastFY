@@ -27,11 +27,11 @@ class WorkoutView: UIView {
     var timerIsRunning = false
     
     private var videoView: VideoView?
-   
+    
     private var exercises: [Exercise]
     private let setDuration: TimeInterval
     private let exerciseDuration: TimeInterval
-
+    
     private var numberOfSets: Int {
         guard let number = Int(workoutViewModel.workoutDetails.numberOfSets) else { return 4 }
         return number
@@ -91,7 +91,7 @@ class WorkoutView: UIView {
         timerIsRunning = false
         invalidateTimers()
         videoView?.pauseVideo()
-       }
+    }
     
     private func invalidateTimers() {
         workoutTimer.invalidate()
@@ -126,16 +126,6 @@ class WorkoutView: UIView {
         let videoUrls: [URL] = workoutViewModel.workoutDetails.exercises.compactMap {  $0.videoURL }
         super.init(frame: frame)
         videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets:  Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
-               guard let videoView = videoView else { return }
-              
-               addSubview(videoView)
-               videoView.translatesAutoresizingMaskIntoConstraints = false
-               videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-               videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-               
-               videoView.topAnchor.constraint(equalTo: topAnchor/*setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop*/).isActive = true
-               videoView.bottomAnchor.constraint(equalTo: bottomAnchor/*durationStackView.topAnchor*/, constant: Style.Dimension.edgeInsets.right).isActive = true
-               videoView.bounds = videoView.frame
         
         backgroundColor = .black
         
@@ -202,7 +192,15 @@ class WorkoutView: UIView {
         durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
         durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
-       
+        guard let videoView = videoView else { return }
+        
+        addSubview(videoView)
+        videoView.translatesAutoresizingMaskIntoConstraints = false
+        videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop).isActive = true
+        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
+        videoView.bounds = videoView.frame
         videoView.playVideo()
         
         runTimer()

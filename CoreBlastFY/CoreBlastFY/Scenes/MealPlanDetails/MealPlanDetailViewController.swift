@@ -13,70 +13,66 @@
 import UIKit
 
 protocol MealPlanDetailDisplayLogic: class {
-  func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel)
+    func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel)
 }
 
 class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic {
-  var interactor: (MealPlanDetailBusinessLogic & MealPlanDetailDataStore)?
-  var router: (NSObjectProtocol & MealPlanDetailRoutingLogic & MealPlanDetailDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = MealPlanDetailInteractor()
-    let presenter = MealPlanDetailPresenter()
-    let router = MealPlanDetailRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    var interactor: (MealPlanDetailBusinessLogic & MealPlanDetailDataStore)?
+    var router: (NSObjectProtocol & MealPlanDetailRoutingLogic & MealPlanDetailDataPassing)?
     
-  }
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = MealPlanDetailInteractor()
+        let presenter = MealPlanDetailPresenter()
+        let router = MealPlanDetailRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: View lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
         fetchMealPlanDetails()
     }
-  // MARK: Do something
-  
-  var backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "nutrition"))
-  
-  func fetchMealPlanDetails() {
-    let request = MealPlanDetail.FetchDetails.Request()
-    interactor?.fetchMealPlanDetails(request: request)
-  }
-  
-  func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel) {
-  }
+    
+    // MARK: Do something
+    
+    var backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "nutrition"))
+    
+    func fetchMealPlanDetails() {
+        let request = MealPlanDetail.FetchDetails.Request()
+        interactor?.fetchMealPlanDetails(request: request)
+    }
+    
+    func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel) {
+        backgroundImageView.image = viewModel.displayedPlan.planImage
+    }
     
     private func setupViews() {
+        view.createShadowLayer(view: backgroundImageView)
         view.addSubview(backgroundImageView)
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.fillSuperview()

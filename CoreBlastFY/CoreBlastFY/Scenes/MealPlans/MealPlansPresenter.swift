@@ -22,7 +22,7 @@ class MealPlansPresenter: MealPlansPresentationLogic {
   // MARK: Do something
   
   func presentMealPlansOverview(response: MealPlans.GetPlan.Response) {
-    let planOverviews = response.mealPlans.map( { MealPlans.GetPlan.ViewModel.PlanOverview(title: $0.title, summary: $0.summary, image: nil) })
+    let planOverviews = response.mealPlans.map( { MealPlans.GetPlan.ViewModel.PlanOverview(title: $0.title, summary: $0.summary, image: $0.image) })
     
     let viewModel = MealPlans.GetPlan.ViewModel(planOverViews: planOverviews)
     viewController?.displayPlans(viewModel: viewModel)
