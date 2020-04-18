@@ -108,6 +108,15 @@
 		7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */; };
 		7AC2C6CD244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6CC244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift */; };
 		7AC2C6CF244A86C800B3BFC8 /* Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */; };
+		7AC2C6D7244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D1244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift */; };
+		7AC2C6D8244B8F1800B3BFC8 /* MealPlanDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D2244B8F1800B3BFC8 /* MealPlanDetailWorker.swift */; };
+		7AC2C6D9244B8F1800B3BFC8 /* MealPlanDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D3244B8F1800B3BFC8 /* MealPlanDetailRouter.swift */; };
+		7AC2C6DA244B8F1800B3BFC8 /* MealPlanDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D4244B8F1800B3BFC8 /* MealPlanDetailModels.swift */; };
+		7AC2C6DB244B8F1800B3BFC8 /* MealPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D5244B8F1800B3BFC8 /* MealPlanDetailViewController.swift */; };
+		7AC2C6DC244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6D6244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift */; };
+		7AC36D01244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36CFD244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift */; };
+		7AC36D02244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36CFE244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift */; };
+		7AC36D04244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D00244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +236,15 @@
 		7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAPI.swift; sourceTree = "<group>"; };
 		7AC2C6CC244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+.swift"; sourceTree = "<group>"; };
+		7AC2C6D1244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailPresenter.swift; sourceTree = "<group>"; };
+		7AC2C6D2244B8F1800B3BFC8 /* MealPlanDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailWorker.swift; sourceTree = "<group>"; };
+		7AC2C6D3244B8F1800B3BFC8 /* MealPlanDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailRouter.swift; sourceTree = "<group>"; };
+		7AC2C6D4244B8F1800B3BFC8 /* MealPlanDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailModels.swift; sourceTree = "<group>"; };
+		7AC2C6D5244B8F1800B3BFC8 /* MealPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailViewController.swift; sourceTree = "<group>"; };
+		7AC2C6D6244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailInteractor.swift; sourceTree = "<group>"; };
+		7AC36CFD244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC36CFE244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		7AC36D00244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailsPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +311,7 @@
 				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
 				7AC2C6A82449108F00B3BFC8 /* WorkoutTests */,
 				7AC2C6B2244917FF00B3BFC8 /* MealPlansTest */,
+				7AC36CFC244B9AC6002764F5 /* MealPlanDetailsTests */,
 				7A8CBAAC23E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFYTests;
@@ -402,6 +421,7 @@
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
 				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
+				7AC2C6D0244B8EF000B3BFC8 /* MealPlanDetails */,
 				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
@@ -593,6 +613,29 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7AC2C6D0244B8EF000B3BFC8 /* MealPlanDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6D1244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift */,
+				7AC2C6D2244B8F1800B3BFC8 /* MealPlanDetailWorker.swift */,
+				7AC2C6D3244B8F1800B3BFC8 /* MealPlanDetailRouter.swift */,
+				7AC2C6D4244B8F1800B3BFC8 /* MealPlanDetailModels.swift */,
+				7AC2C6D5244B8F1800B3BFC8 /* MealPlanDetailViewController.swift */,
+				7AC2C6D6244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift */,
+			);
+			path = MealPlanDetails;
+			sourceTree = "<group>";
+		};
+		7AC36CFC244B9AC6002764F5 /* MealPlanDetailsTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AC36CFD244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift */,
+				7AC36CFE244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift */,
+				7AC36D00244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift */,
+			);
+			path = MealPlanDetailsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -714,6 +757,7 @@
 				7AC2C6902445363700B3BFC8 /* NotificationsRouter.swift in Sources */,
 				7A8CBB3F23EF936700D0D6BD /* SettingsModels.swift in Sources */,
 				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
+				7AC2C6DB244B8F1800B3BFC8 /* MealPlanDetailViewController.swift in Sources */,
 				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
 				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
 				7AC2C6C8244A5C9E00B3BFC8 /* MealPlan.swift in Sources */,
@@ -724,16 +768,19 @@
 				7AC2C6C32449183C00B3BFC8 /* MealPlansRouter.swift in Sources */,
 				7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */,
 				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
+				7AC2C6D8244B8F1800B3BFC8 /* MealPlanDetailWorker.swift in Sources */,
 				7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */,
 				7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */,
 				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
 				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
 				7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */,
+				7AC2C6D9244B8F1800B3BFC8 /* MealPlanDetailRouter.swift in Sources */,
 				7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */,
 				7A8CBB2723E912C700D0D6BD /* WorkoutRouter.swift in Sources */,
 				7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */,
 				7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */,
 				7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */,
+				7AC2C6DC244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift in Sources */,
 				7A8CBAF123E912B100D0D6BD /* User.swift in Sources */,
 				7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */,
 				7AC2C6912445363700B3BFC8 /* NotificationsModels.swift in Sources */,
@@ -741,6 +788,7 @@
 				7A8CBB3C23EF936700D0D6BD /* SettingsPresenter.swift in Sources */,
 				7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */,
 				7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */,
+				7AC2C6D7244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift in Sources */,
 				7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */,
 				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
 				7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */,
@@ -765,6 +813,7 @@
 				7AC2C6C22449183C00B3BFC8 /* MealPlansWorker.swift in Sources */,
 				7A8CBB6623EFA50B00D0D6BD /* EntryCell.swift in Sources */,
 				7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */,
+				7AC2C6DA244B8F1800B3BFC8 /* MealPlanDetailModels.swift in Sources */,
 				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
 				7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */,
 				7AC2C6CF244A86C800B3BFC8 /* Extensions+.swift in Sources */,
@@ -786,11 +835,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC2C6B82449181800B3BFC8 /* MealPlansInteractorTests.swift in Sources */,
+				7AC36D04244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift in Sources */,
 				7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */,
 				7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */,
+				7AC36D02244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift in Sources */,
 				7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */,
 				7AC2C6B92449181800B3BFC8 /* MealPlansWorkerTests.swift in Sources */,
 				7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */,
+				7AC36D01244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift in Sources */,
 				7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */,
 				7AC2C6B72449181800B3BFC8 /* MealPlansViewControllerTests.swift in Sources */,
 				7AC2C6BA2449181800B3BFC8 /* MealPlansPresenterTests.swift in Sources */,

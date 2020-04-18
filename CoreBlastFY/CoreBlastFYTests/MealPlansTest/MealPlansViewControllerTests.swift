@@ -46,7 +46,8 @@ class MealPlansViewControllerTests: XCTestCase {
     
     // MARK: Test doubles
     
-    class MealPlansBusinessLogicSpy: MealPlansBusinessLogic {
+    class MealPlansBusinessLogicSpy: MealPlansBusinessLogic, MealPlansDataStore {
+        var mealPlans: [MealPlan]?
 
         var doSomethingCalled = false
         

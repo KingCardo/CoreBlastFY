@@ -13,46 +13,38 @@
 import UIKit
 
 @objc protocol MealPlansRoutingLogic {
-  func routeToMealPlanDetailController()
+    func routeToMealPlanDetailController()
 }
 
-protocol MealPlansDataPassing
-{
-  var dataStore: MealPlansDataStore? { get }
+protocol MealPlansDataPassing {
+    var dataStore: MealPlansDataStore? { get }
 }
 
-class MealPlansRouter: NSObject, MealPlansRoutingLogic, MealPlansDataPassing
-{
-  weak var viewController: MealPlansViewController?
-  var dataStore: MealPlansDataStore?
-  
-  // MARK: Routing
-  
-  func routeToMealPlanDetailController() {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  }
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: MealPlansViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: MealPlansDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+class MealPlansRouter: NSObject, MealPlansRoutingLogic, MealPlansDataPassing {
+    weak var viewController: MealPlansViewController?
+    var dataStore: MealPlansDataStore?
+    
+    // MARK: Routing
+    
+    func routeToMealPlanDetailController() {
+        guard let source = viewController else { return }
+        let destinationVC = MealPlanDetailViewController()
+        guard let dataStore = dataStore else { return }
+        guard var destinationDS = destinationVC.router?.dataStore else { return }
+        passMealPlanToDetailController(source: dataStore, destination: &destinationDS)
+        navigateToMealPlanDetailController(source: source, destination: destinationVC)
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToMealPlanDetailController(source: MealPlansViewController, destination: MealPlanDetailViewController) {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    func passMealPlanToDetailController(source: MealPlansDataStore, destination: inout MealPlanDetailDataStore) {
+        let selectedRow = viewController?.collectionView.indexPathsForSelectedItems?.first?.item
+        destination.mealPlan = source.mealPlans?[selectedRow!]
+    }
 }

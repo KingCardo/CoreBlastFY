@@ -17,7 +17,7 @@ protocol MealPlansDisplayLogic: class {
 }
 
 class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic {
-    var interactor: MealPlansBusinessLogic?
+    var interactor: (MealPlansBusinessLogic & MealPlansDataStore)?
     var router: (NSObjectProtocol & MealPlansRoutingLogic & MealPlansDataPassing)?
     
     override var prefersStatusBarHidden: Bool {
@@ -114,9 +114,8 @@ extension MealPlansViewController {
 
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         //in app purchase and route to meal plan details
-        
+        routeToMealPlanDetails()
     }
 }
 

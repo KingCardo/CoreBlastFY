@@ -17,26 +17,33 @@ protocol MealPlansBusinessLogic {
 }
 
 protocol MealPlansDataStore {
-    
+    var mealPlans: [MealPlan]? { get }
 }
 
 class MealPlansInteractor: MealPlansBusinessLogic, MealPlansDataStore {
     var presenter: MealPlansPresentationLogic?
     var worker: MealPlansWorker?
+    var mealPlans: [MealPlan]?
     
     
     // MARK: Do something
     
     func getPlansOverview(request: MealPlans.GetPlan.Request) {
-        worker = MealPlansWorker(dataStore: MealPlanAPI())
-        worker?.getPlansOverview(completion: { (mealPlans, error) in
-            if let mealPlans = mealPlans {
+        if let mealPlans = mealPlans {
             let response = MealPlans.GetPlan.Response(mealPlans: mealPlans)
             self.presenter?.presentMealPlansOverview(response: response)
-            } else {
-                //handle error
-                print("error getting meal plans")
-            }
-        })
+        } else {
+            worker = MealPlansWorker(dataStore: MealPlanAPI())
+            worker?.getPlansOverview(completion: { (mealPlans, error) in
+                if let mealPlans = mealPlans {
+                    self.mealPlans = mealPlans
+                    let response = MealPlans.GetPlan.Response(mealPlans: mealPlans)
+                    self.presenter?.presentMealPlansOverview(response: response)
+                } else {
+                    //handle error
+                    print("error getting meal plans")
+                }
+            })
+        }
     }
 }
