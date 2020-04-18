@@ -22,6 +22,7 @@ protocol WorkoutDataStore {
 }
 
 class WorkoutInteractor: WorkoutBusinessLogic, WorkoutDataStore {
+    
   var presenter: WorkoutPresentationLogic?
   var worker: WorkoutWorker?
   var workout: Workout?
