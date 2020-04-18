@@ -78,7 +78,7 @@ class EntryViewController: UIViewController {
     
     private lazy var bodyTextView: UITextView = {
         let tv = UITextView()
-        tv.returnKeyType = .done
+        tv.returnKeyType = .default
         tv.clipsToBounds = true
         tv.layer.cornerRadius = Dimensions.bodyTextViewCornerRadius
         tv.delegate = self
@@ -108,17 +108,13 @@ class EntryViewController: UIViewController {
 extension EntryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true
+        return false
     }
     
 }
 
 extension EntryViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
         return true
     }
     

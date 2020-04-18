@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A8CBAAB23E9109B00D0D6BD /* CoreBlastFYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -87,6 +86,28 @@
 		7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */; };
 		7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */; };
 		7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */; };
+		7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */; };
+		7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */; };
+		7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */; };
+		7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */; };
+		7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */; };
+		7AC2C6AE244910B100B3BFC8 /* WorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */; };
+		7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */; };
+		7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */; };
+		7AC2C6B72449181800B3BFC8 /* MealPlansViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6B32449181700B3BFC8 /* MealPlansViewControllerTests.swift */; };
+		7AC2C6B82449181800B3BFC8 /* MealPlansInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6B42449181800B3BFC8 /* MealPlansInteractorTests.swift */; };
+		7AC2C6B92449181800B3BFC8 /* MealPlansWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6B52449181800B3BFC8 /* MealPlansWorkerTests.swift */; };
+		7AC2C6BA2449181800B3BFC8 /* MealPlansPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6B62449181800B3BFC8 /* MealPlansPresenterTests.swift */; };
+		7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6BB2449183C00B3BFC8 /* MealPlansPresenter.swift */; };
+		7AC2C6C22449183C00B3BFC8 /* MealPlansWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6BC2449183C00B3BFC8 /* MealPlansWorker.swift */; };
+		7AC2C6C32449183C00B3BFC8 /* MealPlansRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6BD2449183C00B3BFC8 /* MealPlansRouter.swift */; };
+		7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6BE2449183C00B3BFC8 /* MealPlansModels.swift */; };
+		7AC2C6C52449183C00B3BFC8 /* MealPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6BF2449183C00B3BFC8 /* MealPlansViewController.swift */; };
+		7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6C02449183C00B3BFC8 /* MealPlansInteractor.swift */; };
+		7AC2C6C8244A5C9E00B3BFC8 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6C7244A5C9E00B3BFC8 /* MealPlan.swift */; };
+		7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */; };
+		7AC2C6CD244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6CC244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift */; };
+		7AC2C6CF244A86C800B3BFC8 /* Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +124,6 @@
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBlastFYTests.swift; sourceTree = "<group>"; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAB623E9113100D0D6BD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreBlastFY.entitlements; sourceTree = "<group>"; };
@@ -185,6 +205,28 @@
 		7AC2C68C2445363700B3BFC8 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		7AC2C68D2445363700B3BFC8 /* NotificationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInteractor.swift; sourceTree = "<group>"; };
 		7AC2C6942445486400B3BFC8 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomDatePicker.swift; path = CoreBlastFY/Scenes/Onboarding/CustomDatePicker.swift; sourceTree = SOURCE_ROOT; };
+		7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutWorkerTests.swift; sourceTree = "<group>"; };
+		7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutPresenterTests.swift; sourceTree = "<group>"; };
+		7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutWorkerTests.swift; sourceTree = "<group>"; };
+		7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenterTests.swift; sourceTree = "<group>"; };
+		7AC2C6B32449181700B3BFC8 /* MealPlansViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansViewControllerTests.swift; sourceTree = "<group>"; };
+		7AC2C6B42449181800B3BFC8 /* MealPlansInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansInteractorTests.swift; sourceTree = "<group>"; };
+		7AC2C6B52449181800B3BFC8 /* MealPlansWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansWorkerTests.swift; sourceTree = "<group>"; };
+		7AC2C6B62449181800B3BFC8 /* MealPlansPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansPresenterTests.swift; sourceTree = "<group>"; };
+		7AC2C6BB2449183C00B3BFC8 /* MealPlansPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansPresenter.swift; sourceTree = "<group>"; };
+		7AC2C6BC2449183C00B3BFC8 /* MealPlansWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansWorker.swift; sourceTree = "<group>"; };
+		7AC2C6BD2449183C00B3BFC8 /* MealPlansRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansRouter.swift; sourceTree = "<group>"; };
+		7AC2C6BE2449183C00B3BFC8 /* MealPlansModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansModels.swift; sourceTree = "<group>"; };
+		7AC2C6BF2449183C00B3BFC8 /* MealPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansViewController.swift; sourceTree = "<group>"; };
+		7AC2C6C02449183C00B3BFC8 /* MealPlansInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansInteractor.swift; sourceTree = "<group>"; };
+		7AC2C6C7244A5C9E00B3BFC8 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
+		7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAPI.swift; sourceTree = "<group>"; };
+		7AC2C6CC244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlansOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +290,9 @@
 		7A8CBAA923E9109B00D0D6BD /* CoreBlastFYTests */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBAAA23E9109B00D0D6BD /* CoreBlastFYTests.swift */,
+				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
+				7AC2C6A82449108F00B3BFC8 /* WorkoutTests */,
+				7AC2C6B2244917FF00B3BFC8 /* MealPlansTest */,
 				7A8CBAAC23E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFYTests;
@@ -284,6 +328,7 @@
 				7A8CBACD23E9122500D0D6BD /* Firebase.swift */,
 				7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */,
 				7ABC86DD23FB8D40008DCDE3 /* VideoPlayer */,
+				7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,6 +344,7 @@
 				7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */,
 				7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */,
 				7A8CBB7123EFA5F600D0D6BD /* Animations.swift */,
+				7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -335,6 +381,7 @@
 				7A8CBAED23E912B100D0D6BD /* Workout.swift */,
 				7A8CBAEE23E912B100D0D6BD /* User.swift */,
 				7A8CBAEF23E912B100D0D6BD /* Exercise.swift */,
+				7AC2C6C7244A5C9E00B3BFC8 /* MealPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +401,7 @@
 				7A8CBB0123E912C700D0D6BD /* Progression */,
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
+				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
 				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
@@ -490,6 +538,61 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6A0244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift */,
+				7AC2C6A1244907F800B3BFC8 /* PreWorkoutInteractorTests.swift */,
+				7AC2C6A2244907F800B3BFC8 /* PreWorkoutWorkerTests.swift */,
+				7AC2C6A3244907F800B3BFC8 /* PreWorkoutPresenterTests.swift */,
+			);
+			path = PreWorkoutTests;
+			sourceTree = "<group>";
+		};
+		7AC2C6A82449108F00B3BFC8 /* WorkoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6A9244910B100B3BFC8 /* WorkoutViewControllerTests.swift */,
+				7AC2C6AA244910B100B3BFC8 /* WorkoutInteractorTests.swift */,
+				7AC2C6AB244910B100B3BFC8 /* WorkoutWorkerTests.swift */,
+				7AC2C6AC244910B100B3BFC8 /* WorkoutPresenterTests.swift */,
+			);
+			path = WorkoutTests;
+			sourceTree = "<group>";
+		};
+		7AC2C6B12449165C00B3BFC8 /* MealPlans */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6CB244A773200B3BFC8 /* Views */,
+				7AC2C6BB2449183C00B3BFC8 /* MealPlansPresenter.swift */,
+				7AC2C6BC2449183C00B3BFC8 /* MealPlansWorker.swift */,
+				7AC2C6BD2449183C00B3BFC8 /* MealPlansRouter.swift */,
+				7AC2C6BE2449183C00B3BFC8 /* MealPlansModels.swift */,
+				7AC2C6BF2449183C00B3BFC8 /* MealPlansViewController.swift */,
+				7AC2C6C02449183C00B3BFC8 /* MealPlansInteractor.swift */,
+			);
+			path = MealPlans;
+			sourceTree = "<group>";
+		};
+		7AC2C6B2244917FF00B3BFC8 /* MealPlansTest */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6B32449181700B3BFC8 /* MealPlansViewControllerTests.swift */,
+				7AC2C6B42449181800B3BFC8 /* MealPlansInteractorTests.swift */,
+				7AC2C6B52449181800B3BFC8 /* MealPlansWorkerTests.swift */,
+				7AC2C6B62449181800B3BFC8 /* MealPlansPresenterTests.swift */,
+			);
+			path = MealPlansTest;
+			sourceTree = "<group>";
+		};
+		7AC2C6CB244A773200B3BFC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2C6CC244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -594,11 +697,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8CBB6823EFA50B00D0D6BD /* Entry.swift in Sources */,
+				7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */,
 				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
 				7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */,
 				7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */,
 				7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */,
+				7AC2C6C52449183C00B3BFC8 /* MealPlansViewController.swift in Sources */,
 				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
 				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
 				7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */,
@@ -611,10 +716,12 @@
 				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
 				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
 				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
+				7AC2C6C8244A5C9E00B3BFC8 /* MealPlan.swift in Sources */,
 				7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */,
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
 				7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */,
 				7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */,
+				7AC2C6C32449183C00B3BFC8 /* MealPlansRouter.swift in Sources */,
 				7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */,
 				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
 				7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */,
@@ -634,12 +741,16 @@
 				7A8CBB3C23EF936700D0D6BD /* SettingsPresenter.swift in Sources */,
 				7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */,
 				7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */,
+				7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */,
 				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
 				7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */,
+				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7A8CBB3D23EF936700D0D6BD /* SettingsWorker.swift in Sources */,
+				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
 				7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */,
+				7AC2C6CD244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift in Sources */,
 				7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */,
 				7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */,
 				7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */,
@@ -651,10 +762,12 @@
 				7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */,
 				7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */,
 				7A8CBB2123E912C700D0D6BD /* ProgressionCollectionViewController.swift in Sources */,
+				7AC2C6C22449183C00B3BFC8 /* MealPlansWorker.swift in Sources */,
 				7A8CBB6623EFA50B00D0D6BD /* EntryCell.swift in Sources */,
 				7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */,
 				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
 				7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */,
+				7AC2C6CF244A86C800B3BFC8 /* Extensions+.swift in Sources */,
 				7A8CBAF023E912B100D0D6BD /* Workout.swift in Sources */,
 				7A8CBB6523EFA50B00D0D6BD /* EntryController.swift in Sources */,
 				7A8CBAEB23E9129F00D0D6BD /* SettingsViewController.swift in Sources */,
@@ -672,7 +785,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8CBAAB23E9109B00D0D6BD /* CoreBlastFYTests.swift in Sources */,
+				7AC2C6B82449181800B3BFC8 /* MealPlansInteractorTests.swift in Sources */,
+				7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */,
+				7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */,
+				7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */,
+				7AC2C6B92449181800B3BFC8 /* MealPlansWorkerTests.swift in Sources */,
+				7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */,
+				7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */,
+				7AC2C6B72449181800B3BFC8 /* MealPlansViewControllerTests.swift in Sources */,
+				7AC2C6BA2449181800B3BFC8 /* MealPlansPresenterTests.swift in Sources */,
+				7AC2C6A6244907F800B3BFC8 /* PreWorkoutWorkerTests.swift in Sources */,
+				7AC2C6AE244910B100B3BFC8 /* WorkoutInteractorTests.swift in Sources */,
+				7AC2C6A7244907F800B3BFC8 /* PreWorkoutPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

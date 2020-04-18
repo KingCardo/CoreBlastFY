@@ -18,7 +18,6 @@ class VideoView: UIView {
         looper = PlayerLooper(videoURLs: urls, loopCount: loopCount, numberOfSets: numberOfSets)
         super.init(frame: frame)
         clipsToBounds = true
-        contentMode = .scaleAspectFit
         
     }
 
@@ -36,6 +35,7 @@ class VideoView: UIView {
     
     func advanceToNextItem() {
         looper?.advanceToNextItem()
+        looper?.start(in: layer)
     }
     
     func pauseVideo() {

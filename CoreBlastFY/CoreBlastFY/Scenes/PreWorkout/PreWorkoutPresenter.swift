@@ -12,8 +12,7 @@
 
 import UIKit
 
-protocol PreWorkoutPresentationLogic
-{
+protocol PreWorkoutPresentationLogic {
   func presentUser(response: PreWorkout.FetchUser.Response)
 }
 

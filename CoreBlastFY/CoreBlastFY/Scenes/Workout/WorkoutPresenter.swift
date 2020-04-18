@@ -12,13 +12,11 @@
 
 import UIKit
 
-protocol WorkoutPresentationLogic
-{
+protocol WorkoutPresentationLogic {
     func presentWorkout(response: WorkoutInfo.FetchWorkout.Response)
 }
 
-class WorkoutPresenter: WorkoutPresentationLogic
-{
+class WorkoutPresenter: WorkoutPresentationLogic {
     weak var viewController: WorkoutDisplayLogic?
     
     func timeString(time: TimeInterval) -> String {
