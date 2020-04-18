@@ -60,11 +60,6 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     // MARK: View lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getPlans()
@@ -81,11 +76,8 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     func displayPlans(viewModel: MealPlans.GetPlan.ViewModel) {
         displayedPlans = viewModel.planOverViews
-        print(displayedPlans.count, "RWRWDP")
         collectionView.reloadData()
     }
-    
-    
 }
 
 extension MealPlansViewController: UICollectionViewDelegateFlowLayout {

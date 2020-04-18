@@ -13,29 +13,26 @@
 @testable import CoreBlastFY
 import XCTest
 
-class MealPlansInteractorTests: XCTestCase
-{
+class MealPlansInteractorTests: XCTestCase {
   // MARK: Subject under test
   
   var sut: MealPlansInteractor!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     setupMealPlansInteractor()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     super.tearDown()
+    sut = nil
   }
   
   // MARK: Test setup
   
-  func setupMealPlansInteractor()
-  {
+  func setupMealPlansInteractor() {
     sut = MealPlansInteractor()
   }
   
@@ -43,25 +40,24 @@ class MealPlansInteractorTests: XCTestCase
   
   class MealPlansPresentationLogicSpy: MealPlansPresentationLogic
   {
-    var presentSomethingCalled = false
-    
-    func presentSomething(response: MealPlans.Something.Response)
-    {
-      presentSomethingCalled = true
+    func presentMealPlansOverview(response: MealPlans.GetPlan.Response) {
+        presentSomethingCalled = true
     }
+    
+    var presentSomethingCalled = false
+
   }
   
   // MARK: Tests
   
-  func testDoSomething()
-  {
+  func testDoSomething() {
     // Given
     let spy = MealPlansPresentationLogicSpy()
     sut.presenter = spy
-    let request = MealPlans.Something.Request()
+    let request = MealPlans.GetPlan.Request()
     
     // When
-    sut.doSomething(request: request)
+    sut.getPlansOverview(request: request)
     
     // Then
     XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")

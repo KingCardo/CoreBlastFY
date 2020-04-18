@@ -13,29 +13,26 @@
 @testable import CoreBlastFY
 import XCTest
 
-class MealPlansPresenterTests: XCTestCase
-{
+class MealPlansPresenterTests: XCTestCase {
   // MARK: Subject under test
   
   var sut: MealPlansPresenter!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     setupMealPlansPresenter()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     super.tearDown()
+    sut = nil
   }
   
   // MARK: Test setup
   
-  func setupMealPlansPresenter()
-  {
+  func setupMealPlansPresenter() {
     sut = MealPlansPresenter()
   }
   
@@ -43,25 +40,24 @@ class MealPlansPresenterTests: XCTestCase
   
   class MealPlansDisplayLogicSpy: MealPlansDisplayLogic
   {
-    var displaySomethingCalled = false
-    
-    func displaySomething(viewModel: MealPlans.Something.ViewModel)
-    {
-      displaySomethingCalled = true
+    func displayPlans(viewModel: MealPlans.GetPlan.ViewModel) {
+        displaySomethingCalled = true
     }
+    
+    var displaySomethingCalled = false
   }
   
   // MARK: Tests
   
-  func testPresentSomething()
-  {
+  func testPresentMealPlansOverview() {
     // Given
     let spy = MealPlansDisplayLogicSpy()
     sut.viewController = spy
-    let response = MealPlans.Something.Response()
+    let mockMP = MealPlan(title: "demo", summary: "demo", imageData: nil)
+    let response = MealPlans.GetPlan.Response(mealPlans: [mockMP])
     
     // When
-    sut.presentSomething(response: response)
+    sut.presentMealPlansOverview(response: response)
     
     // Then
     XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")

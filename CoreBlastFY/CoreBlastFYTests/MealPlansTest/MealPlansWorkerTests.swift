@@ -13,42 +13,43 @@
 @testable import CoreBlastFY
 import XCTest
 
-class MealPlansWorkerTests: XCTestCase
-{
+class MealPlansWorkerTests: XCTestCase {
   // MARK: Subject under test
   
   var sut: MealPlansWorker!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     setupMealPlansWorker()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     super.tearDown()
+    sut = nil
   }
   
   // MARK: Test setup
   
-  func setupMealPlansWorker()
-  {
-    sut = MealPlansWorker()
+  func setupMealPlansWorker() {
+    let overviewStore = MealPlanAPI()
+    sut = MealPlansWorker(dataStore: overviewStore)
   }
   
   // MARK: Test doubles
   
   // MARK: Tests
   
-  func testSomething()
-  {
+  func testFetchMealPlanOverview() {
     // Given
-    
+    var mealPlan: [MealPlan]?
     // When
+    sut.getPlansOverview { (mealplans, error) in
+        mealPlan = mealplans
+    }
     
     // Then
+     XCTAssertNotNil(mealPlan, "shouldnt be nil")
   }
 }

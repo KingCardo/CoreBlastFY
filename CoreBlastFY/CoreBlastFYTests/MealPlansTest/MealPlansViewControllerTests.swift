@@ -13,80 +13,72 @@
 @testable import CoreBlastFY
 import XCTest
 
-class MealPlansViewControllerTests: XCTestCase
-{
-  // MARK: Subject under test
-  
-  var sut: MealPlansViewController!
-  var window: UIWindow!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp()
-  {
-    super.setUp()
-    window = UIWindow()
-    setupMealPlansViewController()
-  }
-  
-  override func tearDown()
-  {
-    window = nil
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupMealPlansViewController()
-  {
-    let bundle = Bundle.main
-    let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-    sut = storyboard.instantiateViewController(withIdentifier: "MealPlansViewController") as! MealPlansViewController
-  }
-  
-  func loadView()
-  {
-    window.addSubview(sut.view)
-    RunLoop.current.run(until: Date())
-  }
-  
-  // MARK: Test doubles
-  
-  class MealPlansBusinessLogicSpy: MealPlansBusinessLogic
-  {
-    var doSomethingCalled = false
+class MealPlansViewControllerTests: XCTestCase {
+    // MARK: Subject under test
     
-    func doSomething(request: MealPlans.Something.Request)
-    {
-      doSomethingCalled = true
+    var sut: MealPlansViewController!
+    var window: UIWindow!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp() {
+        super.setUp()
+        window = UIWindow()
+        setupMealPlansViewController()
     }
-  }
-  
-  // MARK: Tests
-  
-  func testShouldDoSomethingWhenViewIsLoaded()
-  {
-    // Given
-    let spy = MealPlansBusinessLogicSpy()
-    sut.interactor = spy
     
-    // When
-    loadView()
+    override func tearDown() {
+        window = nil
+        sut = nil
+        super.tearDown()
+    }
     
-    // Then
-    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-  }
-  
-  func testDisplaySomething()
-  {
-    // Given
-    let viewModel = MealPlans.Something.ViewModel()
+    // MARK: Test setup
     
-    // When
-    loadView()
-    sut.displaySomething(viewModel: viewModel)
+    func setupMealPlansViewController() {
+        sut = MealPlansViewController()
+    }
     
-    // Then
-    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
-  }
+    func loadView() {
+        window.addSubview(sut.view)
+        RunLoop.current.run(until: Date())
+    }
+    
+    // MARK: Test doubles
+    
+    class MealPlansBusinessLogicSpy: MealPlansBusinessLogic {
+
+        var doSomethingCalled = false
+        
+        func getPlansOverview(request: MealPlans.GetPlan.Request) {
+            doSomethingCalled = true
+        }
+    }
+    
+    // MARK: Tests
+    
+    func testShouldDoSomethingWhenViewIsLoaded() {
+        // Given
+        let spy = MealPlansBusinessLogicSpy()
+        sut.interactor = spy
+        
+        // When
+        loadView()
+        
+        // Then
+        XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
+    }
+    
+    func testDisplayPlans() {
+        // Given
+        let mockOv = MealPlans.GetPlan.ViewModel.PlanOverview(title: "demo", summary: "demo", image: nil)
+        let viewModel = MealPlans.GetPlan.ViewModel(planOverViews: [mockOv])
+        
+        // When
+        loadView()
+        sut.displayPlans(viewModel: viewModel)
+        
+        // Then
+        XCTAssertEqual(sut.displayedPlans.count, viewModel.planOverViews.count, "displayed plans should be equal to viewmodel count")
+    }
 }
