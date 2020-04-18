@@ -421,7 +421,6 @@
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
 				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
-				7AC2C6D0244B8EF000B3BFC8 /* MealPlanDetails */,
 				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
@@ -590,6 +589,7 @@
 				7AC2C6BE2449183C00B3BFC8 /* MealPlansModels.swift */,
 				7AC2C6BF2449183C00B3BFC8 /* MealPlansViewController.swift */,
 				7AC2C6C02449183C00B3BFC8 /* MealPlansInteractor.swift */,
+				7AC2C6D0244B8EF000B3BFC8 /* MealPlanDetails */,
 			);
 			path = MealPlans;
 			sourceTree = "<group>";

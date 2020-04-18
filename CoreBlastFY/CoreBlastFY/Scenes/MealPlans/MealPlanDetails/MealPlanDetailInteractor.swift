@@ -22,14 +22,11 @@ protocol MealPlanDetailDataStore {
 
 class MealPlanDetailInteractor: MealPlanDetailBusinessLogic, MealPlanDetailDataStore {
   var presenter: MealPlanDetailPresentationLogic?
-  //var worker: MealPlanDetailWorker?
   var mealPlan: MealPlan?
   
   // MARK: Do something
   
   func fetchMealPlanDetails(request: MealPlanDetail.FetchDetails.Request) {
-//    worker = MealPlanDetailWorker()
-//    worker?.doSomeWork()
     guard let mealPlan = mealPlan else { return }
     
     let response = MealPlanDetail.FetchDetails.Response(mealPlan: mealPlan)
