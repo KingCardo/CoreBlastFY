@@ -12,7 +12,9 @@
 
 import UIKit
 
-@objc protocol MealPlanDetailRoutingLogic { }
+@objc protocol MealPlanDetailRoutingLogic {
+    func routeToMealDetails()
+}
 
 protocol MealPlanDetailDataPassing {
     var dataStore: MealPlanDetailDataStore? { get }
@@ -24,5 +26,28 @@ class MealPlanDetailRouter: NSObject, MealPlanDetailRoutingLogic, MealPlanDetail
     var dataStore: MealPlanDetailDataStore?
     
     // MARK: Routing
+    
+    func routeToMealDetails() {
+        guard let source = viewController else { return }
+        let destinationVC = MealDetailsViewController()
+        guard let dataStore = dataStore else { return }
+        guard var destinationDS = destinationVC.router?.dataStore else { return }
+        passMealDetailsController(source: dataStore, destination: &destinationDS)
+        navigateToMealDetailsController(source: source, destination: destinationVC)
+    }
+    
+    
+    // MARK: Navigation
+    
+    func navigateToMealDetailsController(source: MealPlanDetailViewController, destination: MealDetailsViewController) {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    func passMealDetailsController(source: MealPlanDetailDataStore, destination: inout MealDetailsDataStore) {
+        destination.recipe = source.recipe
+    }
+    
     
 }

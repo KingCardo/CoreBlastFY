@@ -19,6 +19,14 @@ protocol MealPlanDetailDisplayLogic: class {
 class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic {
     var interactor: (MealPlanDetailBusinessLogic & MealPlanDetailDataStore)?
     var router: (NSObjectProtocol & MealPlanDetailRoutingLogic & MealPlanDetailDataPassing)?
+    var displayedPlan: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails?
+    var items: [Items] = [.header, .description, .recipes]
+    
+    enum Items {
+        case header
+        case description
+        case recipes
+    }
     
     // MARK: Object lifecycle
     
@@ -58,9 +66,18 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
         fetchMealPlanDetails()
     }
     
-    // MARK: Do something
+    // Routing
     
-    var backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "nutrition"))
+     func routeToMealDetails(with recipe: Recipe?) {
+        interactor?.recipe = recipe
+        router?.routeToMealDetails()
+    }
+    
+    // MARK: Views
+    
+    let tableView = UITableView(frame: .zero, style: .plain)
+    
+    //MARK: Methods
     
     func fetchMealPlanDetails() {
         let request = MealPlanDetail.FetchDetails.Request()
@@ -68,13 +85,70 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
     }
     
     func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel) {
-        backgroundImageView.image = viewModel.displayedPlan.planImage
+        displayedPlan = viewModel.displayedPlan
+        tableView.reloadData()
     }
     
     private func setupViews() {
-        view.createShadowLayer(view: backgroundImageView)
-        view.addSubview(backgroundImageView)
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.fillSuperview()
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        view.addSubview(tableView)
+        tableView.fillSuperview()
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        //let height = UIApplication.shared.statusBarFrame.height
+        //tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0)
+        
+    }
+}
+
+extension MealPlanDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = view.frame.height
+        let item = items[indexPath.row]
+        switch item {
+        case .header: return height * 0.3
+        case .description: return UITableView.automaticDimension
+        case .recipes: return height * 0.5
+        }
+    }
+}
+extension MealPlanDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let displayedPlan = displayedPlan else { return
+            UITableViewCell() }
+        let item = items[indexPath.row]
+        
+        switch item {
+        case .header:
+            let headerCell = AppFullscreenHeaderCell()
+            headerCell.programCell.configure(item: displayedPlan)
+            headerCell.programCell.layer.cornerRadius = 0
+            headerCell.clipsToBounds = true
+            headerCell.programCell.backgroundView = nil
+            return headerCell
+        case .description:
+            let cell = AppFullscreenDescriptionCell()
+            cell.item = displayedPlan.description
+            cell.backgroundColor = .white
+            return cell
+        case .recipes:
+            let cell = MealPlanCell()
+            cell.parent = self
+            cell.item = displayedPlan
+            return cell
+        }
     }
 }

@@ -12,6 +12,12 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     
     static let id = "MealPlansOverviewCollectionViewCell"
     
+    func configure(item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails) {
+        titleLabel.text = item.title.capitalized
+        subTitleLabel.text = item.summary.capitalized
+        imageView.image = item.planImage ?? #imageLiteral(resourceName: "6packFY")
+    }
+    
     func configure(item: MealPlans.GetPlan.ViewModel.PlanOverview) {
         titleLabel.text = item.title.capitalized
         subTitleLabel.text = item.summary.capitalized
@@ -19,7 +25,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     }
     
     let subTitleLabel = UILabel(text: "LIFE HACK", font: .preferredFont(forTextStyle: .title3), numberOfLines: 0)
-    let titleLabel = UILabel(text: "Utilizing your Time", font: .preferredFont(forTextStyle: .largeTitle))
+    let titleLabel = UILabel(text: "Utilizing your Time", font: .preferredFont(forTextStyle: .largeTitle), numberOfLines: 0)
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -29,11 +35,6 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         createShadowLayer(view: iv)
         return iv
     }()
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-    }
     
     var topConstraint: NSLayoutConstraint!
     
@@ -54,7 +55,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         spacerView.backgroundColor = .clear
         
         let stackView = VerticalStackView(arrangedSubviews: [
-            /*categoryLabel,*/ titleLabel, spacerView, subTitleLabel
+            titleLabel, spacerView, subTitleLabel
         ], spacing: 8)
         imageView.addSubview(stackView)
         stackView.anchor(top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: MealPlansOverviewCollectionViewCell.Dimensions.imageViewPadding)

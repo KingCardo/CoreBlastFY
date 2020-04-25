@@ -41,7 +41,7 @@ class HomeViewController: UITabBarController {
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
-        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "icons8-plus-32"), selectedImage: nil)
+        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "settings"), selectedImage: nil)
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         

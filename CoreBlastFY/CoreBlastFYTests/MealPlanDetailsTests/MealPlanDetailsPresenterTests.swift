@@ -52,7 +52,7 @@ class MealPlanDetailsPresenterTests: XCTestCase {
     // Given
     let spy = MealPlanDetailsDisplayLogicSpy()
     sut.viewController = spy
-    let mockMp = MealPlan(title: "hey", summary: "heyehey", imageData: nil, description: "desc")
+    let mockMp = MealPlan(title: "hey", summary: "heyehey", description: "desc", image: nil, tip: "")
     let response = MealPlanDetail.FetchDetails.Response(mealPlan: mockMp)
     
     // When

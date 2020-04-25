@@ -48,6 +48,8 @@ class MealPlanDetailsViewControllerTests: XCTestCase
   // MARK: Test doubles
   
     class MealPlanDetailsBusinessLogicSpy: MealPlanDetailBusinessLogic, MealPlanDetailDataStore {
+    var recipe: Recipe?
+        
     var mealPlan: MealPlan?
         
     var doSomethingCalled = false
@@ -72,7 +74,7 @@ class MealPlanDetailsViewControllerTests: XCTestCase
   }
   
   func testDisplaySomething() {
-    let mockDisplayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: "mock", summary: "mock", description: "mick", planImage: nil)
+    let mockDisplayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: "mock", summary: "mock", description: "mick", planImage: nil, recipe: [])
     // Given
     let viewModel = MealPlanDetail.FetchDetails.ViewModel(displayedPlan: mockDisplayedPlan)
     
