@@ -31,6 +31,13 @@ enum MealDetails
                 var title: String
                 var summary: String
                 var image: UIImage?
+                var ingredients: [Ingredients]
+                var instructions: [String]
+            }
+            
+            struct Ingredients {
+                let name: String
+                let amount: String
             }
             var recipeDetails: RecipeDetails
         }

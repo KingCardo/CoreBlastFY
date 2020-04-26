@@ -44,9 +44,14 @@ struct MealPlan {
 struct Recipe {
     let name: String
     var mealType: MealType
-    let ingredients: [String]
+    let ingredients: [Ingredient]
     let instructions: [String]
     let image: UIImage?
+    
+    struct Ingredient {
+        let name: String
+        let amount: String
+    }
     
     enum MealType: String {
         case breakfast = "Breakfast"
@@ -55,7 +60,7 @@ struct Recipe {
         case snack = "Snack"
     }
     
-    init(name: String, ingredients: [String], instructions: [String], mealType: MealType, image: UIImage?) {
+    init(name: String, ingredients: [Ingredient], instructions: [String], mealType: MealType, image: UIImage?) {
         self.name = name
         self.ingredients = ingredients
         self.instructions = instructions
@@ -63,5 +68,3 @@ struct Recipe {
         self.image = image
     }
 }
-
-let recipe = Recipe(name: "Eggs and Sauage", ingredients: ["Eggs", "Sausage"], instructions: ["Boil Eggs", "Heat up pan with olive oil", "Cook sausage for 10 minutes over medium heat"], mealType: .breakfast, image: #imageLiteral(resourceName: "nutrition"))

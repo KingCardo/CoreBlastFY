@@ -131,6 +131,9 @@
 		7AC36D222454A7E0002764F5 /* MealDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D1E2454A7E0002764F5 /* MealDetailViewControllerTests.swift */; };
 		7AC36D232454A7E0002764F5 /* MealDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D1F2454A7E0002764F5 /* MealDetailInteractorTests.swift */; };
 		7AC36D252454A7E0002764F5 /* MealDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D212454A7E0002764F5 /* MealDetailPresenterTests.swift */; };
+		7AC36D2724562C5B002764F5 /* MealPlanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2624562C5B002764F5 /* MealPlanData.swift */; };
+		7AC36D2A24563192002764F5 /* IngredientsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2924563192002764F5 /* IngredientsCollectionViewCell.swift */; };
+		7AC36D2C24563526002764F5 /* InstructionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2B24563526002764F5 /* InstructionsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +276,9 @@
 		7AC36D1E2454A7E0002764F5 /* MealDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		7AC36D1F2454A7E0002764F5 /* MealDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInteractorTests.swift; sourceTree = "<group>"; };
 		7AC36D212454A7E0002764F5 /* MealDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailPresenterTests.swift; sourceTree = "<group>"; };
+		7AC36D2624562C5B002764F5 /* MealPlanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanData.swift; sourceTree = "<group>"; };
+		7AC36D2924563192002764F5 /* IngredientsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7AC36D2B24563526002764F5 /* InstructionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +383,7 @@
 				7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */,
 				7ABC86DD23FB8D40008DCDE3 /* VideoPlayer */,
 				7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */,
+				7AC36D2624562C5B002764F5 /* MealPlanData.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -682,6 +689,7 @@
 		7AC36D102454A75A002764F5 /* MealDetails */ = {
 			isa = PBXGroup;
 			children = (
+				7AC36D282456317F002764F5 /* Views */,
 				7AC36D112454A783002764F5 /* MealDetailsPresenter.swift */,
 				7AC36D122454A783002764F5 /* MealDetailsWorker.swift */,
 				7AC36D132454A783002764F5 /* MealDetailsRouter.swift */,
@@ -700,6 +708,15 @@
 				7AC36D212454A7E0002764F5 /* MealDetailPresenterTests.swift */,
 			);
 			path = MealDetailTests;
+			sourceTree = "<group>";
+		};
+		7AC36D282456317F002764F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AC36D2924563192002764F5 /* IngredientsCollectionViewCell.swift */,
+				7AC36D2B24563526002764F5 /* InstructionsCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -845,6 +862,7 @@
 				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
 				7AC36D1C2454A783002764F5 /* MealDetailsInteractor.swift in Sources */,
 				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
+				7AC36D2A24563192002764F5 /* IngredientsCollectionViewCell.swift in Sources */,
 				7AC36D0F244E22FF002764F5 /* RecipeCell.swift in Sources */,
 				7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */,
 				7AC2C6D9244B8F1800B3BFC8 /* MealPlanDetailRouter.swift in Sources */,
@@ -854,6 +872,7 @@
 				7A8CBB3023EA6F6E00D0D6BD /* Notifications.swift in Sources */,
 				7A8CBB2B23E912C700D0D6BD /* WorkoutView.swift in Sources */,
 				7AC2C6DC244B8F1800B3BFC8 /* MealPlanDetailInteractor.swift in Sources */,
+				7AC36D2724562C5B002764F5 /* MealPlanData.swift in Sources */,
 				7A8CBAF123E912B100D0D6BD /* User.swift in Sources */,
 				7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */,
 				7AC36D182454A783002764F5 /* MealDetailsWorker.swift in Sources */,
@@ -902,6 +921,7 @@
 				7A8CBB1A23E912C700D0D6BD /* PreWorkoutPresenter.swift in Sources */,
 				7A8CBB2223E912C700D0D6BD /* WorkoutPresenter.swift in Sources */,
 				7A8CBB4023EF936700D0D6BD /* SettingsInteractor.swift in Sources */,
+				7AC36D2C24563526002764F5 /* InstructionsCollectionViewCell.swift in Sources */,
 				7A8CBB7223EFA5F600D0D6BD /* Animations.swift in Sources */,
 				7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */,
 			);

@@ -76,7 +76,7 @@ class MealDetailViewControllerTests: XCTestCase
   
   func testDisplayRecipe() {
     // Given
-    let viewModel = MealDetails.RecipeDetails.ViewModel.RecipeDetails(title: "hey", summary: "hey", image: nil)
+    let viewModel = MealDetails.RecipeDetails.ViewModel.RecipeDetails(title: "hey", summary: "hey", image: nil, ingredients: [], instructions: [])
     
     // When
     loadView()

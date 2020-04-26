@@ -24,7 +24,7 @@ class MealDetailsPresenter: MealDetailsPresentationLogic {
   func presentRecipeDetails(response: MealDetails.RecipeDetails.Response) {
     guard let recipeDetails = response.recipe else { return }
     // present error
-    let viewModel = MealDetails.RecipeDetails.ViewModel.RecipeDetails(title: recipeDetails.name, summary: recipeDetails.mealType.rawValue, image: recipeDetails.image)
+    let viewModel = MealDetails.RecipeDetails.ViewModel.RecipeDetails(title: recipeDetails.name, summary: recipeDetails.mealType.rawValue, image: recipeDetails.image, ingredients: recipeDetails.ingredients.map( { MealDetails.RecipeDetails.ViewModel.Ingredients(name: $0.name, amount: $0.amount) }), instructions: recipeDetails.instructions)
     viewController?.displayRecipe(viewModel: viewModel)
   }
 }
