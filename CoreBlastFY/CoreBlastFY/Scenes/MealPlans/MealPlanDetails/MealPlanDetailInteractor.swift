@@ -18,21 +18,20 @@ protocol MealPlanDetailBusinessLogic {
 
 protocol MealPlanDetailDataStore {
     var mealPlan: MealPlan? { get set }
+    var recipe: Recipe? { get set }
 }
 
 class MealPlanDetailInteractor: MealPlanDetailBusinessLogic, MealPlanDetailDataStore {
-  var presenter: MealPlanDetailPresentationLogic?
-  //var worker: MealPlanDetailWorker?
-  var mealPlan: MealPlan?
-  
-  // MARK: Do something
-  
-  func fetchMealPlanDetails(request: MealPlanDetail.FetchDetails.Request) {
-//    worker = MealPlanDetailWorker()
-//    worker?.doSomeWork()
-    guard let mealPlan = mealPlan else { return }
+    var presenter: MealPlanDetailPresentationLogic?
+    var mealPlan: MealPlan?
+    var recipe: Recipe?
     
-    let response = MealPlanDetail.FetchDetails.Response(mealPlan: mealPlan)
-    presenter?.presentMealPlanDetails(response: response)
-  }
+    // MARK: Do something
+    
+    func fetchMealPlanDetails(request: MealPlanDetail.FetchDetails.Request) {
+        guard let mealPlan = mealPlan else { return }
+        
+        let response = MealPlanDetail.FetchDetails.Response(mealPlan: mealPlan)
+        presenter?.presentMealPlanDetails(response: response)
+    }
 }

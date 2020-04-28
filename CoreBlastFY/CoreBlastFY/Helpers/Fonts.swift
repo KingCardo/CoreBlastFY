@@ -14,7 +14,7 @@ struct Fonts {
     }
     
     static var subFont: UIFont? {
-        return UIFont(name: "Avenir Next Condensed", size: 42)
+        return UIFont(name: "Avenir Next Condensed", size: 22)
     }
     
     static var woCellFont: UIFont? {

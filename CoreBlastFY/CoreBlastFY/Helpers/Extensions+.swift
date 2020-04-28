@@ -21,9 +21,9 @@ extension UIView {
     
     func createShadowLayer(view: UIView) {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.clear.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.2).cgColor, UIColor.clear.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradientLayer.frame = layer.bounds
         view.layer.addSublayer(gradientLayer)
         

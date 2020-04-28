@@ -11,15 +11,60 @@ import UIKit
 struct MealPlan {
     let title: String
     let summary: String
-    let imageData: Data?
     let description: String
     var image: UIImage?
+    var breakfast: Recipe?
+    var lunch: Recipe?
+    var dinner: Recipe?
+    var snack: Recipe?
+    var dinner2: Recipe?
+    var tip: String
+    var whatToAvoid: String?
+    var whatToEat: String?
+    var guidelines: String?
     
-    init(title: String, summary: String, imageData: Data?, description: String, image: UIImage?) {
+
+    init(title: String, summary: String, description: String, image: UIImage?, breakfast: Recipe? = nil, lunch: Recipe? = nil, dinner: Recipe? = nil, snack: Recipe? = nil, dinner2: Recipe? = nil, tip: String, whatToAvoid: String? = nil, whatToEat: String? = nil, guidelines: String? = nil) {
         self.title = title
         self.summary = summary
-        self.imageData = imageData
         self.description = description
+        self.image = image
+        self.breakfast = breakfast
+        self.lunch = lunch
+        self.dinner = dinner
+        self.snack = snack
+        self.dinner2 = dinner2
+        self.tip = tip
+        self.whatToAvoid = whatToAvoid
+        self.whatToEat = whatToEat
+        self.guidelines = guidelines
+    }
+}
+
+struct Recipe {
+    let name: String
+    var mealType: MealType
+    let ingredients: [Ingredient]
+    let instructions: [String]
+    let image: UIImage?
+    
+    struct Ingredient {
+        let name: String
+        let amount: String
+    }
+    
+    enum MealType: String {
+        case breakfast = "Breakfast"
+        case lunch = "Lunch"
+        case dinner = "Dinner"
+        case snack = "Snack"
+    }
+    
+    init(name: String, ingredients: [Ingredient], instructions: [String], mealType: MealType, image: UIImage?) {
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.mealType = mealType
         self.image = image
     }
 }

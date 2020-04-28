@@ -52,7 +52,7 @@ class MealPlanDetailsInteractorTests: XCTestCase {
     // Given
     let spy = MealPlanDetailsPresentationLogicSpy()
     sut.presenter = spy
-    sut.mealPlan = MealPlan(title: "hey", summary: "hey", imageData: nil, description: "hey")
+    sut.mealPlan = MealPlan(title: "hey", summary: "hey", description: "hey", image: nil, tip: "")
     let request = MealPlanDetail.FetchDetails.Request()
     
     // When
