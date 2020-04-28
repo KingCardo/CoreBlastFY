@@ -14,6 +14,7 @@ class IngredientsCollectionViewCell: UICollectionViewCell {
     private let titleLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .body), numberOfLines: 1)
     private let amountLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .title3), numberOfLines: 1)
         
+    static let leadingAnchor: CGFloat = 8
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,13 +30,13 @@ class IngredientsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        amountLabel.textColor = .darkGray
+        amountLabel.textColor = .goatBlue
         contentView.addSubview(titleLabel)
         titleLabel.centerYInSuperview()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: IngredientsCollectionViewCell.leadingAnchor).isActive = true
         contentView.addSubview(amountLabel)
         amountLabel.centerYInSuperview()
-        amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -IngredientsCollectionViewCell.leadingAnchor).isActive = true
     }
     
     override func prepareForReuse() {

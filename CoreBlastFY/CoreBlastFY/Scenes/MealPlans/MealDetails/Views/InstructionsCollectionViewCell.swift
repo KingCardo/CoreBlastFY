@@ -41,8 +41,8 @@ class InstructionsCollectionViewCell: UICollectionViewCell {
         titleLabel.text = nil
     }
     
-    func configure(with recipe: MealDetails.RecipeDetails.ViewModel.RecipeDetails) {
-        //titleLabel.text = recipe.instructions
+    func configure(with recipe: String?) {
+        titleLabel.text = recipe
     }
     
 }

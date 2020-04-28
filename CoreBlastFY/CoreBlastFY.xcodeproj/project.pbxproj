@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A5CEDCA2456450E0066B0D5 /* HeaderCollectionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDC92456450E0066B0D5 /* HeaderCollectionImageView.swift */; };
+		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift */; };
+		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -147,6 +150,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A5CEDC92456450E0066B0D5 /* HeaderCollectionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionImageView.swift; sourceTree = "<group>"; };
+		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -715,6 +721,9 @@
 			children = (
 				7AC36D2924563192002764F5 /* IngredientsCollectionViewCell.swift */,
 				7AC36D2B24563526002764F5 /* InstructionsCollectionViewCell.swift */,
+				7A5CEDC92456450E0066B0D5 /* HeaderCollectionImageView.swift */,
+				7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift */,
+				7A5CEDCD2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -822,6 +831,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5CEDCA2456450E0066B0D5 /* HeaderCollectionImageView.swift in Sources */,
 				7A8CBB6823EFA50B00D0D6BD /* Entry.swift in Sources */,
 				7AC36D0B244E2213002764F5 /* MealPlanCell.swift in Sources */,
 				7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */,
@@ -897,6 +907,7 @@
 				7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */,
 				7AC36D1A2454A783002764F5 /* MealDetailsModels.swift in Sources */,
 				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
+				7A5CEDCE2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift in Sources */,
 				7AC36D172454A783002764F5 /* MealDetailsPresenter.swift in Sources */,
 				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
 				7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */,
@@ -908,6 +919,7 @@
 				7AC2C6C22449183C00B3BFC8 /* MealPlansWorker.swift in Sources */,
 				7A8CBB6623EFA50B00D0D6BD /* EntryCell.swift in Sources */,
 				7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */,
+				7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift in Sources */,
 				7AC2C6DA244B8F1800B3BFC8 /* MealPlanDetailModels.swift in Sources */,
 				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
 				7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */,

@@ -31,6 +31,7 @@ class RecipeCell: UICollectionViewCell {
         iv.clipsToBounds = true
         iv.backgroundColor = .red
         iv.layer.cornerRadius = 8
+        iv.sizeToFit()
         return iv
     }()
     
@@ -40,6 +41,7 @@ class RecipeCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.font = Fonts.mainFont
         label.textColor = .black
+        label.sizeToFit()
         return label
     }()
     
@@ -49,6 +51,7 @@ class RecipeCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.font = Fonts.subFont
         label.textColor = .goatBlack
+        label.sizeToFit()
         return label
     }()
     
