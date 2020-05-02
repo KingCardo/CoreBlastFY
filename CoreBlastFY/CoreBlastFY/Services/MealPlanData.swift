@@ -9,7 +9,7 @@
 import Foundation
 
 // Meal Plans
-let allMPs = [mockMP1, mockMP2, mockMP3, mockMP4]
+let allMPs = [/*mockMP1,*/ mockMP2, mockMP3, mockMP4]
 
 // Ingredients
 

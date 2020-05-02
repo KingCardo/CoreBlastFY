@@ -12,16 +12,16 @@ struct MealPlan {
     let title: String
     let summary: String
     let description: String
-    var image: UIImage?
-    var breakfast: Recipe?
-    var lunch: Recipe?
-    var dinner: Recipe?
-    var snack: Recipe?
-    var dinner2: Recipe?
-    var tip: String
-    var whatToAvoid: String?
-    var whatToEat: String?
-    var guidelines: String?
+    let image: UIImage?
+    let breakfast: Recipe?
+    let lunch: Recipe?
+    let dinner: Recipe?
+    let snack: Recipe?
+    let dinner2: Recipe?
+    let tip: String
+    let whatToAvoid: String?
+    let whatToEat: String?
+    let guidelines: String?
     
 
     init(title: String, summary: String, description: String, image: UIImage?, breakfast: Recipe? = nil, lunch: Recipe? = nil, dinner: Recipe? = nil, snack: Recipe? = nil, dinner2: Recipe? = nil, tip: String, whatToAvoid: String? = nil, whatToEat: String? = nil, guidelines: String? = nil) {
@@ -43,7 +43,7 @@ struct MealPlan {
 
 struct Recipe {
     let name: String
-    var mealType: MealType
+    let mealType: MealType
     let ingredients: [Ingredient]
     let instructions: [String]
     let image: UIImage?

@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to your camera to help you stay on track with progression!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find some good parks near you to get some fresh air!</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -68,7 +70,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to find some good parks near you to get some fresh air!</string>
 </dict>
 </plist>

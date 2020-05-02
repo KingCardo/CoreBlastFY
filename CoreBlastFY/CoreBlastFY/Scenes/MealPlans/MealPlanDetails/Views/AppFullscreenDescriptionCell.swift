@@ -10,9 +10,11 @@ import UIKit
 
 class AppFullscreenDescriptionCell: UITableViewCell {
     
+    static let id = "AppFullscreenDescriptionCell"
+    
     var item: String! {
         didSet {
-            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.goatBlue, .font: Fonts.mainFont])
+            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.goatBlue, .font: UIFont.makeAvenirNext(size: 24)])
         
              descriptionLabel.attributedText = attributedText
         }
@@ -20,7 +22,7 @@ class AppFullscreenDescriptionCell: UITableViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        //label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.numberOfLines = 0
         return label
     }()

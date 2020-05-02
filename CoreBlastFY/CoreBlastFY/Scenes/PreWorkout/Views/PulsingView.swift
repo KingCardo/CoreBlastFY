@@ -32,12 +32,11 @@ class PulsingView: UIView {
     var shapeLayer: CAShapeLayer!
     var pulsatingLayer: CAShapeLayer!
     
-    
     let percentageLabel: UILabel = {
         let label = UILabel()
         label.text = "Start".uppercased()
         label.textAlignment = .center
-        label.font = UIFont.makeAvenirNext(size: 32)
+        label.font = UIFont.makeAvenirNext(size: 28)
         label.textColor = .white
         label.backgroundColor = UIColor.goatBlue
         label.isUserInteractionEnabled = true
@@ -46,9 +45,6 @@ class PulsingView: UIView {
     
     weak var preWorkoutView: PreWorkoutView?
     
-//    @objc private func startWorkout() {
-//            self.preWorkoutView?.preWorkoutViewController?.displayLoadingView()
-//    }
     
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
@@ -99,7 +95,6 @@ class PulsingView: UIView {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         basicAnimation.toValue = 1
-        
         basicAnimation.duration = 2
         
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards

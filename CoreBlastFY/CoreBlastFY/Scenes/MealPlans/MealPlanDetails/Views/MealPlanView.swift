@@ -7,13 +7,9 @@
 //
 
 import UIKit
-//import AVKit
-//import StoreKit
 
-class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
+class MealPlanView: UIView {
     static let id = "RecipeCell"
-   // let productID = "com.Franchiz.ForeverYoungFitness.CoreBlast"
-    //var program: Program?
     var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails?
     weak var parent: MealPlanCell?
    
@@ -32,35 +28,12 @@ class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
     
     init() {
         super.init(frame: .zero)
-       // SKPaymentQueue.default().add(self)
         setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-//        for transaction in transactions {
-//            if transaction.transactionState == .purchased {
-//                SKPaymentQueue.default().finishTransaction(transaction)
-//                UserDefaults.standard.set(true, forKey: productID)
-//            } else if transaction.transactionState == .failed {
-//
-//                if let error = transaction.error {
-//                    let errorDesc = error.localizedDescription
-//                    print(errorDesc)
-//                }
-//                  SKPaymentQueue.default().finishTransaction(transaction)
-//            } else if transaction.transactionState == .restored {
-//                 UserDefaults.standard.set(true, forKey: productID)
-//                 SKPaymentQueue.default().finishTransaction(transaction)
-//            }
-//
-//        }
-//    }
-    
-    
     
     func setup() {
         addSubview(workoutCollectionView)
@@ -84,30 +57,10 @@ extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     
-//    func buyCoreBlast() {
-//        if SKPaymentQueue.canMakePayments() {
-//            let paymentRequest = SKMutablePayment()
-//            paymentRequest.productIdentifier = productID
-//            SKPaymentQueue.default().add(paymentRequest)
-//
-//        } else {
-//            //TO DO: handle cant  make payments
-//
-//        }
-//    }
-    
-//    static let isPurchased = UserDefaults.standard.bool(forKey: "com.Franchiz.ForeverYoungFitness.CoreBlast")
-//
-//    func isPurchase() -> Bool {
-//        let purchaseRecipt = UserDefaults.standard.bool(forKey: productID)
-//        return purchaseRecipt
-//    }
     private func displayMealDetails(with recipe: Recipe?) {
-        
         parent?.routeToMealDetails(with: recipe)
-//        let mealDetailsVC = MealDetailsViewController()
-//        print(recipe?.name, "RWRW")
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         collectionView.deselectItem(at: indexPath, animated: true)

@@ -236,7 +236,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (delete) in
-            let progressionPic = ProgressionPicController.shared.progressionPics[indexPath.row]
+            let progressionPic = ProgressionPicController.shared.sortedPics[indexPath.row]
             ProgressionPicController.shared.deletePic(progressionPic: progressionPic)
             collectionView.deleteItems(at: [indexPath])
         }

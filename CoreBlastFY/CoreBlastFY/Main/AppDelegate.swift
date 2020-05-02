@@ -32,15 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let threeDays: Double = 259200
         application.setMinimumBackgroundFetchInterval(threeDays)
         
-          
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
-        //TO DO: - fix user id issue
         
         //FirebaseApp.configure()
        // ExerciseStorage.fetchCoreExercises()
         UserAPI.user = UserManager.loadUserFromFile()
-        print(UserAPI.user.id ?? "2")
         
         return true
     }
