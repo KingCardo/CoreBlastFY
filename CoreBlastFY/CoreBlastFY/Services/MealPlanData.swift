@@ -18,7 +18,7 @@ let sausage = Recipe.Ingredient(name: "Tureky Sausage", amount: "3")
 
 // Recipes
 
-let recipe = Recipe(name: "Eggs and Sauage", ingredients: [eggs, sausage], instructions: ["Boil Eggs", "Heat up pan with olive oil", "Cook sausage for 10 minutes over medium heat"], mealType: .breakfast, image: #imageLiteral(resourceName: "nutrition"))
+let recipe = Recipe(name: "Eggs and Sauage", ingredients: [eggs, sausage], instructions: ["Boil Eggs", "Heat up pan with olive oil", "Cook sausage for 10 minutes over medium heat"], mealType: .breakfast, image: #imageLiteral(resourceName: "mp2image"))
 
 //Individual Meal Plans
 
@@ -42,7 +42,7 @@ let mockMP2 = MealPlan(title: "Shredded Meal Plan", summary: "Accelerate your ga
 
 let mockMP3 = MealPlan(title: "Gain while Chisel", summary: "This plan lets you gain muscle mass while making six pack gains!",
                        description: "Gains",
-                       image: #imageLiteral(resourceName: "nutrition"),
+                       image: #imageLiteral(resourceName: "mp2image"),
                        breakfast: recipe,
                        lunch: recipe,
                        dinner: recipe,

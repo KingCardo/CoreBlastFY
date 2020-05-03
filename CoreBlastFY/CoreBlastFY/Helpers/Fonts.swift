@@ -30,4 +30,8 @@ extension UIFont {
         return fontMetrics.scaledFont(for: font)
     }
     
+    static func makeFontSet(size: CGFloat) -> UIFont {
+        return UIFont(name: "Avenir Next", size: size)!
+    }
+    
 }

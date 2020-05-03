@@ -180,7 +180,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! We'll do weekly progression pics to stay motivated and on track to reach your goals!"
-        label.font = UIFont.makeAvenirNext(size: 32)
+        label.font = UIFont.makeFontSet(size: 32)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!
         label.numberOfLines = 0

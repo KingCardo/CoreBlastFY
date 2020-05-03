@@ -14,7 +14,7 @@ class MealPlanView: UIView {
     weak var parent: MealPlanCell?
    
     private lazy var workoutCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.autoresizingMask = [.flexibleHeight]

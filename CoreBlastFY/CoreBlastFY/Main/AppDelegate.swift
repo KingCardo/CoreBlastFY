@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let threeDays: Double = 259200
         application.setMinimumBackgroundFetchInterval(threeDays)
         
-        ProgressionPicController.shared.loadFromFile()
+        //ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
         
         //FirebaseApp.configure()
