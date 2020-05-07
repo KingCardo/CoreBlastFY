@@ -115,13 +115,16 @@ extension MealPlansViewController {
 
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row != indexPath.last {
         productId = InAppIds.all[indexPath.row]
+        }
         //if isPurchased(with: productId!) {
             routeToMealPlanDetails()
         //} else {
 //            buyMealPlan(with: productId!)
 //        }
     }
+    
 }
 
 extension MealPlansViewController {

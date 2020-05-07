@@ -75,11 +75,11 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
     
     // MARK: Views
     
-    let tableView = UITableView(frame: .zero, style: .plain)
+    private let tableView = UITableView(frame: .zero, style: .plain)
     
     //MARK: Methods
     
-    func fetchMealPlanDetails() {
+    private func fetchMealPlanDetails() {
         let request = MealPlanDetail.FetchDetails.Request()
         interactor?.fetchMealPlanDetails(request: request)
     }

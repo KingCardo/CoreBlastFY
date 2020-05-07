@@ -9,8 +9,17 @@
 import UIKit
 
 class MealPlanView: UIView {
-    static let id = "RecipeCell"
-    var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails?
+    
+    var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails? {
+        didSet {
+            compactItems = (item?.recipe.compactMap { $0 })!
+            tips = item?.tips.compactMap { $0 } ?? []
+        }
+    }
+    
+    var tips: [String] = []
+    
+    var compactItems: [Recipe] = []
     weak var parent: MealPlanCell?
    
     private lazy var workoutCollectionView: UICollectionView = {
@@ -22,7 +31,8 @@ class MealPlanView: UIView {
         cv.delegate = self
         cv.backgroundColor = .white
         cv.isScrollEnabled = true
-        cv.register(RecipeCell.self, forCellWithReuseIdentifier: MealPlanView.id)
+        cv.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.id)
+        cv.register(TipsCollectionViewCell.self, forCellWithReuseIdentifier: TipsCollectionViewCell.id)
         return cv
     }()
     
@@ -48,13 +58,21 @@ class MealPlanView: UIView {
 extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return item?.recipe.count ?? 0
+        return item?.isTips ?? false ? tips.count : compactItems.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealPlanView.id, for: indexPath) as! RecipeCell
-        guard let recipe = item?.recipe[indexPath.row] else { return UICollectionViewCell() }
-        cell.configure(with: recipe)
+        if item?.isTips ?? false {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TipsCollectionViewCell.id, for: indexPath) as! TipsCollectionViewCell
+            let tip = tips[indexPath.row]
+                cell.configure(with: tip)
+            return cell
+            
+        } else {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.id, for: indexPath) as! RecipeCell
+         let recipe = compactItems[indexPath.row]
+            cell.configure(with: recipe)
         return cell
+        }
     }
     
     private func displayMealDetails(with recipe: Recipe?) {
@@ -64,7 +82,11 @@ extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         collectionView.deselectItem(at: indexPath, animated: true)
-        displayMealDetails(with: item?.recipe[indexPath.item])
+        if item?.isTips ?? false {
+            print("Tips Selected")
+        } else {
+        displayMealDetails(with: compactItems[indexPath.item])
+        }
 
 //       // if isPurchase() {
 //        guard let workout = program?.sortedWorkouts[indexPath.row] else { return }

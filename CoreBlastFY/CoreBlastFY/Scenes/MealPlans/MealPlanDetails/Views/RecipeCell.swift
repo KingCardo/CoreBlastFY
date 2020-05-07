@@ -9,6 +9,7 @@
 import UIKit
 
 class RecipeCell: UICollectionViewCell {
+    static let id = "RecipeCell"
     
     func configure(with recipe: Recipe) {
         titleLabel.text = recipe.name

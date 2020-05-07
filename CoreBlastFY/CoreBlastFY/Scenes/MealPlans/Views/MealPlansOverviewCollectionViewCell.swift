@@ -22,8 +22,8 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         imageView.image = item.image ?? #imageLiteral(resourceName: "6packFY")
     }
     
-    let subTitleLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .title3), numberOfLines: 0)
-    let titleLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .largeTitle), numberOfLines: 0)
+    let subTitleLabel = UILabel(text: "", font: UIFont.makeAvenirCondensed(size: 24), numberOfLines: 0)
+    let titleLabel = UILabel(text: "", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()

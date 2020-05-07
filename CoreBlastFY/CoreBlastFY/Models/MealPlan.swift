@@ -22,9 +22,10 @@ struct MealPlan {
     let whatToAvoid: String?
     let whatToEat: String?
     let guidelines: String?
+    let isTips: Bool
     
 
-    init(title: String, summary: String, description: String, image: UIImage?, breakfast: Recipe? = nil, lunch: Recipe? = nil, dinner: Recipe? = nil, snack: Recipe? = nil, dinner2: Recipe? = nil, tip: String, whatToAvoid: String? = nil, whatToEat: String? = nil, guidelines: String? = nil) {
+    init(title: String, summary: String, description: String, image: UIImage?, breakfast: Recipe? = nil, lunch: Recipe? = nil, dinner: Recipe? = nil, snack: Recipe? = nil, dinner2: Recipe? = nil, tip: String, whatToAvoid: String? = nil, whatToEat: String? = nil, guidelines: String? = nil, isTips: Bool = false) {
         self.title = title
         self.summary = summary
         self.description = description
@@ -38,6 +39,7 @@ struct MealPlan {
         self.whatToAvoid = whatToAvoid
         self.whatToEat = whatToEat
         self.guidelines = guidelines
+        self.isTips = isTips
     }
 }
 
