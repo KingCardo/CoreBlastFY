@@ -11,7 +11,7 @@ import UIKit
 class InstructionsCollectionViewCell: UICollectionViewCell {
     static let id = "InstructionsCollectionViewCell"
     
-     private let titleLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .body), numberOfLines: 1)
+    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 14)!, numberOfLines: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +28,9 @@ class InstructionsCollectionViewCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.addSubview(titleLabel)
-        titleLabel.centerYInSuperview()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        titleLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
+//        titleLabel.centerYInSuperview()
+//        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
     }
     
     override func prepareForReuse() {

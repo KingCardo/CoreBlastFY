@@ -11,7 +11,7 @@ import UIKit
 class IngredientsCollectionViewCell: UICollectionViewCell {
     static let id = "IngredientsCollectionViewCell"
     
-    private let titleLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .body), numberOfLines: 1)
+    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 14)!, numberOfLines: 1)
     private let amountLabel = UILabel(text: "", font: .preferredFont(forTextStyle: .title3), numberOfLines: 1)
         
     static let leadingAnchor: CGFloat = 8

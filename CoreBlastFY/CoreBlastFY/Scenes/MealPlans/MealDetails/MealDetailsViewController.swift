@@ -105,7 +105,7 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     private func setupViews() {
         view.addSubview(recipeCollectionView)
-        recipeCollectionView.fillSuperview()
+        recipeCollectionView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0))
     }
 }
 
@@ -175,10 +175,17 @@ extension MealDetailsViewController: UICollectionViewDelegate {
 extension MealDetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
-        case 0: return .init(width: collectionView.frame.width, height: 300)
-        case 1: return .init(width: collectionView.frame.width, height: 100)
-        case 2: return .init(width: collectionView.frame.width, height: 50)
-        case 3: return .init(width: collectionView.frame.width, height: 45)
+        case 0: return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.3)
+        case 1: return .init(width: collectionView.frame.width, height: /*75*/ collectionView.frame.height * 0.1)
+        case 2: return .init(width: collectionView.frame.width, height: /*50*/ collectionView.frame.height * 0.075)
+        case 3:
+            switch mode {
+            case .ingredients:
+                return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.07)
+            case .instructions:
+                return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.07)
+            }
+                
         default: return .zero
         }
     }
@@ -188,6 +195,6 @@ extension MealDetailsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 8, left: 0, bottom: 0, right: 0)
+        return .init(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

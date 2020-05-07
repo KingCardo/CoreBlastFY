@@ -37,7 +37,7 @@ class HomeViewController: UITabBarController {
         workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "workout"), selectedImage: nil)
         
         let nutritionVC = MealPlansViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Nutrition", image: #imageLiteral(resourceName: "icons8-dining-room-50"), selectedImage: nil)
+        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "icons8-dining-room-50"), selectedImage: nil)
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)

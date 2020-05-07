@@ -58,6 +58,7 @@ struct Recipe {
         case lunch = "Lunch"
         case dinner = "Dinner"
         case snack = "Snack"
+        case dinner2 = "Dinner2"
     }
     
     init(name: String, ingredients: [Ingredient], instructions: [String], mealType: MealType, image: UIImage?) {

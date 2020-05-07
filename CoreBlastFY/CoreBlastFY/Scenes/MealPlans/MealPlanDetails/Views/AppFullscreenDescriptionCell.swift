@@ -14,7 +14,7 @@ class AppFullscreenDescriptionCell: UITableViewCell {
     
     var item: String! {
         didSet {
-            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.goatBlue, .font: UIFont.makeAvenirNext(size: 24)])
+            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.black, .font: UIFont.makeTitleFont(size: 24)])
         
              descriptionLabel.attributedText = attributedText
         }
@@ -22,7 +22,6 @@ class AppFullscreenDescriptionCell: UITableViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        //label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.numberOfLines = 0
         return label
     }()

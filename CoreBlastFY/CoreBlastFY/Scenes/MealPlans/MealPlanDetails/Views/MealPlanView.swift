@@ -35,11 +35,11 @@ class MealPlanView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         addSubview(workoutCollectionView)
         workoutCollectionView.translatesAutoresizingMaskIntoConstraints = false
         workoutCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3).isActive = true
         workoutCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         workoutCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }

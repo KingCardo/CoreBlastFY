@@ -28,10 +28,10 @@ class WorkoutWorker {
 }
 
 
-let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "squat", ofType: "MOV")!)
-let squat = Exercise(name: "Squat", tip: "full range of motion", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
+let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "LegRaises", ofType: "MOV")!)
+let squat = Exercise(name: "Leg Raises", tip: "full range of motion", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
 
-let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "askip", ofType: "MOV")!)
+let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "A-skips", ofType: "MOV")!)
 
 let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, movement: .stationary, videoURL: askipVideoPath)
 
