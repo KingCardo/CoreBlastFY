@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import StoreKit
 
 protocol MealPlansDisplayLogic: class {
     func displayPlans(viewModel: MealPlans.GetPlan.ViewModel)
@@ -19,6 +20,7 @@ protocol MealPlansDisplayLogic: class {
 class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic {
     var interactor: (MealPlansBusinessLogic & MealPlansDataStore)?
     var router: (NSObjectProtocol & MealPlansRoutingLogic & MealPlansDataPassing)?
+    var productId: String?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -28,6 +30,7 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        SKPaymentQueue.default().add(self)
         collectionView.register(MealPlansOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MealPlansOverviewCollectionViewCell.id)
         setup()
     }
@@ -112,14 +115,63 @@ extension MealPlansViewController {
 
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //in app purchase and route to meal plan details
-        routeToMealPlanDetails()
+        if indexPath.row != indexPath.last {
+        productId = InAppIds.all[indexPath.row]
+        }
+        //if isPurchased(with: productId!) {
+            routeToMealPlanDetails()
+        //} else {
+//            buyMealPlan(with: productId!)
+//        }
     }
+    
 }
 
 extension MealPlansViewController {
     struct Dimensions {
         static let cellSize: CGFloat = 100
         static let mealPlanCellSize: CGFloat = 300
+    }
+}
+
+// MARK: In App Purchases
+
+extension MealPlansViewController: SKPaymentTransactionObserver {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                UserDefaults.standard.set(true, forKey: productId!)
+            case .failed:
+                if let error = transaction.error {
+                                   let errorDesc = error.localizedDescription
+                                   //TO DO: Handle error
+                                   print(errorDesc)
+                }
+            case .restored:
+                    UserDefaults.standard.set(true, forKey: productId!)
+                    SKPaymentQueue.default().finishTransaction(transaction)
+            default: break
+            }
+        }
+    }
+    
+    func isPurchased(with id: String) -> Bool {
+        let purchaseRecipt = UserDefaults.standard.bool(forKey: id)
+        return purchaseRecipt
+    }
+    
+    func buyMealPlan(with id: String) {
+        if SKPaymentQueue.canMakePayments() {
+            let paymentRequest = SKMutablePayment()
+            paymentRequest.productIdentifier = id
+            SKPaymentQueue.default().add(paymentRequest)
+            
+        } else {
+            //TO DO: handle cant  make payments
+            //present error!
+            
+        }
     }
 }

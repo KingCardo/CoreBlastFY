@@ -10,6 +10,12 @@
 		7A5CEDCA2456450E0066B0D5 /* HeaderCollectionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDC92456450E0066B0D5 /* HeaderCollectionImageView.swift */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift */; };
+		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
+		7A5CEDD2245DF0CB0066B0D5 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD1245DF0CB0066B0D5 /* UIAlertController.swift */; };
+		7A5CEDD4245F4F800066B0D5 /* A-skips.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD3245F4F800066B0D5 /* A-skips.MOV */; };
+		7A5CEDD6245F4FA90066B0D5 /* V-ups.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD5245F4FA90066B0D5 /* V-ups.MOV */; };
+		7A5CEDD8245F4FB30066B0D5 /* LegRaises.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD7245F4FB30066B0D5 /* LegRaises.MOV */; };
+		7A5CEDDA2464CDEA0066B0D5 /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -78,8 +84,6 @@
 		7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */; };
 		7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */; };
 		7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */; };
-		7A8CBB8023F0CA7800D0D6BD /* squat.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */; };
-		7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
 		7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */; };
 		7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */; };
@@ -153,6 +157,12 @@
 		7A5CEDC92456450E0066B0D5 /* HeaderCollectionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionImageView.swift; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
+		7A5CEDD1245DF0CB0066B0D5 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		7A5CEDD3245F4F800066B0D5 /* A-skips.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "A-skips.MOV"; sourceTree = "<group>"; };
+		7A5CEDD5245F4FA90066B0D5 /* V-ups.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "V-ups.MOV"; sourceTree = "<group>"; };
+		7A5CEDD7245F4FB30066B0D5 /* LegRaises.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = LegRaises.MOV; sourceTree = "<group>"; };
+		7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,8 +236,6 @@
 		7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackElementViewController.swift; sourceTree = "<group>"; };
 		7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
-		7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat.MOV; sourceTree = "<group>"; };
-		7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = askip.MOV; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
@@ -338,8 +346,6 @@
 				7A8CBAF623E912C700D0D6BD /* Scenes */,
 				7A8CBAE423E9129700D0D6BD /* User */,
 				7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */,
-				7A8CBB7C23F0CA7800D0D6BD /* squat.MOV */,
-				7A8CBB8123F0CA8D00D0D6BD /* askip.MOV */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFY;
@@ -390,6 +396,7 @@
 				7ABC86DD23FB8D40008DCDE3 /* VideoPlayer */,
 				7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */,
 				7AC36D2624562C5B002764F5 /* MealPlanData.swift */,
+				7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,6 +413,7 @@
 				7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */,
 				7A8CBB7123EFA5F600D0D6BD /* Animations.swift */,
 				7AC2C6CE244A86C800B3BFC8 /* Extensions+.swift */,
+				7A5CEDD1245DF0CB0066B0D5 /* UIAlertController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -413,6 +421,9 @@
 		7A8CBAE423E9129700D0D6BD /* User */ = {
 			isa = PBXGroup;
 			children = (
+				7A5CEDD7245F4FB30066B0D5 /* LegRaises.MOV */,
+				7A5CEDD5245F4FA90066B0D5 /* V-ups.MOV */,
+				7A5CEDD3245F4F800066B0D5 /* A-skips.MOV */,
 				7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */,
 				7A8CBAE623E9129700D0D6BD /* UserManager.swift */,
 			);
@@ -688,6 +699,7 @@
 				7AC36D0A244E2213002764F5 /* MealPlanCell.swift */,
 				7AC36D08244E2204002764F5 /* AppFullscreenDescriptionCell.swift */,
 				7AC36D06244E21F1002764F5 /* AppFullscreenHeaderCell.swift */,
+				7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -810,10 +822,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */,
-				7A8CBB8223F0CA8D00D0D6BD /* askip.MOV in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
-				7A8CBB8023F0CA7800D0D6BD /* squat.MOV in Resources */,
+				7A5CEDD6245F4FA90066B0D5 /* V-ups.MOV in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
+				7A5CEDD8245F4FB30066B0D5 /* LegRaises.MOV in Resources */,
+				7A5CEDD4245F4F800066B0D5 /* A-skips.MOV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,6 +868,7 @@
 				7A8CBB1F23E912C700D0D6BD /* ProgressionPic.swift in Sources */,
 				7AC2C6DB244B8F1800B3BFC8 /* MealPlanDetailViewController.swift in Sources */,
 				7AC36D1B2454A783002764F5 /* MealDetailsViewController.swift in Sources */,
+				7A5CEDD2245DF0CB0066B0D5 /* UIAlertController.swift in Sources */,
 				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
 				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
 				7AC36D192454A783002764F5 /* MealDetailsRouter.swift in Sources */,
@@ -912,6 +926,7 @@
 				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
 				7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */,
 				7A8CBB1D23E912C700D0D6BD /* LoadingView.swift in Sources */,
+				7A5CEDDA2464CDEA0066B0D5 /* TipsCollectionViewCell.swift in Sources */,
 				7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */,
 				7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */,
 				7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */,
@@ -920,6 +935,7 @@
 				7A8CBB6623EFA50B00D0D6BD /* EntryCell.swift in Sources */,
 				7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */,
 				7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionCollectionViewCell.swift in Sources */,
+				7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */,
 				7AC2C6DA244B8F1800B3BFC8 /* MealPlanDetailModels.swift in Sources */,
 				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
 				7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */,

@@ -33,6 +33,8 @@ enum MealPlanDetail
             var description: String
             var planImage: UIImage?
             var recipe: [Recipe?]
+            var isTips: Bool
+            var tips: [String?]
         }
         var displayedPlan: DisplayMealPlanDetails
     }

@@ -28,11 +28,11 @@ class PreWorkoutView: UIView {
         
         let coreLevelLabel = UILabel()
         coreLevelLabel.text = "Core Level"
-        coreLevelLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        coreLevelLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
         coreLevelLabel.textColor = .white
         
         coreLevelCountLabel.text = preWorkoutViewModel.userDetails.coreLevel
-        coreLevelCountLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)//UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
+        coreLevelCountLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
         coreLevelCountLabel.textColor = .white
         
         
@@ -44,11 +44,11 @@ class PreWorkoutView: UIView {
         
         let totalPointsLabel = UILabel()
         totalPointsLabel.text = "Total Points"
-        totalPointsLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        totalPointsLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
         totalPointsLabel.textColor = .white
         
         totalPointsLevel.text = preWorkoutViewModel.userDetails.totalPoints
-        totalPointsLevel.font = UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
+        totalPointsLevel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
         totalPointsLevel.textColor = .white
         
         
@@ -60,11 +60,11 @@ class PreWorkoutView: UIView {
         
         let nextLevelLabel = UILabel()
         nextLevelLabel.text = "Next Level"
-        nextLevelLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        nextLevelLabel.font =  self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
         nextLevelLabel.textColor = .white
         
         nextLevelCountLabel.text = preWorkoutViewModel.userDetails.nextLevel
-        nextLevelCountLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)//UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
+        nextLevelCountLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
         nextLevelCountLabel.textColor = .white
         
         let nextLevelStackView = UIStackView(arrangedSubviews: [nextLevelLabel, nextLevelCountLabel])
@@ -85,7 +85,7 @@ class PreWorkoutView: UIView {
         levelStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.top).isActive = true
         
         let name = viewModel.userDetails.name
-        welcomeLabel.font = UIFont.makeAvenirNext(size: 20)
+        welcomeLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: 20) : UIFont.makeFontSet(size: 20)
         welcomeLabel.numberOfLines = 0
         if name == nil {
             welcomeLabel.text = ""
@@ -101,11 +101,11 @@ class PreWorkoutView: UIView {
         
         let nextWorkoutLabel = UILabel()
         nextWorkoutLabel.text = "Next Workout"
-        nextWorkoutLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        nextWorkoutLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
         nextWorkoutLabel.textColor = .white
         
         nextWorkoutDateLabel.text = preWorkoutViewModel.userDetails.nextWorkoutDate
-        nextWorkoutDateLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)//UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
+        nextWorkoutDateLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)//UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
         nextWorkoutDateLabel.textColor = .white
         
         let nextWorkoutStackView = UIStackView(arrangedSubviews: [nextWorkoutLabel, nextWorkoutDateLabel])

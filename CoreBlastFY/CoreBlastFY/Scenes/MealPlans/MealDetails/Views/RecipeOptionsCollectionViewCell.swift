@@ -27,6 +27,7 @@ class RecipeOptionsCollectionViewCell: UICollectionViewCell {
         button.setTitle("Ingredients", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(modeIngredient(_:)), for: .touchDown)
+        button.titleLabel?.font = UIFont.makeAvenirCondensed(size: 18)
         button.backgroundColor = .goatBlue
         return button
     }()
@@ -35,6 +36,7 @@ class RecipeOptionsCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.setTitle("Instructions", for: .normal)
         button.setTitleColor(.goatBlue, for: .normal)
+        button.titleLabel?.font = UIFont.makeAvenirCondensed(size: 18)
         button.addTarget(self, action: #selector(modeInstruction(_:)), for: .touchDown)
         return button
     }()

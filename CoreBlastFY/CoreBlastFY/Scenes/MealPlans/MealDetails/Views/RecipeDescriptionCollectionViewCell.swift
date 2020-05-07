@@ -13,7 +13,7 @@ class RecipeDescriptionCollectionViewCell: UICollectionViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .title1)
+        label.font = UIFont.makeAvenirNext(size: 28)
         return label
     }()
     
@@ -34,6 +34,7 @@ class RecipeDescriptionCollectionViewCell: UICollectionViewCell {
         addSubview(descriptionLabel)
         descriptionLabel.centerYInSuperview()
         descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: RecipeDescriptionCollectionViewCell.Constants.descriptionLeading).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -RecipeDescriptionCollectionViewCell.Constants.descriptionLeading).isActive = true
     }
 }
 

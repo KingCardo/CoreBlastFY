@@ -37,13 +37,13 @@ class MealPlansRouter: NSObject, MealPlansRoutingLogic, MealPlansDataPassing {
     
     // MARK: Navigation
     
-    func navigateToMealPlanDetailController(source: MealPlansViewController, destination: MealPlanDetailViewController) {
+    private func navigateToMealPlanDetailController(source: MealPlansViewController, destination: MealPlanDetailViewController) {
         source.show(destination, sender: nil)
     }
     
     // MARK: Passing data
     
-    func passMealPlanToDetailController(source: MealPlansDataStore, destination: inout MealPlanDetailDataStore) {
+    private func passMealPlanToDetailController(source: MealPlansDataStore, destination: inout MealPlanDetailDataStore) {
         let selectedRow = viewController?.collectionView.indexPathsForSelectedItems?.first?.item
         destination.mealPlan = source.mealPlans?[selectedRow!]
     }

@@ -180,7 +180,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! We'll do weekly progression pics to stay motivated and on track to reach your goals!"
-        label.font = UIFont.makeAvenirNext(size: 32)
+        label.font = UIFont.makeFontSet(size: 32)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!
         label.numberOfLines = 0
@@ -236,7 +236,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (delete) in
-            let progressionPic = ProgressionPicController.shared.progressionPics[indexPath.row]
+            let progressionPic = ProgressionPicController.shared.sortedPics[indexPath.row]
             ProgressionPicController.shared.deletePic(progressionPic: progressionPic)
             collectionView.deleteItems(at: [indexPath])
         }

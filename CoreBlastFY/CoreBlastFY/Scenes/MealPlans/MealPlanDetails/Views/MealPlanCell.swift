@@ -9,6 +9,7 @@
 import UIKit
 
 class MealPlanCell: UITableViewCell {
+    static let id = "MealPlanCell"
     
     var mealPlanView = MealPlanView()
     var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails? {

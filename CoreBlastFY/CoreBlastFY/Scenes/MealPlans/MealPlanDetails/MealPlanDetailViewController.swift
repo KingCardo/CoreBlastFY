@@ -75,11 +75,11 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
     
     // MARK: Views
     
-    let tableView = UITableView(frame: .zero, style: .plain)
+    private let tableView = UITableView(frame: .zero, style: .plain)
     
     //MARK: Methods
     
-    func fetchMealPlanDetails() {
+    private func fetchMealPlanDetails() {
         let request = MealPlanDetail.FetchDetails.Request()
         interactor?.fetchMealPlanDetails(request: request)
     }
@@ -104,9 +104,9 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
-        //let height = UIApplication.shared.statusBarFrame.height
-        //tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0)
-        
+        tableView.register(AppFullscreenDescriptionCell.self, forCellReuseIdentifier: AppFullscreenDescriptionCell.id)
+        tableView.register(MealPlanCell.self, forCellReuseIdentifier: MealPlanCell.id)
+        tableView.register(AppFullscreenHeaderCell.self, forCellReuseIdentifier: AppFullscreenHeaderCell.id)
     }
 }
 
@@ -133,19 +133,19 @@ extension MealPlanDetailViewController: UITableViewDataSource {
         
         switch item {
         case .header:
-            let headerCell = AppFullscreenHeaderCell()
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: AppFullscreenHeaderCell.id, for: indexPath) as! AppFullscreenHeaderCell
             headerCell.programCell.configure(item: displayedPlan)
             headerCell.programCell.layer.cornerRadius = 0
             headerCell.clipsToBounds = true
             headerCell.programCell.backgroundView = nil
             return headerCell
         case .description:
-            let cell = AppFullscreenDescriptionCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: AppFullscreenDescriptionCell.id, for: indexPath) as! AppFullscreenDescriptionCell
             cell.item = displayedPlan.description
             cell.backgroundColor = .white
             return cell
         case .recipes:
-            let cell = MealPlanCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: MealPlanCell.id, for: indexPath) as! MealPlanCell
             cell.parent = self
             cell.item = displayedPlan
             return cell

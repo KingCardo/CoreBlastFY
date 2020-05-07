@@ -9,6 +9,7 @@
 import UIKit
 
 class RecipeCell: UICollectionViewCell {
+    static let id = "RecipeCell"
     
     func configure(with recipe: Recipe) {
         titleLabel.text = recipe.name
@@ -64,16 +65,17 @@ class RecipeCell: UICollectionViewCell {
     private func setupViews() {
         contentView.addSubview(mealTypeLabel)
         mealTypeLabel.translatesAutoresizingMaskIntoConstraints = false
-        mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
         mealTypeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: mealTypeLabel.bottomAnchor, constant: 16).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: mealTypeLabel.leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
         
         contentView.addSubview(mealImageView)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
-        mealImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+        mealImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16).isActive = true
         mealImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         mealImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         mealImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true

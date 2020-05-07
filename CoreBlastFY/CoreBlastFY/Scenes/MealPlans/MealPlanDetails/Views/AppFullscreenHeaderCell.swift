@@ -9,7 +9,7 @@
 import UIKit
 
 class AppFullscreenHeaderCell: UITableViewCell {
-    
+    static let id = "AppFullscreenHeaderCell"
     let programCell = MealPlansOverviewCollectionViewCell()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

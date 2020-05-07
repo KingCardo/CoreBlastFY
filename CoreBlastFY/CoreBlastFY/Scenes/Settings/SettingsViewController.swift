@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import StoreKit
 
 protocol SettingsDisplayLogic: class {
     func displayItems(viewModel: [Settings.Items.ViewModel.DisplayItem])
@@ -52,9 +53,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     private func routeToAboutScene() {
         router?.routeToAboutScene()
     }
-    private func routeToNutritionScene() {
-        router?.routeToNutritionScene()
-    }
+    
     private func routeToNotificationsScene() {
         router?.routeToNotificationsScene()
     }
@@ -63,6 +62,14 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     }
     private func routeToParksScene() {
         router?.routeToParksScene()
+    }
+    
+    private func handleRestore() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        let ac = UIAlertController(title: "In App Purchases", message: "All successful purchases have been restored.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(ac, animated: true)
+        
     }
 
     // MARK: View lifecycle
@@ -137,11 +144,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         switch item {
         case .about: routeToAboutScene()
         case .notifications: routeToNotificationsScene()
-       // case .nutrition: routeToNutritionScene()
         case .foodLog: routeToFoodLogScene()
       //  case .parks: routeToParksScene()
         case .reportAProblem: contactUsButtonTapped()
-       // case .inAppPurchase: route
+        case .inAppPurchase: handleRestore()
         default: break
         }
     }

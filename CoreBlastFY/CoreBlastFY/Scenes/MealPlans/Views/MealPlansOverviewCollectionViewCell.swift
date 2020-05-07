@@ -13,8 +13,6 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     static let id = "MealPlansOverviewCollectionViewCell"
     
     func configure(item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails) {
-        titleLabel.text = item.title.capitalized
-        subTitleLabel.text = item.summary.capitalized
         imageView.image = item.planImage ?? #imageLiteral(resourceName: "6packFY")
     }
     
@@ -24,8 +22,8 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         imageView.image = item.image ?? #imageLiteral(resourceName: "6packFY")
     }
     
-    let subTitleLabel = UILabel(text: "LIFE HACK", font: .preferredFont(forTextStyle: .title3), numberOfLines: 0)
-    let titleLabel = UILabel(text: "Utilizing your Time", font: .preferredFont(forTextStyle: .largeTitle), numberOfLines: 0)
+    let subTitleLabel = UILabel(text: "", font: UIFont.makeAvenirCondensed(size: 24), numberOfLines: 0)
+    let titleLabel = UILabel(text: "", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -56,9 +54,14 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         
         let stackView = VerticalStackView(arrangedSubviews: [
             titleLabel, spacerView, subTitleLabel
-        ], spacing: 8)
+        ], spacing: 0)
+        //stackView
         imageView.addSubview(stackView)
-        stackView.anchor(top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: MealPlansOverviewCollectionViewCell.Dimensions.imageViewPadding)
+        stackView.anchor(top: imageView.topAnchor,
+                         leading: imageView.leadingAnchor,
+                         bottom: imageView.bottomAnchor,
+                         trailing: imageView.trailingAnchor,
+                         padding: MealPlansOverviewCollectionViewCell.Dimensions.imageViewPadding)
         
         addSubview(imageView)
         imageView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
@@ -81,7 +84,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
 
 extension MealPlansOverviewCollectionViewCell {
     struct Dimensions {
-        static let imageViewPadding = UIEdgeInsets(top: 32, left: 18, bottom: 24, right: 18)
+        static let imageViewPadding = UIEdgeInsets(top: 18, left: 18, bottom: 24, right: 18)
         static let spacerViewHeight: CGFloat = 240
         static let layerCornerRadius: CGFloat = 16
     }

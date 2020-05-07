@@ -24,10 +24,27 @@ struct Fonts {
 }
 
 extension UIFont {
+    
+    static func makeTitleFont(size: CGFloat) -> UIFont {
+        let font = UIFont(name: "AvenirNext-Heavy", size: size)!
+        let fontMetrics = UIFontMetrics(forTextStyle: .body)
+        return fontMetrics.scaledFont(for: font)
+        
+    }
     static func makeAvenirNext(size: CGFloat) -> UIFont? {
         let font = UIFont(name: "Avenir Next", size: size)!
         let fontMetrics = UIFontMetrics(forTextStyle: .body)
         return fontMetrics.scaledFont(for: font)
+    }
+    
+    static func makeAvenirCondensed(size: CGFloat) -> UIFont {
+        let font = UIFont(name: "Avenir Next Condensed", size: size)!
+        let fontMetrics = UIFontMetrics(forTextStyle: .body)
+        return fontMetrics.scaledFont(for: font)
+    }
+    
+    static func makeFontSet(size: CGFloat) -> UIFont {
+        return UIFont(name: "Avenir Next", size: size)!
     }
     
 }

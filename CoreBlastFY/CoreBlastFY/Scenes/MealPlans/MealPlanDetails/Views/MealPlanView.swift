@@ -7,18 +7,23 @@
 //
 
 import UIKit
-//import AVKit
-//import StoreKit
 
-class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
-    static let id = "RecipeCell"
-   // let productID = "com.Franchiz.ForeverYoungFitness.CoreBlast"
-    //var program: Program?
-    var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails?
+class MealPlanView: UIView {
+    
+    var item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails? {
+        didSet {
+            compactItems = (item?.recipe.compactMap { $0 })!
+            tips = item?.tips.compactMap { $0 } ?? []
+        }
+    }
+    
+    var tips: [String] = []
+    
+    var compactItems: [Recipe] = []
     weak var parent: MealPlanCell?
    
     private lazy var workoutCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.autoresizingMask = [.flexibleHeight]
@@ -26,13 +31,13 @@ class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
         cv.delegate = self
         cv.backgroundColor = .white
         cv.isScrollEnabled = true
-        cv.register(RecipeCell.self, forCellWithReuseIdentifier: MealPlanView.id)
+        cv.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.id)
+        cv.register(TipsCollectionViewCell.self, forCellWithReuseIdentifier: TipsCollectionViewCell.id)
         return cv
     }()
     
     init() {
         super.init(frame: .zero)
-       // SKPaymentQueue.default().add(self)
         setup()
     }
     
@@ -40,33 +45,11 @@ class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-//        for transaction in transactions {
-//            if transaction.transactionState == .purchased {
-//                SKPaymentQueue.default().finishTransaction(transaction)
-//                UserDefaults.standard.set(true, forKey: productID)
-//            } else if transaction.transactionState == .failed {
-//
-//                if let error = transaction.error {
-//                    let errorDesc = error.localizedDescription
-//                    print(errorDesc)
-//                }
-//                  SKPaymentQueue.default().finishTransaction(transaction)
-//            } else if transaction.transactionState == .restored {
-//                 UserDefaults.standard.set(true, forKey: productID)
-//                 SKPaymentQueue.default().finishTransaction(transaction)
-//            }
-//
-//        }
-//    }
-    
-    
-    
-    func setup() {
+    private func setup() {
         addSubview(workoutCollectionView)
         workoutCollectionView.translatesAutoresizingMaskIntoConstraints = false
         workoutCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3).isActive = true
         workoutCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         workoutCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
@@ -75,43 +58,35 @@ class MealPlanView: UIView/*, SKPaymentTransactionObserver */ {
 extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return item?.recipe.count ?? 0
+        return item?.isTips ?? false ? tips.count : compactItems.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealPlanView.id, for: indexPath) as! RecipeCell
-        guard let recipe = item?.recipe[indexPath.row] else { return UICollectionViewCell() }
-        cell.configure(with: recipe)
+        if item?.isTips ?? false {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TipsCollectionViewCell.id, for: indexPath) as! TipsCollectionViewCell
+            let tip = tips[indexPath.row]
+                cell.configure(with: tip)
+            return cell
+            
+        } else {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.id, for: indexPath) as! RecipeCell
+         let recipe = compactItems[indexPath.row]
+            cell.configure(with: recipe)
         return cell
+        }
     }
     
-//    func buyCoreBlast() {
-//        if SKPaymentQueue.canMakePayments() {
-//            let paymentRequest = SKMutablePayment()
-//            paymentRequest.productIdentifier = productID
-//            SKPaymentQueue.default().add(paymentRequest)
-//
-//        } else {
-//            //TO DO: handle cant  make payments
-//
-//        }
-//    }
-    
-//    static let isPurchased = UserDefaults.standard.bool(forKey: "com.Franchiz.ForeverYoungFitness.CoreBlast")
-//
-//    func isPurchase() -> Bool {
-//        let purchaseRecipt = UserDefaults.standard.bool(forKey: productID)
-//        return purchaseRecipt
-//    }
     private func displayMealDetails(with recipe: Recipe?) {
-        
         parent?.routeToMealDetails(with: recipe)
-//        let mealDetailsVC = MealDetailsViewController()
-//        print(recipe?.name, "RWRW")
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         collectionView.deselectItem(at: indexPath, animated: true)
-        displayMealDetails(with: item?.recipe[indexPath.item])
+        if item?.isTips ?? false {
+            print("Tips Selected")
+        } else {
+        displayMealDetails(with: compactItems[indexPath.item])
+        }
 
 //       // if isPurchase() {
 //        guard let workout = program?.sortedWorkouts[indexPath.row] else { return }

@@ -13,6 +13,7 @@ class HeaderCollectionImageView: UICollectionViewCell {
     let imageView: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "mp2image"))
         iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
         return iv
     }()
     
@@ -20,7 +21,7 @@ class HeaderCollectionImageView: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(imageView)
-        imageView.fillSuperview()
+        imageView.fillSuperview(padding: UIEdgeInsets(top: -8, left: 0, bottom: 0, right: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
