@@ -28,7 +28,7 @@ class SnappingLayout: UICollectionViewFlowLayout {
         
         var offsetAdjustment = CGFloat.greatestFiniteMagnitude
         
-        let horizontalOffset = proposedContentOffset.x + collectionView.contentInset.left + 8
+        let horizontalOffset = proposedContentOffset.x + collectionView.contentInset.left + 16
         
         let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
         

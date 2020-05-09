@@ -73,6 +73,12 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
         router?.routeToMealDetails()
     }
     
+    func routeToTipDetails(with tip: String) {
+        let genericDetail = GenericDetailViewController()
+        genericDetail.data = tip
+        present(genericDetail, animated: true, completion: nil)
+    }
+    
     // MARK: Views
     
     private let tableView = UITableView(frame: .zero, style: .plain)

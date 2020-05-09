@@ -71,6 +71,7 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
         super.viewWillAppear(animated)
         setupViews()
         configure()
+        setupHeaderView()
     }
     
     // MARK: Do something
@@ -80,12 +81,19 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
+        tv.allowsSelection = false
         tv.register(IngredientsTableViewCell.self, forCellReuseIdentifier: IngredientsTableViewCell.id)
         tv.register(InstructionsTableViewCell.self, forCellReuseIdentifier: InstructionsTableViewCell.id)
         tv.register(RecipeDescriptionTableViewCell.self, forCellReuseIdentifier: RecipeDescriptionTableViewCell.id)
         tv.register(RecipeOptionsTableViewCell.self, forCellReuseIdentifier: RecipeOptionsTableViewCell.id)
         return tv
     }()
+    
+    private func setupHeaderView() {
+        let headerView = DetailHeaderView(image: displayedRecipe?.image)
+        headerView.frame.size.height = view.bounds.height * 0.3
+        recipeTableView.tableHeaderView = headerView
+    }
     
     private func configure() {
         interactor?.passPresenterRecipe(with: interactor?.recipe)
@@ -103,24 +111,6 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
 }
 
 extension MealDetailsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 0:
-            let iv = UIImageView()
-            iv.contentMode = .scaleAspectFill
-            iv.clipsToBounds = true
-            iv.image = displayedRecipe?.image
-            return iv
-        default: return nil
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0: return tableView.bounds.height * 0.3
-        default: return .zero
-        }
-    }
 }
 
 extension MealDetailsViewController: UITableViewDataSource {

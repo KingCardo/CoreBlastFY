@@ -32,7 +32,7 @@ class WorkoutInteractor: WorkoutBusinessLogic, WorkoutDataStore {
   // MARK: Do something
   
   func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
-    worker = WorkoutWorker(dataStore: exercisesMock)
+    worker = WorkoutWorker(dataStore: exercises)
     worker?.fetchWorkout(completion: { (workout) in
         let response = WorkoutInfo.FetchWorkout.Response(workout: workout)
         self.presenter?.presentWorkout(response: response)

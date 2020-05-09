@@ -34,6 +34,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                     self.exercises.append(exercise)
                     }
                 }
+                print(self.exercises.count, "RWRW")
                 completion(self.exercises, nil)
         }
         }

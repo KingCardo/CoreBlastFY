@@ -21,7 +21,7 @@ class MealPlanView: UIView {
     
     var compactItems: [Recipe] = []
     weak var parent: MealPlanCell?
-   
+    
     private lazy var workoutCollectionView: UICollectionView = {
         let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
@@ -50,7 +50,7 @@ class MealPlanView: UIView {
         addSubview(workoutCollectionView)
         workoutCollectionView.translatesAutoresizingMaskIntoConstraints = false
         workoutCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3).isActive = true
+        workoutCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         workoutCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         workoutCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
@@ -61,18 +61,19 @@ extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return item?.isTips ?? false ? tips.count : compactItems.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if item?.isTips ?? false {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TipsCollectionViewCell.id, for: indexPath) as! TipsCollectionViewCell
             let tip = tips[indexPath.row]
-                cell.configure(with: tip)
+            cell.configure(with: tip)
             return cell
             
         } else {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.id, for: indexPath) as! RecipeCell
-         let recipe = compactItems[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.id, for: indexPath) as! RecipeCell
+            let recipe = compactItems[indexPath.row]
             cell.configure(with: recipe)
-        return cell
+            return cell
         }
     }
     
@@ -80,52 +81,20 @@ extension MealPlanView: UICollectionViewDataSource, UICollectionViewDelegate {
         parent?.routeToMealDetails(with: recipe)
     }
     
+    private func presentDetailView(with tip: String) {
+        parent?.routeToTipDetails(with: tip)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         collectionView.deselectItem(at: indexPath, animated: true)
         if item?.isTips ?? false {
-            print("Tips Selected")
+            let tip = tips[indexPath.row]
+            presentDetailView(with: tip)
         } else {
-        displayMealDetails(with: compactItems[indexPath.item])
+            displayMealDetails(with: compactItems[indexPath.item])
         }
-
-//       // if isPurchase() {
-//        guard let workout = program?.sortedWorkouts[indexPath.row] else { return }
-//        //TO DO: - Make more efficient
-//        if program?.workouts[indexPath.row].videoURL == nil {
-//
-//            ProgramController.shared.downloadAssetUrl(ref: ProgramController.shared.storageRef.child("videos/\(workout.videoString)")) { [weak self] (url) in
-//                if url != nil {
-//                    self?.program?.workouts[indexPath.row].videoURL = url
-//                    if let vc = self?.findViewController() {
-//                        let videoURL = url!
-//                         self?.presentAVPlayer(vc: vc, url: videoURL)
-//                    }
-//                }
-//            }
-//        } else {
-//            // you have the url dont have to download
-//            if let vc = self.findViewController() {
-//                if let videoURL = program?.workouts[indexPath.row].videoURL!  {
-//                presentAVPlayer(vc: vc, url: videoURL)
-//                }
-//            }
-//     //       }
-////        } else {
-////            buyCoreBlast()
-//        }
-}
-//       private func presentAVPlayer(vc: UIViewController, url: URL) {
-//            let player = AVPlayer(url: url)
-//            let playerViewController = AVPlayerViewController()
-//            playerViewController.player = player
-//            vc.present(playerViewController, animated: true) {
-//                playerViewController.player!.play()
-//            }
-//        }
-   // }
-    
-   
+    }
 }
 
 extension MealPlanView: UICollectionViewDelegateFlowLayout {
@@ -138,7 +107,7 @@ extension MealPlanView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 8, left: 16, bottom: 0, right: 16)
+        return .init(top: 0, left: 16, bottom: -8, right: 8)
     }
 }
 

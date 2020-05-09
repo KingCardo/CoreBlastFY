@@ -26,8 +26,19 @@ class TipsCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.font = UIFont.makeAvenirCondensed(size: 20)
+        label.textColor = .black
+        label.sizeToFit()
+        return label
+    }()
+    
+    private let tapMoreLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tap me for more info!"
+        label.textAlignment = .center
+        label.numberOfLines = 1
         label.font = UIFont.makeAvenirCondensed(size: 14)
         label.textColor = .black
         label.sizeToFit()
@@ -43,6 +54,9 @@ class TipsCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         contentView.addSubview(titleLabel)
         titleLabel.fillSuperview()
+        titleLabel.addSubview(tapMoreLabel)
+        tapMoreLabel.centerXInSuperview()
+        tapMoreLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -16).isActive = true 
         
     }
     

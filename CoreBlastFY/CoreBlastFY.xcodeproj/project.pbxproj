@@ -12,6 +12,8 @@
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
 		7A5CEDD2245DF0CB0066B0D5 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD1245DF0CB0066B0D5 /* UIAlertController.swift */; };
 		7A5CEDDA2464CDEA0066B0D5 /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */; };
+		7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */; };
+		7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -155,6 +157,8 @@
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
 		7A5CEDD1245DF0CB0066B0D5 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericDetailViewController.swift; path = CoreBlastFY/Helpers/GenericDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -543,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				7A8CBB6B23EFA57B00D0D6BD /* AboutMeViewController.swift */,
+				7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */,
 			);
 			path = AboutFYF;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				7AC36D2B24563526002764F5 /* InstructionsTableViewCell.swift */,
 				7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */,
 				7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */,
+				7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -872,6 +878,7 @@
 				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
 				7AC36D2A24563192002764F5 /* IngredientsTableViewCell.swift in Sources */,
 				7AC36D0F244E22FF002764F5 /* RecipeCell.swift in Sources */,
+				7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */,
 				7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */,
 				7AC2C6D9244B8F1800B3BFC8 /* MealPlanDetailRouter.swift in Sources */,
 				7A8CBB1723E912C700D0D6BD /* PreWorkoutViewController.swift in Sources */,
@@ -898,6 +905,7 @@
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
+				7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */,
 				7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */,
 				7AC2C6CD244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift in Sources */,
 				7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */,

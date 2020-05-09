@@ -28,18 +28,18 @@ class WorkoutWorker {
 }
 
 
-let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "LegRaises", ofType: "MOV")!)
-let squat = Exercise(name: "Leg Raises", tip: "full range of motion", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
-
-let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "A-skips", ofType: "MOV")!)
-
-let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, movement: .stationary, videoURL: askipVideoPath)
-
-//TODO: - add rest video
-//let restVideoPath =
-let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
+//let squatVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "LegRaises", ofType: "MOV")!)
+//let squat = Exercise(name: "Leg Raises", tip: "full range of motion", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
+//
+//let askipVideoPath = URL(fileURLWithPath:Bundle.main.path(forResource: "A-skips", ofType: "MOV")!)
+//
+//let askip = Exercise(name: "A-Skip", tip: "Bounce in Rhythm", level: .beginner, movement: .stationary, videoURL: askipVideoPath)
+//
+////TODO: - add rest video
+////let restVideoPath =
+//let rest = Exercise(name: "Rest", tip: "Inhale thru nose, exhale thru mouth", level: .beginner, movement: .stationary, videoURL: squatVideoPath)
     
-let exercisesMock = [squat, askip, rest]
+//let exercisesMock = [squat, askip, rest]
 
 enum WorkoutInfoStoreResult<U> {
     case Success(result: U)

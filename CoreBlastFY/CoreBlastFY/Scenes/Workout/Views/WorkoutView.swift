@@ -76,24 +76,22 @@ class WorkoutView: UIView {
             }
             
         } else {
-            timerIsRunning = false
             workoutFinished()
         }
     }
     
     func resumeWorkout() {
-        timerIsRunning = true
         runTimer()
         videoView?.resume()
     }
     
     func pauseWorkout() {
-        timerIsRunning = false
         invalidateTimers()
         videoView?.pauseVideo()
     }
     
     private func invalidateTimers() {
+        timerIsRunning = false
         workoutTimer.invalidate()
     }
     

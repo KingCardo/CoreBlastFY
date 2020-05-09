@@ -49,7 +49,7 @@ let onionPowder = Recipe.Ingredient(name: "Onion Powder", amount: "")
 let pepper = Recipe.Ingredient(name: "Black Pepper", amount: "")
 
 
-let shreddedDinnerInstructions: [String] = ["Preheat oven to 425 F.", " Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bae until salmon is opaque and broccoli is tender, 12-18 minutes.", "Transfer food to plate and enjoy!"]
+let shreddedDinnerInstructions: [String] = ["Preheat oven to 425 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bae until salmon is opaque and broccoli is tender, 12-18 minutes.", "Transfer food to plate and enjoy!"]
 let shreddedDinnerIngredients: [Recipe.Ingredient] = [broccoli, extraVirginOliveOil, salmon, salt, garlic, onionPowder, pepper]
 let shreddedDinnerName = "Roasted Salmon & Veggies"
 
@@ -92,7 +92,7 @@ let shreddedMealTip = "Meal prep a couple days at a time to make sure your ahead
 let shreddedMP = MealPlan(title: shreddedMealPlanTitle,
                           summary: shreddedMealPlanSummary,
                           description: shreddedMealDescription,
-                          image: #imageLiteral(resourceName: "eggs"),
+                          image: #imageLiteral(resourceName: "mp2image"),
                           breakfast: shreddedBreakfastRecipe,
                           lunch: shreddedLunchRecipe,
                           dinner: shreddedDinnerRecipe,

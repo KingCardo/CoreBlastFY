@@ -89,7 +89,11 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(pauseWorkout), name: PauseWorkoutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseWorkoutFromInterruption), name: PauseWorkoutNotification, object: nil)
+    }
+    
+    @objc private func pauseWorkoutFromInterruption() {
+        workoutView?.pauseWorkout()
     }
     
     @objc private func pauseWorkout() {

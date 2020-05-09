@@ -77,8 +77,9 @@ class ExerciseStorage {
     //TO DO: FIX - hanlde not fetching againuserde
     static func fetchCoreExercises() {
         ExerciseStorage.loadExercises()
+         let user = UserManager.loadUserFromFile()
 
-        switch UserAPI.user.totalPoints {
+        switch user.totalPoints {
         case 0: ExerciseStorage.fetchExercises(with: "beginner")
         case 14: ExerciseStorage.fetchExercises(with: "novice")
         case 29: ExerciseStorage.fetchExercises(with: "solid")

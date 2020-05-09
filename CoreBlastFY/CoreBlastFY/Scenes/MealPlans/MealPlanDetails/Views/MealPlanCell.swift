@@ -22,7 +22,10 @@ class MealPlanCell: UITableViewCell {
     func routeToMealDetails(with recipe: Recipe?) {
         parent?.routeToMealDetails(with: recipe)
     }
-
+    
+    func routeToTipDetails(with tip: String) {
+        parent?.routeToTipDetails(with: tip)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,10 +45,6 @@ class MealPlanCell: UITableViewCell {
     
     private func setup() {
         contentView.addSubview(mealPlanView)
-        mealPlanView.translatesAutoresizingMaskIntoConstraints = false
-        mealPlanView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        mealPlanView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        mealPlanView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        mealPlanView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        mealPlanView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0))
     }
 }

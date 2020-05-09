@@ -33,7 +33,7 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
     
     private func setupViews() {
         addSubview(descriptionLabel)
-        descriptionLabel.fillSuperview(padding: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        descriptionLabel.fillSuperview(padding: UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8))
     }
 }
 
