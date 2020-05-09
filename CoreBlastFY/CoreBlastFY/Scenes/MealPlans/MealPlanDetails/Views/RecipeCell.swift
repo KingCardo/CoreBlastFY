@@ -39,8 +39,8 @@ class RecipeCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.numberOfLines = 1
-        label.font = Fonts.mainFont
+        label.numberOfLines = 0
+        label.font = UIFont.makeAvenirCondensed(size: 16)
         label.textColor = .black
         label.sizeToFit()
         return label
@@ -50,7 +50,7 @@ class RecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 1
-        label.font = Fonts.subFont
+        label.font = UIFont.makeAvenirCondensed(size: 20)
         label.textColor = .goatBlack
         label.sizeToFit()
         return label
@@ -65,20 +65,20 @@ class RecipeCell: UICollectionViewCell {
     private func setupViews() {
         contentView.addSubview(mealTypeLabel)
         mealTypeLabel.translatesAutoresizingMaskIntoConstraints = false
-        mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+        mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         mealTypeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: mealTypeLabel.bottomAnchor, constant: 16).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: mealTypeLabel.bottomAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: mealTypeLabel.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
         
         contentView.addSubview(mealImageView)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
-        mealImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16).isActive = true
-        mealImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        mealImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        mealImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        mealImageView.heightAnchor.constraint(equalToConstant: contentView.bounds.width * 0.95).isActive = true
+        mealImageView.widthAnchor.constraint(equalToConstant: contentView.bounds.width * 0.95).isActive = true
+        mealImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+
     }
     
     

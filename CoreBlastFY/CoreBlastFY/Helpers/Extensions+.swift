@@ -19,19 +19,19 @@ extension UIView {
         }
     }
     
-    func createShadowLayer(view: UIView) {
+    func createShadowLayer() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.2).cgColor, UIColor.clear.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.clear.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.frame = layer.bounds
-        view.layer.addSublayer(gradientLayer)
+        self.layer.addSublayer(gradientLayer)
         
         let saturateLayer = CALayer()
         saturateLayer.backgroundColor = UIColor.black.cgColor
-        saturateLayer.frame = view.layer.bounds
+        saturateLayer.frame = self.layer.bounds
         saturateLayer.opacity = 0.4
-        view.layer.addSublayer(saturateLayer)
+        self.layer.addSublayer(saturateLayer)
     }
 }
 
@@ -81,5 +81,9 @@ class VerticalStackView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+}
+
+extension UIImageView {
     
 }

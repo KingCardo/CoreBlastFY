@@ -21,13 +21,12 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     var router: (NSObjectProtocol & MealDetailsRoutingLogic & MealDetailsDataPassing)?
     var displayedRecipe: MealDetails.RecipeDetails.ViewModel.RecipeDetails?
     enum Items {
-        case image
         case title
         case options
         case details
     }
     
-    let items: [Items] = [.image, .title, .options, .details]
+    let items: [Items] = [.title, .options, .details]
     
     enum Mode {
         case ingredients
@@ -76,22 +75,16 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     // MARK: Do something
     
-    private lazy var recipeCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.autoresizingMask = [.flexibleHeight]
-        cv.dataSource = self
-        cv.delegate = self
-        cv.backgroundColor = .white
-        cv.isScrollEnabled = true
-        cv.register(IngredientsCollectionViewCell.self, forCellWithReuseIdentifier: IngredientsCollectionViewCell.id)
-        cv.register(InstructionsCollectionViewCell.self, forCellWithReuseIdentifier: InstructionsCollectionViewCell.id)
-        cv.register(HeaderCollectionImageView.self, forCellWithReuseIdentifier: HeaderCollectionImageView.id)
-        cv.register(RecipeDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: RecipeDescriptionCollectionViewCell.id)
-        cv.register(RecipeOptionsCollectionViewCell.self, forCellWithReuseIdentifier: RecipeOptionsCollectionViewCell.id)
-        return cv
-        
+    private lazy var recipeTableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.delegate = self
+        tv.dataSource = self
+        tv.separatorStyle = .none
+        tv.register(IngredientsTableViewCell.self, forCellReuseIdentifier: IngredientsTableViewCell.id)
+        tv.register(InstructionsTableViewCell.self, forCellReuseIdentifier: InstructionsTableViewCell.id)
+        tv.register(RecipeDescriptionTableViewCell.self, forCellReuseIdentifier: RecipeDescriptionTableViewCell.id)
+        tv.register(RecipeOptionsTableViewCell.self, forCellReuseIdentifier: RecipeOptionsTableViewCell.id)
+        return tv
     }()
     
     private func configure() {
@@ -100,101 +93,87 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     func displayRecipe(viewModel: MealDetails.RecipeDetails.ViewModel.RecipeDetails) {
         displayedRecipe = viewModel
-        recipeCollectionView.reloadData()
+        recipeTableView.reloadData()
     }
     
     private func setupViews() {
-        view.addSubview(recipeCollectionView)
-        recipeCollectionView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0))
+        view.addSubview(recipeTableView)
+        recipeTableView.fillSuperview()
     }
 }
 
-extension MealDetailsViewController: UICollectionViewDataSource {
+extension MealDetailsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            let iv = UIImageView()
+            iv.contentMode = .scaleAspectFill
+            iv.clipsToBounds = true
+            iv.image = displayedRecipe?.image
+            return iv
+        default: return nil
+        }
+    }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0: return tableView.bounds.height * 0.3
+        default: return .zero
+        }
+    }
+}
+
+extension MealDetailsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0...2: return 1
-        case 3:
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let item = items[section]
+        switch item {
+        case .title: return 1
+        case .options: return 1
+        case .details:
             switch mode {
             case .ingredients:
                 return displayedRecipe?.ingredients.count ?? 0
             case .instructions:
                 return displayedRecipe?.instructions.count ?? 0
             }
-        default: return 0
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCollectionImageView.id, for: indexPath) as! HeaderCollectionImageView
+            let cell = tableView.dequeueReusableCell(withIdentifier: RecipeDescriptionTableViewCell.id, for: indexPath) as! RecipeDescriptionTableViewCell
             cell.configure(with: displayedRecipe)
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeDescriptionCollectionViewCell.id, for: indexPath) as! RecipeDescriptionCollectionViewCell
-            cell.configure(with: displayedRecipe)
-            return cell
-        case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeOptionsCollectionViewCell.id, for: indexPath) as! RecipeOptionsCollectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: RecipeOptionsTableViewCell.id, for: indexPath) as! RecipeOptionsTableViewCell
             cell.option1Buttonhandler = { [weak self] in
                 self?.mode = .ingredients
-                self?.recipeCollectionView.reloadData()
+                self?.recipeTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
             }
             cell.option2Buttonhandler = {  [weak self] in
                 self?.mode = .instructions
-                self?.recipeCollectionView.reloadData()
+                self?.recipeTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
             }
             return cell
         default:
             switch mode {
             case .ingredients:
                 let ingredient = displayedRecipe?.ingredients[indexPath.item]
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IngredientsCollectionViewCell.id, for: indexPath) as? IngredientsCollectionViewCell else { return UICollectionViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: IngredientsTableViewCell.id, for: indexPath) as? IngredientsTableViewCell else { return UITableViewCell() }
                 cell.configure(with: ingredient)
                 return cell
                 
             case .instructions:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InstructionsCollectionViewCell.id, for: indexPath) as? InstructionsCollectionViewCell else { return UICollectionViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.id, for: indexPath) as? InstructionsTableViewCell else { return UITableViewCell() }
                 let instruction = displayedRecipe?.instructions[indexPath.item]
                 cell.configure(with: instruction)
                 return cell
             }
         }
-    }
-}
-
-extension MealDetailsViewController: UICollectionViewDelegate {
-    
-}
-
-extension MealDetailsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.section {
-        case 0: return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.3)
-        case 1: return .init(width: collectionView.frame.width, height: /*75*/ collectionView.frame.height * 0.1)
-        case 2: return .init(width: collectionView.frame.width, height: /*50*/ collectionView.frame.height * 0.075)
-        case 3:
-            switch mode {
-            case .ingredients:
-                return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.07)
-            case .instructions:
-                return .init(width: collectionView.frame.width, height: collectionView.frame.height * 0.07)
-            }
-                
-        default: return .zero
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
