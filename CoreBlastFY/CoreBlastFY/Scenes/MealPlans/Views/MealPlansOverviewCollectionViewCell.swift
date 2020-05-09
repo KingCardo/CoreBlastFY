@@ -25,12 +25,13 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     let subTitleLabel = UILabel(text: "", font: UIFont.makeAvenirCondensed(size: 24), numberOfLines: 0)
     let titleLabel = UILabel(text: "", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
     
-    lazy var imageView: UIImageView = {
+     var imageView: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "6packFY")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        createShadowLayer(view: iv)
+        iv.createShadowLayer()
+        //createShadowLayer(view: iv)
         return iv
     }()
     
@@ -56,6 +57,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
             titleLabel, spacerView, subTitleLabel
         ], spacing: 0)
         //stackView
+        //imageView.createShadowLayer()
         imageView.addSubview(stackView)
         stackView.anchor(top: imageView.topAnchor,
                          leading: imageView.leadingAnchor,

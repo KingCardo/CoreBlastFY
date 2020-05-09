@@ -31,6 +31,7 @@ class MealPlanView: UIView {
         cv.delegate = self
         cv.backgroundColor = .white
         cv.isScrollEnabled = true
+        cv.showsHorizontalScrollIndicator = false
         cv.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.id)
         cv.register(TipsCollectionViewCell.self, forCellWithReuseIdentifier: TipsCollectionViewCell.id)
         return cv

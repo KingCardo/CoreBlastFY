@@ -74,15 +74,15 @@ let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating 
 let shreddedDinner2Ingredients: [Recipe.Ingredient] = [avocado, lettuce, tuna, lime, redOnion, mayo, salt, pepper]
 let shreddedDinner2Name = "Tuna Salad Wraps"
 
-let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp1image"))
+let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "eggs"))
 
-let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedLunchIngredients, instructions: shreddedLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "mp1image"))
+let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedLunchIngredients, instructions: shreddedLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "almonds"))
 
 let shreddedSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
-let shreddedDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+let shreddedDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "veganLunch"))
 
-let shreddedDinner2Recipe = Recipe(name: shreddedDinner2Name, ingredients: shreddedDinner2Ingredients, instructions: shreddedDinner2Instructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "mp1image"))
+let shreddedDinner2Recipe = Recipe(name: shreddedDinner2Name, ingredients: shreddedDinner2Ingredients, instructions: shreddedDinner2Instructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "stirfrytofu"))
 
 let shreddedMealPlanTitle = "Super Shred"
 let shreddedMealPlanSummary = "Accelerate your gains with this fat burning plan!"
@@ -92,7 +92,7 @@ let shreddedMealTip = "Meal prep a couple days at a time to make sure your ahead
 let shreddedMP = MealPlan(title: shreddedMealPlanTitle,
                           summary: shreddedMealPlanSummary,
                           description: shreddedMealDescription,
-                          image: #imageLiteral(resourceName: "mp2image"),
+                          image: #imageLiteral(resourceName: "eggs"),
                           breakfast: shreddedBreakfastRecipe,
                           lunch: shreddedLunchRecipe,
                           dinner: shreddedDinnerRecipe,
@@ -104,7 +104,7 @@ let shreddedMP = MealPlan(title: shreddedMealPlanTitle,
 //breakfast
 let brownRiceWrap = Recipe.Ingredient(name: "Brown Rice Tortilla", amount: "2")
 
-let gainsBkInstructions: [String] = ["Preheat skillet over medium heat", "Once skillet is hot, add oil to pan evenly", "Cook sausage while rotating sides every 1-2 minutes until golden brown", "Transfer sausage to a plate.", "Add more oil to pot, and scramble eggs adding salt and pepper", "Once eggs are cooked your your preference add sausage and eggs to a torilla", "Add jelly or salsa for extra flavor, enjoy!"]
+let gainsBkInstructions: [String] = ["Preheat skillet over medium heat", "Once skillet is hot, add oil to pan evenly", "Cook sausage while rotating sides every 1-2 minutes until golden brown", "Transfer sausage to a plate.", "Add more oil to pot, and scramble eggs adding salt and pepper", "Once eggs are cooked to your preference add sausage and eggs to a torilla", "Add jelly or salsa for extra flavor, enjoy!"]
 let gainsBreakfastIngredients: [Recipe.Ingredient] = [brownRiceWrap, eggs, sausage, banana, extraVirginOliveOil, salt]
 let gainsBreakastName = "Eggs and Sausage Wrap"
 
@@ -136,15 +136,15 @@ let gainsDinnerMealName = "Chipotle Style Bowl"
 
 //snack
 
-let gainsBreakfastRecipe = Recipe(name: gainsBreakastName, ingredients: gainsBreakfastIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp1image"))
+let gainsBreakfastRecipe = Recipe(name: gainsBreakastName, ingredients: gainsBreakfastIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "stirfrytofu"))
 
-let gainsLunchRecipe = Recipe(name: gainsLunchMealName, ingredients: gainsLunchIngredients, instructions: gainslunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "mp1image"))
+let gainsLunchRecipe = Recipe(name: gainsLunchMealName, ingredients: gainsLunchIngredients, instructions: gainslunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "oatmeal"))
 
 let gainsSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
-let gainsDinnerRecipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+let gainsDinnerRecipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "veganLunch"))
 
-let gainsDinner2Recipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "mp1image"))
+let gainsDinner2Recipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "veganLunch"))
 
 let gainsMealPlanTitle = "Gains Galore"
 let gainsMealPlanSummary = "This plan lets you gain muscle mass while making six pack gains!"
@@ -154,7 +154,7 @@ let gainsMealTip = "Drink lots of water, have to stay hydrated"
 let gainsMP = MealPlan(title: gainsMealPlanTitle,
                           summary: gainsMealPlanSummary,
                           description: gainsMealDescription,
-                          image: #imageLiteral(resourceName: "nutrition"),
+                          image: #imageLiteral(resourceName: "gains"),
                           breakfast: gainsBreakfastRecipe,
                           lunch: gainsLunchRecipe,
                           dinner: gainsDinnerRecipe,
@@ -185,15 +185,15 @@ let franchizSnackInstructions: [String] = [""]
 let franchizSnackIngredients: [Recipe.Ingredient] = [banana, almonds, apple]
 let franchizSnackMealName = "Fruit & Almonds"
 
-let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp1image"))
+let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp2image"))
 
-let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "mp1image"))
+let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "stirfrytofu"))
 
-let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
+let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "almonds"))
 
-let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "stirfrytofu"))
 
-let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "stirfrytofu"))
 
 let franchizMealPlanTitle = "Franchiz Personal Plan"
 let franchizMealPlanSummary = "This is my current personal meal plan that gives me the balance I need at simplest form."
@@ -211,38 +211,85 @@ let franchizMP = MealPlan(title: franchizMealPlanTitle,
                           dinner2: franchizDinner2Recipe,
                           tip: franchizMealTip)
 
+//breakfast
+//oatmeal
 
-let veganBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp1image"))
+let oatmeal = Recipe.Ingredient(name: "Old fashioned oatmeal", amount: "4 oz")
+let blueberries = Recipe.Ingredient(name: "Blueberries", amount: "1")
+let cinnamon = Recipe.Ingredient(name: "Cinnamon", amount: "1/2 tsp")
+let brownSugar = Recipe.Ingredient(name: "Brown sugar", amount: "1 tsp")
+let veganBreakfastInstructions: [String] = ["Combine oats, milk, water, sugar, and cinnamon in a saucepan. Bring to a boil, then reduce heat to low.", "Simmer uncovered for 3 to 5 minutes until thickened, stirring occasionally. Remove from heat and let cool slightly.", "Pour in bowl and add fruit on top. Enjoy!"]
 
-let veganLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "mp1image"))
+let veganBreakfastIngredients: [Recipe.Ingredient] = [oatmeal, banana, blueberries, almondMilk, cinnamon]
+let veganBreakfastMealName = "Oats with fruit"
 
-let veganSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
+//snack
+//smoothie
 
-let veganDinnerRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+//lunch
 
-let veganDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "mp1image"))
+let tofu = Recipe.Ingredient(name: "Extra firm water packed Tofu", amount: "14 oz")
+let grapseedoil = Recipe.Ingredient(name: "Grapeseed oil", amount: "1/4 cup")
+let slicedOnion = Recipe.Ingredient(name: "Red onion", amount: "1 cup sliced")
+let greenPepper = Recipe.Ingredient(name: "Green bell pepper", amount: "1 cup sliced")
+let redPepper = Recipe.Ingredient(name: "Red bell pepper", amount: "1 cup sliced")
+let soySauce = Recipe.Ingredient(name: "Soy Sauce", amount: "3 tbsp")
+let precookedBrownRice = Recipe.Ingredient(name: "Precooked Brown rice", amount: "1 cup")
 
-let veganMealPlanTitle = "Vegetarian Plan"
-let veganMealPlanSummary = "This is a plan for my vegetarian friends"
+
+let veganLunchInstructions: [String] = ["Heat 3 tablespoons oil in a large nonstick skillet over medium-high. Combine 1/4 cup cornstarch and tofu in a bowl and toss.", "Add tofu to pan; cook 8 minutes or until golden brown. Remove from pan.", "Heat tablespoon oil in pan over medium-high. Add onion and bell peppers cook 5 minutes.", "Add garlic, and crushed red pepper; cook 1 minute.","Add soy sauce, sugar, and salt; bring to a boil. Stir in tofu.", "Place 1/2 cup cooked brown rice on a plate,top with tofu mixture. Sprinkle evenly with cilantro. Enjoy!"]
+
+let veganLunchIngredients: [Recipe.Ingredient] = [grapseedoil, tofu, garlic, slicedOnion, greenPepper, redPepper, salt, brownSugar, soySauce, precookedBrownRice, cilantro]
+let veganLunchMealName = "Tofu Stir-Fry"
+
+//dinner
+
+let avocadoOil = Recipe.Ingredient(name: "Avocado oil", amount: "2 tbsp")
+let smallYams = Recipe.Ingredient(name: "Sweet Potatoes", amount: "2 halved")
+let kale = Recipe.Ingredient(name: "Kale", amount: "2 handfuls")
+let broccolini = Recipe.Ingredient(name: "Broccolini", amount: "1 bundle")
+
+let chickpeas = Recipe.Ingredient(name: "Chickpeas", amount: "15 oz")
+let cumin = Recipe.Ingredient(name: "Cumin", amount: "1 tsp")
+
+let veganDinnerInstructions: [String] = ["Preheat oven to 400 degrees F (204 C) and arrange sweet potatoes and onions on aluminum foil on baking sheet.", "Drizzle both with a bit of oil, making sure the flesh of the sweet potatoes are well coated and placed skin side down on the sheet.", "Bake for 10 minutes, then remove from oven flip sweet potatoes and add broccolini. Drizzle broccolini with a bit of oil and season with a pinch each salt and pepper.", "Bake for another 8-10 minutes, then remove from oven and add kale. Drizzle kale with a touch more oil and season with a pinch each salt and pepper. Bake for another 4-5 minutes then set aside.", "While vegetables are roasting, heat a large skillet over medium heat and add chickpeas to a mixing bowl and toss with seasonings.", "Once hot, add 1 Tbsp oil and chickpeas and sauté, stirring frequently for 10 minutes total at slightly over medium heat.", "To serve slice sweet potatoes into bite size pieces. Add vegetables between top with chickpeas. Enjoy!"]
+
+let veganDinnerIngredients: [Recipe.Ingredient] = [avocadoOil, redOnion, smallYams, kale, broccolini, salt, garlic, pepper, cumin]
+let veganDinnerMealName = "Sweet Potato Chickpea Bowl"
+
+//dinner2
+
+
+let veganBreakfastRecipe = Recipe(name: veganBreakfastMealName, ingredients: veganBreakfastIngredients, instructions: veganBreakfastInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "oatmeal"))
+
+let veganLunchRecipe = Recipe(name: veganLunchMealName, ingredients: veganLunchIngredients, instructions: veganLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "stirfrytofu"))
+
+let veganSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
+
+let veganDinnerRecipe = Recipe(name: veganDinnerMealName, ingredients: veganDinnerIngredients, instructions: veganDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "veganLunch"))
+
+
+let veganMealPlanTitle = "Plant Based Plan"
+let veganMealPlanSummary = "My plant based favorites that supercharges me!"
 let veganMealDescription = "Abs are made in the kitchen! Time to get right!"
 let veganMealTip = "To be successful you have to plan ahead or you will fail! "
 
 let veganMP = MealPlan(title: veganMealPlanTitle,
                           summary: veganMealPlanSummary,
                           description: veganMealDescription,
-                          image: #imageLiteral(resourceName: "inapppromopic"),
+                          image: #imageLiteral(resourceName: "stirfrytofu"),
                           breakfast: veganBreakfastRecipe,
                           lunch: veganLunchRecipe,
                           dinner: veganDinnerRecipe,
                           snack: veganSnackRecipe,
-                          dinner2: veganDinner2Recipe,
+                          dinner2: nil,
                           tip: veganMealTip)
 
 //Individual Meal Plans
 
 let mockMP1 = MealPlan(title: "Tips for Success", summary: "Have no idea what you should be eating? This is for you!",
                         description: "Abs are made in the kitchen! Time to get right!",
-                        image: #imageLiteral(resourceName: "mp1image"),
+                        image: #imageLiteral(resourceName: "stirfrytofu"),
                         tip: "To be successful you have to plan ahead or you will fail! \nNumber 1: meal prep for at least a couple of days at a time, having great food ready to eat is a major key to staying on track. \nNumber 2: drink lots of water, have to stay hydrated. \nNumber 3: make sure to get good sleep every night, your body will thank you. Minimum 7 hours. \nNumber 4: Remember why you started this, and ask how bad do you want it. You have to be discipline, and focused on the end result and be consistent. You're planting a seed, and can't expect the tree to grow overnight. Put in the work and don't cheat yourself and results will come. Last tip: It's ok to mess up, get back up and keep focused, we're human. Were creating a Lifetsyle of good choices in a lot of aspects here so the good will outweigh the bad. Take it one day at a time! Have fun!",
                         whatToAvoid: "What to avoid is just as important to efficiently get to your goals! Think again in types, which are sugars, flours, fatty fried foods. So all the processed junk has to go : candy, fastfood, alcohol, bread, tortillas, chips, soda, dairy.",
                         whatToEat: "What you eat is the 1st and most important part of this program. Over the 12 weeks we will build great habits that will enable your success for continual improvement. With that in mind, you have lots of options as long as you think in types. Proteins, Veggies, Fruits, Complex Carbs. Proteins can include, eggs, chicken, fish, steak, tofu, and ground beef. With veggies, take your pick and eat lots of them, examples are kale, spinach, broccoli, avocados, peppers, zuchini, and cucumbers. Fruits are great for snacks and smoothies, all types of berries, bananas, apples. When making smoothies with fruit with extra sugar like mangos or pineapple make sure half of the contents is a green superfood for slower absorption. Complex carbs are great fillers which include, brown rice, quinoa, old fashined oatmeal, lentils, beans, and sweet potatoes. Snacks are good for nuts, seeds and more fruits and veggies.",
