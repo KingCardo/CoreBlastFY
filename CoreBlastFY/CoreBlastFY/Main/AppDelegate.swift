@@ -7,36 +7,49 @@
 //
 
 import UIKit
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    private func scheduleAppRefresh() {
+        let request = BGAppRefreshTaskRequest(identifier: refreshId)
+            request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // Fetch no earlier than 15 minutes from now
+            
+            do {
+                try BGTaskScheduler.shared.submit(request)
+            } catch {
+                print("Could not schedule app refresh: \(error)")
+            }
+    }
+    
+    // Fetch the latest feed entries from server.
+      private func handleAppRefresh(task: BGAppRefreshTask) {
+          scheduleAppRefresh()
+        
         let shouldDecrement = UserManager.decrementPoint()
         
-        guard notificationsAllowed else { completionHandler(.noData); return }
+        guard notificationsAllowed else {  return }
         
         if shouldDecrement {
             sendPointDecrementNotification()
-            completionHandler(.newData)
-            
-        } else {
-            completionHandler(.noData)
         }
-    }
+      }
   
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        let threeDays: Double = 259200
-        application.setMinimumBackgroundFetchInterval(threeDays)
         
         EntryController.shared.loadFromFile()
         
         //FirebaseApp.configure()
         ExerciseStorage.fetchCoreExercises()
         UserAPI.user = UserManager.loadUserFromFile()
+        
+        // MARK: Registering Launch Handlers for Tasks
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
+            // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.
+            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+        }
         
         return true
     }

@@ -11,6 +11,9 @@ import UserNotifications
 
 let notificationCenter = UNUserNotificationCenter.current()
 
+let refreshId = "com.Franchiz.CoreBlast.refresh"
+let cleanId = "com.Franchiz.CoreBlast.cleaning"
+
 func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "hh:mm"
@@ -367,8 +370,7 @@ struct NotificationIDs {
                
                notificationCenter.add(request) { (error) in
                    if error != nil {
-                    print(error)
-                       // Handle any errors.
+                       // TO DO - Handle any errors.
                    }
                }
     }
