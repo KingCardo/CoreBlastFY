@@ -11,8 +11,8 @@ import UserNotifications
 
 let notificationCenter = UNUserNotificationCenter.current()
 
-let refreshId = "com.Franchiz.CoreBlast.refresh"
-let cleanId = "com.Franchiz.CoreBlast.cleaning"
+let refreshId = ""
+let cleanId = ""
 
 func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
     let dateFormatter = DateFormatter()
