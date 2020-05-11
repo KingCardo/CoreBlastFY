@@ -74,7 +74,6 @@ class ExerciseStorage {
         }
     }
     
-    //TO DO: FIX - hanlde not fetching againuserde
     static func fetchCoreExercises() {
         ExerciseStorage.loadExercises()
          let user = UserManager.loadUserFromFile()

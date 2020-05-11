@@ -104,7 +104,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     @objc private func handleStateOfWorkout(_ gesture: UITapGestureRecognizer) {
         switch gesture.state {
         case .ended :
-            guard workoutView != nil else { return }
+            guard workoutView != nil && workoutView?.loadingView == nil else { return }
             if workoutView!.timerIsRunning {
                 workoutView?.pauseWorkout()
             } else {
