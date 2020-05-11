@@ -23,7 +23,7 @@ class AboutMeViewController: UIViewController {
         tv.isSelectable = false
         tv.text = data
         tv.textColor = .white
-        tv.font = UIFont.makeAvenirNext(size: 24)
+        tv.font = UIFont.makeAvenirNext(size: 20)
         tv.backgroundColor = .clear
         return tv
     }()
@@ -70,7 +70,7 @@ class AboutMeViewController: UIViewController {
         
         view.addSubview(aboutMeTextView)
         aboutMeTextView.translatesAutoresizingMaskIntoConstraints = false
-        aboutMeTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        aboutMeTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         aboutMeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
         aboutMeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         aboutMeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true

@@ -134,7 +134,7 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupPageControl() {
-        pageControl.pageIndicatorTintColor = .goatBlack
+        pageControl.pageIndicatorTintColor = .white
         pageControl.currentPageIndicatorTintColor = .goatBlue
     }
     

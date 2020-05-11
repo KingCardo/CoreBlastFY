@@ -19,12 +19,17 @@ class WorkoutView: UIView {
     weak var rootViewController: WorkoutViewController?
     private var workoutViewModel: WorkoutInfo.FetchWorkout.ViewModel
     
+    private let pauseLabel = UILabel.init(text: "PAUSED", font: UIFont.makeTitleFont(size: 22), numberOfLines: 0)
     private let setCountLabel = UILabel()
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
     private let exerciseNameLabel = UILabel()
     private var workoutTimer = Timer()
-    var timerIsRunning = false
+    var timerIsRunning = false {
+        didSet {
+            pauseLabel.isHidden = timerIsRunning
+        }
+    }
     
     private var videoView: VideoView?
     
@@ -133,7 +138,7 @@ class WorkoutView: UIView {
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         tipsLabel.numberOfLines = 0
-        tipsLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        tipsLabel.font = UIFont.makeAvenirCondensed(size: Style.titleFontSize)
         tipsLabel.textColor = .white
         
         let setCountLabelStackView = UIStackView(arrangedSubviews: [setCountLabel, tipsLabel])
@@ -154,7 +159,7 @@ class WorkoutView: UIView {
         exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
+        exerciseNameLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)
         exerciseNameLabel.textColor = .white
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
@@ -174,7 +179,7 @@ class WorkoutView: UIView {
         timeLeftLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
-        durationLeftLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
+        durationLeftLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)
         durationLeftLabel.textColor = .white
         //durationLeftLabel.backgroundColor = .black
         
@@ -200,6 +205,12 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
+        
+        videoView.addSubview(pauseLabel)
+        pauseLabel.centerYInSuperview()
+        pauseLabel.centerXInSuperview()
+        pauseLabel.textColor = .white
+        //pauseLabel.isHidden = true
         
         runTimer()
     }

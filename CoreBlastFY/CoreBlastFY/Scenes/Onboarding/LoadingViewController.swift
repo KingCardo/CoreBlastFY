@@ -12,7 +12,8 @@ class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
         setUpLoadingLabel()
         
     }
@@ -35,7 +36,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC),
     private func setUpLoadingLabel() {
         view.backgroundColor = .white
         loadingLabel.text = "Downloading Programs..."
-        loadingLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
+        loadingLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         view.addSubview(loadingLabel)
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
