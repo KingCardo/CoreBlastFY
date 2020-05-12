@@ -64,6 +64,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         router?.routeToParksScene()
     }
     
+    private func routToTermsOfUse() {
+        router?.routeToTermsOfUse()
+    }
+    
     private func handleRestore() {
         SKPaymentQueue.default().restoreCompletedTransactions()
         let ac = UIAlertController(title: "In App Purchases", message: "All successful purchases have been restored.", preferredStyle: .alert)
@@ -148,6 +152,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
       //  case .parks: routeToParksScene()
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
+        case .termsOfUse: routToTermsOfUse()
         default: break
         }
     }
