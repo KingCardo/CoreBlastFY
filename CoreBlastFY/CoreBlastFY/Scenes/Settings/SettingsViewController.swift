@@ -64,6 +64,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         router?.routeToParksScene()
     }
     
+    private func routToTermsOfUse() {
+        router?.routeToTermsOfUse()
+    }
+    
     private func handleRestore() {
         SKPaymentQueue.default().restoreCompletedTransactions()
         let ac = UIAlertController(title: "In App Purchases", message: "All successful purchases have been restored.", preferredStyle: .alert)
@@ -77,6 +81,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         getItems()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "generic")
         
     }
     
@@ -96,14 +101,13 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     private func setupUI() {
         view.backgroundColor = .black
         navigationItem.title = "More"
+        tableView.separatorStyle = .none
     }
 
     override init(style: UITableView.Style) {
         super.init(style: .grouped)
         setup()
     }
-    
-    
     
     // MARK: UITableView DataSource
     
@@ -117,13 +121,12 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "generic")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "generic", for: indexPath) as UITableViewCell
             let item = displayItems[indexPath.row]
             cell.textLabel?.text = item.title
             cell.textLabel?.font = UIFont.makeAvenirNext(size: 20)
             cell.backgroundColor = .black
             cell.textLabel?.textColor = .white
-            cell.accessoryType = .disclosureIndicator
             cell.tintColor = .white
             let image = #imageLiteral(resourceName: "forward").withRenderingMode(.alwaysTemplate)
             let forwardImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
@@ -148,6 +151,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
       //  case .parks: routeToParksScene()
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
+        case .termsOfUse: routToTermsOfUse()
         default: break
         }
     }

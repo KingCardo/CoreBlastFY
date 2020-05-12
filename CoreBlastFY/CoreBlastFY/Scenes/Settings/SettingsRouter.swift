@@ -14,10 +14,10 @@ import UIKit
 
 @objc protocol SettingsRoutingLogic {
     func routeToAboutScene()
-    func routeToNutritionScene()
     func routeToNotificationsScene()
     func routeToFoodLogScene()
     func routeToParksScene()
+    func routeToTermsOfUse()
 }
 
 protocol SettingsDataPassing
@@ -33,17 +33,9 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
   // MARK: Routing
     
     func routeToAboutScene() {
-        
         let destination = AboutMeViewController()
         navigateTo(source: viewController!, destination: destination)
         
-    }
-    
-    func routeToNutritionScene() {
-        let destination = NutritonViewController()
-        //destination.modalPresentationStyle = .blurOverFullScreen
-        //destination.modalTransitionStyle = .crossDissolve
-        navigateTo(source: viewController!, destination: destination)
     }
     
     func routeToNotificationsScene() {
@@ -61,20 +53,13 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
         let destination = ParksTableViewController()
         navigateTo(source: viewController!, destination: destination)
     }
-  
-  func routeToSomewhere(segue: UIStoryboardSegue?)
-  {
-//    if let segue = segue {
-//      let destinationVC = segue.destination as! SomewhereViewController
-//      var destinationDS = destinationVC.router!.dataStore!
-//      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//    } else {
-//      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//      let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//      var destinationDS = destinationVC.router!.dataStore!
-//      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//      navigateToSomewhere(source: viewController!, destination: destinationVC)
+    
+    func routeToTermsOfUse() {
+        let destination = GenericDetailViewController()
+        destination.data = termsOfUse
+        navigateTo(source: viewController!, destination: destination)
     }
+
   }
 
   // MARK: Navigation
@@ -84,10 +69,3 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
     source.show(destination, sender: nil)
   }
   
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: SettingsDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
-//}

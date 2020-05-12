@@ -16,6 +16,15 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ExerciseStorage.failedCompletion = { (errorMessage) in
+            AlertController.createAlert(errorMessage: errorMessage, viewController: self)
+        
+        }
+    }
+   
+    
     private func setup() {
         setupTabBar()
         

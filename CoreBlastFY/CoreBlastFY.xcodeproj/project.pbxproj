@@ -14,6 +14,7 @@
 		7A5CEDDA2464CDEA0066B0D5 /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */; };
 		7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */; };
 		7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */; };
+		7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -159,6 +160,7 @@
 		7A5CEDD92464CDEA0066B0D5 /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericDetailViewController.swift; path = CoreBlastFY/Helpers/GenericDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -393,6 +395,7 @@
 				7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */,
 				7AC36D2624562C5B002764F5 /* MealPlanData.swift */,
 				7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */,
+				7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
 				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
 				7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */,
+				7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */,
 				7AC36D09244E2204002764F5 /* AppFullscreenDescriptionCell.swift in Sources */,
 				7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */,
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
@@ -1129,7 +1133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1150,7 +1154,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

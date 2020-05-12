@@ -19,7 +19,7 @@ class WorkoutView: UIView {
     weak var rootViewController: WorkoutViewController?
     private var workoutViewModel: WorkoutInfo.FetchWorkout.ViewModel
     
-    private let pauseLabel = UILabel.init(text: "PAUSED", font: UIFont.makeTitleFont(size: 22), numberOfLines: 0)
+    private let pauseLabel = UILabel.init(text: "PAUSED", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
     private let setCountLabel = UILabel()
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
@@ -30,6 +30,8 @@ class WorkoutView: UIView {
             pauseLabel.isHidden = timerIsRunning
         }
     }
+    
+    var loadingView: LoadingView?
     
     private var videoView: VideoView?
     
@@ -63,8 +65,8 @@ class WorkoutView: UIView {
         updateExerciseViews()
     }
     
-    func runTimer() {
-        workoutTimer = Timer.scheduledTimer(timeInterval: 0.95, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    private func runTimer() {
+        workoutTimer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         timerIsRunning = true
     }
     
@@ -100,7 +102,7 @@ class WorkoutView: UIView {
         workoutTimer.invalidate()
     }
     
-    func workoutFinished() {
+    private func workoutFinished() {
         UserManager.incrementPoint()
         UserManager.calculateLevel(totalPoints: UserAPI.user.totalPoints)
         videoView = nil
@@ -109,9 +111,26 @@ class WorkoutView: UIView {
     }
     
     private func updateExerciseViews() {
+       
+        let nextExercise = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
-        exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        videoView?.advanceToNextItem()
+        exerciseNameLabel.text = nextExercise
+       
+        loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
+        pauseWorkout()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: { [weak self] in
+            if let loadingView = self?.loadingView {
+                self?.addSubview(loadingView)
+            loadingView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: -100, right: 0))
+            }
+        }) { (true) in
+            self.loadingView!.runTimer { [weak self] in
+                self?.loadingView?.removeFromSuperview()
+                self?.resumeWorkout()
+                self?.videoView?.advanceToNextItem()
+                self?.loadingView = nil
+            }
+        }
     }
     
     var workoutComplete = {
@@ -181,7 +200,6 @@ class WorkoutView: UIView {
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
         durationLeftLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)
         durationLeftLabel.textColor = .white
-        //durationLeftLabel.backgroundColor = .black
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
         durationStackView.alignment = .center
@@ -210,7 +228,6 @@ class WorkoutView: UIView {
         pauseLabel.centerYInSuperview()
         pauseLabel.centerXInSuperview()
         pauseLabel.textColor = .white
-        //pauseLabel.isHidden = true
         
         runTimer()
     }

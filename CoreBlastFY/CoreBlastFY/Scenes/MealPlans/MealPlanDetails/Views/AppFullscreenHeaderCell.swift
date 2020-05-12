@@ -16,6 +16,7 @@ class AppFullscreenHeaderCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(programCell)
+        programCell.isForDetail = true
         programCell.fillSuperview()
     }
     

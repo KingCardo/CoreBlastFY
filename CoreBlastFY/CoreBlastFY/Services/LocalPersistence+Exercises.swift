@@ -16,6 +16,8 @@ let coreRockstarKey = "rockstar"
 
 class ExerciseStorage {
     
+    static var failedCompletion: ((String) -> Void)?
+    
     static var exercises: [Exercise] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -67,14 +69,13 @@ class ExerciseStorage {
                     ExerciseStorage.save()
                     UserDefaults.standard.set(true, forKey: level)
                 } else {
-                    //TODO: Handle error MAJOR PRIORITY TO HANDLE ERROR
-                    print(error?.localizedDescription as Any)
+                    ExerciseStorage.failedCompletion?(error!.localizedDescription)
+                    
                 }
             }
         }
     }
     
-    //TO DO: FIX - hanlde not fetching againuserde
     static func fetchCoreExercises() {
         ExerciseStorage.loadExercises()
          let user = UserManager.loadUserFromFile()

@@ -11,6 +11,11 @@ import UIKit
 class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     
     static let id = "MealPlansOverviewCollectionViewCell"
+    var isForDetail = false {
+        didSet {
+            imageViewSetup()
+        }
+    }
     
     func configure(item: MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails) {
         imageView.image = item.planImage ?? #imageLiteral(resourceName: "6packFY")
@@ -22,8 +27,8 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         imageView.image = item.image ?? #imageLiteral(resourceName: "6packFY")
     }
     
-    let subTitleLabel = UILabel(text: "", font: UIFont.makeAvenirCondensed(size: 24), numberOfLines: 0)
-    let titleLabel = UILabel(text: "", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
+    let subTitleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 16)!, numberOfLines: 2)
+    let titleLabel = UILabel(text: "", font: UIFont.makeTitleFont(size: 18), numberOfLines: 1)
     
      var imageView: UIImageView = {
         let iv = UIImageView()
@@ -31,52 +36,48 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.createShadowLayer()
-        //createShadowLayer(view: iv)
         return iv
     }()
-    
-    var topConstraint: NSLayoutConstraint!
-    
+
     private func labelSetup() {
         subTitleLabel.textColor = .white
         titleLabel.textColor = .white
     }
     
     private func constraintSetup() {
-        backgroundColor = .white
         layer.cornerRadius = MealPlansOverviewCollectionViewCell.Dimensions.layerCornerRadius
         clipsToBounds = true
         
         layer.borderColor = UIColor.black.cgColor
         
-        let spacerView = UIView()
-        spacerView.frame = .init(x: 0, y: 0, width: MealPlansOverviewCollectionViewCell.Dimensions.spacerViewHeight, height: MealPlansOverviewCollectionViewCell.Dimensions.spacerViewHeight)
-        spacerView.backgroundColor = .clear
-        
-        let stackView = VerticalStackView(arrangedSubviews: [
-            titleLabel, spacerView, subTitleLabel
-        ], spacing: 0)
-        //stackView
-        //imageView.createShadowLayer()
-        imageView.addSubview(stackView)
-        stackView.anchor(top: imageView.topAnchor,
-                         leading: imageView.leadingAnchor,
-                         bottom: imageView.bottomAnchor,
-                         trailing: imageView.trailingAnchor,
-                         padding: MealPlansOverviewCollectionViewCell.Dimensions.imageViewPadding)
-        
+        let verticalStack = VerticalStackView(arrangedSubviews: [titleLabel, subTitleLabel], spacing: 6)
+        verticalStack.distribution = .fillProportionally
+
+        contentView.addSubview(verticalStack)
+        verticalStack.translatesAutoresizingMaskIntoConstraints = false
+        verticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: MealPlansOverviewCollectionViewCell.Dimensions.insets.top).isActive = true
+        verticalStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: MealPlansOverviewCollectionViewCell.Dimensions.insets.top).isActive = true
+        verticalStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+    
         addSubview(imageView)
-        imageView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-        self.topConstraint = imageView.topAnchor.constraint(equalTo: topAnchor)
-        self.topConstraint.isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: verticalStack.bottomAnchor, constant: MealPlansOverviewCollectionViewCell.Dimensions.insets.bottom).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    private func imageViewSetup() {
+        addSubview(imageView)
+        imageView.fillSuperview()
+        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         labelSetup()
         constraintSetup()
-        
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,8 +87,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
 
 extension MealPlansOverviewCollectionViewCell {
     struct Dimensions {
-        static let imageViewPadding = UIEdgeInsets(top: 18, left: 18, bottom: 24, right: 18)
-        static let spacerViewHeight: CGFloat = 240
+        static let insets = UIEdgeInsets(top: 12, left: 8, bottom: 6, right: 0)
         static let layerCornerRadius: CGFloat = 16
     }
 }

@@ -36,7 +36,7 @@ class LoadingViewController: UIViewController {
     private func setUpLoadingLabel() {
         view.backgroundColor = .white
         loadingLabel.text = "Downloading Programs..."
-        loadingLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        loadingLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         view.addSubview(loadingLabel)
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

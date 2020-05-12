@@ -80,7 +80,7 @@ let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedL
 
 let shreddedSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
-let shreddedDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "veganLunch"))
+let shreddedDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
 let shreddedDinner2Recipe = Recipe(name: shreddedDinner2Name, ingredients: shreddedDinner2Ingredients, instructions: shreddedDinner2Instructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "stirfrytofu"))
 
@@ -167,7 +167,7 @@ let gainsMP = MealPlan(title: gainsMealPlanTitle,
 //lunch
 
 let franchizLunchMealName = "Chicken, Sweet Potato Mash & Veggies"
-let franchizLunchIngredients: [Recipe.Ingredient] = [chickenBreast, garlic, salt, pepper, coconutOil, lemonJuice, sweetPotato]
+let franchizLunchIngredients: [Recipe.Ingredient] = [chickenBreast, garlic, salt, pepper, coconutOil, lemonJuice, sweetPotato, kale]
 let franchizLunchInstructions: [String] = ["Fill a medium pot about halfway with water, cover, and bring to a boil.", "Wash, peel, and medium dice the sweet potatoes; add to the saucepan. Once the water is boiling, cook until the potatoes are very tender when pierced with a fork, 10-15 minutes. Drain and return to saucepan.", "Heat a skillet over medium heat.", "Slice chicken in half horizontally to form thin fillets. Season both sides with salt, garlic, onion, and pepper(and preferred seasonings).", "Melt coconut oil in the skillet. Add the chicken and cook until golden brown and cooked through, 4-5 minutes per side. Transfer to a plate.", "Add more coconut oil to the skillet, followed by the kale. Cook, stirring occasionally, until bright green and tender-crisp, 2-3 minutes. Season with salt and pepper and remove from heat.", "Add the remaining coconut oil to the potatoes and season with cinnamon, salt and brown sugar. Mash with a potato masher (or a fork) until smooth.", "Place the mashed potatoes, kale, and chicken on a plate. Enjoy!"]
 
 //dinner
@@ -191,12 +191,12 @@ let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franc
 
 let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "almonds"))
 
-let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "stirfrytofu"))
+let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
 let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "stirfrytofu"))
 
 let franchizMealPlanTitle = "Franchiz Personal Plan"
-let franchizMealPlanSummary = "This is my current personal meal plan that gives me the balance I need at simplest form."
+let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."
 let franchizMealDescription = "Abs are made in the kitchen! Time to get right!"
 let franchizMealTip = "To be successful you have to plan ahead or you will fail! "
 

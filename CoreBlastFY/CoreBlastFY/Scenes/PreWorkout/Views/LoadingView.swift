@@ -12,6 +12,7 @@ final class LoadingView: UIView {
     private var seconds = 3
     private var timer = Timer()
     private var isRunning = false
+    private var nextExerciseLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 22)!, numberOfLines: 0)
     
     func runTimer(completion: @escaping(() -> Void)) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
@@ -45,14 +46,22 @@ final class LoadingView: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
+     init(frame: CGRect, nextExercise: String = "Get ready first exercise") {
         super.init(frame: frame)
+        
         addSubview(countDownLabel)
-        countDownLabel.translatesAutoresizingMaskIntoConstraints = false
-        countDownLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        countDownLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        countDownLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        countDownLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        countDownLabel.fillSuperview()
+        
+        if !nextExercise.isEmpty {
+        nextExerciseLabel.text = "\(nextExercise) is coming up in..."
+                   nextExerciseLabel.textColor = .white
+                   nextExerciseLabel.textAlignment = .center
+                   addSubview(nextExerciseLabel)
+            nextExerciseLabel.translatesAutoresizingMaskIntoConstraints = false
+                   nextExerciseLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+            nextExerciseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+            nextExerciseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        }
     }
     
     required init?(coder: NSCoder) {

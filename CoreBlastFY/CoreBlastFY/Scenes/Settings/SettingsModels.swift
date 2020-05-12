@@ -27,6 +27,7 @@ enum Settings {
                   case extras = "Extras"
                   case inAppPurchase = "Restore In-App Purchase"
                   case reportAProblem = "Contact Us"
+                  case termsOfUse = "Terms of Use"
               }
         var items: [SettingsItem] = [
         .about,
@@ -34,7 +35,8 @@ enum Settings {
         .foodLog,
         .reportAProblem,
         //.parks,
-        .inAppPurchase
+        .inAppPurchase,
+        .termsOfUse
         ]
     }
     struct ViewModel {
