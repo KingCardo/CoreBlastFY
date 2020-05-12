@@ -194,7 +194,6 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     private func setupProgressionView() {
         view.addSubview(progressionView)
-        // createShadowLayer(view: progressionView)
         progressionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         progressionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         progressionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -206,9 +205,9 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     private func setupLabelConstraints() {
         pgLabel.centerYAnchor.constraint(equalTo: progressionView.centerYAnchor).isActive = true
-        pgLabel.leadingAnchor.constraint(equalTo: progressionView.leadingAnchor, constant: 10).isActive = true
+        pgLabel.leadingAnchor.constraint(equalTo: progressionView.leadingAnchor, constant: 12).isActive = true
         pgLabel.centerXAnchor.constraint(equalTo: progressionView.centerXAnchor).isActive = true
-        pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -10).isActive = true
+        pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -12).isActive = true
         
     }
     

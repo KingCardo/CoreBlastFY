@@ -14,7 +14,6 @@ import UIKit
 
 @objc protocol SettingsRoutingLogic {
     func routeToAboutScene()
-    func routeToNutritionScene()
     func routeToNotificationsScene()
     func routeToFoodLogScene()
     func routeToParksScene()
@@ -34,17 +33,9 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
   // MARK: Routing
     
     func routeToAboutScene() {
-        
         let destination = AboutMeViewController()
         navigateTo(source: viewController!, destination: destination)
         
-    }
-    
-    func routeToNutritionScene() {
-        let destination = NutritonViewController()
-        //destination.modalPresentationStyle = .blurOverFullScreen
-        //destination.modalTransitionStyle = .crossDissolve
-        navigateTo(source: viewController!, destination: destination)
     }
     
     func routeToNotificationsScene() {
