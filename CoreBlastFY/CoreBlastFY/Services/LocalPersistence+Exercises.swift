@@ -53,9 +53,7 @@ class ExerciseStorage {
         do {
             self.exercises = try jsonDecoder.decode([Exercise].self, from: decodedData)
             return exercises.count > 0 ? true : false
-        } catch let error {
-            //TO DO: handle error
-            print(error)
+        } catch {
             return false
         }
     }
