@@ -49,7 +49,7 @@ let onionPowder = Recipe.Ingredient(name: "Onion Powder", amount: "")
 let pepper = Recipe.Ingredient(name: "Black Pepper", amount: "")
 
 
-let shreddedDinnerInstructions: [String] = ["Preheat oven to 425 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bae until salmon is opaque and broccoli is tender, 12-18 minutes.", "Transfer food to plate and enjoy!"]
+let shreddedDinnerInstructions: [String] = ["Preheat oven to 425 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bake until salmon is opaque and broccoli is tender, 12-18 minutes.", "Transfer food to plate and enjoy!"]
 let shreddedDinnerIngredients: [Recipe.Ingredient] = [broccoli, extraVirginOliveOil, salmon, salt, garlic, onionPowder, pepper]
 let shreddedDinnerName = "Roasted Salmon & Veggies"
 
@@ -185,7 +185,7 @@ let franchizSnackInstructions: [String] = [""]
 let franchizSnackIngredients: [Recipe.Ingredient] = [banana, almonds, apple]
 let franchizSnackMealName = "Fruit & Almonds"
 
-let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp2image"))
+let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp2image"))
 
 let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "Franchizdinner"))
 

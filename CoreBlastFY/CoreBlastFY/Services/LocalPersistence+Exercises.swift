@@ -77,7 +77,7 @@ class ExerciseStorage {
     }
     
     static func fetchCoreExercises() {
-       // ExerciseStorage.loadExercises()
+         ExerciseStorage.loadExercises()
          let user = UserManager.loadUserFromFile()
 
         switch user.totalPoints {
