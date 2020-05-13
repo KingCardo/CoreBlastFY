@@ -17,6 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         self.window = self.window ?? UIWindow()
+        func retryHandler(alertAction: UIAlertAction) {
+                   ExerciseStorage.fetchCoreExercises()
+               }
+               ExerciseStorage.fetchCoreExercises()
+               ExerciseStorage.failedCompletion = { errorMessage in
+                   DispatchQueue.main.async(execute: {
+                       
+                       let alertController = UIAlertController(title: "Network Download Error", message: errorMessage, preferredStyle: .alert)
+                       
+                       let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
+                       
+                       alertController.addAction(retry)
+                    self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                       })
+               }
+        
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
             self.window!.rootViewController = pageViewController

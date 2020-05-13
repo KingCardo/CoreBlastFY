@@ -112,8 +112,8 @@ extension CloudKitService {
             alertController.addAction(dismissAction)
             
             if let appDelegate = UIApplication.shared.delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
+                let appWindow = appDelegate.window,
+                let rootViewController = appWindow?.rootViewController {
                 rootViewController.present(alertController, animated: true, completion: nil)
             }
         })
