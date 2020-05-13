@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import CloudKit
 
 protocol ExerciseInfoStoreProtocol {
-    func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void)
+    func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void)
 }
 
 class ExerciseWorker {
     
     var exerciseInfoDataStore: ExerciseInfoStoreProtocol
+    
+    var exercises: [Exercise] = []
     
     init(exerciseInfoDataStore: ExerciseInfoStoreProtocol) {
         self.exerciseInfoDataStore = exerciseInfoDataStore
@@ -22,9 +25,10 @@ class ExerciseWorker {
     
     func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
        
-        exerciseInfoDataStore.fetchExercises(of: level) { (exercises, error) in
-            if !exercises.isEmpty {
-                    completion(exercises, nil)
+        exerciseInfoDataStore.fetchExercises(of: level) { (records, error) in
+            if !records.isEmpty {
+                self.exercises = records.compactMap { Exercise(record: $0) }
+                completion(self.exercises, nil)
                 
             } else if let error = error {
                 completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))

@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EntryController.shared.loadFromFile()
         
         //FirebaseApp.configure()
-        ExerciseStorage.fetchCoreExercises()
+       
         UserAPI.user = UserManager.loadUserFromFile()
         
         // MARK: Registering Launch Handlers for Tasks

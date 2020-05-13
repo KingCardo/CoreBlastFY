@@ -12,7 +12,7 @@ class PreWorkoutView: UIView {
     
     var preWorkoutViewModel: PreWorkout.FetchUser.ViewModel
     weak var preWorkoutViewController: PreWorkoutViewController?
-    let coreLevelCountLabel = UILabel()
+    
     let totalPointsLevel = UILabel()
     let nextLevelCountLabel = UILabel()
     let nextWorkoutDateLabel = UILabel()
@@ -25,22 +25,6 @@ class PreWorkoutView: UIView {
         startWorkoutButton.preWorkoutView = self
         
         backgroundColor = .black
-        
-        let coreLevelLabel = UILabel()
-        coreLevelLabel.text = "Core Level"
-        coreLevelLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
-        coreLevelLabel.textColor = .white
-        
-        coreLevelCountLabel.text = preWorkoutViewModel.userDetails.coreLevel
-        coreLevelCountLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
-        coreLevelCountLabel.textColor = .white
-        
-        
-        let coreLevelStackView = UIStackView(arrangedSubviews: [coreLevelLabel, coreLevelCountLabel])
-        coreLevelStackView.alignment = .center
-        coreLevelStackView.distribution = .fillEqually
-        coreLevelStackView.axis = .vertical
-        coreLevelStackView.spacing = Style.stackViewSpacing
         
         let totalPointsLabel = UILabel()
         totalPointsLabel.text = "Total Points"
@@ -73,7 +57,7 @@ class PreWorkoutView: UIView {
         nextLevelStackView.axis = .vertical
         nextLevelStackView.spacing = Style.stackViewSpacing
         
-        let levelStackView = UIStackView(arrangedSubviews: [coreLevelStackView, totalPointsStackView, nextLevelStackView])
+        let levelStackView = UIStackView(arrangedSubviews: [ totalPointsStackView, nextLevelStackView])
         levelStackView.alignment = .center
         levelStackView.distribution = .fillEqually
         levelStackView.axis = .horizontal

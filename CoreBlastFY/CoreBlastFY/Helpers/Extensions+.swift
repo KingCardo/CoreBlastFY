@@ -19,11 +19,27 @@ extension UIView {
         }
     }
     
+    func createGradientLayer(colors: [CGColor], startPoint: CGPoint, endPoint: CGPoint) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colors]
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        gradientLayer.frame = layer.bounds
+        self.layer.addSublayer(gradientLayer)
+        
+    }
+    
+    func createShadow(shadowRadius: CGFloat, shadowOffset: CGSize, shadowOpacity: Float) {
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowOpacity = shadowOpacity
+    }
+    
     func createShadowLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.clear.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradientLayer.frame = layer.bounds
         self.layer.addSublayer(gradientLayer)
         

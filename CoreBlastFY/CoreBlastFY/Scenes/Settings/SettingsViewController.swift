@@ -70,9 +70,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     
     private func handleRestore() {
         SKPaymentQueue.default().restoreCompletedTransactions()
-        let ac = UIAlertController(title: "In App Purchases", message: "All successful purchases have been restored.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(ac, animated: true)
+        AlertController.createAlert(errorMessage: "All successful purchases have been restored.", title: "Success", viewController: self)
         
     }
 
@@ -184,11 +182,8 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         
         present(mailComposer, animated: true)
         if !MFMailComposeViewController.canSendMail() {
-            // TO DO: Error handle
-            print("Cant send email, RWRW")
+            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
             return
         }
     }
 }
-
-

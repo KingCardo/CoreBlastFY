@@ -13,32 +13,33 @@ class CloudKitService: ExerciseInfoStoreProtocol {
     
     let publicDatabase = CKContainer.default().publicCloudDatabase
     
-    var exercises: [Exercise] = []
-    
     var complete: (() -> Void)?
     
     init() {
         checkCloudKitAvailability()
     }
     
-    func fetchExercises(of level: String, completion: @escaping([Exercise], ExerciseInfoStoreError?) -> Void) {
+    func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void) {
+        var records: [CKRecord] = []
         let predicate = NSPredicate(format: "level == %@", level)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
-        
-        publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error {
-                completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
-            } else if let records = records {
-                for record in records {
-                    if let exercise = Exercise(record: record) {
-                    self.exercises.append(exercise)
-                    }
+        let fetchOperation = CKQueryOperation(query: query)
+        fetchOperation.qualityOfService = .userInitiated
+        fetchOperation.queuePriority = .veryHigh
+        fetchOperation.recordFetchedBlock = { (record) in
+                        records.append(record)
                 }
-                print(self.exercises.count, "RWRW")
-                completion(self.exercises, nil)
+        
+        fetchOperation.queryCompletionBlock = { (curser, error) in
+            if let error = error {
+                self.displayCloudKitNotAvailableError(error.localizedDescription)
+                    completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
+            } else {
+                completion(records, nil)
+            }
         }
-        }
-    
+        publicDatabase.add(fetchOperation)
+        
     }
     
     //TO DO: edit this when new exercises avaialable
@@ -97,26 +98,26 @@ extension CloudKitService {
             break
         }
         
-       // displayCloudKitNotAvailableError(errorText)
+        displayCloudKitNotAvailableError(errorText)
     }
     
-//    func displayCloudKitNotAvailableError(_ errorText: String) {
-//        
-//        DispatchQueue.main.async(execute: {
-//            
-//            let alertController = UIAlertController(title: "iCloud Synchronization Error", message: errorText, preferredStyle: .alert)
-//            
-//            let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-//            
-//            alertController.addAction(dismissAction)
-//            
-//            if let appDelegate = UIApplication.shared.delegate,
-//                let appWindow = appDelegate.window!,
-//                let rootViewController = appWindow.rootViewController {
-//                rootViewController.present(alertController, animated: true, completion: nil)
-//            }
-//        })
-//    }
+    func displayCloudKitNotAvailableError(_ errorText: String) {
+        
+        DispatchQueue.main.async(execute: {
+            
+            let alertController = UIAlertController(title: "iCloud Synchronization Error", message: errorText, preferredStyle: .alert)
+            
+            let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alertController.addAction(dismissAction)
+            
+            if let appDelegate = UIApplication.shared.delegate,
+                let appWindow = appDelegate.window,
+                let rootViewController = appWindow?.rootViewController {
+                rootViewController.present(alertController, animated: true, completion: nil)
+            }
+        })
+    }
     
     
     // MARK: - CloudKit Discoverability

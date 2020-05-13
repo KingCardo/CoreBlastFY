@@ -15,6 +15,7 @@ class OnboardingViewController: UIViewController {
  
     var headingLabel = UILabel()
     var contentLabel = UILabel()
+    let infoLabel = UILabel()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
     
@@ -74,10 +75,10 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupLabels()
-        view.backgroundColor = .goatBlack
+       
         headingLabel.text = heading
         contentLabel.text = content
+        infoLabel.text = "Tap to proceed"
         pageControl.numberOfPages = 4
         pageControl.currentPage = index
         //nameTextField.delegate = self
@@ -102,11 +103,35 @@ class OnboardingViewController: UIViewController {
         contentLabel.textColor = .white
         contentLabel.font = UIFont.preferredFont(forTextStyle: .body).withSize(28)
         contentLabel.numberOfLines = 0
+        
+        
+        infoLabel.textColor = .white
+        infoLabel.font = UIFont.preferredFont(forTextStyle: .callout).withSize(12)
+        infoLabel.numberOfLines = 1
     }
 
     
+//     @objc private func handleTapAnimation() {
+       // animator.startAnimation()
+       // UIView.animate(withDuration: 1.2) {
+//            let sizeMultiplier: CGFloat = 2.5
+//
+//            let newWidth = self.headingLabel.frame.width * sizeMultiplier
+//
+//            let newHeight = self.headingLabel.frame.height * sizeMultiplier
+//
+//            let newX = self.headingLabel.frame.origin.x - (newWidth - self.headingLabel.frame.size.width) / 2
+//
+//            let newY = self.headingLabel.frame.origin.y - (newHeight - self.headingLabel.frame.size.height) / 2
+//
+//            self.headingLabel.frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
+  //      }
+        
+ //   }
+
+    
     @objc private func handleTapAnimation() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
             self.headingLabel.transform = CGAffineTransform(translationX: -30, y: 0)
         }) { (_) in
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
@@ -120,7 +145,8 @@ class OnboardingViewController: UIViewController {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
                 self.contentLabel.alpha = 0
                 self.contentLabel.transform = self.contentLabel.transform.translatedBy(x: 0, y: -350)
-                
+                self.infoLabel.alpha = 0
+
             }) { (_) in
                 self.forwardButton.alpha = 1
 //                if self.index == 3 {
@@ -149,6 +175,9 @@ class OnboardingViewController: UIViewController {
   
     
     private func setupUI() {
+        setupLabels()
+        view.backgroundColor = .goatBlack
+        
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12).isActive = true
@@ -179,6 +208,12 @@ class OnboardingViewController: UIViewController {
         contentLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         contentLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
+        view.addSubview(infoLabel)
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    
+        infoLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        
     }
     
     @objc func nextButtonTapped() {
@@ -186,6 +221,7 @@ class OnboardingViewController: UIViewController {
         case 0...2:
             let pageViewController = parent as! OnboardingPageViewController
             pageViewController.forward(index: index)
+            
     
         case 3: //Done Button
              
@@ -193,16 +229,9 @@ class OnboardingViewController: UIViewController {
           
             UserDefaults.standard.set(true, forKey: onboardingKey)
             
-            if ExerciseStorage.exercises.isEmpty {
-                let loadingVC = LoadingViewController()
-                loadingVC.modalPresentationStyle = .fullScreen
-                show(loadingVC, sender: self)
-            } else {
-            
-            let homeVC = HomeViewController()
-            homeVC.modalPresentationStyle = .fullScreen
-            show(homeVC, sender: self)
-            }
+                let homeVC = HomeViewController()
+                homeVC.modalPresentationStyle = .fullScreen
+                show(homeVC, sender: self)
         default: break
         }
     }
@@ -212,7 +241,9 @@ class OnboardingViewController: UIViewController {
 
 //extension OnboardingViewController: UITextFieldDelegate {
 //    func textFieldDidEndEditing(_ textField: UITextField) {
-//        UserAPI.user.name = textField.text!
+//        let user = UserManager.loadUserFromFile()
+//        user.name = textField.text!
+//        UserManager.save()
 //        textField.resignFirstResponder()
 //    }
 //}
