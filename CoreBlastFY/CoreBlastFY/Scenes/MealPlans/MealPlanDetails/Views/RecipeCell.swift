@@ -26,6 +26,15 @@ class RecipeCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    lazy var containerView: UIView = {
+//        let v = UIView()
+//        v.layer.shadowColor = UIColor.black.cgColor
+//        v.layer.shadowOpacity = 1
+//        v.layer.shadowOffset = .zero//CGSize(width: contentView.frame.size.width, height: 80)
+//        v.layer.shadowRadius = CGFloat(15)
+//        return v
+//    }()
+    
     private var mealImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -64,6 +73,9 @@ class RecipeCell: UICollectionViewCell {
     // MARK: Setup
     
     private func setupViews() {
+//        contentView.addSubview(containerView)
+//        containerView.fillSuperview()
+        
         contentView.addSubview(mealTypeLabel)
         mealTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true

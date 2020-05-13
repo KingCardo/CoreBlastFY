@@ -70,7 +70,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     
     private func handleRestore() {
         SKPaymentQueue.default().restoreCompletedTransactions()
-        
+        AlertController.createAlert(errorMessage: "All successful purchases have been restored.", title: "Success", viewController: self)
         
     }
 
@@ -182,30 +182,8 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         
         present(mailComposer, animated: true)
         if !MFMailComposeViewController.canSendMail() {
-            // TO DO: Error handle
-            print("Cant send email, RWRW")
+            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
             return
         }
     }
-}
-
-
-extension SettingsViewController: SKPaymentTransactionObserver {
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .failed:
-                if let error = transaction.error {
-                let errorDesc = error.localizedDescription
-                    AlertController.createAlert(errorMessage: errorDesc, viewController: self)
-                }
-            case .restored:
-                AlertController.createAlert(errorMessage: "All successful purchases have been restored.", viewController: self)
-            default: break
-            }
-        }
-        
-    }
-    
-
 }
