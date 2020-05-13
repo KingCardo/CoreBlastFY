@@ -75,6 +75,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         super.viewWillAppear(animated)
             fetchUserInfo()
             self.tabBarController?.tabBar.isHidden = false
+         if ExerciseStorage.exercises.isEmpty {
+                let loadingVC = LoadingViewController()
+                loadingVC.modalPresentationStyle = .fullScreen
+            present(loadingVC, animated: true)
+        }
     }
     
     // MARK: Setup
