@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FY6P.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>6EB90F474C3F95AA96A7623BE9FECBC825E947EE</string>
+				<key>dateExpires</key>
+				<string>10/27/20</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>652R6A63L8.com.franchizent.FY6P1</string>
+				<key>aps-environment</key>
+				<string>development</string>
+				<key>com.apple.developer.icloud-container-environment</key>
+				<string>Production</string>
+				<key>com.apple.developer.icloud-container-identifiers</key>
+				<array>
+					<string>iCloud.com.franchizent.FY6P1</string>
+				</array>
+				<key>com.apple.developer.icloud-services</key>
+				<array>
+					<string>CloudKit</string>
+				</array>
+				<key>com.apple.developer.team-identifier</key>
+				<string>652R6A63L8</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>FY6P.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>c1c42ad3-f302-4f32-8afd-17bd911f044f</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.franchizent.FY6P1</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>652R6A63L8</string>
+				<key>name</key>
+				<string>Riccardo Washington</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

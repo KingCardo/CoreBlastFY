@@ -115,16 +115,20 @@ extension MealPlansViewController {
 
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row != indexPath.last {
-        productId = InAppIds.all[indexPath.row]
-        }
-        //if isPurchased(with: productId!) {
-            routeToMealPlanDetails()
-        //} else {
-//            buyMealPlan(with: productId!)
+//        let plans = InAppIds.all[indexPath.item]
+//        productId = plans
+//
+//        if let productId = productId, isPurchased(with: productId) {
+//            routeToMealPlanDetails()
+//        } else if let productId = productId {
+//            buyMealPlan(with: productId)
 //        }
+//
+//
+//        if productId == nil {
+            routeToMealPlanDetails()
+       // }
     }
-    
 }
 
 extension MealPlansViewController {
@@ -138,6 +142,7 @@ extension MealPlansViewController {
 
 extension MealPlansViewController: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        if productId != nil {
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchased:
@@ -145,15 +150,15 @@ extension MealPlansViewController: SKPaymentTransactionObserver {
                 UserDefaults.standard.set(true, forKey: productId!)
             case .failed:
                 if let error = transaction.error {
-                                   let errorDesc = error.localizedDescription
-                                   //TO DO: Handle error
-                                   print(errorDesc)
+                let errorDesc = error.localizedDescription
+                    AlertController.createAlert(errorMessage: errorDesc, viewController: self)
                 }
             case .restored:
                     UserDefaults.standard.set(true, forKey: productId!)
                     SKPaymentQueue.default().finishTransaction(transaction)
             default: break
             }
+        }
         }
     }
     

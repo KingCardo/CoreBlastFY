@@ -33,6 +33,7 @@ class RecipeCell: UICollectionViewCell {
         iv.backgroundColor = .red
         iv.layer.cornerRadius = 8
         iv.sizeToFit()
+        //iv.createShadow(shadowRadius: CGFloat(15.0), shadowOffset: CGSize(width: CGFloat(15), height: CGFloat(15)), shadowOpacity: 0.7)
         return iv
     }()
     

@@ -74,7 +74,7 @@ let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating 
 let shreddedDinner2Ingredients: [Recipe.Ingredient] = [avocado, lettuce, tuna, lime, redOnion, mayo, salt, pepper]
 let shreddedDinner2Name = "Tuna Salad Wraps"
 
-let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "eggs"))
+let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "breakfast"))
 
 let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedLunchIngredients, instructions: shreddedLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "almonds"))
 
@@ -142,9 +142,9 @@ let gainsLunchRecipe = Recipe(name: gainsLunchMealName, ingredients: gainsLunchI
 
 let gainsSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
-let gainsDinnerRecipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "veganLunch"))
+let gainsDinnerRecipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "chiptle"))
 
-let gainsDinner2Recipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "veganLunch"))
+let gainsDinner2Recipe = Recipe(name: gainsDinnerMealName, ingredients: gainsDinnerIngredients, instructions: gainsDinnerInstructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "chiptle"))
 
 let gainsMealPlanTitle = "Gains Galore"
 let gainsMealPlanSummary = "This plan lets you gain muscle mass while making six pack gains!"
@@ -187,13 +187,13 @@ let franchizSnackMealName = "Fruit & Almonds"
 
 let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp2image"))
 
-let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "stirfrytofu"))
+let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "Franchizdinner"))
 
-let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "almonds"))
+let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "snack"))
 
 let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
-let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "stirfrytofu"))
+let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "Franchizdinner"))
 
 let franchizMealPlanTitle = "Franchiz Personal Plan"
 let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."
@@ -289,7 +289,7 @@ let veganMP = MealPlan(title: veganMealPlanTitle,
 
 let mockMP1 = MealPlan(title: "Tips for Success", summary: "Have no idea what you should be eating? This is for you!",
                         description: "Abs are made in the kitchen! Time to get right!",
-                        image: #imageLiteral(resourceName: "stirfrytofu"),
+                        image: #imageLiteral(resourceName: "tipsWater"),
                         tip: "To be successful you have to plan ahead or you will fail! \nNumber 1: meal prep for at least a couple of days at a time, having great food ready to eat is a major key to staying on track. \nNumber 2: drink lots of water, have to stay hydrated. \nNumber 3: make sure to get good sleep every night, your body will thank you. Minimum 7 hours. \nNumber 4: Remember why you started this, and ask how bad do you want it. You have to be discipline, and focused on the end result and be consistent. You're planting a seed, and can't expect the tree to grow overnight. Put in the work and don't cheat yourself and results will come. Last tip: It's ok to mess up, get back up and keep focused, we're human. Were creating a Lifetsyle of good choices in a lot of aspects here so the good will outweigh the bad. Take it one day at a time! Have fun!",
                         whatToAvoid: "What to avoid is just as important to efficiently get to your goals! Think again in types, which are sugars, flours, fatty fried foods. So all the processed junk has to go : candy, fastfood, alcohol, bread, tortillas, chips, soda, dairy.",
                         whatToEat: "What you eat is the 1st and most important part of this program. Over the 12 weeks we will build great habits that will enable your success for continual improvement. With that in mind, you have lots of options as long as you think in types. Proteins, Veggies, Fruits, Complex Carbs. Proteins can include, eggs, chicken, fish, steak, tofu, and ground beef. With veggies, take your pick and eat lots of them, examples are kale, spinach, broccoli, avocados, peppers, zuchini, and cucumbers. Fruits are great for snacks and smoothies, all types of berries, bananas, apples. When making smoothies with fruit with extra sugar like mangos or pineapple make sure half of the contents is a green superfood for slower absorption. Complex carbs are great fillers which include, brown rice, quinoa, old fashined oatmeal, lentils, beans, and sweet potatoes. Snacks are good for nuts, seeds and more fruits and veggies.",

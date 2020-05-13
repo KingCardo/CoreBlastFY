@@ -80,8 +80,6 @@
 		7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6D23EFA5C000D0D6BD /* ParksTableViewController.swift */; };
 		7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6E23EFA5C000D0D6BD /* ParksDetailController.swift */; };
 		7A8CBB7223EFA5F600D0D6BD /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7123EFA5F600D0D6BD /* Animations.swift */; };
-		7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */; };
-		7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */; };
 		7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
 		7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */; };
@@ -231,8 +229,6 @@
 		7A8CBB6D23EFA5C000D0D6BD /* ParksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksTableViewController.swift; sourceTree = "<group>"; };
 		7A8CBB6E23EFA5C000D0D6BD /* ParksDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksDetailController.swift; sourceTree = "<group>"; };
 		7A8CBB7123EFA5F600D0D6BD /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
-		7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackElementViewController.swift; sourceTree = "<group>"; };
 		7A8CBB7723EFAF4D00D0D6BD /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7ABC86EC24148C51008DCDE3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -470,7 +466,6 @@
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
 				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
-				7A8CBB5023EFA3EC00D0D6BD /* Nutrition */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
 			path = Scenes;
@@ -553,15 +548,6 @@
 				7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */,
 			);
 			path = AboutFYF;
-			sourceTree = "<group>";
-		};
-		7A8CBB5023EFA3EC00D0D6BD /* Nutrition */ = {
-			isa = PBXGroup;
-			children = (
-				7A8CBB7323EFAEDE00D0D6BD /* NutritionViewController.swift */,
-				7A8CBB7423EFAEDE00D0D6BD /* StackElementViewController.swift */,
-			);
-			path = Nutrition;
 			sourceTree = "<group>";
 		};
 		7A8CBB5D23EFA49E00D0D6BD /* Notifications */ = {
@@ -843,7 +829,6 @@
 				7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */,
 				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
-				7A8CBB7523EFAEDE00D0D6BD /* NutritionViewController.swift in Sources */,
 				7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */,
 				7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */,
 				7AC2C6C52449183C00B3BFC8 /* MealPlansViewController.swift in Sources */,
@@ -869,7 +854,6 @@
 				7AC2C6C8244A5C9E00B3BFC8 /* MealPlan.swift in Sources */,
 				7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */,
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
-				7A8CBB7623EFAEDE00D0D6BD /* StackElementViewController.swift in Sources */,
 				7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */,
 				7AC2C6C32449183C00B3BFC8 /* MealPlansRouter.swift in Sources */,
 				7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */,

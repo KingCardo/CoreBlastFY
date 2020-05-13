@@ -30,10 +30,13 @@ class IngredientsTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        amountLabel.textColor = .goatBlue
+        amountLabel.textColor = .gray
         contentView.addSubview(titleLabel)
         titleLabel.centerYInSuperview()
+        //titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: IngredientsTableViewCell.leadingAnchor).isActive = true
+//        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6).isActive = true
+//        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6).isActive = true
         contentView.addSubview(amountLabel)
         amountLabel.centerYInSuperview()
         amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -IngredientsTableViewCell.leadingAnchor).isActive = true
