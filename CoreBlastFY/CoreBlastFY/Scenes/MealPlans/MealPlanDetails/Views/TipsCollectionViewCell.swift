@@ -29,7 +29,8 @@ class TipsCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 3
         label.font = UIFont.makeAvenirCondensed(size: 20)
-        label.textColor = .black
+        label.textColor = .white
+        label.backgroundColor = .black
         label.sizeToFit()
         return label
     }()
@@ -40,7 +41,8 @@ class TipsCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 1
         label.font = UIFont.makeAvenirCondensed(size: 14)
-        label.textColor = .black
+        label.textColor = .white
+        label.backgroundColor = .black
         label.sizeToFit()
         return label
     }()

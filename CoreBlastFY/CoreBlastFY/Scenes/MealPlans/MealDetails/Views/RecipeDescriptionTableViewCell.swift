@@ -14,6 +14,8 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .white
+        label.backgroundColor = .black
         label.font = UIFont.makeTitleFont(size: 24)
         return label
     }()
@@ -33,6 +35,7 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
     
     private func setupViews() {
         addSubview(descriptionLabel)
+        contentView.backgroundColor = .black
         descriptionLabel.fillSuperview(padding: UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8))
     }
 }

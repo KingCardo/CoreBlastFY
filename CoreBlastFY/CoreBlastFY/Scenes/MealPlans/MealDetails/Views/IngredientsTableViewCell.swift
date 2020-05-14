@@ -31,6 +31,10 @@ class IngredientsTableViewCell: UITableViewCell {
     
     private func setupViews() {
         amountLabel.textColor = .gray
+        titleLabel.textColor = .white
+        titleLabel.backgroundColor = .black
+        amountLabel.backgroundColor = .black
+        contentView.backgroundColor = .black
         contentView.addSubview(titleLabel)
         titleLabel.centerYInSuperview()
         //titleLabel.translatesAutoresizingMaskIntoConstraints = false

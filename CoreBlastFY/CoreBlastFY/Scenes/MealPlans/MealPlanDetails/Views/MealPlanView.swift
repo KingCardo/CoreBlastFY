@@ -29,7 +29,7 @@ class MealPlanView: UIView {
         cv.autoresizingMask = [.flexibleHeight]
         cv.dataSource = self
         cv.delegate = self
-        cv.backgroundColor = .white
+        cv.backgroundColor = .black
         cv.isScrollEnabled = true
         cv.showsHorizontalScrollIndicator = false
         cv.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.id)

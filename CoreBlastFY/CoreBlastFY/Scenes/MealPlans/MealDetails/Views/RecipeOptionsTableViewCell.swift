@@ -19,6 +19,7 @@ class RecipeOptionsTableViewCell: UITableViewCell {
     private lazy var optionsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [option1Button, option2Button])
         stackView.distribution = .fillEqually
+        stackView.backgroundColor = .black
         return stackView
     }()
     
@@ -46,13 +47,13 @@ class RecipeOptionsTableViewCell: UITableViewCell {
         option1Button.backgroundColor = .goatBlue
         option1Button.setTitleColor(.white, for: .normal)
         
-        option2Button.backgroundColor = .white
+        option2Button.backgroundColor = .black
         option2Button.setTitleColor(.goatBlue, for: .normal)
     }
     
     @objc func modeInstruction(_ sender: UIButton) {
         option2Buttonhandler?()
-        option1Button.backgroundColor = .white
+        option1Button.backgroundColor = .black
         option1Button.setTitleColor(.goatBlue, for: .normal)
         
         option2Button.backgroundColor = .goatBlue
@@ -70,6 +71,7 @@ class RecipeOptionsTableViewCell: UITableViewCell {
     
     private func setupViews() {
         addSubview(optionsStackView)
+        contentView.backgroundColor = .black
         optionsStackView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0))
     }
     

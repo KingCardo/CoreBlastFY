@@ -51,7 +51,8 @@ class RecipeCell: UICollectionViewCell {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = UIFont.makeAvenirCondensed(size: 16)
-        label.textColor = .black
+        label.textColor = .white
+        label.backgroundColor = .black
         label.sizeToFit()
         return label
     }()
@@ -61,7 +62,8 @@ class RecipeCell: UICollectionViewCell {
         label.textAlignment = .left
         label.numberOfLines = 1
         label.font = UIFont.makeAvenirCondensed(size: 20)
-        label.textColor = .goatBlack
+        label.textColor = .white
+        label.backgroundColor = .black
         label.sizeToFit()
         return label
     }()

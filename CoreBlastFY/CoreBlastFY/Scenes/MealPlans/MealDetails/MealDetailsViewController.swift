@@ -106,6 +106,7 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     private func setupViews() {
         view.addSubview(recipeTableView)
+        recipeTableView.backgroundColor = .black
         recipeTableView.fillSuperview()
     }
 }

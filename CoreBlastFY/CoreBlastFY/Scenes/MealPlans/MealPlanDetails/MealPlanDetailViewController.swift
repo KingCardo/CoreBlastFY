@@ -106,7 +106,7 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
         tableView.delegate = self
         
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .black
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
@@ -148,7 +148,7 @@ extension MealPlanDetailViewController: UITableViewDataSource {
         case .description:
             let cell = tableView.dequeueReusableCell(withIdentifier: AppFullscreenDescriptionCell.id, for: indexPath) as! AppFullscreenDescriptionCell
             cell.item = displayedPlan.description
-            cell.backgroundColor = .white
+            cell.backgroundColor = .black
             return cell
         case .recipes:
             let cell = tableView.dequeueReusableCell(withIdentifier: MealPlanCell.id, for: indexPath) as! MealPlanCell

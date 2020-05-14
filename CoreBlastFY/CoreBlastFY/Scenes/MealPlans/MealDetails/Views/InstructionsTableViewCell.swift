@@ -27,7 +27,10 @@ class InstructionsTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
+        contentView.backgroundColor = .black
         contentView.addSubview(titleLabel)
+        titleLabel.textColor = .white
+        titleLabel.backgroundColor = .black
         titleLabel.fillSuperview(padding: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
     }
     
