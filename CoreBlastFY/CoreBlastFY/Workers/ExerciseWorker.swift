@@ -51,6 +51,5 @@ func ==(lhs: ExerciseInfoStoreError, rhs: ExerciseInfoStoreError) -> Bool {
   case (.CannotFetch(let a), .CannotFetch(let b)) where a == b: return true
     default: return false
     }
-    
 }
 

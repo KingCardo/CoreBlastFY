@@ -79,11 +79,6 @@ class PlayerLooper: NSObject, Looper {
         stop()
         guard !playerItems.isEmpty else { return }
         playerItems.removeFirst()
-//        guard let superViewLayer = superViewLayer else { return }
-//        guard let superViewSuperLayer = superViewLayer.superlayer?.bounds else { return }
-//        superViewLayer.frame = superViewSuperLayer
-//        superViewLayer.bounds = superViewSuperLayer
-//        start(in: superViewLayer)
     }
     
     func start(in parentLayer: CALayer) {

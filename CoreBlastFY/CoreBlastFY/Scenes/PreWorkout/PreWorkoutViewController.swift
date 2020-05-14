@@ -75,11 +75,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         super.viewWillAppear(animated)
             fetchUserInfo()
             self.tabBarController?.tabBar.isHidden = false
-         if ExerciseStorage.exercises.isEmpty {
-                let loadingVC = LoadingViewController()
-                loadingVC.modalPresentationStyle = .fullScreen
-            present(loadingVC, animated: true)
-        }
+//         if ExerciseStorage.exercises.isEmpty {
+//                let loadingVC = LoadingViewController()
+//                loadingVC.modalPresentationStyle = .fullScreen
+//            navigationController?.pushViewController(loadingVC, animated: true)
+//        }
     }
     
     // MARK: Setup
@@ -104,7 +104,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         view.backgroundColor = .black
     }
     @objc private func startWorkout() {
+        if ExerciseStorage.exercises.count > 0 {
             displayLoadingView()
+        } else {
+            print("no exercises available to generate workout")
+        }
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
@@ -122,6 +126,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         preworkoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         //TO DO: - use reusable version
+//        if let user = UserAPI.user, user.totalPoints > user.la
         UIView.animate(withDuration: 1.0) { [weak self] in
         self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
         self?.preworkoutView?.totalPointsLevel.transform = .identity

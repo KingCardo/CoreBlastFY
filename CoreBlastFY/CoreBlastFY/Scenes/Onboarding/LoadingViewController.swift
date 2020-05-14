@@ -48,10 +48,10 @@ class LoadingViewController: UIViewController {
     @objc private func showWorkoutVC() {
         loadingSpinner?.stopAnimating()
         loadingSpinner = nil
-        self.dismiss(animated: true, completion: nil)
-//        let homeVC = HomeViewController()
-//        homeVC.modalPresentationStyle = .fullScreen
-//        show(homeVC, sender: self)
+       
+        let homeVC = HomeViewController()
+        homeVC.modalPresentationStyle = .fullScreen
+        show(homeVC, sender: self)
     
     }
 
