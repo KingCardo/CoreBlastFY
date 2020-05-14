@@ -40,7 +40,7 @@ class RecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.makeAvenirNext(size: 16)
+        label.font = UIFont.makeTitleFontDB(size: 16)
         label.textColor = .white
         label.backgroundColor = .black
         label.sizeToFit()

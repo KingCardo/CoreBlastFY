@@ -31,6 +31,12 @@ extension UIFont {
         return fontMetrics.scaledFont(for: font)
         
     }
+    static func makeTitleFontDB(size: CGFloat) -> UIFont {
+        let font = UIFont(name: "AvenirNext-Demibold", size: size)!
+        let fontMetrics = UIFontMetrics(forTextStyle: .body)
+        return fontMetrics.scaledFont(for: font)
+        
+    }
     static func makeAvenirNext(size: CGFloat) -> UIFont? {
         let font = UIFont(name: "Avenir Next", size: size)!
         let fontMetrics = UIFontMetrics(forTextStyle: .body)

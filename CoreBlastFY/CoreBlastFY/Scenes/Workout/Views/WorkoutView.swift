@@ -151,7 +151,7 @@ class WorkoutView: UIView {
         
         backgroundColor = .black
         
-        setCountLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        setCountLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         setCountLabel.textColor = .white
         
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
@@ -176,7 +176,7 @@ class WorkoutView: UIView {
         
         let exerciseLabel = UILabel()
         exerciseLabel.text = "Exercise"
-        exerciseLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        exerciseLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
@@ -197,7 +197,7 @@ class WorkoutView: UIView {
         
         let timeLeftLabel = UILabel()
         timeLeftLabel.text = "Time Remaining"
-        timeLeftLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        timeLeftLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
         durationLeftLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)

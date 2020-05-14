@@ -98,10 +98,10 @@ class OnboardingViewController: UIViewController {
     
     private func setupLabels() {
         headingLabel.textColor = .white
-        headingLabel.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40)
+        headingLabel.font = UIFont.makeTitleFontDB(size: 40)
         headingLabel.numberOfLines = 0
         contentLabel.textColor = .white
-        contentLabel.font = UIFont.preferredFont(forTextStyle: .body).withSize(28)
+        contentLabel.font = UIFont.makeTitleFontDB(size: 28)
         contentLabel.numberOfLines = 0
         
         
