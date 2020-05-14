@@ -25,24 +25,14 @@ class RecipeCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    lazy var containerView: UIView = {
-//        let v = UIView()
-//        v.layer.shadowColor = UIColor.black.cgColor
-//        v.layer.shadowOpacity = 1
-//        v.layer.shadowOffset = .zero//CGSize(width: contentView.frame.size.width, height: 80)
-//        v.layer.shadowRadius = CGFloat(15)
-//        return v
-//    }()
+
     
     private var mealImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.backgroundColor = .red
         iv.layer.cornerRadius = 8
         iv.sizeToFit()
-        //iv.createShadow(shadowRadius: CGFloat(15.0), shadowOffset: CGSize(width: CGFloat(15), height: CGFloat(15)), shadowOpacity: 0.7)
         return iv
     }()
     
@@ -50,7 +40,7 @@ class RecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.makeAvenirCondensed(size: 16)
+        label.font = UIFont.makeAvenirNext(size: 16)
         label.textColor = .white
         label.backgroundColor = .black
         label.sizeToFit()
@@ -61,7 +51,7 @@ class RecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 1
-        label.font = UIFont.makeAvenirCondensed(size: 20)
+        label.font = UIFont.makeAvenirNext(size: 20)
         label.textColor = .white
         label.backgroundColor = .black
         label.sizeToFit()
@@ -75,9 +65,6 @@ class RecipeCell: UICollectionViewCell {
     // MARK: Setup
     
     private func setupViews() {
-//        contentView.addSubview(containerView)
-//        containerView.fillSuperview()
-        
         contentView.addSubview(mealTypeLabel)
         mealTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         mealTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true

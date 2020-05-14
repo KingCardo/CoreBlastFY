@@ -179,8 +179,8 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     private lazy var pgLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! We'll do weekly progression pics to stay motivated and on track to reach your goals!"
-        label.font = UIFont.makeFontSet(size: 32)
+        label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! \nWe'll do weekly progression pics to stay motivated and on track to reach your goals!"
+        label.font = UIFont.makeFontSet(size: 24)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!
         label.numberOfLines = 0
@@ -205,9 +205,9 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     private func setupLabelConstraints() {
         pgLabel.centerYAnchor.constraint(equalTo: progressionView.centerYAnchor).isActive = true
-        pgLabel.leadingAnchor.constraint(equalTo: progressionView.leadingAnchor, constant: 12).isActive = true
+        pgLabel.leadingAnchor.constraint(equalTo: progressionView.leadingAnchor, constant: 24).isActive = true
         pgLabel.centerXAnchor.constraint(equalTo: progressionView.centerXAnchor).isActive = true
-        pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -12).isActive = true
+        pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -24).isActive = true
         
     }
     

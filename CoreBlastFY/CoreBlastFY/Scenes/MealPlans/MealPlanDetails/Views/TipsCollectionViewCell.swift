@@ -55,7 +55,7 @@ class TipsCollectionViewCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.addSubview(titleLabel)
-        titleLabel.fillSuperview()
+        titleLabel.fillSuperview(padding: UIEdgeInsets(top: 12, left: 24, bottom: 24, right: 24))
         titleLabel.addSubview(tapMoreLabel)
         tapMoreLabel.centerXInSuperview()
         tapMoreLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -16).isActive = true 

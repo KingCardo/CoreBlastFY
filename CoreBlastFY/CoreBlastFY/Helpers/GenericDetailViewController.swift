@@ -23,7 +23,7 @@ class GenericDetailViewController: UIViewController {
         tv.isSelectable = false
         tv.text = data
         tv.textColor = .white
-        tv.font = UIFont.makeAvenirNext(size: 20)
+        tv.font = UIFont.makeAvenirNext(size: 18)
         tv.backgroundColor = .clear
         return tv
     }()
@@ -60,9 +60,8 @@ class GenericDetailViewController: UIViewController {
         aboutMeImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         aboutMeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
@@ -70,7 +69,7 @@ class GenericDetailViewController: UIViewController {
         
         view.addSubview(aboutMeTextView)
         aboutMeTextView.translatesAutoresizingMaskIntoConstraints = false
-        aboutMeTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        aboutMeTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
         aboutMeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
         aboutMeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         aboutMeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
