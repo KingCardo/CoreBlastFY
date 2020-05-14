@@ -78,7 +78,7 @@ class OnboardingViewController: UIViewController {
        
         headingLabel.text = heading
         contentLabel.text = content
-        infoLabel.text = "Tap to proceed"
+        infoLabel.text = "Swipe up or Tap to proceed"
         pageControl.numberOfPages = 4
         pageControl.currentPage = index
         //nameTextField.delegate = self

@@ -167,6 +167,8 @@ class WorkoutView: UIView {
         setCountLabelStackView.spacing = Style.stackViewSpacing
         setCountLabelStackView.backgroundColor = .clear
         
+         guard let videoView = videoView else { return }
+        addSubview(videoView)
         addSubview(setCountLabelStackView)
         setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
@@ -213,14 +215,15 @@ class WorkoutView: UIView {
         durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
         durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
-        guard let videoView = videoView else { return }
+       
         
-        addSubview(videoView)
+        
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        videoView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: Style.stackViewTop).isActive = true
-        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -Style.stackViewTop).isActive = true
+        videoView.topAnchor.constraint(equalTo: topAnchor).isActive = true 
+        ///*setCountLabelStackView.bottomAnchor*/, constant: /*Style.stackViewTop*/).isActive = true
+        videoView.bottomAnchor.constraint(equalTo: bottomAnchor/*durationStackView.topAnchor*/, constant: /*-Style.stackViewTop*/Style.Dimension.edgeInsets.right).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
         

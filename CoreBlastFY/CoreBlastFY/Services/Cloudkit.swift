@@ -21,7 +21,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
     
     func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void) {
         var records: [CKRecord] = []
-        let predicate = NSPredicate(format: "level == %@", level)
+        let predicate = NSPredicate(format: "level == %@", level) //NSPredicate(value: true)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
         let fetchOperation = CKQueryOperation(query: query)
         fetchOperation.qualityOfService = .userInitiated
