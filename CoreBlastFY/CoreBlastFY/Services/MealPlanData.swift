@@ -68,10 +68,12 @@ let tuna = Recipe.Ingredient(name: "Chunk tuna light in water", amount: "2 (6oz)
 let lime = Recipe.Ingredient(name: "Lime juice", amount: "")
 let redOnion = Recipe.Ingredient(name: "Red onion", amount: "1/2 medium")
 let mayo = Recipe.Ingredient(name: "Avocado oil mayonnaise", amount: "")
+let redPepperHalf = Recipe.Ingredient(name: "Red Pepper", amount: "")
+let greenPepperHalf = Recipe.Ingredient(name: "Green Pepper", amount: "")
 
 
-let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating them into leaves.", "Drain the tuna and transfer to a large sald bowl.", "Using a knife, dice onion and cilantro to tiny pieces.","Add 3 tbsp of mayo, salt, pepper, lime juice, onion, and cilantro to tuna and stir thoroughly.", "Slice avocado." , "Make lettuce wraps by spooning tuna sald into lettuce leaves, and garnish with avocida slice, enjoy!"]
-let shreddedDinner2Ingredients: [Recipe.Ingredient] = [avocado, lettuce, tuna, lime, redOnion, mayo, salt, pepper]
+let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating them into leaves.", "Drain the tuna and transfer to a large sald bowl.", "Using a knife, dice onion, peppers, and cilantro to tiny pieces.","Add 3 tbsp of mayo, salt, pepper, lime juice, onion, and cilantro to tuna and stir thoroughly.", "Slice avocado." , "Make lettuce wraps by spooning tuna sald into lettuce leaves, and garnish with avocoda slice, enjoy!"]
+let shreddedDinner2Ingredients: [Recipe.Ingredient] = [avocado, lettuce, tuna, lime, redOnion, mayo, salt, pepper, redPepperHalf, greenPepperHalf]
 let shreddedDinner2Name = "Tuna Salad Wraps"
 
 let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "breakfast"))
