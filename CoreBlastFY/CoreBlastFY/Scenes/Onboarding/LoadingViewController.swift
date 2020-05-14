@@ -23,7 +23,7 @@ class LoadingViewController: UIViewController {
     
     private func displayLoadingSpinner() {
         loadingSpinner = UIActivityIndicatorView(style: .large)
-        loadingSpinner?.color = .lightGray
+        loadingSpinner?.color = .white
         loadingSpinner?.startAnimating()
         view.addSubview(loadingSpinner!)
         
@@ -34,9 +34,11 @@ class LoadingViewController: UIViewController {
     }
     
     private func setUpLoadingLabel() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         loadingLabel.text = "Downloading Programs..."
         loadingLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        loadingLabel.textColor = .white
+        loadingLabel.backgroundColor = .black
         view.addSubview(loadingLabel)
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
