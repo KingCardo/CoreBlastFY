@@ -63,7 +63,7 @@ let shreddedSnackName = "Fruit Smoothie"
 
 //dinner2
 let avocado = Recipe.Ingredient(name: "Avocado", amount: "1")
-let lettuce = Recipe.Ingredient(name: "Butter Lettuce", amount: "1 head")
+let lettuce = Recipe.Ingredient(name: "Butter or Romaine Lettuce", amount: "1 head")
 let tuna = Recipe.Ingredient(name: "Chunk tuna light in water", amount: "2 (6oz) cans")
 let lime = Recipe.Ingredient(name: "Lime juice", amount: "")
 let redOnion = Recipe.Ingredient(name: "Red onion", amount: "1/2 medium")
@@ -76,13 +76,13 @@ let shreddedDinner2Name = "Tuna Salad Wraps"
 
 let shreddedBreakfastRecipe = Recipe(name: shreddedBreakastName, ingredients: shreddedBreakfastIngredients, instructions: shreddedBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "breakfast"))
 
-let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedLunchIngredients, instructions: shreddedLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "almonds"))
+let shreddedLunchRecipe = Recipe(name: shreddedLucnhName, ingredients: shreddedLunchIngredients, instructions: shreddedLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "chickensalad"))
 
 let shreddedSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
 let shreddedDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
-let shreddedDinner2Recipe = Recipe(name: shreddedDinner2Name, ingredients: shreddedDinner2Ingredients, instructions: shreddedDinner2Instructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "stirfrytofu"))
+let shreddedDinner2Recipe = Recipe(name: shreddedDinner2Name, ingredients: shreddedDinner2Ingredients, instructions: shreddedDinner2Instructions, mealType: Recipe.MealType.dinner2, image: #imageLiteral(resourceName: "tunawrap"))
 
 let shreddedMealPlanTitle = "Super Shred"
 let shreddedMealPlanSummary = "Accelerate your gains with this fat burning plan!"

@@ -84,12 +84,9 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         registerObservers()
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
         view.addGestureRecognizer(tapGesture!)
-        
+        navigationController?.navigationBar.isHidden = true
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//    }
+
     
     private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
@@ -98,6 +95,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     @objc private func pauseWorkoutFromInterruption() {
         workoutView?.pauseWorkout()
+        navigationController?.navigationBar.isHidden = false
     }
     
     @objc private func pauseWorkout() {
@@ -111,8 +109,10 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
             guard workoutView != nil && workoutView?.loadingView == nil else { return }
             if workoutView!.timerIsRunning {
                 workoutView?.pauseWorkout()
+                navigationController?.navigationBar.isHidden = false
             } else {
                 workoutView?.resumeWorkout()
+                navigationController?.navigationBar.isHidden = true
             }
         default: break
         }
