@@ -35,7 +35,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         iv.image = #imageLiteral(resourceName: "6packFY")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.createShadowLayer()
+        //iv.createShadowLayer()
         return iv
     }()
 
@@ -54,6 +54,7 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
         verticalStack.distribution = .fillProportionally
 
         contentView.addSubview(verticalStack)
+        contentView.backgroundColor = .black
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: MealPlansOverviewCollectionViewCell.Dimensions.insets.top).isActive = true
         verticalStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: MealPlansOverviewCollectionViewCell.Dimensions.insets.top).isActive = true

@@ -175,6 +175,8 @@ extension MealPlansViewController: SKPaymentTransactionObserver {
                     AlertController.createAlert(errorMessage: errorDesc, viewController: self)
                 }
             case .restored:
+                loadingSpinner?.stopAnimating()
+                loadingSpinner = nil
                     UserDefaults.standard.set(true, forKey: productId!)
                     SKPaymentQueue.default().finishTransaction(transaction)
             default: break
