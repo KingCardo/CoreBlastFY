@@ -33,7 +33,7 @@ class HomeViewController: UITabBarController {
 
         let progressionViewController = ProgressionCollectionViewController(collectionViewLayout: layout)
         let progressionNavController = UINavigationController(rootViewController: progressionViewController)
-        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image: #imageLiteral(resourceName: "camera"), selectedImage: nil)
+        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image:#imageLiteral(resourceName: "newcamera") /*  #imageLiteral(resourceName: "camera")*/, selectedImage: nil)
         progressionNavController.navigationBar.prefersLargeTitles = true
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
@@ -43,14 +43,14 @@ class HomeViewController: UITabBarController {
         workoutNavController.navigationBar.barStyle = .black
         workoutNavController.navigationBar.tintColor = .white
         workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "workout"), selectedImage: nil)
+        workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
         
         let nutritionVC = MealPlansViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "icons8-dining-room-50"), selectedImage: nil)
+        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
 
         let settingsViewController = SettingsViewController()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
-        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "settings"), selectedImage: nil)
+        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "setting"), selectedImage: nil)
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         

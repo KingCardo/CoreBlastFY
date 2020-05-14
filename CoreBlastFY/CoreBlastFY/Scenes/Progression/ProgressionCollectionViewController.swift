@@ -129,7 +129,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     func setUpCameraButton() {
         
-        cameraBarButtonItem.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysTemplate), for: .normal)
+        cameraBarButtonItem.setImage(#imageLiteral(resourceName: "newcamera").withRenderingMode(.alwaysTemplate), for: .normal)
         cameraBarButtonItem.tintColor = .goatBlue
         cameraBarButtonItem.addTarget(self, action: #selector(takePicture), for: .touchDown)
         cameraBarButtonItem.contentVerticalAlignment = .fill
@@ -143,8 +143,8 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         cameraBarButtonItem.translatesAutoresizingMaskIntoConstraints = false
         cameraBarButtonItem.topAnchor.constraint(equalTo:  (navigationController?.navigationBar.topAnchor)!, constant: 20).isActive = true
         cameraBarButtonItem.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -20).isActive = true
-        cameraBarButtonItem.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        cameraBarButtonItem.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraBarButtonItem.widthAnchor.constraint(equalToConstant: 33).isActive = true
+        cameraBarButtonItem.heightAnchor.constraint(equalToConstant: 33).isActive = true
 
     }
     
