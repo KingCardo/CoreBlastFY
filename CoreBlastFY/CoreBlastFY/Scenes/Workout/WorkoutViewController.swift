@@ -86,6 +86,10 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         view.addGestureRecognizer(tapGesture!)
         
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//    }
     
     private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)

@@ -226,12 +226,18 @@ class OnboardingViewController: UIViewController {
         case 3: //Done Button
              
             grabInputFromUser(datePicker)
-          
-            UserDefaults.standard.set(true, forKey: onboardingKey)
             
+            UserDefaults.standard.set(true, forKey: onboardingKey)
+            if ExerciseStorage.exercises.isEmpty {
+                let loadingVC = LoadingViewController()
+                loadingVC.modalPresentationStyle = .fullScreen
+                show(loadingVC, sender: self)
+                
+            } else {
                 let homeVC = HomeViewController()
                 homeVC.modalPresentationStyle = .fullScreen
                 show(homeVC, sender: self)
+            }
         default: break
         }
     }
