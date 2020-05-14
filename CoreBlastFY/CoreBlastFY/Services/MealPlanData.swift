@@ -136,9 +136,9 @@ let gainsDinnerMealName = "Chipotle Style Bowl"
 
 //snack
 
-let gainsBreakfastRecipe = Recipe(name: gainsBreakastName, ingredients: gainsBreakfastIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "stirfrytofu"))
+let gainsBreakfastRecipe = Recipe(name: gainsBreakastName, ingredients: gainsBreakfastIngredients, instructions: gainsBkInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "breakfastwrap"))
 
-let gainsLunchRecipe = Recipe(name: gainsLunchMealName, ingredients: gainsLunchIngredients, instructions: gainslunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "oatmeal"))
+let gainsLunchRecipe = Recipe(name: gainsLunchMealName, ingredients: gainsLunchIngredients, instructions: gainslunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "beefpattyspfries"))
 
 let gainsSnackRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "mp2image"))
 
@@ -154,7 +154,7 @@ let gainsMealTip = "Drink lots of water, have to stay hydrated"
 let gainsMP = MealPlan(title: gainsMealPlanTitle,
                           summary: gainsMealPlanSummary,
                           description: gainsMealDescription,
-                          image: #imageLiteral(resourceName: "gains"),
+                          image: #imageLiteral(resourceName: "chiptle"),
                           breakfast: gainsBreakfastRecipe,
                           lunch: gainsLunchRecipe,
                           dinner: gainsDinnerRecipe,
