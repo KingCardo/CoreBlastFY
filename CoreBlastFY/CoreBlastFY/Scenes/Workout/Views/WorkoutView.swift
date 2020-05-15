@@ -90,11 +90,15 @@ class WorkoutView: UIView {
     func resumeWorkout() {
         runTimer()
         videoView?.resume()
+        setNeedsDisplay()
+        setNeedsLayout()
     }
     
     func pauseWorkout() {
         invalidateTimers()
         videoView?.pauseVideo()
+        setNeedsDisplay()
+        setNeedsLayout()
     }
     
     private func invalidateTimers() {
