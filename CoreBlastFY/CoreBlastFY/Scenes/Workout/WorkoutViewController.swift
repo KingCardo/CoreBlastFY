@@ -95,7 +95,13 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     @objc private func pauseWorkoutFromInterruption() {
         workoutView?.pauseWorkout()
+        reloadView()
         navigationController?.navigationBar.isHidden = false
+    }
+    
+    private func reloadView() {
+        view.setNeedsDisplay()
+        view.setNeedsLayout()
     }
     
     @objc private func pauseWorkout() {
@@ -109,9 +115,11 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
             guard workoutView != nil && workoutView?.loadingView == nil else { return }
             if workoutView!.timerIsRunning {
                 workoutView?.pauseWorkout()
+                reloadView()
                 navigationController?.navigationBar.isHidden = false
             } else {
                 workoutView?.resumeWorkout()
+                reloadView()
                 navigationController?.navigationBar.isHidden = true
             }
         default: break

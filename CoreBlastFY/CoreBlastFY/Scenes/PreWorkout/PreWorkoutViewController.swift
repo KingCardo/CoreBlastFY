@@ -74,12 +74,8 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
             fetchUserInfo()
+            setupTipIcon()
             self.tabBarController?.tabBar.isHidden = false
-//         if ExerciseStorage.exercises.isEmpty {
-//                let loadingVC = LoadingViewController()
-//                loadingVC.modalPresentationStyle = .fullScreen
-//            navigationController?.pushViewController(loadingVC, animated: true)
-//        }
     }
     
     // MARK: Setup
@@ -99,16 +95,36 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         
     }
     
+    let tipIcon = UIButton(type: .detailDisclosure)
+    
+    private func setupTipIcon() {
+        tipIcon.tintColor = .goatBlue
+        tipIcon.addTarget(self, action: #selector(showTip), for: .touchDown)
+        tipIcon.contentVerticalAlignment = .fill
+        tipIcon.contentHorizontalAlignment = .fill
+        
+        addTipIcon()
+    }
+    
+    @objc private func showTip() {
+        AlertController.createAlert(errorMessage: "Warming up or jogging for 10 minutes prior to workout will greatly increase productivity of workout!", title: "Workout Tip", viewController: self)
+    }
+    
+    private func addTipIcon() {
+        navigationController?.navigationBar.addSubview(tipIcon)
+        tipIcon.centerYInSuperview()
+        tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
+        tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Workout"
         view.backgroundColor = .black
     }
     @objc private func startWorkout() {
-        if ExerciseStorage.exercises.count > 0 {
             displayLoadingView()
-        } else {
-            print("no exercises available to generate workout")
-        }
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {

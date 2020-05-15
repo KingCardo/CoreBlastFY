@@ -33,7 +33,7 @@ class HomeViewController: UITabBarController {
 
         let progressionViewController = ProgressionCollectionViewController(collectionViewLayout: layout)
         let progressionNavController = UINavigationController(rootViewController: progressionViewController)
-        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image:#imageLiteral(resourceName: "newcamera") /*  #imageLiteral(resourceName: "camera")*/, selectedImage: nil)
+        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image:#imageLiteral(resourceName: "newcamera") , selectedImage: nil)
         progressionNavController.navigationBar.prefersLargeTitles = true
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         

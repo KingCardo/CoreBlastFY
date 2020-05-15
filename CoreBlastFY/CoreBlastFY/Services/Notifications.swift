@@ -26,8 +26,8 @@ func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
 func timeToWorkoutMNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in!"
-       content.body = "You want results or regret?"
+       content.title = "Time to get a workout in! 💪"
+       content.body = "Your goals don't care how you feel!"
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -51,8 +51,8 @@ func timeToWorkoutMNotification() {
 func timeToWorkoutTNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in!"
-       content.body = "You want results or regret?"
+       content.title = "Trust the process"
+       content.body = "Time to get a workout in 💪"
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -77,7 +77,7 @@ func timeToWorkoutWNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
        content.title = "Time to get a workout in!"
-       content.body = "You want results or regret?"
+       content.body = "Consistentcy is key 🔑"
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -127,7 +127,7 @@ func timeToWorkoutFNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
        content.title = "Time to get a workout in!"
-       content.body = "You want results or regret?"
+       content.body = "Everyday is a new chance to get better 💎"
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
