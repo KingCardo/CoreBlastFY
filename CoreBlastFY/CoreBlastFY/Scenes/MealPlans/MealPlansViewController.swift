@@ -30,7 +30,7 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        SKPaymentQueue.default().add(self)
+       SKPaymentQueue.default().add(self)
         collectionView.register(MealPlansOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MealPlansOverviewCollectionViewCell.id)
         setup()
     }
@@ -170,6 +170,7 @@ extension MealPlansViewController: SKPaymentTransactionObserver {
             case .failed:
                 loadingSpinner?.stopAnimating()
                 loadingSpinner = nil
+                SKPaymentQueue.default().finishTransaction(transaction)
                 if let error = transaction.error {
                 let errorDesc = error.localizedDescription
                     AlertController.createAlert(errorMessage: errorDesc, viewController: self)
