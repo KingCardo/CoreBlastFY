@@ -85,6 +85,19 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
         view.addGestureRecognizer(tapGesture!)
         navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
+    }
+    
+    @objc private func preventScreenRecording() {
+        let isRecording = UIScreen.main.isCaptured
+        
+        if isRecording {
+            workoutView?.isHidden = true
+            workoutView?.pauseWorkout()
+        } else {
+            workoutView?.isHidden = false
+            workoutView?.resumeWorkout()
+        }
     }
 
     
