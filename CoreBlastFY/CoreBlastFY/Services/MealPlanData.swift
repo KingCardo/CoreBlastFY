@@ -293,7 +293,7 @@ let mockMP1 = MealPlan(title: "Tips for Success", summary: "Have no idea what yo
                         description: "Abs are made in the kitchen! Time to get right!",
                         image: #imageLiteral(resourceName: "tipsWater"),
                         tip: """
-    To be successful you have to plan ahead or you will fail!
+To be successful you have to plan ahead or you will fail!
     \nNumber 1: meal prep for at least a couple of days at a time, having great food ready to eat is a major key to staying on track.
  \nNumber 2: drink lots of water, have to stay hydrated.
 \nNumber 3: make sure to get good sleep every night, your body will thank you. Minimum 7 hours.
