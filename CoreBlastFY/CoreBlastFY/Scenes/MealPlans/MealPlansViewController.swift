@@ -170,7 +170,6 @@ extension MealPlansViewController: SKPaymentTransactionObserver {
             case .failed:
                 loadingSpinner?.stopAnimating()
                 loadingSpinner = nil
-                SKPaymentQueue.default().finishTransaction(transaction)
                 if let error = transaction.error {
                 let errorDesc = error.localizedDescription
                     AlertController.createAlert(errorMessage: errorDesc, viewController: self)
