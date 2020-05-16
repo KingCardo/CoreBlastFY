@@ -85,7 +85,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
         view.addGestureRecognizer(tapGesture!)
         navigationController?.navigationBar.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
+        
     }
     
     @objc private func preventScreenRecording() {
@@ -104,6 +104,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pauseWorkoutFromInterruption), name: PauseWorkoutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
     }
     
     @objc private func pauseWorkoutFromInterruption() {
@@ -132,8 +133,9 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     @objc private func workoutComplete() {
-        showPreWorkoutUI()
         workoutView = nil
+        showPreWorkoutUI()
+        NotificationCenter.default.post(name: workoutCompleteNotification2, object: nil)
     }
     
     

@@ -10,10 +10,10 @@ import UIKit
 
 struct AlertController {
     
-    static func createAlert(errorMessage: String, title: String = "Oops", viewController: UIViewController) {
+    static func createAlert(errorMessage: String, title: String = "Oops", viewController: UIViewController, actionTitle: String = "OK") {
         let ac = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
         ac.overrideUserInterfaceStyle = .dark
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: actionTitle, style: .default)
         ac.addAction(okAction)
         viewController.present(ac, animated: true)
     }

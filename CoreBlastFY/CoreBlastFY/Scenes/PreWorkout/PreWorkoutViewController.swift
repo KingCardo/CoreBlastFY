@@ -71,6 +71,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     // MARK: View lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
             fetchUserInfo()
@@ -104,6 +109,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         tipIcon.contentHorizontalAlignment = .fill
         
         addTipIcon()
+    }
+    
+    @objc private func workoutComplete() {
+        AlertController.createAlert(errorMessage: "Keep up the hard work!\nConsistency is key!", title: "Congratulations 💪", viewController: self, actionTitle: "🎯")
     }
     
     @objc private func showTip() {
