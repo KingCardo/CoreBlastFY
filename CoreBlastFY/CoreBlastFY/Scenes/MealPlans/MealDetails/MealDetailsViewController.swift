@@ -67,6 +67,11 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     // MARK: View lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
@@ -75,6 +80,16 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     }
     
     // MARK: Do something
+    
+    @objc private func preventScreenRecording() {
+        let isRecording = UIScreen.main.isCaptured
+        
+        if isRecording {
+            recipeTableView.isHidden = true
+        } else {
+            recipeTableView.isHidden = false
+        }
+    }
     
     private lazy var recipeTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)

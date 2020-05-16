@@ -60,6 +60,11 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
     
     // MARK: View lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
@@ -77,6 +82,17 @@ class MealPlanDetailViewController: UIViewController, MealPlanDetailDisplayLogic
         let genericDetail = GenericDetailViewController()
         genericDetail.data = tip
         present(genericDetail, animated: true, completion: nil)
+    }
+    
+    
+    @objc private func preventScreenRecording() {
+        let isRecording = UIScreen.main.isCaptured
+        
+        if isRecording {
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+        }
     }
     
     // MARK: Views
