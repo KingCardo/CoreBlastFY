@@ -14,11 +14,13 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         setup()
         registerForNotifications()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
+        
         
         ExerciseStorage.failedCompletion = { (errorMessage) in
             AlertController.createAlert(errorMessage: errorMessage, viewController: self)
@@ -28,12 +30,19 @@ class HomeViewController: UITabBarController {
     
     @objc private func handleVC() {
         DispatchQueue.main.async {
+            let workoutViewController = PreWorkoutViewController()
+            self.workoutNavController = UINavigationController(rootViewController: workoutViewController)
+            self.workoutNavController.navigationItem.title = "Flexx"
+            self.workoutNavController.navigationBar.barStyle = .black
+            self.workoutNavController.navigationBar.tintColor = .white
+            self.workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            self.workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
             self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.settingsNavController], animated: true)
             self.view.setNeedsLayout()
         }
     }
     
-     var progressionNavController: UINavigationController!
+    var progressionNavController: UINavigationController!
     var workoutNavController: UINavigationController!
     var nutritionVC: MealPlansViewController!
     var settingsNavController: UINavigationController!
@@ -51,13 +60,6 @@ class HomeViewController: UITabBarController {
         progressionNavController.navigationBar.prefersLargeTitles = true
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        let workoutViewController = PreWorkoutViewController()
-        workoutNavController = UINavigationController(rootViewController: workoutViewController)
-        workoutNavController.navigationItem.title = "Flexx"
-        workoutNavController.navigationBar.barStyle = .black
-        workoutNavController.navigationBar.tintColor = .white
-        workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
         
         nutritionVC = MealPlansViewController()
         nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
@@ -72,6 +74,13 @@ class HomeViewController: UITabBarController {
         if ExerciseStorage.exercises.isEmpty {
             viewControllers = [progressionNavController, nutritionVC, settingsNavController]
         } else {
+            let workoutViewController = PreWorkoutViewController()
+                   workoutNavController = UINavigationController(rootViewController: workoutViewController)
+                   workoutNavController.navigationItem.title = "Flexx"
+                   workoutNavController.navigationBar.barStyle = .black
+                   workoutNavController.navigationBar.tintColor = .white
+                   workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+                   workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
             viewControllers = [progressionNavController, workoutNavController, nutritionVC, settingsNavController]
         }
         
