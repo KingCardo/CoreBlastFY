@@ -79,14 +79,14 @@ class OnboardingViewController: UIViewController {
         headingLabel.text = heading
         contentLabel.text = content
         infoLabel.text = "Swipe up or Tap to proceed"
-        pageControl.numberOfPages = 4
+        pageControl.numberOfPages = 5
         pageControl.currentPage = index
         //nameTextField.delegate = self
         
         
         switch index {
-        case 0...: forwardButton.setTitle("NEXT", for: .normal)
-        case 3: forwardButton.setTitle("DONE", for: .normal)
+        case 0...3: forwardButton.setTitle("NEXT", for: .normal)
+        case 4: forwardButton.setTitle("DONE", for: .normal)
         default: break
         }
         
@@ -101,7 +101,7 @@ class OnboardingViewController: UIViewController {
         headingLabel.font = UIFont.makeTitleFontDB(size: 40)
         headingLabel.numberOfLines = 0
         contentLabel.textColor = .white
-        contentLabel.font = UIFont.makeTitleFontDB(size: 28)
+        contentLabel.font = UIFont.makeTitleFontDB(size: 22)
         contentLabel.numberOfLines = 0
         
         
@@ -149,10 +149,8 @@ class OnboardingViewController: UIViewController {
 
             }) { (_) in
                 self.forwardButton.alpha = 1
-//                if self.index == 3 {
-//                    self.configureNameTextField()
-//                }
-                if self.index == 3 {
+
+                if self.index == 4 {
                     self.configureDatePicker()
                       }
             }
@@ -218,35 +216,20 @@ class OnboardingViewController: UIViewController {
     
     @objc func nextButtonTapped() {
         switch index {
-        case 0...2:
+        case 0...3:
             let pageViewController = parent as! OnboardingPageViewController
             pageViewController.forward(index: index)
             
     
-        case 3: //Done Button
-             
+        case 4: //Done Button
+            
             grabInputFromUser(datePicker)
             
             UserDefaults.standard.set(true, forKey: onboardingKey)
-//            if let appDelegate = UIApplication.shared.delegate,
-//            let appWindow = appDelegate.window,
-//            var rootViewController = appWindow?.rootViewController {
-//                let homeVC = HomeViewController()
-//                homeVC.modalPresentationStyle = .fullScreen
-//                rootViewController = homeVC
-//                rootViewController.present(homeVC, animated: true, completion: nil)
-//            }
-          
-//            if ExerciseStorage.exercises.isEmpty {
-//                let loadingVC = LoadingViewController()
-//                loadingVC.modalPresentationStyle = .fullScreen
-//                show(loadingVC, sender: self)
-//
-//            } else {
-                let homeVC = HomeViewController()
-                homeVC.modalPresentationStyle = .fullScreen
-                show(homeVC, sender: self)
-//            }
+            
+            let homeVC = HomeViewController()
+            homeVC.modalPresentationStyle = .fullScreen
+            show(homeVC, sender: self)
         default: break
         }
     }
