@@ -17,4 +17,15 @@ struct AlertController {
         ac.addAction(okAction)
         viewController.present(ac, animated: true)
     }
+    
+    /// Creates and displays an alert.
+    
+    static func alert(_ title: String, message: String) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.overrideUserInterfaceStyle = .dark
+        let action = UIAlertAction(title: NSLocalizedString(Messages.okButton, comment: Messages.emptyString),
+                                   style: .default, handler: nil)
+        alertController.addAction(action)
+        return alertController
+    }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import StoreKit
 
 protocol SettingsDisplayLogic: class {
     func displayItems(viewModel: [Settings.Items.ViewModel.DisplayItem])
@@ -69,8 +68,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     }
     
     private func handleRestore() {
-        SKPaymentQueue.default().restoreCompletedTransactions()
-        AlertController.createAlert(errorMessage: "All successful purchases have been restored.", title: "Success", viewController: self)
+        StoreObserver.shared.restore()
         
     }
 

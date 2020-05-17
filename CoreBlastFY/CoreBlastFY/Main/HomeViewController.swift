@@ -14,7 +14,10 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         setup()
         registerForNotifications()
+        StoreManager.shared.delegate = self
+        StoreObserver.shared.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
+       
     }
 
     
@@ -93,6 +96,28 @@ class HomeViewController: UITabBarController {
           tabBar.tintColor = .goatBlue
           
       }
+    
+    
 
 }
 
+extension HomeViewController: StoreManagerDelegate {
+    
+    func storeManagerDidReceiveMessage(_ message: String) {
+        let ac = AlertController.alert(Messages.productRequestStatus, message: message)
+        navigationController?.present(ac, animated: true, completion: nil)
+    }
+    
+}
+
+extension HomeViewController: StoreObserverDelegate {
+    func storeObserverDidReceiveMessage(_ message: String) {
+        let ac = AlertController.alert(Messages.purchaseStatus, message: message)
+        present(ac, animated: true, completion: nil)
+    }
+
+    func storeObserverRestoreDidSucceed() {
+        let ac = AlertController.alert(Messages.purchaseStatus, message: "All successful purchases have been restored.")
+        present(ac, animated: true, completion: nil)
+    }
+}

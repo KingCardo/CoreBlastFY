@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import StoreKit
 
 protocol MealPlansDisplayLogic: class {
     func displayPlans(viewModel: MealPlans.GetPlan.ViewModel)
@@ -20,7 +19,6 @@ protocol MealPlansDisplayLogic: class {
 class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic {
     var interactor: (MealPlansBusinessLogic & MealPlansDataStore)?
     var router: (NSObjectProtocol & MealPlansRoutingLogic & MealPlansDataPassing)?
-    var productId: String?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -30,7 +28,6 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-       SKPaymentQueue.default().add(self)
         collectionView.register(MealPlansOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MealPlansOverviewCollectionViewCell.id)
         setup()
     }
@@ -63,12 +60,28 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     // MARK: View lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(purchaseSuccess), name: PurchaseSuccess, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(purchaseCancelled), name: PurchaseCancelled, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getPlans()
     }
     
     // MARK: Do something
+    
+    @objc private func purchaseSuccess() {
+        removeLoadingSpinner()
+        routeToMealPlanDetails()
+    }
+    
+    @objc private func purchaseCancelled() {
+        removeLoadingSpinner()
+    }
+    
     private var loadingSpinner: UIActivityIndicatorView?
     
     private func displayLoadingSpinner() {
@@ -82,6 +95,13 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
         loadingSpinner?.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
     }
+    
+    private func removeLoadingSpinner() {
+        loadingSpinner?.stopAnimating()
+        loadingSpinner?.removeFromSuperview()
+        loadingSpinner = nil
+    }
+   
     
     var displayedPlans: [MealPlans.GetPlan.ViewModel.PlanOverview] = []
     
@@ -129,16 +149,16 @@ extension MealPlansViewController {
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let plans = InAppIds.all[indexPath.item]
-        productId = plans
-
-        if let productId = productId, isPurchased(with: productId) {
+        StoreObserver.shared.productId = plans
+        
+        if let productId = StoreObserver.shared.productId, StoreManager.shared.isPurchased(with: productId) {
             routeToMealPlanDetails()
-        } else if let productId = productId {
-            buyMealPlan(with: productId)
+        } else if let productId = StoreObserver.shared.productId {
+            displayLoadingSpinner()
+            StoreManager.shared.startProductRequest(with: productId)
         }
 
-
-        if productId == nil {
+        if StoreObserver.shared.productId == nil {
             routeToMealPlanDetails()
         }
     }
@@ -148,55 +168,5 @@ extension MealPlansViewController {
     struct Dimensions {
         static let cellSize: CGFloat = 100
         static let mealPlanCellSize: CGFloat = 300
-    }
-}
-
-// MARK: In App Purchases
-
-extension MealPlansViewController: SKPaymentTransactionObserver {
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        if productId != nil {
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .purchasing:
-                DispatchQueue.main.async {
-                    self.displayLoadingSpinner()
-                }
-            case .purchased:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                UserDefaults.standard.set(true, forKey: productId!)
-                loadingSpinner?.stopAnimating()
-                loadingSpinner = nil
-            case .failed:
-                loadingSpinner?.stopAnimating()
-                loadingSpinner = nil
-                if let error = transaction.error {
-                let errorDesc = error.localizedDescription
-                    AlertController.createAlert(errorMessage: errorDesc, viewController: self)
-                }
-            case .restored:
-                loadingSpinner?.stopAnimating()
-                loadingSpinner = nil
-                    UserDefaults.standard.set(true, forKey: productId!)
-                    SKPaymentQueue.default().finishTransaction(transaction)
-            default: break
-            }
-        }
-        }
-    }
-    
-    func isPurchased(with id: String) -> Bool {
-        let purchaseRecipt = UserDefaults.standard.bool(forKey: id)
-        return purchaseRecipt
-    }
-    
-    func buyMealPlan(with id: String) {
-        if SKPaymentQueue.canMakePayments() {
-            let paymentRequest = SKMutablePayment()
-            paymentRequest.productIdentifier = id
-            SKPaymentQueue.default().add(paymentRequest)
-        } else {
-            AlertController.createAlert(errorMessage: "Sorry... seems like this device can't make payments", viewController: self)
-        }
     }
 }
