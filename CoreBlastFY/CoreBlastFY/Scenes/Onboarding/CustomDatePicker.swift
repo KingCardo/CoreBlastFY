@@ -17,7 +17,7 @@ class CustomDatePicker: UIDatePicker {
          setValue(UIColor.white, forKeyPath: "textColor")
          addSubview(titleLabel)
       
-         titleLabel.text = "Reminder"
+         titleLabel.text = "Workout Reminder"
          titleLabel.textColor = .white
          titleLabel.textAlignment = .center
          titleLabel.font = UIFont.makeAvenirNext(size: 25)

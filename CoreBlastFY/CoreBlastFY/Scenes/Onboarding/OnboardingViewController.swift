@@ -78,7 +78,7 @@ class OnboardingViewController: UIViewController {
        
         headingLabel.text = heading
         contentLabel.text = content
-        infoLabel.text = "Swipe up or Tap to proceed"
+        infoLabel.text = "Swipe right to proceed"
         pageControl.numberOfPages = 5
         pageControl.currentPage = index
         //nameTextField.delegate = self
@@ -93,7 +93,15 @@ class OnboardingViewController: UIViewController {
         setupForwardButton()
         
         setupPageControl()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAnimation)))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.index == 4 {
+            self.configureDatePicker()
+            infoLabel.alpha = 0
+            forwardButton.alpha = 1
+        }
     }
     
     private func setupLabels() {
@@ -110,53 +118,7 @@ class OnboardingViewController: UIViewController {
         infoLabel.numberOfLines = 1
     }
 
-    
-//     @objc private func handleTapAnimation() {
-       // animator.startAnimation()
-       // UIView.animate(withDuration: 1.2) {
-//            let sizeMultiplier: CGFloat = 2.5
-//
-//            let newWidth = self.headingLabel.frame.width * sizeMultiplier
-//
-//            let newHeight = self.headingLabel.frame.height * sizeMultiplier
-//
-//            let newX = self.headingLabel.frame.origin.x - (newWidth - self.headingLabel.frame.size.width) / 2
-//
-//            let newY = self.headingLabel.frame.origin.y - (newHeight - self.headingLabel.frame.size.height) / 2
-//
-//            self.headingLabel.frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
-  //      }
-        
- //   }
-
-    
-    @objc private func handleTapAnimation() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
-            self.headingLabel.transform = CGAffineTransform(translationX: -30, y: 0)
-        }) { (_) in
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
-                self.headingLabel.alpha = 0
-                self.headingLabel.transform = self.headingLabel.transform.translatedBy(x: 0, y: -250)
-            })
-        }
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-            self.contentLabel.transform = CGAffineTransform(translationX: -30, y: 0)
-        }) { (_) in
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
-                self.contentLabel.alpha = 0
-                self.contentLabel.transform = self.contentLabel.transform.translatedBy(x: 0, y: -350)
-                self.infoLabel.alpha = 0
-
-            }) { (_) in
-                self.forwardButton.alpha = 1
-
-                if self.index == 4 {
-                    self.configureDatePicker()
-                      }
-            }
-        }
-    }
-    
+ 
     private func setupPageControl() {
         pageControl.pageIndicatorTintColor = .white
         pageControl.currentPageIndicatorTintColor = .goatBlue
@@ -217,16 +179,13 @@ class OnboardingViewController: UIViewController {
     @objc func nextButtonTapped() {
         switch index {
         case 0...3:
-            let pageViewController = parent as! OnboardingPageViewController
-            pageViewController.forward(index: index)
-            
-    
+            break
         case 4: //Done Button
-            
+
             grabInputFromUser(datePicker)
-            
+
             UserDefaults.standard.set(true, forKey: onboardingKey)
-            
+
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             show(homeVC, sender: self)

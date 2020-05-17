@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                }
         
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
+            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
             self.window!.rootViewController = pageViewController
         } else {
         self.window!.rootViewController = HomeViewController()
