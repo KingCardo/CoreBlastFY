@@ -25,6 +25,8 @@ class WorkoutView: UIView {
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
     private let exerciseNameLabel = UILabel()
+    private let timeLeftLabel = UILabel()
+    private let exerciseLabel = UILabel()
     private var workoutTimer = Timer()
     var timerIsRunning = false {
         didSet {
@@ -102,6 +104,43 @@ class WorkoutView: UIView {
         setNeedsLayout()
     }
     
+    private func pauseWorkoutForTransition() {
+        hideLabelsForTransition()
+        videoView?.advanceToNextItem()
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
+    
+    func runTimersForTransition() {
+        invalidateTimers()
+        
+    }
+    
+    private func resumeWorkoutForTransition() {
+        showLabelsAfterTransition()
+        //runTimer()
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
+    
+    private func hideLabelsForTransition() {
+        tipsLabel.isHidden = true
+        setCountLabel.isHidden = true
+        exerciseNameLabel.isHidden = true
+        timeLeftLabel.isHidden = true
+        durationLeftLabel.isHidden = true
+        exerciseLabel.isHidden = true
+    }
+    
+    private func showLabelsAfterTransition() {
+        tipsLabel.isHidden = false
+        setCountLabel.isHidden = false
+        exerciseNameLabel.isHidden = false
+        timeLeftLabel.isHidden = false
+        durationLeftLabel.isHidden = false
+        exerciseLabel.isHidden = false
+    }
+    
     private func invalidateTimers() {
         timerIsRunning = false
         workoutTimer.invalidate()
@@ -116,23 +155,22 @@ class WorkoutView: UIView {
     }
     
     private func updateExerciseViews() {
-       
+        
         let nextExercise = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         exerciseNameLabel.text = nextExercise
-       
+        
         loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
-        pauseWorkout()
+        pauseWorkoutForTransition()
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             if let loadingView = self?.loadingView {
                 self?.addSubview(loadingView)
-            loadingView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: -100, right: 0))
+                loadingView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: -100, right: 0))
             }
         }) { (true) in
             self.loadingView!.runTimer { [weak self] in
                 self?.loadingView?.removeFromSuperview()
-                self?.resumeWorkout()
-                self?.videoView?.advanceToNextItem()
+                self?.resumeWorkoutForTransition()
                 self?.loadingView = nil
             }
         }
@@ -172,14 +210,14 @@ class WorkoutView: UIView {
         setCountLabelStackView.spacing = Style.stackViewSpacing
         setCountLabelStackView.backgroundColor = .clear
         
-         guard let videoView = videoView else { return }
+        guard let videoView = videoView else { return }
         addSubview(videoView)
         addSubview(setCountLabelStackView)
         setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         setCountLabelStackView.topAnchor.constraint(equalTo: topAnchor, constant: Style.stackViewTop).isActive = true
         
-        let exerciseLabel = UILabel()
+        
         exerciseLabel.text = "Exercise"
         exerciseLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         exerciseLabel.textColor = .white
@@ -200,7 +238,7 @@ class WorkoutView: UIView {
         exerciseStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         exerciseStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         
-        let timeLeftLabel = UILabel()
+        
         timeLeftLabel.text = "Time Remaining"
         timeLeftLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
