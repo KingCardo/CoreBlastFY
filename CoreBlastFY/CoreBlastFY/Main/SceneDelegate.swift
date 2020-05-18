@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         self.window = self.window ?? UIWindow()
+        ProgressionPicController.shared.loadFromFile()
+        
         func retryHandler(alertAction: UIAlertAction) {
                    ExerciseStorage.fetchCoreExercises()
                }
@@ -25,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                    DispatchQueue.main.async(execute: {
                        
                        let alertController = UIAlertController(title: "Network Download Error", message: errorMessage, preferredStyle: .alert)
+                    alertController.overrideUserInterfaceStyle = .dark
                        
                        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
                        
@@ -40,8 +43,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window!.rootViewController = HomeViewController()
         }
         self.window!.makeKeyAndVisible()
-        
-        ProgressionPicController.shared.loadFromFile()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

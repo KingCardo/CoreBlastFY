@@ -163,7 +163,7 @@
 		7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericDetailViewController.swift; path = CoreBlastFY/Helpers/GenericDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
-		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A8CBA9023E9109800D0D6BD /* CoreBlast: 6 Pack Blueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreBlast: 6 Pack Blueprint.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 		7A8CBA9123E9109800D0D6BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */,
+				7A8CBA9023E9109800D0D6BD /* CoreBlast: 6 Pack Blueprint.app */,
 				7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */,
 			);
 			name = Products;
@@ -754,7 +754,7 @@
 			);
 			name = CoreBlastFY;
 			productName = CoreBlastFY;
-			productReference = 7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */;
+			productReference = 7A8CBA9023E9109800D0D6BD /* CoreBlast: 6 Pack Blueprint.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A8CBAA523E9109B00D0D6BD /* CoreBlastFYTests */ = {
@@ -1135,7 +1135,7 @@
 				);
 				MARKETING_VERSION = 1.0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CoreBlast: 6 Pack Blueprint";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1156,7 +1156,7 @@
 				);
 				MARKETING_VERSION = 1.0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CoreBlast: 6 Pack Blueprint";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

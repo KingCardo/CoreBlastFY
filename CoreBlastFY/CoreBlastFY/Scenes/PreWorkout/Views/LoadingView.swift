@@ -12,7 +12,7 @@ final class LoadingView: UIView {
     private var seconds = 3
     private var timer = Timer()
     private var isRunning = false
-    private var nextExerciseLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 22)!, numberOfLines: 0)
+    private var nextExerciseLabel = UILabel(text: "", font: UIFont.makeTitleFontDB(size: 26), numberOfLines: 0)
     
     func runTimer(completion: @escaping(() -> Void)) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
@@ -41,14 +41,14 @@ final class LoadingView: UIView {
         let label = UILabel()
         label.font = UIFont.makeAvenirNext(size: 200)
         label.textAlignment = .center
-        label.backgroundColor = .black
+        label.backgroundColor = .clear
         label.textColor = .white
         return label
     }()
     
      init(frame: CGRect, nextExercise: String = "Get ready first exercise") {
         super.init(frame: frame)
-        
+        backgroundColor = .clear
         addSubview(countDownLabel)
         countDownLabel.fillSuperview()
         

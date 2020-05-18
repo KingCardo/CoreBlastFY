@@ -45,8 +45,7 @@ struct Exercise: Codable {
     init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, videoURL: URL) {
         self.name = name
         self.tip = tip
-        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
-        self.videoURL = path //videoURL
+        self.videoURL = videoURL
         self.level = level
     }
     
@@ -73,16 +72,4 @@ struct Exercise: Codable {
             }
         }
     }
-    
-//    init(dictionary: [String: Any]) {
-//        let value = dictionary["level"] as? String ?? ""
-//        self.level = Exercise.Level(rawValue: value) ?? .beginner
-//        self.name = dictionary["name"] as? String ?? ""
-//        self.tip = dictionary["tip"] as? String ?? ""
-//        let url = dictionary["videoURL"] as? String ?? ""
-//        self.videoURL = "videos/\(url)"
-//        let type = dictionary["type"] as? String ?? ""
-//        self.type = Exercise.Movement(rawValue: type) ?? .stationary
-//
-//    }
 }

@@ -32,6 +32,7 @@ struct Workout: Codable {
             exercises = self.exercises.filter({$0.level == .advanced })
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
+            exercises += self.exercises.filter({$0.level == .advanced })
         }
         return exercises
     }
