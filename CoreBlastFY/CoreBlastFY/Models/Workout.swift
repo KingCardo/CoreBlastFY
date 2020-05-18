@@ -21,9 +21,12 @@ struct Workout: Codable {
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]
         
+        let rest = self.exercises.filter({ $0.name == "up-dog"})
+        
         switch user.coreLevel {
         case .beginner:
             exercises = self.exercises.filter({$0.level == .beginner })
+            exercises += rest
         case .novice:
             exercises = self.exercises.filter({$0.level == .novice })
         case .solid:
@@ -43,8 +46,8 @@ struct Workout: Codable {
         case .beginner: return 4
         case .novice: return 5
         case .solid: return 6
-        case .advanced: return 7
-        case .rockstar: return 8
+        case .advanced: return 6
+        case .rockstar: return 6
         }
     }
     
@@ -62,16 +65,16 @@ struct Workout: Codable {
     
     var secondsOfExercise: Int {
         switch user.totalPoints {
-        case 0...4: return 20
-        case 5...15: return 25
-        case 16...20: return 30
-        case 21...25: return 35
-        case 26...30: return 40
-        case 31...35: return 45
-        case 36...40: return 50
-        case 41...45: return 55
-        case 46...50: return 60
-        default: return 60
+        case 0...4: return 23
+        case 5...15: return 28
+        case 16...20: return 33
+        case 21...25: return 38
+        case 26...30: return 43
+        case 31...35: return 48
+        case 36...40: return 53
+        case 41...45: return 58
+        case 46...50: return 63
+        default: return 70
         }
     }
 }
