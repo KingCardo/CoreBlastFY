@@ -200,7 +200,7 @@ class WorkoutView: UIView {
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
         tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         tipsLabel.numberOfLines = 0
-        tipsLabel.font = UIFont.makeAvenirCondensed(size: Style.titleFontSize)
+        tipsLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         tipsLabel.textColor = .white
         
         let setCountLabelStackView = UIStackView(arrangedSubviews: [setCountLabel, tipsLabel])
@@ -223,7 +223,7 @@ class WorkoutView: UIView {
         exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)
+        exerciseNameLabel.font = UIFont.makeTitleFontDB(size: Style.dataFontSize)
         exerciseNameLabel.textColor = .white
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
@@ -243,7 +243,7 @@ class WorkoutView: UIView {
         timeLeftLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
-        durationLeftLabel.font = UIFont.makeAvenirCondensed(size: Style.dataFontSize)
+        durationLeftLabel.font = UIFont.makeTitleFontDB(size: Style.dataFontSize)
         durationLeftLabel.textColor = .white
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
