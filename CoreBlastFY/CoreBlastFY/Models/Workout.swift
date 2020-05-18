@@ -26,16 +26,19 @@ struct Workout: Codable {
         switch user.coreLevel {
         case .beginner:
             exercises = self.exercises.filter({$0.level == .beginner })
-            exercises += rest
         case .novice:
             exercises = self.exercises.filter({$0.level == .novice })
+            exercises += rest
         case .solid:
             exercises = self.exercises.filter({$0.level == .solid })
+            exercises += rest
         case .advanced:
             exercises = self.exercises.filter({$0.level == .advanced })
+            exercises += rest
         case .rockstar:
             exercises = self.exercises.filter({$0.level == .rockstar })
             exercises += self.exercises.filter({$0.level == .advanced })
+            exercises += rest
         }
         return exercises
     }
