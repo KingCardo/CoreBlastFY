@@ -67,8 +67,7 @@ class ExerciseStorage {
                     ExerciseStorage.save()
                     UserDefaults.standard.set(true, forKey: level)
                 } else {
-                    ExerciseStorage.failedCompletion?(error!.localizedDescription)
-                    
+                    ExerciseStorage.failedCompletion?("Network connectivity not strong enough. Please try again or wait until have good connection.")
                 }
             }
         }
