@@ -118,7 +118,6 @@ class WorkoutView: UIView {
     
     private func resumeWorkoutForTransition() {
         showLabelsAfterTransition()
-        //runTimer()
         setNeedsDisplay()
         setNeedsLayout()
     }
@@ -161,9 +160,10 @@ class WorkoutView: UIView {
         exerciseNameLabel.text = nextExercise
         
         loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
-        pauseWorkoutForTransition()
+        
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             if let loadingView = self?.loadingView {
+                self?.pauseWorkoutForTransition()
                 self?.addSubview(loadingView)
                 loadingView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: -100, right: 0))
             }
