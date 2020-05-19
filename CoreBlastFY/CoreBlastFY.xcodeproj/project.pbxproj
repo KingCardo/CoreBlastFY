@@ -56,7 +56,6 @@
 		7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */; };
 		7A8CBB2123E912C700D0D6BD /* ProgressionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */; };
 		7A8CBB2223E912C700D0D6BD /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */; };
-		7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */; };
 		7A8CBB2423E912C700D0D6BD /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */; };
 		7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */; };
 		7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */; };
@@ -208,7 +207,6 @@
 		7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionPicCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressionCollectionViewController.swift; sourceTree = "<group>"; };
 		7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
-		7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewControllerOld.swift; sourceTree = "<group>"; };
 		7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataManager.swift; sourceTree = "<group>"; };
 		7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutWorker.swift; sourceTree = "<group>"; };
@@ -527,7 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				7A8CBB0723E912C700D0D6BD /* WorkoutPresenter.swift */,
-				7A8CBB0823E912C700D0D6BD /* WorkoutViewControllerOld.swift */,
 				7A8CBB0923E912C700D0D6BD /* WorkoutViewController.swift */,
 				7A8CBB0A23E912C700D0D6BD /* WorkoutDataManager.swift */,
 				7A8CBB0B23E912C700D0D6BD /* WorkoutWorker.swift */,
@@ -898,7 +895,6 @@
 				7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */,
 				7AC36D182454A783002764F5 /* MealDetailsWorker.swift in Sources */,
 				7AC2C6912445363700B3BFC8 /* NotificationsModels.swift in Sources */,
-				7A8CBB2323E912C700D0D6BD /* WorkoutViewControllerOld.swift in Sources */,
 				7A8CBB3C23EF936700D0D6BD /* SettingsPresenter.swift in Sources */,
 				7A8CBB1C23E912C700D0D6BD /* PreWorkoutView.swift in Sources */,
 				7A8CBB2923E912C700D0D6BD /* WorkoutInteractor.swift in Sources */,
@@ -1137,7 +1133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.54;
+				MARKETING_VERSION = 1.0.55;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlast;
 				SWIFT_VERSION = 5.0;
@@ -1158,7 +1154,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.54;
+				MARKETING_VERSION = 1.0.55;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlast;
 				SWIFT_VERSION = 5.0;

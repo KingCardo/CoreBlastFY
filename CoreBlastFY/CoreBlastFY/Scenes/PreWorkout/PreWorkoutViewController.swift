@@ -54,9 +54,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         loadingView = nil
     }
     
-    func displayLoadingView() {
+    private func displayLoadingView() {
         loadingView = LoadingView(frame: .zero)
         view.addSubview(loadingView!)
+        preworkoutView?.alpha = 0
         preworkoutView?.isHidden = true
         loadingView!.translatesAutoresizingMaskIntoConstraints = false
         loadingView!.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -68,6 +69,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
             self?.routeToWorkoutScene()
         }
     }
+    
     
     // MARK: View lifecycle
     
@@ -137,6 +139,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
+        
+        if let pwv = preworkoutView, view.subviews.contains(pwv) {
+            preworkoutView?.removeFromSuperview()
+            preworkoutView = nil
+        }
         preworkoutView = PreWorkoutView(viewModel: viewModel)
         guard let preworkoutView = preworkoutView else { return }
         view.addSubview(preworkoutView)
