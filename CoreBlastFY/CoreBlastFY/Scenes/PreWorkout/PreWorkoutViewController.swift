@@ -57,6 +57,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private func displayLoadingView() {
         loadingView = LoadingView(frame: .zero)
         view.addSubview(loadingView!)
+        self.tabBarController?.tabBar.isHidden = true
         preworkoutView?.alpha = 0
         preworkoutView?.isHidden = true
         loadingView!.translatesAutoresizingMaskIntoConstraints = false
