@@ -67,6 +67,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         router?.routeToTermsOfUse()
     }
     
+    private func routeToProgramOverview() {
+        router?.routeToProgramOverview()
+    }
+    
     private func handleRestore() {
         StoreObserver.shared.restore()
         
@@ -142,9 +146,9 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         let item = interactor?.items[indexPath.row]
         switch item {
         case .about: routeToAboutScene()
+        case .programOverview: routeToProgramOverview()
         case .notifications: routeToNotificationsScene()
         case .foodLog: routeToFoodLogScene()
-      //  case .parks: routeToParksScene()
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
         case .termsOfUse: routToTermsOfUse()

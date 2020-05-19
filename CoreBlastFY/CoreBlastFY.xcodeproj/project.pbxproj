@@ -17,6 +17,7 @@
 		7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */; };
 		7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */; };
 		7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */; };
+		7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFA92473568200F2FC35 /* Program Overview.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -163,6 +164,7 @@
 		7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericDetailViewController.swift; path = CoreBlastFY/Helpers/GenericDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
+		7A86DFA92473568200F2FC35 /* Program Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program Overview.swift"; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +408,7 @@
 				7AC36D2624562C5B002764F5 /* MealPlanData.swift */,
 				7A0116502471C86E0070EB5F /* IAP */,
 				7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */,
+				7A86DFA92473568200F2FC35 /* Program Overview.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7A8CBB3D23EF936700D0D6BD /* SettingsWorker.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
+				7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
 				7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */,

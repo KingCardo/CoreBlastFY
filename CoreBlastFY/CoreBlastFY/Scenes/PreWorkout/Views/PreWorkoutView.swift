@@ -17,6 +17,9 @@ class PreWorkoutView: UIView {
     let nextLevelCountLabel = UILabel()
     let nextWorkoutDateLabel = UILabel()
     let welcomeLabel = UILabel()
+    let coreLevelLabel = UILabel()
+    let coreLevelCountLabel = UILabel()
+    
     let startWorkoutButton = PulsingView()
     
     init(frame: CGRect = .zero, viewModel: PreWorkout.FetchUser.ViewModel) {
@@ -25,6 +28,22 @@ class PreWorkoutView: UIView {
         startWorkoutButton.preWorkoutView = self
         
         backgroundColor = .black
+        
+        
+        coreLevelLabel.text = "Core Level"
+        coreLevelLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        coreLevelLabel.textColor = .white
+        
+        coreLevelCountLabel.text = preWorkoutViewModel.userDetails.coreLevel
+        coreLevelCountLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
+        coreLevelCountLabel.textColor = .white
+        
+        
+        let coreLevelStackView = UIStackView(arrangedSubviews: [coreLevelLabel, coreLevelCountLabel])
+        coreLevelStackView.alignment = .center
+        coreLevelStackView.distribution = .fillEqually
+        coreLevelStackView.axis = .vertical
+        coreLevelStackView.spacing = Style.stackViewSpacing
         
         let totalPointsLabel = UILabel()
         totalPointsLabel.text = "Total Points"
@@ -57,7 +76,7 @@ class PreWorkoutView: UIView {
         nextLevelStackView.axis = .vertical
         nextLevelStackView.spacing = Style.stackViewSpacing
         
-        let levelStackView = UIStackView(arrangedSubviews: [ totalPointsStackView, nextLevelStackView])
+        let levelStackView = UIStackView(arrangedSubviews: [coreLevelStackView, totalPointsStackView, nextLevelStackView])
         levelStackView.alignment = .center
         levelStackView.distribution = .fillEqually
         levelStackView.axis = .horizontal
@@ -89,7 +108,7 @@ class PreWorkoutView: UIView {
         nextWorkoutLabel.textColor = .white
         
         nextWorkoutDateLabel.text = preWorkoutViewModel.userDetails.nextWorkoutDate
-        nextWorkoutDateLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)//UIFont.preferredFont(forTextStyle: .body).withSize(Style.dataFontSize)
+        nextWorkoutDateLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
         nextWorkoutDateLabel.textColor = .white
         
         let nextWorkoutStackView = UIStackView(arrangedSubviews: [nextWorkoutLabel, nextWorkoutDateLabel])
