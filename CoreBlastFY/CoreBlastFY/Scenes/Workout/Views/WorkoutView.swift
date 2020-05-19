@@ -192,7 +192,7 @@ class WorkoutView: UIView {
         super.init(frame: frame)
         videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets:  Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         
-        backgroundColor = .white
+        backgroundColor = .black
         
         setCountLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         setCountLabel.textColor = .white
