@@ -74,7 +74,7 @@ class MealPlanDetailsViewControllerTests: XCTestCase
   }
   
   func testDisplaySomething() {
-    let mockDisplayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: "mock", summary: "mock", description: "mick", planImage: nil, recipe: [])
+    let mockDisplayedPlan = MealPlanDetail.FetchDetails.ViewModel.DisplayMealPlanDetails.init(title: "mock", summary: "mock", description: "mick", planImage: nil, recipe: [], isTips: false, tips: [])
     // Given
     let viewModel = MealPlanDetail.FetchDetails.ViewModel(displayedPlan: mockDisplayedPlan)
     

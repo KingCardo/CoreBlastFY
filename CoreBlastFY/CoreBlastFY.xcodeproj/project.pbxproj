@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7A0116522471C8840070EB5F /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116512471C8840070EB5F /* StoreObserver.swift */; };
 		7A0116542471C8900070EB5F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116532471C8900070EB5F /* StoreManager.swift */; };
+		7A0D67672474487C00A6E766 /* ExerciseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */; };
+		7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */; };
+		7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -18,6 +21,10 @@
 		7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */; };
 		7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */; };
 		7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFA92473568200F2FC35 /* Program Overview.swift */; };
+		7A86DFB2247436A700F2FC35 /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFAC247436A700F2FC35 /* ExercisePresenter.swift */; };
+		7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */; };
+		7A86DFB6247436A700F2FC35 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */; };
+		7A86DFB7247436A700F2FC35 /* ExerciseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
@@ -155,6 +162,9 @@
 /* Begin PBXFileReference section */
 		7A0116512471C8840070EB5F /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
 		7A0116532471C8900070EB5F /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewControllerTests.swift; sourceTree = "<group>"; };
+		7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractorTests.swift; sourceTree = "<group>"; };
+		7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenterTests.swift; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -164,7 +174,11 @@
 		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
 		7A86DFA92473568200F2FC35 /* Program Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program Overview.swift"; sourceTree = "<group>"; };
-		7A8CBA9023E9109800D0D6BD /* CoreBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A86DFAC247436A700F2FC35 /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
+		7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModels.swift; sourceTree = "<group>"; };
+		7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractor.swift; sourceTree = "<group>"; };
+		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -323,6 +337,27 @@
 			path = IAP;
 			sourceTree = "<group>";
 		};
+		7A0D67622474485800A6E766 /* ExerciseTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */,
+				7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */,
+				7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */,
+			);
+			path = ExerciseTests;
+			sourceTree = "<group>";
+		};
+		7A86DFAB2474368900F2FC35 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				7A86DFAC247436A700F2FC35 /* ExercisePresenter.swift */,
+				7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */,
+				7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */,
+				7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
 		7A8CBA8723E9109800D0D6BD = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +371,7 @@
 		7A8CBA9123E9109800D0D6BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBA9023E9109800D0D6BD /* CoreBlast.app */,
+				7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */,
 				7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */,
 			);
 			name = Products;
@@ -364,6 +399,7 @@
 			children = (
 				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
 				7AC2C6A82449108F00B3BFC8 /* WorkoutTests */,
+				7A0D67622474485800A6E766 /* ExerciseTests */,
 				7AC2C6B2244917FF00B3BFC8 /* MealPlansTest */,
 				7AC36CFC244B9AC6002764F5 /* MealPlanDetailsTests */,
 				7AC36D1D2454A7BF002764F5 /* MealDetailTests */,
@@ -481,6 +517,7 @@
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
 				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
+				7A86DFAB2474368900F2FC35 /* Exercises */,
 				7A8CBAE923E9129F00D0D6BD /* Settings */,
 			);
 			path = Scenes;
@@ -754,7 +791,7 @@
 			);
 			name = CoreBlastFY;
 			productName = CoreBlastFY;
-			productReference = 7A8CBA9023E9109800D0D6BD /* CoreBlast.app */;
+			productReference = 7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A8CBAA523E9109B00D0D6BD /* CoreBlastFYTests */ = {
@@ -844,6 +881,7 @@
 				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
 				7A8CBB1E23E912C700D0D6BD /* ProgressionPicController.swift in Sources */,
+				7A86DFB2247436A700F2FC35 /* ExercisePresenter.swift in Sources */,
 				7AC2C6922445363700B3BFC8 /* NotificationsViewController.swift in Sources */,
 				7AC2C6C52449183C00B3BFC8 /* MealPlansViewController.swift in Sources */,
 				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
@@ -870,6 +908,7 @@
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
 				7A8CBB2523E912C700D0D6BD /* WorkoutDataManager.swift in Sources */,
 				7AC2C6C32449183C00B3BFC8 /* MealPlansRouter.swift in Sources */,
+				7A86DFB7247436A700F2FC35 /* ExerciseInteractor.swift in Sources */,
 				7AC2C6932445363700B3BFC8 /* NotificationsInteractor.swift in Sources */,
 				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
 				7AC2C6D8244B8F1800B3BFC8 /* MealPlanDetailWorker.swift in Sources */,
@@ -908,6 +947,7 @@
 				7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
+				7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */,
 				7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */,
 				7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */,
 				7AC2C6CD244A776700B3BFC8 /* MealPlansOverviewCollectionViewCell.swift in Sources */,
@@ -915,6 +955,7 @@
 				7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */,
 				7A8CBAD423E9122500D0D6BD /* Firebase.swift in Sources */,
 				7AC36D1A2454A783002764F5 /* MealDetailsModels.swift in Sources */,
+				7A86DFB6247436A700F2FC35 /* ExerciseViewController.swift in Sources */,
 				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
 				7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */,
 				7AC36D172454A783002764F5 /* MealDetailsPresenter.swift in Sources */,
@@ -959,13 +1000,16 @@
 				7AC36D04244B9AEE002764F5 /* MealPlanDetailsPresenterTests.swift in Sources */,
 				7AC36D222454A7E0002764F5 /* MealDetailViewControllerTests.swift in Sources */,
 				7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */,
+				7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */,
 				7AC36D252454A7E0002764F5 /* MealDetailPresenterTests.swift in Sources */,
 				7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */,
+				7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */,
 				7AC36D02244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift in Sources */,
 				7AC2C6A4244907F800B3BFC8 /* PreWorkoutViewControllerTests.swift in Sources */,
 				7AC2C6B92449181800B3BFC8 /* MealPlansWorkerTests.swift in Sources */,
 				7AC2C6A5244907F800B3BFC8 /* PreWorkoutInteractorTests.swift in Sources */,
 				7AC36D01244B9AEE002764F5 /* MealPlanDetailsViewControllerTests.swift in Sources */,
+				7A0D67672474487C00A6E766 /* ExerciseViewControllerTests.swift in Sources */,
 				7AC2C6B0244910B100B3BFC8 /* WorkoutPresenterTests.swift in Sources */,
 				7AC2C6B72449181800B3BFC8 /* MealPlansViewControllerTests.swift in Sources */,
 				7AC36D232454A7E0002764F5 /* MealDetailInteractorTests.swift in Sources */,
@@ -1133,9 +1177,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.55;
+				MARKETING_VERSION = 1.0.57;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
-				PRODUCT_NAME = CoreBlast;
+				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1154,9 +1198,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.55;
+				MARKETING_VERSION = 1.0.57;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
-				PRODUCT_NAME = CoreBlast;
+				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

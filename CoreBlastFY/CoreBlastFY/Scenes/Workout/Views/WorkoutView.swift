@@ -192,7 +192,7 @@ class WorkoutView: UIView {
         super.init(frame: frame)
         videoView = VideoView(frame: frame, urls: videoUrls, loopCount: -1, numberOfSets:  Int(workoutViewModel.workoutDetails.numberOfSets) ?? 4)
         
-        backgroundColor = .black
+        backgroundColor = .white
         
         setCountLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         setCountLabel.textColor = .white
@@ -266,6 +266,7 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
+        //videoView.addShadowLayer()
         
         videoView.addSubview(pauseLabel)
         pauseLabel.centerYInSuperview()

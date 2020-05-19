@@ -35,12 +35,19 @@ class HomeViewController: UITabBarController {
         DispatchQueue.main.async {
             let workoutViewController = PreWorkoutViewController()
             self.workoutNavController = UINavigationController(rootViewController: workoutViewController)
-            self.workoutNavController.navigationItem.title = "Flexx"
             self.workoutNavController.navigationBar.barStyle = .black
             self.workoutNavController.navigationBar.tintColor = .white
             self.workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             self.workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
-            self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.settingsNavController], animated: true)
+            
+            let exerciseVC = ExerciseViewController()
+            self.exercisesNavVC = UINavigationController(rootViewController: exerciseVC)
+            self.exercisesNavVC.navigationBar.barStyle = .black
+            self.exercisesNavVC.navigationBar.tintColor = .white
+            self.exercisesNavVC.tabBarItem = UITabBarItem(title: "Exercises", image: #imageLiteral(resourceName: "exercises"), selectedImage: nil)
+            self.exercisesNavVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+            self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
             self.view.setNeedsLayout()
         }
     }
@@ -48,6 +55,7 @@ class HomeViewController: UITabBarController {
     var progressionNavController: UINavigationController!
     var workoutNavController: UINavigationController!
     var nutritionVC: MealPlansViewController!
+    var exercisesNavVC: UINavigationController!
     var settingsNavController: UINavigationController!
    
     
@@ -75,16 +83,23 @@ class HomeViewController: UITabBarController {
    
         
         if ExerciseStorage.exercises.isEmpty {
-            viewControllers = [progressionNavController, nutritionVC, settingsNavController]
+            setViewControllers([progressionNavController, nutritionVC, settingsNavController], animated: true)
         } else {
             let workoutViewController = PreWorkoutViewController()
                    workoutNavController = UINavigationController(rootViewController: workoutViewController)
-                   workoutNavController.navigationItem.title = "Flexx"
                    workoutNavController.navigationBar.barStyle = .black
                    workoutNavController.navigationBar.tintColor = .white
                    workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
                    workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
-            viewControllers = [progressionNavController, workoutNavController, nutritionVC, settingsNavController]
+
+            let exerciseVC = ExerciseViewController()
+            exercisesNavVC = UINavigationController(rootViewController: exerciseVC)
+            exercisesNavVC.navigationBar.barStyle = .black
+            exercisesNavVC.navigationBar.tintColor = .white
+            exercisesNavVC.tabBarItem = UITabBarItem(title: "Exercises", image: #imageLiteral(resourceName: "exercises"), selectedImage: nil)
+            exercisesNavVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+            setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
         }
         
         selectedViewController = viewControllers?[0]

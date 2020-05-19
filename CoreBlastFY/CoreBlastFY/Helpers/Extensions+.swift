@@ -35,19 +35,31 @@ extension UIView {
         self.layer.shadowOpacity = shadowOpacity
     }
     
-    func createShadowLayer() {
+    func createShadowLayerTop() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.6).cgColor/*, UIColor.clear.cgColor, UIColor.clear.cgColor, UIColor.black.cgColor*/]
+        //gradientLayer.locations = [0.0, 0.1]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer.frame = layer.bounds
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.2)
+        gradientLayer.frame = self.bounds
         self.layer.addSublayer(gradientLayer)
         
-        let saturateLayer = CALayer()
-        saturateLayer.backgroundColor = UIColor.black.cgColor
-        saturateLayer.frame = self.layer.bounds
-        saturateLayer.opacity = 0.4
-        self.layer.addSublayer(saturateLayer)
+    }
+    
+    func createShadowLayerBottom() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [/*UIColor.clear.cgColor,*/ UIColor.black.withAlphaComponent(0.6).cgColor]
+        //gradientLayer.locations = [ 0.9, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.8)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = self.bounds
+        self.layer.addSublayer(gradientLayer)
+        
+    }
+    
+    func addShadowLayer() {
+        createShadowLayerTop()
+        createShadowLayerBottom()
     }
 }
 
