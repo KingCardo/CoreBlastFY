@@ -77,7 +77,7 @@ func timeToWorkoutWNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
        content.title = "Time to get a workout in!"
-       content.body = "Consistentcy is key 🔑"
+       content.body = "Consistency is key 🔑"
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()

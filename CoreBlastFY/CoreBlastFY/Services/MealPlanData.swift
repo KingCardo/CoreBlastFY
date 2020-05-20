@@ -49,7 +49,7 @@ let onionPowder = Recipe.Ingredient(name: "Onion Powder", amount: "")
 let pepper = Recipe.Ingredient(name: "Black Pepper", amount: "")
 
 
-let shreddedDinnerInstructions: [String] = ["Preheat oven to 425 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bake until salmon is opaque and broccoli is tender, 12-18 minutes.", "Transfer food to plate and enjoy!"]
+let shreddedDinnerInstructions: [String] = ["Preheat oven to 375 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bake until salmon is opaque and broccoli is tender, 18-23 minutes.", "Transfer food to plate and enjoy!"]
 let shreddedDinnerIngredients: [Recipe.Ingredient] = [broccoli, extraVirginOliveOil, salmon, salt, garlic, onionPowder, pepper]
 let shreddedDinnerName = "Roasted Salmon & Veggies"
 
@@ -174,6 +174,10 @@ let franchizLunchInstructions: [String] = ["Fill a medium pot about halfway with
 
 //dinner
 
+let franchizDinnerMealName = "Salmon, Sweet Potato Mash & Veggies"
+let franchizDinnerIngredients: [Recipe.Ingredient] = [salmon, garlic, salt, pepper, extraVirginOliveOil, sweetPotato, broccoli]
+let franchizDinnerInstructions: [String] = ["Fill a medium pot about halfway with water, cover.", "Wash, and peel sweet potatoes, then add to pot. Once the water is boiling, cook until the potatoes are very tender when pierced with a fork, 20-30 minutes. Drain and return to saucepan.", "Preheat oven to 375 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bake until salmon is opaque and broccoli is tender, 18-23 minutes.", "Transfer food to plate and enjoy!"]
+
 //dinner2
 
 //snack
@@ -195,7 +199,7 @@ let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franc
 
 let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
-let franchizDinner2Recipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "Franchizdinner"))
+let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmon"))
 
 let franchizMealPlanTitle = "Franchiz Personal Plan"
 let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."

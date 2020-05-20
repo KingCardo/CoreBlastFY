@@ -48,7 +48,7 @@ extension UIView {
     
     func createShadowLayerBottom() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [/*UIColor.clear.cgColor,*/ UIColor.black.withAlphaComponent(0.6).cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.6).cgColor]
         //gradientLayer.locations = [ 0.9, 1]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.8)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)

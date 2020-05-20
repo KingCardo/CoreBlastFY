@@ -156,7 +156,8 @@ class WorkoutView: UIView {
     private func updateExerciseViews() {
         
         let nextExercise = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
+        let tipsText = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
+        tipsLabel.text = tipsText
         exerciseNameLabel.text = nextExercise
         
         loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
@@ -172,6 +173,7 @@ class WorkoutView: UIView {
                 self?.loadingView?.removeFromSuperview()
                 self?.resumeWorkoutForTransition()
                 self?.loadingView = nil
+                SpeechSynthesizer.shared.textToSpeak(text: tipsText)
             }
         }
     }
@@ -198,7 +200,8 @@ class WorkoutView: UIView {
         setCountLabel.textColor = .white
         
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
-        tipsLabel.text = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
+        let tipsText = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
+        tipsLabel.text = tipsText
         tipsLabel.numberOfLines = 0
         tipsLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
         tipsLabel.textColor = .white
@@ -266,7 +269,7 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
-        //videoView.addShadowLayer()
+        SpeechSynthesizer.shared.textToSpeak(text: tipsText)
         
         videoView.addSubview(pauseLabel)
         pauseLabel.centerYInSuperview()
