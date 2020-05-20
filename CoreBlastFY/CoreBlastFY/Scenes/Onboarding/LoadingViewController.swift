@@ -19,6 +19,7 @@ class LoadingViewController: UIViewController {
     }
     
     let loadingLabel = UILabel()
+    let loadingIV = UIImageView(image: #imageLiteral(resourceName: "inapppromopic"))
     private var loadingSpinner: UIActivityIndicatorView?
     
     private func displayLoadingSpinner() {
@@ -35,10 +36,13 @@ class LoadingViewController: UIViewController {
     
     private func setUpLoadingLabel() {
         view.backgroundColor = .black
+        view.addSubview(loadingIV)
+        loadingIV.contentMode = .scaleAspectFit
+        loadingIV.fillSuperview()
         loadingLabel.text = "Downloading Programs..."
         loadingLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         loadingLabel.textColor = .white
-        loadingLabel.backgroundColor = .black
+        loadingLabel.backgroundColor = .clear
         view.addSubview(loadingLabel)
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

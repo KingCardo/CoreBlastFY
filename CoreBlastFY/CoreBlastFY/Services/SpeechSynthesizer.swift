@@ -16,9 +16,8 @@ class SpeechSynthesizer {
     
     func textToSpeak(text: String) {
         let utterance = AVSpeechUtterance(string: text)
-        let voices = AVSpeechSynthesisVoice.speechVoices()
-        let voice = voices[10]
-        utterance.voice = voice
+        let tessa = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Tessa-compact")
+        utterance.voice = tessa
         self.speechSynthesizer.speak(utterance)
     }
 }

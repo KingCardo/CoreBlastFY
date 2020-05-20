@@ -20,7 +20,7 @@ class Airplay {
     func setupPicker(viewController: UIViewController) {
         let volumeView = MPVolumeView()
         //let routePickerView = AVRoutePickerView
-        volumeView.showsRouteButton = true
+        //volumeView.showsRouteButton = true
         volumeView.showsVolumeSlider = false
         volumeView.sizeToFit()
         volumeView.translatesAutoresizingMaskIntoConstraints = false
