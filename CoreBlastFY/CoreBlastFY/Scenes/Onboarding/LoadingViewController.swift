@@ -54,7 +54,6 @@ class LoadingViewController: UIViewController {
         let homeVC = HomeViewController()
         homeVC.modalPresentationStyle = .fullScreen
         show(homeVC, sender: self)
-    
     }
 
 }

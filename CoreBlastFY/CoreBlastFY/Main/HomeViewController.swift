@@ -17,7 +17,6 @@ class HomeViewController: UITabBarController {
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
         registerForAppUpdates()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
         
     }
     
@@ -114,15 +113,10 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        
-        if ExerciseStorage.exercises.isEmpty {
-            setViewControllers([progressionNavController, nutritionVC, settingsNavController], animated: true)
-        } else {
             self.setupPreworkoutVC()
             self.setupExerciseVC()
             
             setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
-        }
         
         selectedViewController = viewControllers?[0]
     }
