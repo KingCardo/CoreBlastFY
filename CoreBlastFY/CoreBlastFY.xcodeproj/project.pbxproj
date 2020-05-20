@@ -12,6 +12,7 @@
 		7A0D67672474487C00A6E766 /* ExerciseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */; };
 		7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */; };
 		7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */; };
+		7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -165,6 +166,7 @@
 		7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewControllerTests.swift; sourceTree = "<group>"; };
 		7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractorTests.swift; sourceTree = "<group>"; };
 		7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenterTests.swift; sourceTree = "<group>"; };
+		7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				7A0116502471C86E0070EB5F /* IAP */,
 				7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */,
 				7A86DFA92473568200F2FC35 /* Program Overview.swift */,
+				7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7A8CBB3D23EF936700D0D6BD /* SettingsWorker.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
+				7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */,
 				7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7ABC86ED24148C51008DCDE3 /* LoadingViewController.swift in Sources */,
@@ -1177,7 +1181,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.59;
+				MARKETING_VERSION = 1.0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1198,7 +1202,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.59;
+				MARKETING_VERSION = 1.0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

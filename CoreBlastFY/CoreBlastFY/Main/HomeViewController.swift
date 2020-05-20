@@ -16,8 +16,36 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
+        registerForAppUpdates()
         NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
         
+    }
+    
+    private func registerForAppUpdates() {
+        let center = NotificationCenter.default
+        
+        let didBecomeActive = #selector(applicationDidBecomeActive)
+        let willEnterForeground = #selector(applicationWillEnterForeground)
+        let willResignActive = #selector(applicationWillResignActive)
+        let didEnterBackground = #selector(applicationDidEnterBackground)
+        
+        center.addObserver(self, selector: didBecomeActive, name: UIApplication.didBecomeActiveNotification, object: nil)
+        center.addObserver(self, selector: willEnterForeground, name: UIApplication.willEnterForegroundNotification, object: nil)
+        center.addObserver(self, selector: willResignActive, name: UIApplication.willResignActiveNotification, object: nil)
+        center.addObserver(self, selector: didEnterBackground, name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    @objc func applicationDidBecomeActive() {
+        print("app became active, RWRW")
+    }
+    @objc func applicationWillEnterForeground() {
+        print("app applicationWillEnterForeground, RWRW")
+    }
+    @objc func applicationWillResignActive() {
+        print("app applicationWillResignActive, RWRW")
+    }
+    @objc func applicationDidEnterBackground() {
+        print("app applicationDidEnterBackground, RWRW")
     }
     
     

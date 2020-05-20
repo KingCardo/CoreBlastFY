@@ -23,6 +23,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         var records: [CKRecord] = []
         let predicate = NSPredicate(format: "level == %@", level) //NSPredicate(value: true)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
+        //DispatchQueue.global(qos: .userInteractive)
         let fetchOperation = CKQueryOperation(query: query)
         fetchOperation.qualityOfService = .userInitiated
         fetchOperation.queuePriority = .veryHigh

@@ -53,7 +53,9 @@ final class LoadingView: UIView {
         countDownLabel.fillSuperview()
         
         if !nextExercise.isEmpty {
-        nextExerciseLabel.text = "\(nextExercise) is coming up in..."
+            let textToSpeak = "\(nextExercise) is coming up in..."
+            SpeechSynthesizer.shared.textToSpeak(text: textToSpeak)
+        nextExerciseLabel.text = textToSpeak
                    nextExerciseLabel.textColor = .white
                    nextExerciseLabel.textAlignment = .center
                    addSubview(nextExerciseLabel)
