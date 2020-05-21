@@ -12,6 +12,7 @@ import CloudKit
 class CloudKitService: ExerciseInfoStoreProtocol {
     
     let publicDatabase = CKContainer.default().publicCloudDatabase
+    let privateDatabase = CKContainer.default().privateCloudDatabase
     
     var complete: (() -> Void)?
     
@@ -21,9 +22,8 @@ class CloudKitService: ExerciseInfoStoreProtocol {
     
     func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void) {
         var records: [CKRecord] = []
-        let predicate = NSPredicate(format: "level == %@", level) //NSPredicate(value: true)
+        let predicate = NSPredicate(format: "level == %@", level)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
-        //DispatchQueue.global(qos: .userInteractive)
         let fetchOperation = CKQueryOperation(query: query)
         fetchOperation.qualityOfService = .userInitiated
         fetchOperation.queuePriority = .veryHigh

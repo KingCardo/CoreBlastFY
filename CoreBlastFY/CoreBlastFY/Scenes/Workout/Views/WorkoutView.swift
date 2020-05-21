@@ -269,6 +269,8 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
+        //videoView.createShadowLayerTop()
+        //videoView.createShadowLayerBottom()
         SpeechSynthesizer.shared.textToSpeak(text: tipsText)
         
         videoView.addSubview(pauseLabel)
