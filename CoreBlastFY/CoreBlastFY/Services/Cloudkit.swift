@@ -12,7 +12,6 @@ import CloudKit
 class CloudKitService: ExerciseInfoStoreProtocol {
     
     let publicDatabase = CKContainer.default().publicCloudDatabase
-    let privateDatabase = CKContainer.default().privateCloudDatabase
     
     var complete: (() -> Void)?
     
