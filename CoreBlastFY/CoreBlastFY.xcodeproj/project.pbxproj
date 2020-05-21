@@ -45,7 +45,6 @@
 		7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADA23E9122D00D0D6BD /* Colors.swift */; };
 		7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */; };
 		7A8CBAE123E9122D00D0D6BD /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */; };
-		7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */; };
 		7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAE623E9129700D0D6BD /* UserManager.swift */; };
 		7A8CBAEB23E9129F00D0D6BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAEA23E9129F00D0D6BD /* SettingsViewController.swift */; };
 		7A8CBAF023E912B100D0D6BD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAED23E912B100D0D6BD /* Workout.swift */; };
@@ -205,7 +204,6 @@
 		7A8CBADA23E9122D00D0D6BD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7A8CBADB23E9122D00D0D6BD /* SnapLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapLayout.swift; sourceTree = "<group>"; };
 		7A8CBADC23E9122D00D0D6BD /* LocalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
-		7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7A8CBAE623E9129700D0D6BD /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7A8CBAEA23E9129F00D0D6BD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7A8CBAED23E912B100D0D6BD /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 		7A8CBAE423E9129700D0D6BD /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBAE523E9129700D0D6BD /* UserViewModel.swift */,
 				7A8CBAE623E9129700D0D6BD /* UserManager.swift */,
 			);
 			path = User;
@@ -947,7 +944,6 @@
 				7AC2C6D7244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift in Sources */,
 				7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */,
 				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
-				7A8CBAE723E9129700D0D6BD /* UserViewModel.swift in Sources */,
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7A8CBB3D23EF936700D0D6BD /* SettingsWorker.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
