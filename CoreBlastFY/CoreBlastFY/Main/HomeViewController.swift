@@ -16,6 +16,7 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
         
     }
    
@@ -30,8 +31,6 @@ class HomeViewController: UITabBarController {
     
     @objc private func handleVC() {
         DispatchQueue.main.async {
-            self.setupPreworkoutVC()
-            self.setupExerciseVC()
             self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
             self.view.setNeedsLayout()
         }
@@ -86,8 +85,12 @@ class HomeViewController: UITabBarController {
         
             self.setupPreworkoutVC()
             self.setupExerciseVC()
+        if ExerciseStorage.exercises.isEmpty {
+            setViewControllers([progressionNavController], animated: true)
+        } else {
             
             setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
+        }
         
         selectedViewController = viewControllers?[0]
     }
