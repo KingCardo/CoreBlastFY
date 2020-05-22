@@ -30,6 +30,8 @@ class HomeViewController: UITabBarController {
     }
     
     @objc private func handleVC() {
+        self.setupPreworkoutVC()
+        self.setupExerciseVC()
         DispatchQueue.main.async {
             self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
             self.view.setNeedsLayout()
@@ -83,12 +85,12 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-            self.setupPreworkoutVC()
-            self.setupExerciseVC()
+            
         if ExerciseStorage.exercises.isEmpty {
             setViewControllers([progressionNavController], animated: true)
         } else {
-            
+            self.setupPreworkoutVC()
+            self.setupExerciseVC()
             setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
         }
         
