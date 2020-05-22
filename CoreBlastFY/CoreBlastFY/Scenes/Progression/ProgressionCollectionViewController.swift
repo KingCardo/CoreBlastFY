@@ -60,7 +60,12 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
                 collectionView?.deselectItem(at: path, animated: true)
             }
         }
+        
+        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0 {
+            AlertController.createAlert(errorMessage: "Programs are still being loaded. Workout section will be available soon!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
+        }
     }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
