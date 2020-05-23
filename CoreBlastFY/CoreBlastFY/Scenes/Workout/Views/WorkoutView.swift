@@ -20,7 +20,7 @@ class WorkoutView: UIView {
     weak var rootViewController: WorkoutViewController?
     private var workoutViewModel: WorkoutInfo.FetchWorkout.ViewModel
     
-    private let pauseLabel = UILabel.init(text: "PAUSED", font: UIFont.makeTitleFont(size: 30), numberOfLines: 0)
+    private let pauseLabel = UILabel.init(text: "PAUSED", font: UIFont.makeTitleFont(size: UIDevice.isIpad ? 40 : 30), numberOfLines: 0)
     private let setCountLabel = UILabel()
     private let tipsLabel = UILabel()
     private let durationLeftLabel = UILabel()
@@ -196,14 +196,14 @@ class WorkoutView: UIView {
         
         backgroundColor = .black
         
-        setCountLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        setCountLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
         setCountLabel.textColor = .white
         
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
         let tipsText = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         tipsLabel.text = tipsText
         tipsLabel.numberOfLines = 0
-        tipsLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        tipsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
         tipsLabel.textColor = .white
         
         let setCountLabelStackView = UIStackView(arrangedSubviews: [setCountLabel, tipsLabel])
@@ -222,11 +222,11 @@ class WorkoutView: UIView {
         
         
         exerciseLabel.text = "Exercise"
-        exerciseLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        exerciseLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
         exerciseLabel.textColor = .white
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIFont.makeTitleFontDB(size: Style.dataFontSize)
+        exerciseNameLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) : UIFont.makeTitleFontDB(size: Style.dataFontSize)
         exerciseNameLabel.textColor = .white
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
@@ -243,10 +243,10 @@ class WorkoutView: UIView {
         
         
         timeLeftLabel.text = "Time Remaining"
-        timeLeftLabel.font = UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        timeLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
-        durationLeftLabel.font = UIFont.makeTitleFontDB(size: Style.dataFontSize)
+        durationLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) : UIFont.makeTitleFontDB(size: Style.dataFontSize)
         durationLeftLabel.textColor = .white
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])

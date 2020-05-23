@@ -12,7 +12,7 @@ final class LoadingView: UIView {
     private var seconds = 3
     private var timer = Timer()
     private var isRunning = false
-    private var nextExerciseLabel = UILabel(text: "", font: UIFont.makeTitleFontDB(size: 26), numberOfLines: 0)
+    private var nextExerciseLabel = UILabel(text: "", font: UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 36) : UIFont.makeTitleFontDB(size: 26), numberOfLines: 0)
     
     func runTimer(completion: @escaping(() -> Void)) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
@@ -39,7 +39,7 @@ final class LoadingView: UIView {
     
     private let countDownLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.makeAvenirNext(size: 200)
+        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 300) : UIFont.makeAvenirNext(size: 200)
         label.textAlignment = .center
         label.backgroundColor = .clear
         label.textColor = .white

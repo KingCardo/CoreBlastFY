@@ -14,7 +14,7 @@ class AppFullscreenDescriptionCell: UITableViewCell {
     
     var item: String! {
         didSet {
-            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: 24)])
+            let attributedText = NSMutableAttributedString(string: item, attributes: [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: UIDevice.isIpad ? 34 : 24)])
         
              descriptionLabel.attributedText = attributedText
         }

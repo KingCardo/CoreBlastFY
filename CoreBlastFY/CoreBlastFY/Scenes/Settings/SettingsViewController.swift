@@ -124,7 +124,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
             let cell = tableView.dequeueReusableCell(withIdentifier: "generic", for: indexPath) as UITableViewCell
             let item = displayItems[indexPath.row]
             cell.textLabel?.text = item.title
-            cell.textLabel?.font = UIFont.makeAvenirNext(size: 20)
+            cell.textLabel?.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 30 : 20)
             cell.backgroundColor = .black
             cell.textLabel?.textColor = .white
             cell.tintColor = .white

@@ -23,7 +23,7 @@ class GenericDetailViewController: UIViewController {
         tv.isSelectable = false
         tv.text = data
         tv.textColor = .white
-        tv.font = UIFont.makeAvenirNext(size: 18)
+        tv.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 28 : 18)
         tv.backgroundColor = .clear
         return tv
     }()

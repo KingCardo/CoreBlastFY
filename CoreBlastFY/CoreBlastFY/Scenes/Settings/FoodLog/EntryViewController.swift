@@ -69,7 +69,7 @@ class EntryViewController: UIViewController {
         let titleTF = UITextField()
         titleTF.placeholder = "Title"
         titleTF.delegate = self
-        titleTF.font = UIFont.makeAvenirNext(size: 18)
+        titleTF.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 28 : 18)
         titleTF.backgroundColor = .white
         titleTF.clipsToBounds = true
         titleTF.layer.cornerRadius = 8
@@ -83,7 +83,7 @@ class EntryViewController: UIViewController {
         tv.layer.cornerRadius = Dimensions.bodyTextViewCornerRadius
         tv.delegate = self
         tv.backgroundColor = UIColor.init(white: 0.8, alpha: 0.2)
-        tv.font = UIFont.makeAvenirNext(size: 20)
+        tv.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 30 : 20)
         tv.textColor = .white
         return tv
     }()

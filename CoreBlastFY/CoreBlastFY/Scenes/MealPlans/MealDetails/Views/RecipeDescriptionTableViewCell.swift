@@ -16,7 +16,7 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.textColor = .white
         label.backgroundColor = .black
-        label.font = UIFont.makeTitleFont(size: 24)
+        label.font = UIFont.makeTitleFont(size: UIDevice.isIpad ? 34 : 24)
         return label
     }()
     

@@ -39,7 +39,7 @@ class OnboardingViewController: UIViewController {
         datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        datePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        datePicker.heightAnchor.constraint(equalToConstant: UIDevice.isIpad ? 350 : 250).isActive = true
         
     }
     
@@ -103,18 +103,19 @@ class OnboardingViewController: UIViewController {
             forwardButton.alpha = 1
         }
     }
+
     
     private func setupLabels() {
         headingLabel.textColor = .white
-        headingLabel.font = UIFont.makeTitleFontDB(size: 40)
+        headingLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 50) :  UIFont.makeTitleFontDB(size: 40)
         headingLabel.numberOfLines = 0
         contentLabel.textColor = .white
-        contentLabel.font = UIFont.makeTitleFontDB(size: 22)
+        contentLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) :  UIFont.makeTitleFontDB(size: 22)
         contentLabel.numberOfLines = 0
         
         
         infoLabel.textColor = .white
-        infoLabel.font = UIFont.preferredFont(forTextStyle: .callout).withSize(12)
+        infoLabel.font = UIDevice.isIpad ? UIFont.preferredFont(forTextStyle: .callout).withSize(22) : UIFont.preferredFont(forTextStyle: .callout).withSize(12)
         infoLabel.numberOfLines = 1
     }
 
@@ -185,17 +186,9 @@ class OnboardingViewController: UIViewController {
             grabInputFromUser(datePicker)
 
             UserDefaults.standard.set(true, forKey: onboardingKey)
-//            if ExerciseStorage.exercises.isEmpty {
-//                let loadingVC = LoadingViewController()
-//                loadingVC.modalPresentationStyle = .fullScreen
-//                show(loadingVC, sender: self)
-//
-//            } else {
-
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             show(homeVC, sender: self)
-            //}
         default: break
         }
     }

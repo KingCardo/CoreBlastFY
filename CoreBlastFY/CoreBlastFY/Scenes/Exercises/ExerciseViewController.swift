@@ -91,7 +91,7 @@ extension ExerciseViewController: UITableViewDataSource {
         let exercise = exerciseVM[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Videos", for: indexPath) as UITableViewCell
         cell.textLabel?.text = exercise.name.uppercased()
-        cell.textLabel?.font = UIFont.makeAvenirNext(size: 18)
+        cell.textLabel?.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 28 : 18)
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .black
          cell.tintColor = .white

@@ -20,7 +20,7 @@ class CustomDatePicker: UIDatePicker {
          titleLabel.text = "Workout Reminder"
          titleLabel.textColor = .white
          titleLabel.textAlignment = .center
-         titleLabel.font = UIFont.makeAvenirNext(size: 25)
+         titleLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 35) : UIFont.makeAvenirNext(size: 25)
 
          titleLabel.backgroundColor = .goatBlack
   

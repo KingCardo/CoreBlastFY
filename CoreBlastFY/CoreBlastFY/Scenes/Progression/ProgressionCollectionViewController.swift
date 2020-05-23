@@ -144,12 +144,16 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     }
     
     func addCameraButton() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
         navigationController?.navigationBar.addSubview(cameraBarButtonItem)
         cameraBarButtonItem.translatesAutoresizingMaskIntoConstraints = false
         cameraBarButtonItem.topAnchor.constraint(equalTo:  (navigationController?.navigationBar.topAnchor)!, constant: 20).isActive = true
         cameraBarButtonItem.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -20).isActive = true
         cameraBarButtonItem.widthAnchor.constraint(equalToConstant: 33).isActive = true
         cameraBarButtonItem.heightAnchor.constraint(equalToConstant: 33).isActive = true
+        } else {
+            //do something
+        }
 
     }
     
@@ -185,7 +189,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! \nWe'll do weekly progression pics to stay motivated and on track to reach your goals!"
-        label.font = UIFont.makeTitleFontDB(size: 24)
+        label.font = UIFont.makeTitleFontDB(size: UIDevice.isIpad ? 34 : 24)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!
         label.numberOfLines = 0
@@ -239,6 +243,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        ac.overrideUserInterfaceStyle = .dark
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (delete) in
             let progressionPic = ProgressionPicController.shared.sortedPics[indexPath.row]
             ProgressionPicController.shared.deletePic(progressionPic: progressionPic)

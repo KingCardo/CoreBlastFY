@@ -11,8 +11,8 @@ import UIKit
 class IngredientsTableViewCell: UITableViewCell {
     static let id = "IngredientsTableViewCell"
     
-    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 16)!, numberOfLines: 1)
-    private let amountLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 16)!, numberOfLines: 1)
+    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: UIDevice.isIpad ? 26 : 16)!, numberOfLines: 1)
+    private let amountLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: UIDevice.isIpad ? 26 : 16)!, numberOfLines: 1)
         
     static let leadingAnchor: CGFloat = 8
     
@@ -37,10 +37,7 @@ class IngredientsTableViewCell: UITableViewCell {
         contentView.backgroundColor = .black
         contentView.addSubview(titleLabel)
         titleLabel.centerYInSuperview()
-        //titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: IngredientsTableViewCell.leadingAnchor).isActive = true
-//        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6).isActive = true
-//        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6).isActive = true
         contentView.addSubview(amountLabel)
         amountLabel.centerYInSuperview()
         amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -IngredientsTableViewCell.leadingAnchor).isActive = true

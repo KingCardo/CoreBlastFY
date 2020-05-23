@@ -11,7 +11,7 @@ import UIKit
 class InstructionsTableViewCell: UITableViewCell {
     static let id = "InstructionsTableViewCell"
     
-    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: 16)!, numberOfLines: 0)
+    private let titleLabel = UILabel(text: "", font: UIFont.makeAvenirNext(size: UIDevice.isIpad ? 26 : 16)!, numberOfLines: 0)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

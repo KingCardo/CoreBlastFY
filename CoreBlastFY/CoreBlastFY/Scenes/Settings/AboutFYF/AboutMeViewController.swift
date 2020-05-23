@@ -29,7 +29,7 @@ Welcome To Forever Young Fitness!
         tv.isSelectable = false
         tv.text = data
         tv.textColor = .white
-        tv.font = UIFont.makeAvenirNext(size: 20)
+        tv.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 30 : 20)
         tv.backgroundColor = .clear
         return tv
     }()

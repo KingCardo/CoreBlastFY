@@ -28,7 +28,7 @@ class TipsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = UIFont.makeAvenirCondensed(size: 20)
+        label.font = UIFont.makeAvenirCondensed(size: UIDevice.isIpad ? 30 : 20)
         label.textColor = .white
         label.backgroundColor = .black
         label.sizeToFit()
@@ -40,7 +40,7 @@ class TipsCollectionViewCell: UICollectionViewCell {
         label.text = "Tap me for more info!"
         label.textAlignment = .center
         label.numberOfLines = 1
-        label.font = UIFont.makeAvenirCondensed(size: 14)
+        label.font = UIFont.makeAvenirCondensed(size: UIDevice.isIpad ? 24 : 14)
         label.textColor = .white
         label.backgroundColor = .black
         label.sizeToFit()

@@ -119,7 +119,7 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
 extension MealPlansViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 32, height: MealPlansViewController.Dimensions.mealPlanCellSize)
+        return UIDevice.isIpad ?  .init(width: view.frame.width - 64, height: 500) : .init(width: view.frame.width - 32, height: MealPlansViewController.Dimensions.mealPlanCellSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

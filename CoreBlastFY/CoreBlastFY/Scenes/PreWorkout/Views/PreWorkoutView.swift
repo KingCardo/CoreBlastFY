@@ -31,11 +31,11 @@ class PreWorkoutView: UIView {
         
         
         coreLevelLabel.text = "Core Level"
-        coreLevelLabel.font = UIFont.makeAvenirNext(size: Style.titleFontSize)
+        coreLevelLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         coreLevelLabel.textColor = .white
         
         coreLevelCountLabel.text = preWorkoutViewModel.userDetails.coreLevel
-        coreLevelCountLabel.font = UIFont.makeAvenirNext(size: Style.dataFontSize)
+        coreLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         coreLevelCountLabel.textColor = .white
         
         
@@ -47,11 +47,11 @@ class PreWorkoutView: UIView {
         
         let totalPointsLabel = UILabel()
         totalPointsLabel.text = "Total Points"
-        totalPointsLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
+        totalPointsLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         totalPointsLabel.textColor = .white
         
         totalPointsLevel.text = preWorkoutViewModel.userDetails.totalPoints
-        totalPointsLevel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
+        totalPointsLevel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         totalPointsLevel.textColor = .white
         
         
@@ -63,11 +63,11 @@ class PreWorkoutView: UIView {
         
         let nextLevelLabel = UILabel()
         nextLevelLabel.text = "Next Level"
-        nextLevelLabel.font =  self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.titleFontSize) : UIFont.makeFontSet(size: Style.titleFontSize)
+        nextLevelLabel.font =  UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         nextLevelLabel.textColor = .white
         
         nextLevelCountLabel.text = preWorkoutViewModel.userDetails.nextLevel
-        nextLevelCountLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
+        nextLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         nextLevelCountLabel.textColor = .white
         
         let nextLevelStackView = UIStackView(arrangedSubviews: [nextLevelLabel, nextLevelCountLabel])
@@ -104,11 +104,11 @@ class PreWorkoutView: UIView {
         
         let nextWorkoutLabel = UILabel()
         nextWorkoutLabel.text = "Next Workout"
-        nextWorkoutLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
+        nextWorkoutLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         nextWorkoutLabel.textColor = .white
         
         nextWorkoutDateLabel.text = preWorkoutViewModel.userDetails.nextWorkoutDate
-        nextWorkoutDateLabel.font = self.traitCollection.verticalSizeClass == .regular ? UIFont.makeAvenirNext(size: Style.dataFontSize) : UIFont.makeFontSet(size: Style.dataFontSize)
+        nextWorkoutDateLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         nextWorkoutDateLabel.textColor = .white
         
         let nextWorkoutStackView = UIStackView(arrangedSubviews: [nextWorkoutLabel, nextWorkoutDateLabel])
@@ -133,6 +133,7 @@ class PreWorkoutView: UIView {
 extension PreWorkoutView {
     enum Style {
         static let titleFontSize: CGFloat = 18
+        static let ipadTitleFontSize: CGFloat = 28
         static let dataFontSize: CGFloat = 22
         static let stackViewSpacing: CGFloat = 4
         
