@@ -30,11 +30,13 @@ class HomeViewController: UITabBarController {
     }
     
     @objc private func handleVC() {
+        if workoutNavController == nil {
         self.setupPreworkoutVC()
         self.setupExerciseVC()
         DispatchQueue.main.async {
             self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
             self.view.setNeedsLayout()
+        }
         }
     }
     
