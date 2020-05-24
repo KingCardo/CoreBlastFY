@@ -30,7 +30,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
          collectionView.decelerationRate = .fast
         // Register cell classes
         self.collectionView!.register(ProgressionPicsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressPicTV(_:)), name: NSNotification.Name("ProgressPicNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressPicTV(_:)), name: ProgressionPicController.progressNotification, object: nil)
         
     }
     

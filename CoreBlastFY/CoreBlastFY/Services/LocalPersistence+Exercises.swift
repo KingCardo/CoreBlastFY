@@ -13,6 +13,7 @@ let coreNoviceKey = "novice"
 let coreSolidKey = "solid"
 let coreAdvancedKey = "advanced"
 let coreRockstarKey = "rockstar"
+let exerciseLoadedNotification = NSNotification.Name("ExercisesLoadedNotification")
 
 class ExerciseStorage {
     
@@ -21,7 +22,7 @@ class ExerciseStorage {
     static var exercises: [Exercise] = [] {
         didSet {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name("ExercisesLoadedNotification"), object: self)
+                NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
             }
         }
     }

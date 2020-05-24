@@ -19,6 +19,7 @@ protocol ExerciseDisplayLogic: class {
 
 class ExerciseViewController: UIViewController, ExerciseDisplayLogic
 {
+    static let videoCellId = "Videos"
     var interactor: ExerciseBusinessLogic?
     var exerciseVM: [Exercises.Videos.ViewModel.ExerciseVM] = []
     
@@ -68,7 +69,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .black
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Videos")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: ExerciseViewController.videoCellId)
     }
     
     func getExercises() {
@@ -89,7 +90,7 @@ extension ExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let exercise = exerciseVM[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Videos", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseViewController.videoCellId, for: indexPath) as UITableViewCell
         cell.textLabel?.text = exercise.name.uppercased()
         cell.textLabel?.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 28 : 18)
         cell.textLabel?.textColor = .white

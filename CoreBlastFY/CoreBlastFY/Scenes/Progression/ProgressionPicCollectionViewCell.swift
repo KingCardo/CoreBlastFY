@@ -35,7 +35,7 @@ final class ProgressionPicsCollectionViewCell: UICollectionViewCell {
             static let titleFontColor = UIColor.cyan
         }
         enum Font {
-            static let labelFont = UIFont.init(name: "Avenir Next Condensed", size: 40)
+            static let labelFont = UIFont.makeAvenirCondensed(size: 40)
         }
     }
     
@@ -91,17 +91,21 @@ private extension ProgressionPicsCollectionViewCell {
     }
     func setupImageView() {
         contentView.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+        imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: ProgressionPicsCollectionViewCell.imageViewInsets.top).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ProgressionPicsCollectionViewCell.imageViewInsets.left).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: ProgressionPicsCollectionViewCell.imageViewInsets.bottom).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ProgressionPicsCollectionViewCell.imageViewInsets.right).isActive = true
         imageView.layer.cornerRadius = 20
     }
     
     func setupLabel() {
         imageView.addSubview(dateLabel)
-        dateLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10).isActive = true
-        dateLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -30).isActive = true
+        dateLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ProgressionPicsCollectionViewCell.dateLabelInsets.bottom).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: ProgressionPicsCollectionViewCell.dateLabelInsets.right).isActive = true
     }
 }
 
+extension ProgressionPicsCollectionViewCell {
+    static let imageViewInsets = UIEdgeInsets(top: 40, left: 16, bottom: -40, right: -16)
+    static let dateLabelInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: -30)
+}

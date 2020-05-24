@@ -9,13 +9,16 @@
 import Foundation
 
 class ProgressionPicController {
+    static let progressNotification = NSNotification.Name("ProgressPicNotification")
+    private let KprogressionFile = "ProgressionPics"
+    private let format = "json"
     
     static let shared = ProgressionPicController()
     
     var progressionPics: [ProgressionPic] = [] {
         didSet {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name("ProgressPicNotification"), object: self)
+                NotificationCenter.default.post(name: ProgressionPicController.progressNotification, object: self)
             }
         }
     }
@@ -42,7 +45,7 @@ class ProgressionPicController {
     
     func saveToFile() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("ProgressionPics").appendingPathExtension("json")
+        let archiveURL = documentsDirectory.appendingPathComponent(KprogressionFile).appendingPathExtension(format)
         
         let jsonEncoder = JSONEncoder()
         
@@ -57,7 +60,7 @@ class ProgressionPicController {
     
     func loadFromFile() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("ProgressionPics").appendingPathExtension("json")
+        let archiveURL = documentsDirectory.appendingPathComponent(KprogressionFile).appendingPathExtension(format)
         
         let jsonDecoder = JSONDecoder()
         guard let decodedData = try? Data(contentsOf: archiveURL) else { return }

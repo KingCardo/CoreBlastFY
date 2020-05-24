@@ -39,9 +39,4 @@ class WorkoutRouter: NSObject, WorkoutRoutingLogic, WorkoutDataPassing {
     source.show(destination, sender: nil)
   }
   
-  // MARK: Passing data
-  
-//  private func passDataToSomewhere(source: WorkoutDataStore, destination: inout SomewhereDataStore) {
-//   // destination.name = source.name
-//  }
 }

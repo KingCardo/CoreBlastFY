@@ -138,7 +138,7 @@ extension PreWorkoutView {
         static let stackViewSpacing: CGFloat = 4
         
         enum Dimension {
-            static let startWorkoutButtonSize = CGSize(width: 260, height: 260)//90)
+            static let startWorkoutButtonSize = CGSize(width: 260, height: 260)
             static let edgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 24, right: 16)
         }
     }

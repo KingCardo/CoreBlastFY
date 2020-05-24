@@ -195,12 +195,3 @@ class OnboardingViewController: UIViewController {
     
     
 }
-
-//extension OnboardingViewController: UITextFieldDelegate {
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        let user = UserManager.loadUserFromFile()
-//        user.name = textField.text!
-//        UserManager.save()
-//        textField.resignFirstResponder()
-//    }
-//}

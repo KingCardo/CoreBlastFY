@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EntryController.shared.loadFromFile()
         
         UserAPI.user = UserManager.loadUserFromFile()
-        //FirebaseApp.configure()
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in

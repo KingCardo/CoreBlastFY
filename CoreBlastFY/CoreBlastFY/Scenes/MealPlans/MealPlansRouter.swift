@@ -31,7 +31,6 @@ class MealPlansRouter: NSObject, MealPlansRoutingLogic, MealPlansDataPassing {
         let destinationVC = MealPlanDetailViewController()
         guard let dataStore = dataStore else { return }
         guard var destinationDS = destinationVC.router?.dataStore else { return }
-        //destinationVC.modalPresentationStyle = .formSheet
         passMealPlanToDetailController(source: dataStore, destination: &destinationDS)
         navigateToMealPlanDetailController(source: source, destination: destinationVC)
     }

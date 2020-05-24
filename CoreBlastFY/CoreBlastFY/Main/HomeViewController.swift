@@ -16,7 +16,7 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: exerciseLoadedNotification, object: nil)
         
     }
    
