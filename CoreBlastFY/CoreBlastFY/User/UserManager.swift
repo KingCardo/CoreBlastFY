@@ -47,7 +47,6 @@ class UserManager {
     }
     
     static func save() {
-        
              let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
              let archiveURL = documentsDirectory.appendingPathComponent("User").appendingPathExtension("json")
              
@@ -59,7 +58,6 @@ class UserManager {
              } catch let error {
                  print(error)
              }
-             
          }
          
     static func loadUserFromFile() -> User {

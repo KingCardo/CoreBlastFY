@@ -20,9 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ProgressionPicController.shared.loadFromFile()
         
         func retryHandler(alertAction: UIAlertAction) {
+            DispatchQueue.global(qos: .userInitiated).async {
                    ExerciseStorage.fetchCoreExercises()
+            }
                }
-               ExerciseStorage.fetchCoreExercises()
+        DispatchQueue.global(qos: .userInitiated).async {
+            ExerciseStorage.fetchCoreExercises()
+        }
+               
                ExerciseStorage.failedCompletion = { errorMessage in
                    DispatchQueue.main.async(execute: {
                        

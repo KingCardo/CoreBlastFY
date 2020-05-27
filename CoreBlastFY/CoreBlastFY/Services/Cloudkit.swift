@@ -30,10 +30,10 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                         records.append(record)
                 }
         
-        fetchOperation.queryCompletionBlock = { [unowned self] (curser, error) in
+        fetchOperation.queryCompletionBlock = { [weak self] (curser, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    self.displayCloudKitNotAvailableError(error.localizedDescription)
+                    self?.displayCloudKitNotAvailableError(error.localizedDescription)
                         completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
                 } else {
                     completion(records, nil)
