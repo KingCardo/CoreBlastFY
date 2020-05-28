@@ -31,7 +31,6 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         // Register cell classes
         self.collectionView!.register(ProgressionPicsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressPicTV(_:)), name: ProgressionPicController.progressNotification, object: nil)
-        
     }
     
     deinit {
@@ -61,9 +60,10 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
             }
         }
         
-        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0 {
-            AlertController.createAlert(errorMessage: "Programs are still being loaded. Workout section will be available soon!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
-        }
+        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0, !UserDefaults.standard.bool(forKey: "beginner")  {
+                   AlertController.createAlert(errorMessage: "Workout section will be available soon!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
+               }
+    
     }
     
     
