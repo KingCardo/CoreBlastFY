@@ -193,7 +193,7 @@ let franchizSnackMealName = "Fruit & Almonds"
 
 let franchizBreakfastRecipe = Recipe(name: shreddedSnackName, ingredients: shreddedSmoothieIngredients, instructions: shreddedSnackInstructions, mealType: Recipe.MealType.breakfast, image: #imageLiteral(resourceName: "mp2image"))
 
-let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "ChickenYAMS"))
+let franchizLunchRecipe = Recipe(name: franchizLunchMealName, ingredients: franchizLunchIngredients, instructions: franchizLunchInstructions, mealType: Recipe.MealType.lunch, image: #imageLiteral(resourceName: "chickenVeggie"))
 
 let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franchizSnackIngredients, instructions: franchizSnackInstructions, mealType: Recipe.MealType.snack, image: #imageLiteral(resourceName: "snack"))
 

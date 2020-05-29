@@ -50,7 +50,7 @@ final class LoadingView: UIView {
         super.init(frame: frame)
         backgroundColor = .clear
         addSubview(countDownLabel)
-        countDownLabel.fillSuperview()
+        countDownLabel.fillSuperview(padding: UIEdgeInsets(top: UIDevice.isIpad ? 100 : 50, left: 0, bottom: 0, right: 0))
         
         if !nextExercise.isEmpty {
             let textToSpeak = "\(nextExercise) is coming up"

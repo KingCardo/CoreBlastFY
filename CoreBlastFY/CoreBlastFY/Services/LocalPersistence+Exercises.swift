@@ -59,7 +59,7 @@ class ExerciseStorage {
         }
     }
     
-    static func fetchExercises(with level: String) {
+    static func fetchExercises(with level: String, completion: @escaping(Bool) -> Void) {
         if !UserDefaults.standard.bool(forKey: level) {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises(of: level) { (exercises, error) in
@@ -67,24 +67,48 @@ class ExerciseStorage {
                     ExerciseStorage.exercises += exercises
                     ExerciseStorage.save()
                     UserDefaults.standard.set(true, forKey: level)
+                    completion(true)
+                    return
                 } else {
-                    ExerciseStorage.failedCompletion?("Network connectivity not strong enough. Please try again or wait until have good connection.")
+                    completion(false)
+                    return
                 }
             }
         }
     }
     
-    static func fetchCoreExercises() {
-         ExerciseStorage.loadExercises()
+    static func fetchCoreExercises(completion: @escaping(Bool) -> Void){
+         let loadedFromFiles = ExerciseStorage.loadExercises()
          let user = UserManager.loadUserFromFile()
+        var successLoading = false
 
         switch user.totalPoints {
-        case 0: ExerciseStorage.fetchExercises(with: "beginner")
-        case 14: ExerciseStorage.fetchExercises(with: "novice")
-        case 29: ExerciseStorage.fetchExercises(with: "solid")
-        case 44: ExerciseStorage.fetchExercises(with: "advanced")
-        case 59: ExerciseStorage.fetchExercises(with: "rockstar")
-        default: break
+        case 0: ExerciseStorage.fetchExercises(with: "beginner") { (success) in
+            successLoading = success
+            let loadedSuccess = (loadedFromFiles || successLoading)
+            completion(loadedSuccess)
+            }
+        case 14: ExerciseStorage.fetchExercises(with: "novice") { (success) in
+            successLoading = success
+            let loadedSuccess = (loadedFromFiles || successLoading)
+            completion(loadedSuccess)
+        }
+        case 29: ExerciseStorage.fetchExercises(with: "solid") { (success) in
+            successLoading = success
+            let loadedSuccess = (loadedFromFiles || successLoading)
+            completion(loadedSuccess)
+        }
+        case 44: ExerciseStorage.fetchExercises(with: "advanced") { (success) in
+            successLoading = success
+            let loadedSuccess = (loadedFromFiles || successLoading)
+            completion(loadedSuccess)
+        }
+        case 59: ExerciseStorage.fetchExercises(with: "rockstar") { (success) in
+            successLoading = success
+            let loadedSuccess = (loadedFromFiles || successLoading)
+            completion(loadedSuccess)
+        }
+        default: completion(loadedFromFiles)
         }
     }
 }

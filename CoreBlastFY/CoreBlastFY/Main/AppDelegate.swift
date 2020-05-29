@@ -40,8 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
-        EntryController.shared.loadFromFile()
         
+        ProgressionPicController.shared.loadFromFile()
+        EntryController.shared.loadFromFile()
         UserAPI.user = UserManager.loadUserFromFile()
         
         // MARK: Registering Launch Handlers for Tasks

@@ -39,7 +39,7 @@ class LoadingViewController: UIViewController {
         view.addSubview(loadingIV)
         loadingIV.contentMode = .scaleAspectFit
         loadingIV.fillSuperview()
-        loadingLabel.text = "Downloading Programs..."
+        loadingLabel.text = "Loading..."
         loadingLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         loadingLabel.textColor = .white
         loadingLabel.backgroundColor = .clear
