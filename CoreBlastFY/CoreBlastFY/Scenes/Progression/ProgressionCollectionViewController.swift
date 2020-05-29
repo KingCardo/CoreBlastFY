@@ -84,6 +84,9 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
             self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
