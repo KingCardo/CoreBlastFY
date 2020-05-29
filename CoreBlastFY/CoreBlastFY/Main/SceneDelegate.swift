@@ -21,28 +21,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         func retryHandler(alertAction: UIAlertAction) {
             DispatchQueue.global(qos: .userInitiated).async {
                 ExerciseStorage.fetchCoreExercises { (success) in
+                    
                     DispatchQueue.main.async {
-                        
-                        if success == true {
-                            
-                            if !UserDefaults.standard.bool(forKey: onboardingKey) {
-                                let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-                                self.window!.rootViewController = pageViewController
-                            } else {
-                                self.window!.rootViewController = HomeViewController()
-                            }
-                            self.window!.makeKeyAndVisible()
-                            
-                            
-                        } else {
-                            let alertController = UIAlertController(title: "Network Download Error", message: "Please Try Again", preferredStyle: .alert)
+                        if success == false {
+                            let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
                             alertController.overrideUserInterfaceStyle = .dark
                             
                             let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
                             
                             alertController.addAction(retry)
-                            self.window!.makeKeyAndVisible()
+                            
                             self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                            self.window!.makeKeyAndVisible()
                         }
                     }
                 }
@@ -53,19 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ExerciseStorage.fetchCoreExercises { (success) in
                 
                 DispatchQueue.main.async {
-                    if success == true {
-                        
-                        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-                            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-                            self.window!.rootViewController = pageViewController
-                            
-                        } else {
-                            self.window!.rootViewController = HomeViewController()
-                            
-                        }
-                        self.window!.makeKeyAndVisible()
-                        
-                    } else {
+                    if success == false {
                         let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
                         alertController.overrideUserInterfaceStyle = .dark
                         
@@ -76,7 +54,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
                         self.window!.makeKeyAndVisible()
                     }
-                    
                 }
             }
         }
@@ -84,6 +61,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
             self.window!.rootViewController = pageViewController
+            self.window!.makeKeyAndVisible()
+        } else if ExerciseStorage.exercises.count > 0 {
+            self.window!.rootViewController = HomeViewController()
             self.window!.makeKeyAndVisible()
         } else {
             self.window!.rootViewController = LoadingViewController()

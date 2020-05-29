@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
         UserAPI.user = UserManager.loadUserFromFile()
+        ExerciseStorage.loadExercises()
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in

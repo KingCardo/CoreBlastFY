@@ -77,38 +77,26 @@ class ExerciseStorage {
         }
     }
     
-    static func fetchCoreExercises(completion: @escaping(Bool) -> Void){
-         let loadedFromFiles = ExerciseStorage.loadExercises()
-         let user = UserManager.loadUserFromFile()
-        var successLoading = false
+    static func fetchCoreExercises(completion: @escaping(Bool?) -> Void){
+        UserAPI.user = UserManager.loadUserFromFile()
 
-        switch user.totalPoints {
+        switch UserAPI.user.totalPoints {
         case 0: ExerciseStorage.fetchExercises(with: "beginner") { (success) in
-            successLoading = success
-            let loadedSuccess = (loadedFromFiles || successLoading)
-            completion(loadedSuccess)
+            completion(success)
             }
         case 14: ExerciseStorage.fetchExercises(with: "novice") { (success) in
-            successLoading = success
-            let loadedSuccess = (loadedFromFiles || successLoading)
-            completion(loadedSuccess)
+            completion(success)
         }
         case 29: ExerciseStorage.fetchExercises(with: "solid") { (success) in
-            successLoading = success
-            let loadedSuccess = (loadedFromFiles || successLoading)
-            completion(loadedSuccess)
+            completion(success)
         }
         case 44: ExerciseStorage.fetchExercises(with: "advanced") { (success) in
-            successLoading = success
-            let loadedSuccess = (loadedFromFiles || successLoading)
-            completion(loadedSuccess)
+            completion(success)
         }
         case 59: ExerciseStorage.fetchExercises(with: "rockstar") { (success) in
-            successLoading = success
-            let loadedSuccess = (loadedFromFiles || successLoading)
-            completion(loadedSuccess)
+            completion(success)
         }
-        default: completion(loadedFromFiles)
+        default: completion(nil)
         }
     }
 }
