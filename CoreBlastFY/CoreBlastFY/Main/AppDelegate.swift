@@ -13,7 +13,7 @@ import StoreKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private func scheduleAppRefresh() {
+     func scheduleAppRefresh() {
         let request = BGAppRefreshTaskRequest(identifier: refreshId)
             request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // Fetch no earlier than 15 minutes from now
             
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Fetch the latest feed entries from server.
-      private func handleAppRefresh(task: BGAppRefreshTask) {
+       func handleAppRefresh(task: BGAppRefreshTask) {
           scheduleAppRefresh()
         
         let shouldDecrement = UserManager.decrementPoint()
@@ -37,6 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
   
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            ExerciseStorage.fetchCoreExercises { (success) in
+                
+                DispatchQueue.main.async {
+                    if success == true {
+                        print("got exercises")
+                    } else if success == false {
+                        NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                    }
+                }
+            }
+        }
+        return true
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
@@ -53,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
     }
     func applicationWillTerminate(_ application: UIApplication) {
         // Remove the observer.

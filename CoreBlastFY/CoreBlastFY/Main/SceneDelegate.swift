@@ -9,36 +9,13 @@
 import UIKit
 
 let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
+let FetchingExercisesFailedNotification = Notification.Name("FetchingExercisesFailed")
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        self.window = self.window ?? UIWindow()
-        
-        func retryHandler(alertAction: UIAlertAction) {
-            DispatchQueue.global(qos: .userInitiated).async {
-                ExerciseStorage.fetchCoreExercises { (success) in
-                    
-                    DispatchQueue.main.async {
-                        if success == false {
-                            let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
-                            alertController.overrideUserInterfaceStyle = .dark
-                            
-                            let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
-                            
-                            alertController.addAction(retry)
-                            
-                            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-                            self.window!.makeKeyAndVisible()
-                        }
-                    }
-                }
-            }
-        }
-        
+    func retryHandler(alertAction: UIAlertAction) {
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
                 
@@ -47,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
                         alertController.overrideUserInterfaceStyle = .dark
                         
-                        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
+                        let retry = UIAlertAction(title: "Try Again", style: .default, handler: self.retryHandler)
                         
                         alertController.addAction(retry)
                         
@@ -57,6 +34,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             }
         }
+    }
+    
+    @objc func handleFailedFetch() {
+                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
+                                alertController.overrideUserInterfaceStyle = .dark
+        
+                                let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
+        
+                                alertController.addAction(retry)
+                                
+                                self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                                self.window!.makeKeyAndVisible()
+    }
+    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+        
+        self.window = self.window ?? UIWindow()
         
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
