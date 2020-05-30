@@ -28,18 +28,18 @@ public class Reachability {
         }
 
          //Only Working for WIFI
-//        let isReachable = flags == .reachable
-//        let needsConnection = flags == .connectionRequired
-//
-//        return isReachable && !needsConnection
+        let isReachable = flags == .reachable
+        let needsConnection = flags == .connectionRequired
+
+        return isReachable && !needsConnection
         
 
         // Working for Cellular and WIFI
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        let ret = (isReachable && !needsConnection)
-
-        return ret
+//        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+//        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+//        let ret = (isReachable && !needsConnection)
+//
+//        return ret
 
     }
 }

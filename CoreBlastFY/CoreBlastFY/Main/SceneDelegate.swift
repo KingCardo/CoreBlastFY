@@ -10,18 +10,20 @@ import UIKit
 
 let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
 let FetchingExercisesFailedNotification = Notification.Name("FetchingExercisesFailed")
+let FetchingExercisesSucceededNotification = Notification.Name("FetchingExercisesSucceededNotification")
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
     func retryHandler(alertAction: UIAlertAction) {
-        DispatchQueue.global(qos: .userInitiated).async {
+        if Reachability.isConnectedToNetwork() {
+        DispatchQueue.global(qos: .userInitiated).sync {
             ExerciseStorage.fetchCoreExercises { (success) in
                 
                 DispatchQueue.main.async {
                     if success == false {
-                        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
                         alertController.overrideUserInterfaceStyle = .dark
                         
                         let retry = UIAlertAction(title: "Try Again", style: .default, handler: self.retryHandler)
@@ -34,10 +36,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             }
         }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+        }
+        }
     }
     
     @objc func handleFailedFetch() {
-                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until connected to WiFi", preferredStyle: .alert)
+                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
                                 alertController.overrideUserInterfaceStyle = .dark
         
                                 let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
