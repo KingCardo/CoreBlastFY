@@ -38,7 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
   
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        ExerciseStorage.loadExercises()
         
+        //if Reachability.isConnectedToNetwork() {
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
                 
@@ -51,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        //}
         return true
     }
     
@@ -60,7 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
         UserAPI.user = UserManager.loadUserFromFile()
-        ExerciseStorage.loadExercises()
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
@@ -70,8 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Remove the observer.
         SKPaymentQueue.default().remove(StoreObserver.shared)

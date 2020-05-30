@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     @objc func handleFailedFetch() {
-                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until have better connection.", preferredStyle: .alert)
+                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again or wait until connected to WiFi", preferredStyle: .alert)
                                 alertController.overrideUserInterfaceStyle = .dark
         
                                 let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
@@ -50,6 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+
         
         self.window = self.window ?? UIWindow()
         
