@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import BackgroundTasks
 
 class CloudKitService: ExerciseInfoStoreProtocol {
     
@@ -21,11 +22,20 @@ class CloudKitService: ExerciseInfoStoreProtocol {
     
     func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void) {
         var records: [CKRecord] = []
+       
         let predicate = NSPredicate(format: "level == %@", level)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
         let fetchOperation = CKQueryOperation(query: query)
         fetchOperation.qualityOfService = .userInitiated
         fetchOperation.queuePriority = .veryHigh
+        var id: UIBackgroundTaskIdentifier!
+               id = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                fetchOperation.cancel()
+                completion([], ExerciseInfoStoreError.CannotFetch("Program not downloaded, Try Again"))
+               })
+        fetchOperation.completionBlock = {
+            UIApplication.shared.endBackgroundTask(id)
+        }
         fetchOperation.recordFetchedBlock = { (record) in
                         records.append(record)
                 }
