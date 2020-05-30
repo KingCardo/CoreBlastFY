@@ -60,7 +60,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
             }
         }
         
-        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0, !UserDefaults.standard.bool(forKey: "beginner")  {
+        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0 {
                    AlertController.createAlert(errorMessage: "Workout section will be available soon!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
                }
     

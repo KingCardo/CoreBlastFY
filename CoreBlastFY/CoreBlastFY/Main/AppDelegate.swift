@@ -40,43 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let _ = ExerciseStorage.loadExercises()
         
-        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .userInitiated).sync {
-                    ExerciseStorage.fetchCoreExercises { (success) in
-                        
-                        DispatchQueue.main.async {
-                            if success == true {
-                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                            } else if success == false {
-                                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                            } else {
-                                return
-                            }
-                        }
-                    }
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                }
-            }
-        } else if UserDefaults.standard.bool(forKey: onboardingKey) {
-            DispatchQueue.global(qos: .userInitiated).sync {
-                ExerciseStorage.fetchCoreExercises { (success) in
-                    
-                    DispatchQueue.main.async {
-                        if success == true {
-                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                        } else if success == false {
-                            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                        } else {
-                            return
-                        }
-                    }
-                }
-            }
-        }
         return true
     }
     
