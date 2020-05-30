@@ -40,7 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let _ = ExerciseStorage.loadExercises()
         
-        if Reachability.isConnectedToNetwork(), !UserDefaults.standard.bool(forKey: onboardingKey) {
+        if !UserDefaults.standard.bool(forKey: onboardingKey) {
+            if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .userInitiated).sync {
                 ExerciseStorage.fetchCoreExercises { (success) in
                     
@@ -55,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-        } else if UserDefaults.standard.bool(forKey: onboardingKey), Reachability.isConnectedToNetwork() {
+        } else if UserDefaults.standard.bool(forKey: onboardingKey) {
                 DispatchQueue.global(qos: .userInitiated).sync {
                     ExerciseStorage.fetchCoreExercises { (success) in
                         
