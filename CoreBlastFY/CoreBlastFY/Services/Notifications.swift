@@ -23,6 +23,25 @@ func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
     return (hour, minute)
 }
 
+func workoutsReadyNotification() {
+    let content = UNMutableNotificationContent()
+       content.title = "Workout Section Ready💎!"
+       content.body = "Time To Get to work!"
+       content.sound = UNNotificationSound.default
+       
+       // Create the trigger as a repeating event.
+       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+       
+        let request = UNNotificationRequest(identifier: "WorkoutsReady", content: content, trigger: trigger)
+       
+       notificationCenter.add(request) { (error) in
+           if error != nil {
+               // Handle any errors.
+           }
+       }
+    
+}
+
 func timeToWorkoutMNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()

@@ -61,7 +61,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         }
         
         if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0 {
-                   AlertController.createAlert(errorMessage: "Workout section will be available soon!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
+                   AlertController.createAlert(errorMessage: "Workout section will be available soon! You will be sent a notification when ready!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
                }
     
     }
@@ -191,7 +191,11 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     private lazy var pgLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "This is where we hold ourselves accountable. \nGo ahead and take your first Progression Pic! \nWe'll do weekly progression pics to stay motivated and on track to reach your goals!"
+        label.text = """
+This is where we hold ourselves accountable.
+        \nGo ahead and take your first Progression Pic!
+        \nWe'll do weekly progression pics to stay motivated and on track to reach your goals!
+"""
         label.font = UIFont.makeTitleFontDB(size: UIDevice.isIpad ? 34 : 24)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = CGFloat(exactly: NSNumber(floatLiteral: 15.0))!

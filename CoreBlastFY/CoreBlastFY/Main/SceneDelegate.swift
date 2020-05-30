@@ -17,29 +17,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func retryHandler(alertAction: UIAlertAction) {
-        if Reachability.isConnectedToNetwork() {
-        DispatchQueue.global(qos: .userInitiated).sync {
-            ExerciseStorage.fetchCoreExercises { (success) in
-                
-                DispatchQueue.main.async {
-                    if success == false {
-                        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
-                        alertController.overrideUserInterfaceStyle = .dark
-                        
-                        let retry = UIAlertAction(title: "Try Again", style: .default, handler: self.retryHandler)
-                        
-                        alertController.addAction(retry)
-                        
-                        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-                        self.window!.makeKeyAndVisible()
+      if !UserDefaults.standard.bool(forKey: onboardingKey) {
+            if Reachability.isConnectedToNetwork() {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    ExerciseStorage.fetchCoreExercises { (success) in
+
+                        DispatchQueue.main.async {
+                            if success == true {
+                                workoutsReadyNotification()
+                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
+                            } else if success == false {
+                                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                            } else {
+                                return
+                            }
+                        }
+                    }
+                }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                }
+            }
+        } else if UserDefaults.standard.bool(forKey: onboardingKey) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                ExerciseStorage.fetchCoreExercises { (success) in
+
+                    DispatchQueue.main.async {
+                        if success == true {
+                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
+                        } else if success == false {
+                            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                        } else {
+                            return
+                        }
                     }
                 }
             }
-        }
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-        }
         }
     }
     
@@ -65,6 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
                         DispatchQueue.main.async {
                             if success == true {
+                                workoutsReadyNotification()
                                 NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
                             } else if success == false {
                                 NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
