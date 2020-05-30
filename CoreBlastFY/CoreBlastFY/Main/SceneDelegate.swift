@@ -77,7 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 DispatchQueue.global(qos: .userInitiated).async {
                     ExerciseStorage.fetchCoreExercises { (success) in
 
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             if success == true {
                                 workoutsReadyNotification()
                                 NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)

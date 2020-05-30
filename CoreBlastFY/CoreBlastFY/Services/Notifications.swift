@@ -30,7 +30,7 @@ func workoutsReadyNotification() {
        content.sound = UNNotificationSound.default
        
        // Create the trigger as a repeating event.
-       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
        
         let request = UNNotificationRequest(identifier: "WorkoutsReady", content: content, trigger: trigger)
        
