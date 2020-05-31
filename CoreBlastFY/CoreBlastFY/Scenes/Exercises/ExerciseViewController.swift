@@ -127,7 +127,7 @@ extension ExerciseViewController: UITableViewDataSource {
 extension ExerciseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = exerciseVM[indexPath.row].url
-        let avPlayerVC = AVPlayerViewController()
+        let avPlayerVC = ExercisePlayerViewController()
         avPlayerVC.videoGravity = .resizeAspectFill
         avPlayerVC.player = AVPlayer(url: url)
         avPlayerVC.player?.isMuted = true
