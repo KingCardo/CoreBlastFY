@@ -77,11 +77,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
             self.window!.rootViewController = pageViewController
             self.window!.makeKeyAndVisible()
-        } else if ExerciseStorage.exercises.count > 0 {
-            self.window!.rootViewController = HomeViewController()
-            self.window!.makeKeyAndVisible()
         } else {
-            self.window!.rootViewController = LoadingViewController()
+            self.window!.rootViewController = HomeViewController()
             self.window!.makeKeyAndVisible()
         }
     }
