@@ -62,7 +62,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if ExerciseStorage.exercises.count <= 0 {
-            exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be available soon!")
+            exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be here soon!")
             view.addSubview(exerciseLoadingView!)
             exerciseLoadingView?.fillSuperview()
         }
@@ -72,8 +72,11 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
     
     @objc private func showWorkoutVC() {
         getExercises()
-        exerciseLoadingView?.removeFromSuperview()
-        exerciseLoadingView = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.exerciseLoadingView?.removeFromSuperview()
+            self?.exerciseLoadingView = nil
+        }
+        
     }
     
     private let tableView = UITableView(frame: .zero, style: .plain)

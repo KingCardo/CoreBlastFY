@@ -72,7 +72,7 @@ let redPepperHalf = Recipe.Ingredient(name: "Red Pepper", amount: "")
 let greenPepperHalf = Recipe.Ingredient(name: "Green Pepper", amount: "")
 
 
-let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating them into leaves.", "Drain the tuna and transfer to a large sald bowl.", "Using a knife, dice onion, peppers, and cilantro to tiny pieces.","Add 3 tbsp of mayo, salt, pepper, lime juice, onion, and cilantro to tuna and stir thoroughly.", "Slice avocado." , "Make lettuce wraps by spooning tuna sald into lettuce leaves, and garnish with avocoda slice, enjoy!"]
+let shreddedDinner2Instructions: [String] = ["Clean and dry lettuce. Seperating them into leaves.", "Drain the tuna and transfer to a large salad bowl.", "Using a knife, dice onion, peppers, and cilantro to tiny pieces.","Add 3 tbsp of mayo, salt, pepper, lime juice, onion, and cilantro to tuna and stir thoroughly.", "Slice avocado." , "Make lettuce wraps by spooning tuna sald into lettuce leaves, and garnish with avocoda slice, enjoy!"]
 let shreddedDinner2Ingredients: [Recipe.Ingredient] = [avocado, lettuce, tuna, lime, redOnion, mayo, salt, pepper, redPepperHalf, greenPepperHalf]
 let shreddedDinner2Name = "Tuna Salad Wraps"
 
