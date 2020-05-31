@@ -13,48 +13,10 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: NSNotification.Name("ExercisesLoadedNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
         setUpLoadingLabel()
-
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       // animateLabel()
-        //AlertController.createAlert(errorMessage: "Workout section will be available soon! You will be sent a notification when ready!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
-        
-    }
-    
-    private func animateLabel() {
-        UIView.animate(withDuration: 4, animations: { [weak self] in
-            self?.loadingLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-            self?.loadingLabel.transform = .identity
-        }) { (Success) in
-            UIView.animate(withDuration: 4, animations: { [weak self] in
-                self?.loadingLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                self?.loadingLabel.transform = .identity
-            }) { (Success) in
-                UIView.animate(withDuration: 4, animations: { [weak self] in
-                    self?.loadingLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                    self?.loadingLabel.transform = .identity
-                }) { (Success) in
-                    UIView.animate(withDuration: 4, animations: { [weak self] in
-                        self?.loadingLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                        self?.loadingLabel.transform = .identity
-                    }) { (Success) in
-                        UIView.animate(withDuration: 4, animations: { [weak self] in
-                            self?.loadingLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                            self?.loadingLabel.transform = .identity
-                        }) { (Success) in
-                           // AlertController.createAlert(errorMessage: "Still fetching, maybe connect to Wifi for faster program dowload.", title: "Download still in progress", viewController: self, actionTitle: "OK")
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
-
     let loadingLabel = UILabel()
     let loadingIV = UIImageView(image: #imageLiteral(resourceName: "inapppromopic"))
     private var loadingSpinner: UIActivityIndicatorView?

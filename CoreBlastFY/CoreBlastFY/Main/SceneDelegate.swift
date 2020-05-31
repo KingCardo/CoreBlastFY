@@ -23,10 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     ExerciseStorage.fetchCoreExercises { (success) in
 
                         DispatchQueue.main.async {
-                            if success == true {
-                                workoutsReadyNotification()
-                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                            } else if success == false {
+//                            if success == true {
+//                                workoutsReadyNotification()
+//                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
+//                            } else
+                                if success == false {
                                 NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                             } else {
                                 return
@@ -44,9 +45,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 ExerciseStorage.fetchCoreExercises { (success) in
 
                     DispatchQueue.main.async {
-                        if success == true {
-                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                        } else if success == false {
+//                        if success == true {
+//                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
+//                        } else
+                            if success == false {
                             NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                         } else {
                             return

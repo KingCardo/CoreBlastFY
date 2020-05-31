@@ -17,10 +17,8 @@ class SceneExerciseFetcher {
                 ExerciseStorage.fetchCoreExercises { (success) in
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        if success == true {
-                            workoutsReadyNotification()
-                            NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                        } else if success == false {
+             
+                            if success == false {
                             NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                         } else {
                             return
@@ -36,11 +34,8 @@ class SceneExerciseFetcher {
     } else if UserDefaults.standard.bool(forKey: onboardingKey) {
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
-
                 DispatchQueue.main.async {
-                    if success == true {
-                        // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                    } else if success == false {
+                        if success == false {
                         NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                     } else {
                         return
@@ -50,7 +45,4 @@ class SceneExerciseFetcher {
         }
     }
     }
-    
-    
-    
 }

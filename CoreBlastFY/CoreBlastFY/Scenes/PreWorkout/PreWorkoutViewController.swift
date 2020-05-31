@@ -28,6 +28,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private var preworkoutView: PreWorkoutView?
     private var loadingView: LoadingView?
     private var loadingSpinner: UIActivityIndicatorView?
+    private var exerciseLoadingView: ExercisesLoadingView?
     
     // MARK: Object lifecycle
     
@@ -76,14 +77,21 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
+        registerObservers()
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
             fetchUserInfo()
             setupTipIcon()
             self.tabBarController?.tabBar.isHidden = false
+        
+        if ExerciseStorage.exercises.count <= 0 {
+            exerciseLoadingView = ExercisesLoadingView()
+            view.addSubview(exerciseLoadingView!)
+            exerciseLoadingView?.fillSuperview()
+        }
     }
     
     // MARK: Setup
@@ -118,8 +126,19 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         AlertController.createAlert(errorMessage: "Keep up the hard work!\nConsistency is key!", title: "Congratulations 💪", viewController: self, actionTitle: "🎯")
     }
     
+    @objc private func showWorkoutVC() {
+        interactor?.exercises = ExerciseStorage.exercises
+        exerciseLoadingView?.removeFromSuperview()
+        exerciseLoadingView = nil
+    }
+    
     @objc private func showTip() {
         AlertController.createAlert(errorMessage: "Warming up or jogging for 10 minutes prior to workout will greatly increase productivity of workout!", title: "Workout Tip", viewController: self)
+    }
+    
+    private func registerObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
     }
     
     private func addTipIcon() {
@@ -170,7 +189,6 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     func displayPreWorkoutViewModel(viewModel: PreWorkout.FetchUser.ViewModel) {
         let viewModel = viewModel
-        //removeLoadingSpinner()
         setupPreWorkoutUI(viewModel: viewModel)
     }
     

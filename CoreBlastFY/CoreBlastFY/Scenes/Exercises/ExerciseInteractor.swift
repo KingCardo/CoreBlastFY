@@ -17,7 +17,7 @@ protocol ExerciseBusinessLogic {
 }
 
 protocol ExerciseDataStore {
-  var exercises: [Exercise] { get }
+  var exercises: [Exercise] { get set }
 }
 
 class ExerciseInteractor: ExerciseBusinessLogic, ExerciseDataStore {

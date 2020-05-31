@@ -20,8 +20,9 @@ protocol ExerciseDisplayLogic: class {
 class ExerciseViewController: UIViewController, ExerciseDisplayLogic
 {
     static let videoCellId = "Videos"
-    var interactor: ExerciseBusinessLogic?
+    var interactor: (ExerciseBusinessLogic & ExerciseDataStore)?
     var exerciseVM: [Exercises.Videos.ViewModel.ExerciseVM] = []
+    private var exerciseLoadingView: ExercisesLoadingView?
     
     // MARK: Object lifecycle
     
@@ -55,9 +56,26 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
         super.viewDidLoad()
         getExercises()
         setUpTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if ExerciseStorage.exercises.count <= 0 {
+            exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be available soon!")
+            view.addSubview(exerciseLoadingView!)
+            exerciseLoadingView?.fillSuperview()
+        }
     }
     
     // MARK: Do something
+    
+    @objc private func showWorkoutVC() {
+        interactor?.exercises = ExerciseStorage.exercises
+        tableView.reloadData()
+        exerciseLoadingView?.removeFromSuperview()
+        exerciseLoadingView = nil
+    }
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     

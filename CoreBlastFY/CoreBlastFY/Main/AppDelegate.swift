@@ -38,14 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
   
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        let _ = ExerciseStorage.loadExercises()
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises()
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
+        let _ = ExerciseStorage.loadExercises()
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises()
+
         
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
