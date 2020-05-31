@@ -128,8 +128,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     @objc private func showWorkoutVC() {
         interactor?.exercises = ExerciseStorage.exercises
-        exerciseLoadingView?.removeFromSuperview()
-        exerciseLoadingView = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.exerciseLoadingView?.removeFromSuperview()
+            self?.exerciseLoadingView = nil
+        }
     }
     
     @objc private func showTip() {
