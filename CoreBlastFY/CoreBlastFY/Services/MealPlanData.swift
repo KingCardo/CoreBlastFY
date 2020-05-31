@@ -201,7 +201,7 @@ let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shredde
 
 let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmon"))
 
-let franchizMealPlanTitle = "Franchiz Personal Plan"
+let franchizMealPlanTitle = "My Personal Plan"
 let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."
 let franchizMealDescription = "Abs are made in the kitchen! Time to get right!"
 let franchizMealTip = "To be successful you have to plan ahead or you will fail! "

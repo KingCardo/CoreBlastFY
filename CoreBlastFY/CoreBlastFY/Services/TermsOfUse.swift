@@ -10,7 +10,7 @@ import Foundation
 
 let termsOfUse = """
 Forever Young Core Blast App, LLC Terms of Use & Licensed Application End User License Agreement
-Date of last revision: May 2020
+Date of last revision: June 2020
 
 PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THIS APP. By using this application (the “App”) on mobile phone, tablet, console or other device (collectively, “Device”), you signify that you have read, understand and agree to be bound by these Terms of Use and any other applicable law. Forever Young Core Blast App, LLC (“Forever Young Core Blast App”) may change these Terms of Use at any time without notice, effective upon its posting to the App. Your continued use of the App shall be considered your acceptance to the revised Terms of Use. If you do not agree to these Terms of Use, please do not use this App.
 

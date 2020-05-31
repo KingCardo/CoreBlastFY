@@ -15,7 +15,7 @@ This program is broken up into 5 levels!
 \nNovice level slowly adds in a couple dynamic movements to increase the demand.
 \nSolid level really is going to push you by getting the core even stronger by increasing duration and harder progressions of exercises.
 \nAdvanced level is polishing up the 6 pack with some high quality movements!
-\nLast but not least Rockstar turns into a good total body H.I.I.T. workout that's going to sculpt your whole body!
+\nLast but not least Rockstar turns into a good total body H.I.I.T(High Intensity Interval Training). workout that's going to sculpt your whole body!
 \nHave fun, breathe thru when it gets tough, and never ever give up on your goals!
 
 """
