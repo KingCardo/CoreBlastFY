@@ -16,7 +16,6 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
-        
     }
    
     override func viewDidAppear(_ animated: Bool) {

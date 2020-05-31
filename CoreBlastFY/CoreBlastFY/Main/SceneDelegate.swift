@@ -58,6 +58,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
+    
+    @objc func sendExerciseNotification() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            workoutsReadyNotification()
+        }
+    }
 
     
     @objc func handleFailedFetch() {
@@ -74,6 +80,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
         
         
         self.window = self.window ?? UIWindow()
