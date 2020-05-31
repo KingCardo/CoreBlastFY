@@ -16,7 +16,7 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: FetchingExercisesSucceededNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(handleVC), name: FetchingExercisesSucceededNotification, object: nil)
         
     }
    
@@ -28,16 +28,16 @@ class HomeViewController: UITabBarController {
             
         }
     }
-    @objc private func handleVC() {
-        if workoutNavController == nil {
-        self.setupPreworkoutVC()
-        self.setupExerciseVC()
-        DispatchQueue.main.async {
-            self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
-            self.view.setNeedsLayout()
-        }
-     }
-    }
+//    @objc private func handleVC() {
+//        if workoutNavController == nil {
+//        self.setupPreworkoutVC()
+//        self.setupExerciseVC()
+//        DispatchQueue.main.async {
+//            self.setViewControllers([self.progressionNavController, self.workoutNavController, self.nutritionVC, self.exercisesNavVC, self.settingsNavController], animated: true)
+//            self.view.setNeedsLayout()
+//        }
+//     }
+//    }
 
 
     
@@ -89,15 +89,15 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
             
-        if ExerciseStorage.exercises.count > 0 {
+        //if ExerciseStorage.exercises.count > 0 {
             self.setupPreworkoutVC()
             self.setupExerciseVC()
             setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
 
-        } else {
-            setViewControllers([progressionNavController], animated: true)
-            
-        }
+//        } else {
+//            setViewControllers([progressionNavController], animated: true)
+//
+//        }
         
         selectedViewController = viewControllers?[0]
     }

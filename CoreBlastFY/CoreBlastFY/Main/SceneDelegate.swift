@@ -56,6 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
+
     
     @objc func handleFailedFetch() {
                                 let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
@@ -72,45 +73,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         
-        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    ExerciseStorage.fetchCoreExercises { (success) in
-
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            if success == true {
-                                workoutsReadyNotification()
-                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                            } else if success == false {
-                                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                            } else {
-                                return
-                            }
-                        }
-                    }
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                }
-            }
-        } else if UserDefaults.standard.bool(forKey: onboardingKey) {
-            DispatchQueue.global(qos: .userInitiated).async {
-                ExerciseStorage.fetchCoreExercises { (success) in
-
-                    DispatchQueue.main.async {
-                        if success == true {
-                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-                        } else if success == false {
-                            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                        } else {
-                            return
-                        }
-                    }
-                }
-            }
-        }
-
         
         self.window = self.window ?? UIWindow()
         

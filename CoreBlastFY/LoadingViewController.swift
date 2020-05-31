@@ -21,6 +21,7 @@ class LoadingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateLabel()
+        AlertController.createAlert(errorMessage: "Workout section will be available soon! You will be sent a notification when ready!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
         
     }
     
