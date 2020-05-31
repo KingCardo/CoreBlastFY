@@ -18,15 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func retryHandler(alertAction: UIAlertAction) {
       if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            if Reachability.isConnectedToNetwork() {
+           // if Reachability.isConnectedToNetwork() {
                 DispatchQueue.global(qos: .userInitiated).async {
                     ExerciseStorage.fetchCoreExercises { (success) in
 
                         DispatchQueue.main.async {
-//                            if success == true {
-//                                workoutsReadyNotification()
-//                                NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-//                            } else
                                 if success == false {
                                 NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                             } else {
@@ -35,19 +31,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         }
                     }
                 }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                }
-            }
         } else if UserDefaults.standard.bool(forKey: onboardingKey) {
             DispatchQueue.global(qos: .userInitiated).async {
                 ExerciseStorage.fetchCoreExercises { (success) in
 
                     DispatchQueue.main.async {
-//                        if success == true {
-//                            // NotificationCenter.default.post(name: FetchingExercisesSucceededNotification, object: self)
-//                        } else
                             if success == false {
                             NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                         } else {

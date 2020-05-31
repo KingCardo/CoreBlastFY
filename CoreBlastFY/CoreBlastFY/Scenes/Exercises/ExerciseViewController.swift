@@ -71,8 +71,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
     // MARK: Do something
     
     @objc private func showWorkoutVC() {
-        interactor?.exercises = ExerciseStorage.exercises
-        tableView.reloadData()
+        getExercises()
         exerciseLoadingView?.removeFromSuperview()
         exerciseLoadingView = nil
     }

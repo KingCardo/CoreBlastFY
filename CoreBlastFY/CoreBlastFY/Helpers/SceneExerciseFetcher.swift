@@ -12,7 +12,6 @@ class SceneExerciseFetcher {
     
     func fetchExercises() {
     if !UserDefaults.standard.bool(forKey: onboardingKey) {
-        if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .userInitiated).async {
                 ExerciseStorage.fetchCoreExercises { (success) in
 
@@ -26,11 +25,6 @@ class SceneExerciseFetcher {
                     }
                 }
             }
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-            }
-        }
     } else if UserDefaults.standard.bool(forKey: onboardingKey) {
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in

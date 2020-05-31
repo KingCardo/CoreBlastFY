@@ -23,7 +23,7 @@ protocol ExerciseDataStore {
 class ExerciseInteractor: ExerciseBusinessLogic, ExerciseDataStore {
   var presenter: ExercisePresentationLogic?
   var worker: ExerciseWorker?
-  var exercises: [Exercise] = []
+  var exercises: [Exercise] = ExerciseStorage.exercises
   
   // MARK: Do something
   
