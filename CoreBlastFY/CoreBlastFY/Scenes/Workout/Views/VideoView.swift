@@ -14,7 +14,6 @@ class VideoView: UIView {
     private var looper: Looper?
 
     init(frame: CGRect, urls: [URL], loopCount: Int, numberOfSets: Int) {
-        
         looper = PlayerLooper(videoURLs: urls, loopCount: loopCount, numberOfSets: numberOfSets)
         super.init(frame: frame)
         clipsToBounds = true

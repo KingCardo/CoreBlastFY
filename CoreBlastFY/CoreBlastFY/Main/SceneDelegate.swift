@@ -17,34 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func retryHandler(alertAction: UIAlertAction) {
-      if !UserDefaults.standard.bool(forKey: onboardingKey) {
-           // if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    ExerciseStorage.fetchCoreExercises { (success) in
-
-                        DispatchQueue.main.async {
-                                if success == false {
-                                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                            } else {
-                                return
-                            }
-                        }
-                    }
-                }
-        } else if UserDefaults.standard.bool(forKey: onboardingKey) {
-            DispatchQueue.global(qos: .userInitiated).async {
-                ExerciseStorage.fetchCoreExercises { (success) in
-
-                    DispatchQueue.main.async {
-                            if success == false {
-                            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                        } else {
-                            return
-                        }
-                    }
-                }
-            }
-        }
+     DispatchQueue.global(qos: .userInitiated).async {
+          ExerciseStorage.fetchCoreExercises { (success) in
+              
+              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                  
+                  if success == false {
+                      NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                  } else {
+                      return
+                  }
+              }
+          }
+      }
     }
     
     @objc func sendExerciseNotification() {
@@ -55,21 +40,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     
     @objc func handleFailedFetch() {
-                                let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
-                                alertController.overrideUserInterfaceStyle = .dark
+        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
+        alertController.overrideUserInterfaceStyle = .dark
         
-                                let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
+        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
         
-                                alertController.addAction(retry)
-                                
-                                self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-                                self.window!.makeKeyAndVisible()
+        alertController.addAction(retry)
+        
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        self.window!.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
         
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises()
         
         self.window = self.window ?? UIWindow()
         

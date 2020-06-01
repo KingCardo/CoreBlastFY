@@ -8,28 +8,15 @@
 
 import UIKit
 
-class SceneExerciseFetcher {
+struct SceneExerciseFetcher {
     
     func fetchExercises() {
-    if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            DispatchQueue.global(qos: .userInitiated).async {
-                ExerciseStorage.fetchCoreExercises { (success) in
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-             
-                            if success == false {
-                            NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                        } else {
-                            return
-                        }
-                    }
-                }
-            }
-    } else if UserDefaults.standard.bool(forKey: onboardingKey) {
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
-                DispatchQueue.main.async {
-                        if success == false {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    
+                    if success == false {
                         NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                     } else {
                         return
@@ -37,6 +24,5 @@ class SceneExerciseFetcher {
                 }
             }
         }
-    }
     }
 }
