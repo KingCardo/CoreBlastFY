@@ -10,7 +10,8 @@ import UIKit
 
 struct SceneExerciseFetcher {
     
-    func fetchExercises() {
+    func fetchExercises(completion: @escaping(Bool?) -> Void) {
+        print("fetch exercises called, rwrw")
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
                 
@@ -18,7 +19,10 @@ struct SceneExerciseFetcher {
                     
                     if success == false {
                         NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                        completion(false)
+                        return
                     } else {
+                        completion(nil)
                         return
                     }
                 }

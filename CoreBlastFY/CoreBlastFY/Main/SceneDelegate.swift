@@ -17,19 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func retryHandler(alertAction: UIAlertAction) {
-     DispatchQueue.global(qos: .userInitiated).async {
-          ExerciseStorage.fetchCoreExercises { (success) in
-              
-              DispatchQueue.main.async {
-                  
-                  if success == false {
-                      NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                  } else {
-                      return
-                  }
-              }
-          }
-      }
+        
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises { (success) in
+            DispatchQueue.main.async {
+                
+                if success == false {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                } else {
+                    return
+                }
+                
+            }
+        }
     }
     
     @objc func sendExerciseNotification() {
@@ -60,7 +60,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                UserAPI.user = UserManager.loadUserFromFile()
         
         let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises()
+        exerciseFetcher.fetchExercises() { (success) in
+            print(success)
+            
+        }
         
         self.window = self.window ?? UIWindow()
         

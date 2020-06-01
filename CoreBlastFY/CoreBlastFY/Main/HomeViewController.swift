@@ -16,24 +16,26 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
     }
-   
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        ExerciseStorage.failedCompletion = { (errorMessage) in
-//            AlertController.createAlert(errorMessage: errorMessage, viewController: self)
-//            
-//        }
-//    }
+
     
     @objc func handleFailedFetch() {
         AlertController.createAlert(errorMessage: "Network connectivity not strong enough. Please try again when connected to WiFi", title: "Network Download Error", viewController: self, actionTitle: "Try Again")
         let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises()
-     }
+        exerciseFetcher.fetchExercises { (success) in
+            DispatchQueue.main.async {
+                
+                if success == false {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                } else {
+                    return
+                }
+                
+            }
+        }
+    }
     
     @objc func sendExerciseNotification() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
