@@ -26,7 +26,7 @@ func getHourAndMinuteFromDate(date: Date) -> (hour: Int?, minute: Int?) {
 func workoutsReadyNotification() {
     let content = UNMutableNotificationContent()
        content.title = "Workout Section Ready💎!"
-       content.body = "Time To Get to work!"
+       content.body = "Time To Get to Work!"
        content.sound = UNNotificationSound.default
        
        // Create the trigger as a repeating event.
