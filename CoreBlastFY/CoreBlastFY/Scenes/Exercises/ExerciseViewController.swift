@@ -75,6 +75,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
         DispatchQueue.main.async { [weak self] in
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
+            self?.view.setNeedsDisplay()
         }
         
     }

@@ -100,6 +100,7 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
         loadingSpinner?.stopAnimating()
         loadingSpinner?.removeFromSuperview()
         loadingSpinner = nil
+        view.setNeedsDisplay()
     }
    
     

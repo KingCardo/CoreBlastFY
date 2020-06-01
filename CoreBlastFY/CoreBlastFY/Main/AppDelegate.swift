@@ -36,19 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sendPointDecrementNotification()
         }
       }
-  
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        return true
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
-        
-        let _ = ExerciseStorage.loadExercises()
-        ProgressionPicController.shared.loadFromFile()
-        EntryController.shared.loadFromFile()
-        UserAPI.user = UserManager.loadUserFromFile()
-        
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in

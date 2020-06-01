@@ -54,6 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
+        let _ = ExerciseStorage.loadExercises()
+               ProgressionPicController.shared.loadFromFile()
+               EntryController.shared.loadFromFile()
+               UserAPI.user = UserManager.loadUserFromFile()
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises()
