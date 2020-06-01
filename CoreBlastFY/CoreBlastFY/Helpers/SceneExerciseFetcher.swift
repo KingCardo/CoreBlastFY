@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+let exercisesLoaded  = "exercisesLoaded"
 struct SceneExerciseFetcher {
     
     func fetchExercises(completion: @escaping(Bool?) -> Void) {
@@ -17,7 +17,12 @@ struct SceneExerciseFetcher {
                 
                 DispatchQueue.main.async {
                     
-                    if success == false {
+                    if success == true, !UserDefaults.standard.bool(forKey: exercisesLoaded) {
+                        NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
+                        UserDefaults.standard.set(true, forKey: exercisesLoaded)
+                    }
+                    
+                    else if success == false {
                         NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                         completion(false)
                         return

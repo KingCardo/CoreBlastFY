@@ -20,15 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises { (success) in
-            DispatchQueue.main.async {
-                
-                if success == false {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                } else {
-                    return
-                }
-                
-            }
+            
         }
     }
     
@@ -61,7 +53,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
-            print(success)
             
         }
         

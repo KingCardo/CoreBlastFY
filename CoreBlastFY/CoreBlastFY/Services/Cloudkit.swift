@@ -22,6 +22,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
     
     func fetchExercises(of level: String, completion: @escaping([CKRecord], ExerciseInfoStoreError?) -> Void) {
         var records: [CKRecord] = []
+        var errorF: Error?
        
         let predicate = NSPredicate(format: "level == %@", level)
         let query = CKQuery(recordType: "Exercises", predicate: predicate)
@@ -30,11 +31,17 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         fetchOperation.queuePriority = .veryHigh
         var id: UIBackgroundTaskIdentifier!
                id = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                print("fetch operation cancelled")
                 fetchOperation.cancel()
                 completion([], ExerciseInfoStoreError.CannotFetch("Program not downloaded, Try Again"))
                })
         fetchOperation.completionBlock = {
             UIApplication.shared.endBackgroundTask(id)
+            if let error = errorF {
+                completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
+            } else {
+            completion(records, nil)
+            }
         }
         fetchOperation.recordFetchedBlock = { (record) in
                         records.append(record)
@@ -43,10 +50,12 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         fetchOperation.queryCompletionBlock = { [weak self] (curser, error) in
             DispatchQueue.main.async {
                 if let error = error {
+                    errorF = error
                     self?.displayCloudKitNotAvailableError(error.localizedDescription)
                         completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
                 } else {
-                    completion(records, nil)
+                   // records = records
+                    //completion(records, nil)
                 }
             }
         }
