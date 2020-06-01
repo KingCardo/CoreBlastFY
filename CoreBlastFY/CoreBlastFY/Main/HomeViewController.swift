@@ -17,6 +17,7 @@ class HomeViewController: UITabBarController {
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
     }
    
 //    override func viewDidAppear(_ animated: Bool) {
@@ -33,6 +34,14 @@ class HomeViewController: UITabBarController {
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises()
      }
+    
+    @objc func sendExerciseNotification() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if notificationsAllowed {
+                workoutsReadyNotification()
+            }
+        }
+    }
 
     
     private func setupPreworkoutVC() {

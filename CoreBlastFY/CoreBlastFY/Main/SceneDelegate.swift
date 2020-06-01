@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      DispatchQueue.global(qos: .userInitiated).async {
           ExerciseStorage.fetchCoreExercises { (success) in
               
-              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+              DispatchQueue.main.async {
                   
                   if success == false {
                       NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)

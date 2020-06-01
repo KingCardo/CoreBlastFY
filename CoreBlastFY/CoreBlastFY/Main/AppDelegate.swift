@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
         let _ = ExerciseStorage.loadExercises()
-        
         ProgressionPicController.shared.loadFromFile()
         EntryController.shared.loadFromFile()
         UserAPI.user = UserManager.loadUserFromFile()
+        
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
