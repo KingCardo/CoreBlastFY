@@ -16,45 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    func retryHandler(alertAction: UIAlertAction) {
-        
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises { (success) in
-            
-        }
-    }
-    
-    @objc func sendExerciseNotification() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            workoutsReadyNotification()
-        }
-    }
-
-    
-    @objc func handleFailedFetch() {
-        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
-        alertController.overrideUserInterfaceStyle = .dark
-        
-        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
-        
-        alertController.addAction(retry)
-        
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        self.window!.makeKeyAndVisible()
-    }
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
+      
         let _ = ExerciseStorage.loadExercises()
                ProgressionPicController.shared.loadFromFile()
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()
         
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises() { (success) in
-            
-        }
+        
         
         self.window = self.window ?? UIWindow()
         

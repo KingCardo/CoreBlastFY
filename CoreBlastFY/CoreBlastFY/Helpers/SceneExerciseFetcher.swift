@@ -9,17 +9,21 @@
 import UIKit
 let exercisesLoaded  = "exercisesLoaded"
 struct SceneExerciseFetcher {
+    static var inProgress = false
     
     func fetchExercises(completion: @escaping(Bool?) -> Void) {
+        
         print("fetch exercises called, rwrw")
         DispatchQueue.global(qos: .userInitiated).async {
+            if !SceneExerciseFetcher.inProgress {
+            SceneExerciseFetcher.inProgress = true
             ExerciseStorage.fetchCoreExercises { (success) in
                 
                 DispatchQueue.main.async {
-                    
-                    if success == true, !UserDefaults.standard.bool(forKey: exercisesLoaded) {
-                        NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
-                        UserDefaults.standard.set(true, forKey: exercisesLoaded)
+                    SceneExerciseFetcher.inProgress = false
+                    if success == true {
+                    completion(true)
+                        return
                     }
                     
                     else if success == false {
@@ -30,6 +34,8 @@ struct SceneExerciseFetcher {
                         completion(nil)
                         return
                     }
+                }
+                     
                 }
             }
         }

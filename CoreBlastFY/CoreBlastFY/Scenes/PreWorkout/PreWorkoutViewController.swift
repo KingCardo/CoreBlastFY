@@ -127,11 +127,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     @objc private func showWorkoutVC() {
-        interactor?.exercises = ExerciseStorage.exercises
-        DispatchQueue.main.async { [weak self] in
+            fetchUserInfo()
+            DispatchQueue.main.async { [weak self] in
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
-            self?.view.setNeedsDisplay()
+            self?.view.setNeedsLayout()
         }
     }
     

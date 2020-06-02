@@ -24,11 +24,15 @@ class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
     
   var presenter: PreWorkoutPresentationLogic?
   var userInfoWorker: PreWorkoutWorker?
-  var exercises: [Exercise] = ExerciseStorage.exercises
+  var exercises: [Exercise] = []
   
   // MARK: Do something
+    private func getExercises() {
+        self.exercises = ExerciseStorage.exercises
+    }
   
   func fetchUserInfo(request: PreWorkout.FetchUser.Request) {
+    getExercises()
     userInfoWorker = PreWorkoutWorker(userInfoStore: UserAPI())
     userInfoWorker?.fetchUserInfo() { user, error in
         if let error = error {

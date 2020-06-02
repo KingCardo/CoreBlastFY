@@ -16,24 +16,25 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
-       // NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
     }
-
+    
     
     @objc func handleFailedFetch() {
-        AlertController.createAlert(errorMessage: "Network connectivity not strong enough. Please try again when connected to WiFi", title: "Network Download Error", viewController: self, actionTitle: "Try Again")
+        if notificationsAllowed {
+            workoutsFailedNotification()
+        }
+        
+        AlertController.createAlert(errorMessage: "Network connectivity not strong enough. Please try again when connected to WiFi", title: "Network Download Error", viewController: self, actionTitle: "Try Again", handler: retryHandler)
+        
+    }
+    
+    func retryHandler(alertAction: UIAlertAction) {
+        
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises { (success) in
-            DispatchQueue.main.async {
-                
-                if success == false {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                } else {
-                    return
-                }
-                
-            }
+            
         }
     }
     
@@ -44,7 +45,7 @@ class HomeViewController: UITabBarController {
             }
         }
     }
-
+    
     
     private func setupPreworkoutVC() {
         let workoutViewController = PreWorkoutViewController()
@@ -93,10 +94,10 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-            self.setupPreworkoutVC()
-            self.setupExerciseVC()
-            setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
-
+        self.setupPreworkoutVC()
+        self.setupExerciseVC()
+        setViewControllers([progressionNavController, workoutNavController, nutritionVC, exercisesNavVC, settingsNavController], animated: true)
+        
         
         selectedViewController = viewControllers?[0]
     }

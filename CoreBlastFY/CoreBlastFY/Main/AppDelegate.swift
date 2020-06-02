@@ -40,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises() { (success) in
+
+        }
+        
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
             // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.

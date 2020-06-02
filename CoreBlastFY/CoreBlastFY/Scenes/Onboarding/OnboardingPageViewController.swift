@@ -20,6 +20,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         view.backgroundColor = .goatBlack
         dataSource = self
         
@@ -30,6 +31,23 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         }
         
     }
+    
+    @objc func handleFailedFetch() {
+               if notificationsAllowed {
+                   workoutsFailedNotification()
+               }
+       
+               AlertController.createAlert(errorMessage: "Network connectivity not strong enough. Please try again when connected to WiFi", title: "Network Download Error", viewController: self, actionTitle: "Try Again", handler: retryHandler)
+           
+       }
+       
+       func retryHandler(alertAction: UIAlertAction) {
+           
+           let exerciseFetcher = SceneExerciseFetcher()
+           exerciseFetcher.fetchExercises { (success) in
+               
+           }
+       }
     
     override var prefersStatusBarHidden: Bool {
            return true
