@@ -17,11 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-      
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+        
         let _ = ExerciseStorage.loadExercises()
                ProgressionPicController.shared.loadFromFile()
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()
+        }
         
         
         

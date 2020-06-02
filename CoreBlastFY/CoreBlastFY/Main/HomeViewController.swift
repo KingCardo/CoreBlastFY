@@ -32,8 +32,14 @@ class HomeViewController: UITabBarController {
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises { (success) in
-            print(success, "RWRWHV")
-            
+             DispatchQueue.main.async {
+            if success == true {
+                workoutsReadyNotification()
+            } else if success == false {
+                NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                workoutsFailedNotification()
+                }
+            }
         }
     }
     

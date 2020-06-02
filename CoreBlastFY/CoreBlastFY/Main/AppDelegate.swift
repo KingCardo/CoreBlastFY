@@ -42,7 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
-            print(success)
+            DispatchQueue.main.async {
+                if success == true {
+                    workoutsReadyNotification()
+                } else if success == false {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                    workoutsFailedNotification()
+                }
+            }
         }
         
         // MARK: Registering Launch Handlers for Tasks

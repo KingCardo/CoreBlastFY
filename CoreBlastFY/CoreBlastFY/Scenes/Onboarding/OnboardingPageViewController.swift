@@ -45,7 +45,14 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
            
            let exerciseFetcher = SceneExerciseFetcher()
            exerciseFetcher.fetchExercises { (success) in
-               print(success, "RWRWOVC")
+             DispatchQueue.main.async {
+               if success == true {
+                   workoutsReadyNotification()
+               } else if success == false {
+                   NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                   workoutsFailedNotification()
+               }
+            }
            }
        }
     

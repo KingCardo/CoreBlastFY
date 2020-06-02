@@ -25,9 +25,7 @@ struct SceneExerciseFetcher {
                     completion(true)
                         return
                     }
-                    
                     else if success == false {
-                        NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
                         completion(false)
                         return
                     } else {
