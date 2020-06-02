@@ -6,36 +6,42 @@
 //  Copyright © 2020 Riccardo Washington. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
 let exercisesLoaded  = "exercisesLoaded"
+
 struct SceneExerciseFetcher {
     static var inProgress = false
     
     func fetchExercises(completion: @escaping(Bool?) -> Void) {
         
-        print("fetch exercises called, rwrw")
-        DispatchQueue.global(qos: .userInitiated).async {
-            if !SceneExerciseFetcher.inProgress {
-            SceneExerciseFetcher.inProgress = true
-            ExerciseStorage.fetchCoreExercises { (success) in
+        if !SceneExerciseFetcher.inProgress {
+            DispatchQueue.global(qos: .userInitiated).async {
                 
-                DispatchQueue.main.async {
-                    SceneExerciseFetcher.inProgress = false
-                    if success == true {
-                    completion(true)
-                        return
+                SceneExerciseFetcher.inProgress = true
+                
+                ExerciseStorage.fetchCoreExercises { (success) in
+                    
+                    DispatchQueue.main.async {
+                        SceneExerciseFetcher.inProgress = false
+                        if success == true {
+                            completion(true)
+                            return
+                            
+                        } else if success == false {
+                            completion(false)
+                            return
+                            
+                        } else {
+                            completion(nil)
+                            return
+                        }
                     }
-                    else if success == false {
-                        completion(false)
-                        return
-                    } else {
-                        completion(nil)
-                        return
-                    }
-                }
-                     
                 }
             }
+        } else {
+            completion(nil)
+            return
         }
     }
 }
