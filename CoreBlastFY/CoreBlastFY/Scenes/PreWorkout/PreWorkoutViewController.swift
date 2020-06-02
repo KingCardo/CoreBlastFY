@@ -129,6 +129,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     @objc private func showWorkoutVC() {
             fetchUserInfo()
             DispatchQueue.main.async { [weak self] in
+                self?.exerciseLoadingView?.isHidden = true
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
             self?.view.setNeedsLayout()

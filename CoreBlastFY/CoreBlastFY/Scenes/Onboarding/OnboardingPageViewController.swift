@@ -45,7 +45,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
            
            let exerciseFetcher = SceneExerciseFetcher()
            exerciseFetcher.fetchExercises { (success) in
-               
+               print(success, "RWRWOVC")
            }
        }
     

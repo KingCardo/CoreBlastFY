@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
-
+            print(success)
         }
         
         // MARK: Registering Launch Handlers for Tasks

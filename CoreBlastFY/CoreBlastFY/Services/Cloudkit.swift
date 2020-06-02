@@ -38,10 +38,6 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                 id = UIBackgroundTaskIdentifier.invalid
                })
         
-        fetchOperation.completionBlock = {
-            UIApplication.shared.endBackgroundTask(id)
-            id = UIBackgroundTaskIdentifier.invalid
-        }
         fetchOperation.recordFetchedBlock = { (record) in
                         records.append(record)
                 }
@@ -56,6 +52,8 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                 }
             }
         }
+        UIApplication.shared.endBackgroundTask(id)
+        id = UIBackgroundTaskIdentifier.invalid
         publicDatabase.add(fetchOperation)
         
     }

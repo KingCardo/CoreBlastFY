@@ -73,6 +73,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
     @objc private func showWorkoutVC() {
         getExercises()
         DispatchQueue.main.async { [weak self] in
+            self?.exerciseLoadingView?.isHidden = true 
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
             self?.view.setNeedsDisplay()
