@@ -40,10 +40,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
+        DispatchQueue.global(qos: .userInitiated).async {
+        
+        let _ = ExerciseStorage.loadExercises()
+               ProgressionPicController.shared.loadFromFile()
+               EntryController.shared.loadFromFile()
+               UserAPI.user = UserManager.loadUserFromFile()
+        }
+        
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
             DispatchQueue.main.async {
-                if success == true {
+                if success == true, (ExerciseStorage.exercises.count <= 7) {
                     workoutsReadyNotification()
                 } else if success == false {
                     NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)

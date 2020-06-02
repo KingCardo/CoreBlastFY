@@ -18,15 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        DispatchQueue.global(qos: .userInitiated).async {
-        
-        let _ = ExerciseStorage.loadExercises()
-               ProgressionPicController.shared.loadFromFile()
-               EntryController.shared.loadFromFile()
-               UserAPI.user = UserManager.loadUserFromFile()
-        }
-        
-        
         
         self.window = self.window ?? UIWindow()
         
