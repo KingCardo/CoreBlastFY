@@ -42,10 +42,11 @@ struct Exercise: Codable {
         case explosive
     }
     
-    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, videoURL: URL) {
+    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement/*, videoURL: URL*/) {
         self.name = name
         self.tip = tip
-        self.videoURL = videoURL
+        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
+        self.videoURL = path
         self.level = level
     }
     

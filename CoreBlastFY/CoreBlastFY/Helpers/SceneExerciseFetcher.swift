@@ -17,7 +17,7 @@ struct SceneExerciseFetcher {
                 
                 DispatchQueue.main.async {
                     
-                    if success == true, !UserDefaults.standard.bool(forKey: exercisesLoaded) {
+                    if success == true {
                         NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
                         UserDefaults.standard.set(true, forKey: exercisesLoaded)
                     }

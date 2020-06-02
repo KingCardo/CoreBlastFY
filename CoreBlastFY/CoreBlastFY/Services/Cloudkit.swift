@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import BackgroundTasks
 
-class CloudKitService: ExerciseInfoStoreProtocol {
+class CloudKitService/*: ExerciseInfoStoreProtocol */{
     
     let publicDatabase = CKContainer.default().publicCloudDatabase
     
