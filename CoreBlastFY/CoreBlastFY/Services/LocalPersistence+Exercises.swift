@@ -76,49 +76,11 @@ class ExerciseStorage {
         }
     }
     }
-    
-//    static func fetchExercises(with level: String, completion: @escaping(Bool) -> Void) {
-//        if !UserDefaults.standard.bool(forKey: level) {
-//            let _ = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
-//           // worker.fetchExercises(of: level) { (exercises, error) in
-//                if !exercises.isEmpty {
-//                    ExerciseStorage.exercises += exercises
-//                    ExerciseStorage.save()
-//                    UserDefaults.standard.set(true, forKey: level)
-//                    completion(true)
-//                    return
-//                } else {
-//                    completion(false)
-//                    return
-//                }
-//            }
-//        }
+
     
     static func fetchCoreExercises(completion: @escaping(Bool) -> Void){
-        //UserAPI.user = UserManager.loadUserFromFile()
         ExerciseStorage.fetchExercises { (success) in
             completion(success)
         }
 }
-        
-
-//        switch UserAPI.user.totalPoints {
-//        case 0: ExerciseStorage.fetchExercises(with: "beginner") { (success) in
-//            completion(success)
-//            }
-//        case 14: ExerciseStorage.fetchExercises(with: "novice") { (success) in
-//            completion(success)
-//        }
-//        case 29: ExerciseStorage.fetchExercises(with: "solid") { (success) in
-//            completion(success)
-//        }
-//        case 44: ExerciseStorage.fetchExercises(with: "advanced") { (success) in
-//            completion(success)
-//        }
-//        case 59: ExerciseStorage.fetchExercises(with: "rockstar") { (success) in
-//            completion(success)
-//        }
-//        default: completion(nil)
-//        }
- //   }
 }

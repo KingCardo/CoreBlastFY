@@ -8,10 +8,10 @@
 
 import UIKit
 let exercisesLoaded  = "exercisesLoaded"
+
 struct SceneExerciseFetcher {
     
     func fetchExercises(completion: @escaping(Bool?) -> Void) {
-        print("fetch exercises called, rwrw")
         DispatchQueue.global(qos: .userInitiated).async {
             ExerciseStorage.fetchCoreExercises { (success) in
                 

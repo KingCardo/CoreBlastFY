@@ -13,10 +13,8 @@
 		7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */; };
 		7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */; };
 		7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */; };
-		7A0D676E2475BDC600A6E766 /* Airplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676D2475BDC600A6E766 /* Airplay.swift */; };
 		7A0D67702479C97F00A6E766 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */; };
 		7A0D677224804B9900A6E766 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D677124804B9900A6E766 /* LoadingViewController.swift */; };
-		7A0D67742481D2EF00A6E766 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67732481D2EF00A6E766 /* Reachability.swift */; };
 		7A2F4A1C2483399400223E54 /* SceneExerciseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */; };
 		7A2F4A1E24834EE600223E54 /* ExercisesLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */; };
 		7A2F4A2024835F5C00223E54 /* ExercisePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */; };
@@ -59,7 +57,6 @@
 		7A86DFB6247436A700F2FC35 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */; };
 		7A86DFB7247436A700F2FC35 /* ExerciseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
-		7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
 		7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */; };
 		7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABF23E9120600D0D6BD /* Main.storyboard */; };
@@ -67,7 +64,6 @@
 		7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */; };
 		7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC923E9122500D0D6BD /* UserAPI.swift */; };
 		7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */; };
-		7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */; };
 		7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACC23E9122500D0D6BD /* Looper.swift */; };
 		7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */; };
 		7A8CBADD23E9122D00D0D6BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */; };
@@ -192,10 +188,8 @@
 		7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractorTests.swift; sourceTree = "<group>"; };
 		7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenterTests.swift; sourceTree = "<group>"; };
 		7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
-		7A0D676D2475BDC600A6E766 /* Airplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplay.swift; sourceTree = "<group>"; };
 		7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		7A0D677124804B9900A6E766 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = SOURCE_ROOT; };
-		7A0D67732481D2EF00A6E766 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneExerciseFetcher.swift; sourceTree = "<group>"; };
 		7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesLoadingView.swift; sourceTree = "<group>"; };
 		7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlayerViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +236,6 @@
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAB623E9113100D0D6BD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreBlastFY.entitlements; sourceTree = "<group>"; };
 		7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A8CBABE23E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -251,7 +244,6 @@
 		7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A8CBAC923E9122500D0D6BD /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		7A8CBACA23E9122500D0D6BD /* PlayerLooper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLooper.swift; sourceTree = "<group>"; };
-		7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloudkit.swift; sourceTree = "<group>"; };
 		7A8CBACC23E9122500D0D6BD /* Looper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Looper.swift; sourceTree = "<group>"; };
 		7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalPersistence+Exercises.swift"; sourceTree = "<group>"; };
 		7A8CBAD823E9122D00D0D6BD /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -365,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */,
-				7A8CBABA23E9113D00D0D6BD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +423,6 @@
 		7A8CBA9223E9109800D0D6BD /* CoreBlastFY */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBAB823E9113900D0D6BD /* CoreBlastFY.entitlements */,
 				7A8CBABB23E9120600D0D6BD /* Main */,
 				7A8CBAD723E9122D00D0D6BD /* Helpers */,
 				7A8CBAC823E9122500D0D6BD /* Services */,
@@ -510,7 +500,6 @@
 			children = (
 				7A8CBB2F23EA6F6E00D0D6BD /* Notifications.swift */,
 				7A8CBAC923E9122500D0D6BD /* UserAPI.swift */,
-				7A8CBACB23E9122500D0D6BD /* Cloudkit.swift */,
 				7A8CBACF23E9122500D0D6BD /* LocalPersistence+Exercises.swift */,
 				7ABC86DD23FB8D40008DCDE3 /* VideoPlayer */,
 				7AC2C6C9244A5D9A00B3BFC8 /* MealPlanAPI.swift */,
@@ -519,8 +508,6 @@
 				7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */,
 				7A86DFA92473568200F2FC35 /* Program Overview.swift */,
 				7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */,
-				7A0D676D2475BDC600A6E766 /* Airplay.swift */,
-				7A0D67732481D2EF00A6E766 /* Reachability.swift */,
 				7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */,
 				7A2F4A212485D43000223E54 /* LocalExercises.swift */,
 			);
@@ -979,7 +966,6 @@
 			files = (
 				7A8CBB6823EFA50B00D0D6BD /* Entry.swift in Sources */,
 				7AC36D0B244E2213002764F5 /* MealPlanCell.swift in Sources */,
-				7A0D676E2475BDC600A6E766 /* Airplay.swift in Sources */,
 				7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */,
 				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
@@ -991,7 +977,6 @@
 				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
 				7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */,
 				7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */,
-				7A0D67742481D2EF00A6E766 /* Reachability.swift in Sources */,
 				7AC36D09244E2204002764F5 /* AppFullscreenDescriptionCell.swift in Sources */,
 				7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */,
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
@@ -1066,7 +1051,6 @@
 				7A8CBB1D23E912C700D0D6BD /* LoadingView.swift in Sources */,
 				7A0D677224804B9900A6E766 /* LoadingViewController.swift in Sources */,
 				7A5CEDDA2464CDEA0066B0D5 /* TipsCollectionViewCell.swift in Sources */,
-				7A8CBAD223E9122500D0D6BD /* Cloudkit.swift in Sources */,
 				7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */,
 				7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */,
 				7A0116522471C8840070EB5F /* StoreObserver.swift in Sources */,
@@ -1272,7 +1256,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreBlastFY/CoreBlastFY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
@@ -1281,7 +1264,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.100;
+				MARKETING_VERSION = 1.0.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1293,7 +1276,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreBlastFY/CoreBlastFY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
@@ -1302,7 +1284,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.100;
+				MARKETING_VERSION = 1.0.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

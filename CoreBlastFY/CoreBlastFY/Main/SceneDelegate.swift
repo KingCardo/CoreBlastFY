@@ -51,11 +51,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()
         
+        if !UserDefaults.standard.bool(forKey: exercisesLoaded) {
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
             
         }
-        
+        }
         self.window = self.window ?? UIWindow()
         
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
