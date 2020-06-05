@@ -69,6 +69,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
             self.window!.rootViewController = pageViewController
             self.window!.makeKeyAndVisible()
+            OnboardingViewController.completion = {
+                let homeVC = HomeViewController()
+                homeVC.modalPresentationStyle = .fullScreen
+                self.window!.rootViewController = homeVC
+                self.window!.makeKeyAndVisible()
+            }
         } else {
             self.window!.rootViewController = HomeViewController()
             self.window!.makeKeyAndVisible()

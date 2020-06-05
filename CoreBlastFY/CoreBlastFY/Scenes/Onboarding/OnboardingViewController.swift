@@ -177,6 +177,8 @@ class OnboardingViewController: UIViewController {
         
     }
     
+    static var completion: (() -> Void)?
+    
     @objc func nextButtonTapped() {
         switch index {
         case 0...3:
@@ -184,11 +186,8 @@ class OnboardingViewController: UIViewController {
         case 4: //Done Button
             
             grabInputFromUser(datePicker)
-            
             UserDefaults.standard.set(true, forKey: onboardingKey)
-                let homeVC = HomeViewController()
-                homeVC.modalPresentationStyle = .fullScreen
-                show(homeVC, sender: self)
+                OnboardingViewController.completion?()
            
         default: break
         }

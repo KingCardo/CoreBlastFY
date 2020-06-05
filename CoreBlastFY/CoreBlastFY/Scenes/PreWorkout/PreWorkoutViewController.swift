@@ -78,15 +78,6 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         registerObservers()
-        
-//        if ExerciseStorage.exercises.count <= 0 {
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                self.exerciseLoadingView = ExercisesLoadingView()
-//                self.preworkoutView?.addSubview(self.exerciseLoadingView!)
-//                self.exerciseLoadingView?.fillSuperview()
-//            }
-//        }
     }
 
     
