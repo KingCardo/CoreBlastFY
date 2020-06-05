@@ -78,6 +78,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         registerObservers()
+        if ExerciseStorage.exercises.count <= 0 {
+            exerciseLoadingView = ExercisesLoadingView()
+            view.addSubview(exerciseLoadingView!)
+            exerciseLoadingView?.fillSuperview()
+        }
     }
 
     
@@ -86,19 +91,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
             fetchUserInfo()
             setupTipIcon()
             self.tabBarController?.tabBar.isHidden = false
-        
-        if ExerciseStorage.exercises.count <= 0 {
-            exerciseLoadingView = ExercisesLoadingView()
-            view.addSubview(exerciseLoadingView!)
-            exerciseLoadingView?.fillSuperview()
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                self?.exerciseLoadingView?.isHidden = true
-            self?.exerciseLoadingView?.removeFromSuperview()
-            self?.exerciseLoadingView = nil
-            self?.view.setNeedsLayout()
-        }
-        }
+
     }
     
     // MARK: Setup
