@@ -37,6 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     
+    func retry() {
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises { (success) in
+             DispatchQueue.main.async {
+            if success == true {
+                workoutsReadyNotification()
+            } else if success == false {
+                self.retry()
+                workoutsFailedNotification()
+                }
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
@@ -48,17 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                UserAPI.user = UserManager.loadUserFromFile()
         }
         
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises() { (success) in
-            DispatchQueue.main.async {
-                if success == true, (ExerciseStorage.exercises.count <= 7) {
-                    workoutsReadyNotification()
-                } else if success == false {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                    workoutsFailedNotification()
-                }
-            }
-        }
+//        let exerciseFetcher = SceneExerciseFetcher()
+//        exerciseFetcher.fetchExercises() { (success) in
+//            DispatchQueue.main.async {
+//                if success == true, (ExerciseStorage.exercises.count <= 7) {
+//                    if notificationsAllowed {
+//                    workoutsReadyNotification()
+//                    }
+//                } else if success == false {
+//                    self.retry()
+//                    if notificationsAllowed {
+//                    workoutsFailedNotification()
+//                    }
+//                }
+//            }
+//        }
         
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in

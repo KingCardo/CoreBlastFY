@@ -66,6 +66,14 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
             view.addSubview(exerciseLoadingView!)
             exerciseLoadingView?.fillSuperview()
         }
+        else {
+            DispatchQueue.main.async { [weak self] in
+                self?.exerciseLoadingView?.isHidden = true
+            self?.exerciseLoadingView?.removeFromSuperview()
+            self?.exerciseLoadingView = nil
+            self?.view.setNeedsLayout()
+        }
+        }
     }
     
     // MARK: Do something

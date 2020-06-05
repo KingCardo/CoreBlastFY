@@ -91,6 +91,13 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
             exerciseLoadingView = ExercisesLoadingView()
             view.addSubview(exerciseLoadingView!)
             exerciseLoadingView?.fillSuperview()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.exerciseLoadingView?.isHidden = true
+            self?.exerciseLoadingView?.removeFromSuperview()
+            self?.exerciseLoadingView = nil
+            self?.view.setNeedsLayout()
+        }
         }
     }
     

@@ -64,11 +64,13 @@ class ExerciseStorage {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises(of: level) { (exercises, error) in
                 if !exercises.isEmpty {
-                    ExerciseStorage.exercises += exercises
-                    ExerciseStorage.save()
-                    UserDefaults.standard.set(true, forKey: level)
-                    completion(true)
-                    return
+                    DispatchQueue.global(qos: .userInitiated).sync {
+                        ExerciseStorage.exercises += exercises
+                        ExerciseStorage.save()
+                        UserDefaults.standard.set(true, forKey: level)
+                        completion(true)
+                        return
+                    }
                 } else {
                     completion(false)
                     return
