@@ -126,6 +126,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
             DispatchQueue.main.async { [weak self] in
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
+            self?.preworkoutView?.isUserInteractionEnabled = true
             self?.view.setNeedsLayout()
         }
     }
@@ -191,6 +192,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
                 self.exerciseLoadingView = ExercisesLoadingView()
                 self.preworkoutView?.addSubview(self.exerciseLoadingView!)
                 self.exerciseLoadingView?.fillSuperview()
+                self.preworkoutView?.isUserInteractionEnabled = false
             }
         }
 
