@@ -18,10 +18,12 @@ let exerciseLoadedNotification = NSNotification.Name("ExercisesLoadedNotificatio
 class ExerciseStorage {
     
     static var failedCompletion: ((String) -> Void)?
+    static var succeedCompletion: (() -> Void)?
     
     static var exercises: [Exercise] = [] {
         didSet {
             DispatchQueue.main.async {
+                //succeedCompletion?()
                 NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
             }
         }
