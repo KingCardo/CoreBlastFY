@@ -71,10 +71,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window!.rootViewController = pageViewController
                 self.window!.makeKeyAndVisible()
                 OnboardingViewController.completion = {
-                    let homeVC = HomeViewController()
-                    homeVC.modalPresentationStyle = .fullScreen
-                    self.window!.rootViewController = homeVC
-                    self.window!.makeKeyAndVisible()
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        let homeVC = HomeViewController()
+                        homeVC.modalPresentationStyle = .fullScreen
+                        self.window!.rootViewController = homeVC
+                        self.window!.makeKeyAndVisible()
+                    }
                 }
                 
             } else {

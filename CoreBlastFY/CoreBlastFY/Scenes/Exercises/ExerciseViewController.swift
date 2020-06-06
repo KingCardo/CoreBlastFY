@@ -57,12 +57,19 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
         getExercises()
         setUpTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
-        if ExerciseStorage.exercises.count <= 0 {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be here soon!")
-                self.view.addSubview(self.exerciseLoadingView!)
-                self.exerciseLoadingView?.fillSuperview()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if exerciseLoadingView == nil {
+            if ExerciseStorage.exercises.count <= 0 {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be here soon!")
+                    self.view.addSubview(self.exerciseLoadingView!)
+                    self.exerciseLoadingView?.fillSuperview()
+                }
             }
         }
     }
