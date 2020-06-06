@@ -23,7 +23,6 @@ class ExerciseStorage {
     static var exercises: [Exercise] = [] {
         didSet {
             DispatchQueue.main.async {
-                //succeedCompletion?()
                 NotificationCenter.default.post(name: exerciseLoadedNotification, object: self)
             }
         }

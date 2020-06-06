@@ -33,7 +33,6 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                id = UIApplication.shared.beginBackgroundTask(expirationHandler: {
                 print("fetch operation cancelled")
                 fetchOperation.cancel()
-                completion([], ExerciseInfoStoreError.CannotFetch("Program not downloaded, Try Again"))
                 UIApplication.shared.endBackgroundTask(id)
                 id = UIBackgroundTaskIdentifier.invalid
                })
@@ -44,6 +43,8 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         
         fetchOperation.queryCompletionBlock = { [weak self] (curser, error) in
             DispatchQueue.main.async {
+                UIApplication.shared.endBackgroundTask(id)
+                id = UIBackgroundTaskIdentifier.invalid
                 if let error = error {
                     self?.displayCloudKitNotAvailableError(error.localizedDescription)
                         completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))
