@@ -43,8 +43,6 @@ class CloudKitService: ExerciseInfoStoreProtocol {
         
         fetchOperation.queryCompletionBlock = { [weak self] (curser, error) in
             DispatchQueue.main.async {
-                UIApplication.shared.endBackgroundTask(id)
-                id = UIBackgroundTaskIdentifier.invalid
                 if let error = error {
                     self?.displayCloudKitNotAvailableError(error.localizedDescription)
                         completion([], ExerciseInfoStoreError.CannotFetch(error.localizedDescription))

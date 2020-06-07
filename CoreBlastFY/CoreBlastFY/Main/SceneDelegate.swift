@@ -12,9 +12,17 @@ let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
 let FetchingExercisesFailedNotification = Notification.Name("FetchingExercisesFailed")
 let FetchingExercisesSucceededNotification = Notification.Name("FetchingExercisesSucceededNotification")
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
+    
+    func userNotificationCenter(
+           _ center: UNUserNotificationCenter,
+           willPresent notification: UNNotification,
+           withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
+           -> Void) {
+           completionHandler([.alert, .badge, .sound])
+       }
     
     func retryHandler(alertAction: UIAlertAction) {
         
@@ -44,6 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         
         let exerciseFetcher = SceneExerciseFetcher()

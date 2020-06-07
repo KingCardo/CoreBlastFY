@@ -60,7 +60,7 @@ class ExerciseStorage {
         }
     }
     
-    static func fetchExercises(with level: String, completion: @escaping(Bool) -> Void) {
+    static func fetchExercises(with level: String, completion: @escaping(Bool?) -> Void) {
         if !UserDefaults.standard.bool(forKey: level) {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises(of: level) { (exercises, error) in
@@ -77,6 +77,9 @@ class ExerciseStorage {
                     return
                 }
             }
+        } else {
+            completion(nil)
+            return
         }
     }
     
