@@ -33,6 +33,7 @@ class CloudKitService: ExerciseInfoStoreProtocol {
                id = UIApplication.shared.beginBackgroundTask(expirationHandler: {
                 print("fetch operation cancelled")
                 fetchOperation.cancel()
+                completion([], ExerciseInfoStoreError.CannotFetch("Network timeout. Try Again."))
                 UIApplication.shared.endBackgroundTask(id)
                 id = UIBackgroundTaskIdentifier.invalid
                })

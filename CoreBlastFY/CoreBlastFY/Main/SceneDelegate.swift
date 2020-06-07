@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises { (success) in
             DispatchQueue.main.async {
-                if success == true {
+                if success == true, (ExerciseStorage.exercises.count <= 7) {
                     workoutsReadyNotification()
                 } else if success == false {
                     NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)

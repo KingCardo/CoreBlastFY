@@ -38,9 +38,5 @@ struct SceneExerciseFetcher {
                 }
             }
         }
-//        else {
-//            completion(nil)
-//            return
-//        }
     }
 }

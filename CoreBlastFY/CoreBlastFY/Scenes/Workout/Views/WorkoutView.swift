@@ -91,24 +91,30 @@ class WorkoutView: UIView {
     }
     
     func resumeWorkout() {
-        runTimer()
-        videoView?.resume()
-        setNeedsDisplay()
-        setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.runTimer()
+            self?.videoView?.resume()
+            self?.setNeedsDisplay()
+            self?.setNeedsLayout()
+        }
     }
     
     func pauseWorkout() {
-        invalidateTimers()
-        videoView?.pauseVideo()
-        setNeedsDisplay()
-        setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.invalidateTimers()
+            self?.videoView?.pauseVideo()
+            self?.setNeedsDisplay()
+            self?.setNeedsLayout()
+        }
     }
     
     private func pauseWorkoutForTransition() {
-        hideLabelsForTransition()
-        videoView?.advanceToNextItem()
-        setNeedsDisplay()
-        setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.hideLabelsForTransition()
+            self?.videoView?.advanceToNextItem()
+            self?.setNeedsDisplay()
+            self?.setNeedsLayout()
+        }
     }
     
     func runTimersForTransition() {
@@ -117,9 +123,11 @@ class WorkoutView: UIView {
     }
     
     private func resumeWorkoutForTransition() {
-        showLabelsAfterTransition()
-        setNeedsDisplay()
-        setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.showLabelsAfterTransition()
+            self?.setNeedsDisplay()
+            self?.setNeedsLayout()
+        }
     }
     
     private func hideLabelsForTransition() {
