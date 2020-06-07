@@ -18,6 +18,7 @@ let exerciseLoadedNotification = NSNotification.Name("ExercisesLoadedNotificatio
 class ExerciseStorage {
     
     static var failedCompletion: ((String) -> Void)?
+    static var succeedCompletion: (() -> Void)?
     
     static var exercises: [Exercise] = [] {
         didSet {
@@ -59,21 +60,26 @@ class ExerciseStorage {
         }
     }
     
-    static func fetchExercises(with level: String, completion: @escaping(Bool) -> Void) {
+    static func fetchExercises(with level: String, completion: @escaping(Bool?) -> Void) {
         if !UserDefaults.standard.bool(forKey: level) {
             let worker = ExerciseWorker(exerciseInfoDataStore: CloudKitService())
             worker.fetchExercises(of: level) { (exercises, error) in
                 if !exercises.isEmpty {
-                    ExerciseStorage.exercises += exercises
-                    ExerciseStorage.save()
-                    UserDefaults.standard.set(true, forKey: level)
-                    completion(true)
-                    return
+                    DispatchQueue.global(qos: .userInitiated).sync {
+                        ExerciseStorage.exercises += exercises
+                        ExerciseStorage.save()
+                        UserDefaults.standard.set(true, forKey: level)
+                        completion(true)
+                        return
+                    }
                 } else {
                     completion(false)
                     return
                 }
             }
+        } else {
+            completion(nil)
+            return
         }
     }
     

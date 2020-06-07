@@ -88,19 +88,25 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
         loadingSpinner = UIActivityIndicatorView(style: .large)
         loadingSpinner?.color = .white
         loadingSpinner?.startAnimating()
-        view.addSubview(loadingSpinner!)
+        DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+            self.view.addSubview(self.loadingSpinner!)
         
-        loadingSpinner?.translatesAutoresizingMaskIntoConstraints = false
-        loadingSpinner?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loadingSpinner?.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            self.loadingSpinner?.translatesAutoresizingMaskIntoConstraints = false
+            self.loadingSpinner?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.loadingSpinner?.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        }
         
     }
     
     private func removeLoadingSpinner() {
-        loadingSpinner?.stopAnimating()
-        loadingSpinner?.removeFromSuperview()
-        loadingSpinner = nil
-        view.setNeedsDisplay()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.loadingSpinner?.stopAnimating()
+            self.loadingSpinner?.removeFromSuperview()
+            self.loadingSpinner = nil
+            self.view.setNeedsDisplay()
+        }
     }
    
     

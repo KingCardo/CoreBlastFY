@@ -57,26 +57,33 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
         getExercises()
         setUpTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if ExerciseStorage.exercises.count <= 0 {
-            exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be here soon!")
-            view.addSubview(exerciseLoadingView!)
-            exerciseLoadingView?.fillSuperview()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if exerciseLoadingView == nil {
+            if ExerciseStorage.exercises.count <= 0 {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.exerciseLoadingView = ExercisesLoadingView(text: "Available exercises will be here soon!")
+                    self.view.addSubview(self.exerciseLoadingView!)
+                    self.exerciseLoadingView?.fillSuperview()
+                }
+            }
         }
     }
     
     // MARK: Do something
     
     @objc private func showWorkoutVC() {
+        
         getExercises()
         DispatchQueue.main.async { [weak self] in
-            self?.exerciseLoadingView?.isHidden = true 
-            self?.exerciseLoadingView?.removeFromSuperview()
-            self?.exerciseLoadingView = nil
-            self?.view.setNeedsDisplay()
+            guard let self = self else { return }
+            self.exerciseLoadingView?.removeFromSuperview()
+            self.exerciseLoadingView = nil
+            self.view.setNeedsDisplay()
         }
         
     }
@@ -117,7 +124,7 @@ extension ExerciseViewController: UITableViewDataSource {
         cell.textLabel?.font = UIFont.makeAvenirNext(size: UIDevice.isIpad ? 28 : 18)
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .black
-         cell.tintColor = .white
+        cell.tintColor = .white
         let image = #imageLiteral(resourceName: "forward").withRenderingMode(.alwaysTemplate)
         let forwardImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
         forwardImageView.image = image

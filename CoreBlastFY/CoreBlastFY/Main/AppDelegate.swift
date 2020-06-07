@@ -48,18 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                UserAPI.user = UserManager.loadUserFromFile()
         }
         
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises() { (success) in
-            DispatchQueue.main.async {
-                if success == true, (ExerciseStorage.exercises.count <= 7) {
-                    workoutsReadyNotification()
-                } else if success == false {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                    workoutsFailedNotification()
-                }
-            }
-        }
-        
         // MARK: Registering Launch Handlers for Tasks
         BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
             // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.

@@ -59,11 +59,6 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
                 collectionView?.deselectItem(at: path, animated: true)
             }
         }
-        
-//        if ProgressionPicController.shared.progressionPics.count > 0, ExerciseStorage.exercises.count == 0 {
-//                   AlertController.createAlert(errorMessage: "Workout section will be available soon! You will be sent a notification when ready!", title: "Downloading Programs", viewController: self, actionTitle: "OK")
-//               }
-    
     }
     
     

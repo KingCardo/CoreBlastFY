@@ -39,6 +39,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     deinit {
+        viewModel = nil
         workoutView = nil
     }
     
@@ -84,7 +85,11 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         registerObservers()
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
         view.addGestureRecognizer(tapGesture!)
-        navigationController?.navigationBar.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.navigationBar.isHidden = true
+            self?.view.setNeedsDisplay()
+            self?.view.setNeedsLayout()
+        }
         
     }
     
@@ -99,7 +104,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
             workoutView?.resumeWorkout()
         }
     }
-
+    
     
     private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification, object: nil)
@@ -109,7 +114,11 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     @objc private func pauseWorkoutFromInterruption() {
         workoutView?.pauseWorkout()
-        navigationController?.navigationBar.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.navigationBar.isHidden = false
+            self?.view.setNeedsDisplay()
+            self?.view.setNeedsLayout()
+        }
     }
     
     @objc private func pauseWorkout() {
@@ -123,10 +132,18 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
             guard workoutView != nil && workoutView?.loadingView == nil else { return }
             if workoutView!.timerIsRunning {
                 workoutView?.pauseWorkout()
-                navigationController?.navigationBar.isHidden = false
+                DispatchQueue.main.async { [weak self] in
+                    self?.navigationController?.navigationBar.isHidden = false
+                    self?.view.setNeedsDisplay()
+                    self?.view.setNeedsLayout()
+                }
             } else {
                 workoutView?.resumeWorkout()
-                navigationController?.navigationBar.isHidden = true
+                DispatchQueue.main.async { [weak self] in
+                    self?.navigationController?.navigationBar.isHidden = true
+                    self?.view.setNeedsDisplay()
+                    self?.view.setNeedsLayout()
+                }
             }
         default: break
         }

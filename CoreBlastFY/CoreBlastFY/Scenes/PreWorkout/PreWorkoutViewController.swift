@@ -83,15 +83,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            fetchUserInfo()
-            setupTipIcon()
-            self.tabBarController?.tabBar.isHidden = false
-        
-        if ExerciseStorage.exercises.count <= 0 {
-            exerciseLoadingView = ExercisesLoadingView()
-            view.addSubview(exerciseLoadingView!)
-            exerciseLoadingView?.fillSuperview()
-        }
+        setupTipIcon()
+        fetchUserInfo()
+
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: Setup
@@ -129,9 +124,9 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     @objc private func showWorkoutVC() {
             fetchUserInfo()
             DispatchQueue.main.async { [weak self] in
-                self?.exerciseLoadingView?.isHidden = true
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
+            self?.preworkoutView?.isUserInteractionEnabled = true
             self?.view.setNeedsLayout()
         }
     }
@@ -146,11 +141,13 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func addTipIcon() {
+        if !(navigationController?.navigationBar.subviews.contains(tipIcon))!  {
         navigationController?.navigationBar.addSubview(tipIcon)
         tipIcon.centerYInSuperview()
         tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
         tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
         tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        }
         
     }
     
@@ -158,6 +155,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         navigationItem.title = "Workout"
         view.backgroundColor = .black
     }
+    
     @objc private func startWorkout() {
             displayLoadingView()
     }
@@ -187,6 +185,17 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
         self?.preworkoutView?.totalPointsLevel.transform = .identity
         }
+        
+        if ExerciseStorage.exercises.count <= 0 {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.exerciseLoadingView = ExercisesLoadingView()
+                self.preworkoutView?.addSubview(self.exerciseLoadingView!)
+                self.exerciseLoadingView?.fillSuperview()
+                self.preworkoutView?.isUserInteractionEnabled = false
+            }
+        }
+
     }
     
     // MARK: Do something
@@ -218,13 +227,4 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         let request = PreWorkout.FetchUser.Request()
         interactor?.fetchUserInfo(request: request)
     }
-    
-    private func showFailureAlert(title: String, message: String)
-    {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        showDetailViewController(alertController, sender: nil)
-    }
-    
 }

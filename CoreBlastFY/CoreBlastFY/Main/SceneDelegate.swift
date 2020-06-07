@@ -12,22 +12,88 @@ let PauseWorkoutNotification = NSNotification.Name("PauseWorkoutNotification")
 let FetchingExercisesFailedNotification = Notification.Name("FetchingExercisesFailed")
 let FetchingExercisesSucceededNotification = Notification.Name("FetchingExercisesSucceededNotification")
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
+    func userNotificationCenter(
+           _ center: UNUserNotificationCenter,
+           willPresent notification: UNNotification,
+           withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
+           -> Void) {
+           completionHandler([.alert, .badge, .sound])
+       }
+    
+    func retryHandler(alertAction: UIAlertAction) {
+        
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises { (success) in
+            DispatchQueue.main.async {
+                if success == true, (ExerciseStorage.exercises.count <= 7) {
+                    workoutsReadyNotification()
+                } else if success == false {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                    workoutsFailedNotification()
+                }
+            }
+        }
+    }
+    
+    @objc func handleFailedFetch() {
+        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
+        alertController.overrideUserInterfaceStyle = .dark
+        
+        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
+        
+        alertController.addAction(retry)
+        
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        self.window!.makeKeyAndVisible()
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        UNUserNotificationCenter.current().delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
+        
+        let exerciseFetcher = SceneExerciseFetcher()
+        exerciseFetcher.fetchExercises() { (success) in
+            DispatchQueue.main.async {
+                if success == true, (ExerciseStorage.exercises.count <= 7) {
+                    if notificationsAllowed {
+                        workoutsReadyNotification()
+                    }
+                } else if success == false {
+                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
+                    if notificationsAllowed {
+                        workoutsFailedNotification()
+                    }
+                }
+            }
+        }
         
         
         self.window = self.window ?? UIWindow()
         
-        if !UserDefaults.standard.bool(forKey: onboardingKey) {
-            let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-            self.window!.rootViewController = pageViewController
-            self.window!.makeKeyAndVisible()
-        } else {
-            self.window!.rootViewController = HomeViewController()
-            self.window!.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            if !UserDefaults.standard.bool(forKey: onboardingKey) {
+                let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+                self.window!.rootViewController = pageViewController
+                self.window!.makeKeyAndVisible()
+                OnboardingViewController.completion = {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        let homeVC = HomeViewController()
+                        homeVC.modalPresentationStyle = .fullScreen
+                        self.window!.rootViewController = homeVC
+                        self.window!.makeKeyAndVisible()
+                    }
+                }
+                
+            } else {
+                
+                self.window!.rootViewController = HomeViewController()
+                self.window!.makeKeyAndVisible()
+                
+            }
         }
     }
     

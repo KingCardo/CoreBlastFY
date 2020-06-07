@@ -14,70 +14,72 @@
 import XCTest
 
 class ExerciseViewControllerTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: ExerciseViewController!
-  var window: UIWindow!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    window = UIWindow()
-    setupExerciseViewController()
-  }
-  
-  override func tearDown() {
-    window = nil
-    sut = nil
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupExerciseViewController() {
-    sut = ExerciseViewController()
-  }
-  
-    func loadView() {
-    window.addSubview(sut.view)
-    RunLoop.current.run(until: Date())
-  }
-  
-  // MARK: Test doubles
-  
-  class ExerciseBusinessLogicSpy: ExerciseBusinessLogic {
-    func getExercises(request: Exercises.Videos.Request) {
-        doSomethingCalled = true
+    // MARK: Subject under test
+    
+    var sut: ExerciseViewController!
+    var window: UIWindow!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp() {
+        super.setUp()
+        window = UIWindow()
+        setupExerciseViewController()
     }
     
-    var doSomethingCalled = false
-
-  }
-  
-  // MARK: Tests
-  
-  func testShouldDoSomethingWhenViewIsLoaded() {
-    // Given
-    let spy = ExerciseBusinessLogicSpy()
-    sut.interactor = spy
+    override func tearDown() {
+        window = nil
+        sut = nil
+        super.tearDown()
+    }
     
-    // When
-    loadView()
+    // MARK: Test setup
     
-    // Then
-    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-  }
-  
-  func testDisplaySomething() {
-    // Given
-    let viewModel = Exercises.Videos.ViewModel(exerciseViewModel: [])
+    func setupExerciseViewController() {
+        sut = ExerciseViewController()
+    }
     
-    // When
-    loadView()
-    sut.displayExercises(viewModel: viewModel)
+    func loadView() {
+        window.addSubview(sut.view)
+        RunLoop.current.run(until: Date())
+    }
     
-    // Then
-    XCTAssertEqual(sut.exerciseVM.count, viewModel.exerciseViewModel.count, "displaySomething(viewModel:) should update the name text field")
-  }
+    // MARK: Test doubles
+    
+    class ExerciseBusinessLogicSpy: ExerciseBusinessLogic, ExerciseDataStore {
+        var exercises: [Exercise] = []
+        
+        func getExercises(request: Exercises.Videos.Request) {
+            doSomethingCalled = true
+        }
+        
+        var doSomethingCalled = false
+        
+    }
+    
+    // MARK: Tests
+    
+    func testShouldDoSomethingWhenViewIsLoaded() {
+        // Given
+        let spy = ExerciseBusinessLogicSpy()
+        sut.interactor = spy
+        
+        // When
+        loadView()
+        
+        // Then
+        XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
+    }
+    
+    func testDisplaySomething() {
+        // Given
+        let viewModel = Exercises.Videos.ViewModel(exerciseViewModel: [])
+        
+        // When
+        loadView()
+        sut.displayExercises(viewModel: viewModel)
+        
+        // Then
+        XCTAssertEqual(sut.exerciseVM.count, viewModel.exerciseViewModel.count, "displaySomething(viewModel:) should update the name text field")
+    }
 }
