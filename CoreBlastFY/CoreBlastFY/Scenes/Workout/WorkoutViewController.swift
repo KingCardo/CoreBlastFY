@@ -39,6 +39,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     deinit {
+        viewModel = nil
         workoutView = nil
     }
     
