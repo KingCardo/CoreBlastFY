@@ -73,10 +73,8 @@ class NotificationsViewController: UIViewController, NotificationsDisplayLogic {
     @objc func grabDate() {
         UserAPI.user.selectedTime = datePicker.date
         UserManager.save()
-        print(UserAPI.user.selectedHour, UserAPI.user.selectedMinute)
         NotificationIDs.removeNotification(ids: NotificationIDs.allIDs)
         let user = UserManager.loadUserFromFile()
-        print(user.selectedHour, user.selectedMinute, "RWRW")
         NotificationIDs.prepareNotification(id: NotificationIDs.mondayID, weekday: 2, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: mondayTitle, body: mondayBody)
         NotificationIDs.prepareNotification(id: NotificationIDs.tuesdayID, weekday: 3, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: tuesdayBody, body: tuesdayBody)
         NotificationIDs.prepareNotification(id: NotificationIDs.wednesdayID, weekday: 4, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: wednesdayTitle, body: wednesdayBody)
