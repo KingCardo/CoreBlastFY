@@ -13,6 +13,7 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        UserAPI.user = UserManager.loadUserFromFile()
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self

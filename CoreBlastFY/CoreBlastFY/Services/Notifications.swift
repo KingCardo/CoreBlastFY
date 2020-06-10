@@ -60,12 +60,13 @@ func workoutsReadyNotification() {
        }
     
 }
-
+let mondayTitle = "Time to get a workout in! 💪"
+let mondayBody = "Your goals don't care how you feel!"
 func timeToWorkoutMNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in! 💪"
-       content.body = "Your goals don't care how you feel!"
+       content.title = mondayTitle
+       content.body = mondayBody
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -86,11 +87,15 @@ func timeToWorkoutMNotification() {
            }
        }
 }
+
+let tuesdayTitle = "Trust the process"
+let tuesdayBody = "Time to get a workout in 💪"
+
 func timeToWorkoutTNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Trust the process"
-       content.body = "Time to get a workout in 💪"
+       content.title = tuesdayTitle
+       content.body = tuesdayBody
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -111,11 +116,15 @@ func timeToWorkoutTNotification() {
            }
        }
 }
+
+let wednesdayTitle = "Time to get a workout in!"
+let wednesdayBody = "Consistency is key 🔑"
+
 func timeToWorkoutWNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in!"
-       content.body = "Consistency is key 🔑"
+       content.title = wednesdayTitle
+       content.body = wednesdayBody
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -136,11 +145,15 @@ func timeToWorkoutWNotification() {
            }
        }
 }
+
+let thursdayTitle = "Time to get a workout in!"
+let thursdayBody = "You want results or regret?"
+
 func timeToWorkoutTHNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in!"
-       content.body = "You want results or regret?"
+       content.title = thursdayTitle
+       content.body = thursdayBody
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -161,11 +174,15 @@ func timeToWorkoutTHNotification() {
            }
        }
 }
+
+let fridayTitle = "Time to get a workout in!"
+let fridayBody = "Everyday is a new chance to get better 💎"
+
 func timeToWorkoutFNotification() {
     //Create user notification
        let content = UNMutableNotificationContent()
-       content.title = "Time to get a workout in!"
-       content.body = "Everyday is a new chance to get better 💎"
+       content.title = fridayTitle
+       content.body = fridayBody
        content.sound = UNNotificationSound.default
        
        var dateComponents = DateComponents()
@@ -240,54 +257,54 @@ func prepareProgressionPicNotification() {
         }
     }
 }
-    
-    func prepareWHWNotification() {
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Work Hard Wednesday!"
-        content.body = "Your goals don't care how you feel!"
-        content.sound = UNNotificationSound.default
-        
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        
-        dateComponents.weekday = 4
-        dateComponents.hour = 19
-        
-        
-        // Create the trigger as a repeating event.
-        let trigger = UNCalendarNotificationTrigger(
-            dateMatching: dateComponents, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: "WHW", content: content, trigger: trigger)
-        
-        notificationCenter.add(request) { (error) in
-            if error != nil {
-                //TO DO: Handle any errors.
-            }
-        }
-    }
 
 func prepareMFNotification() {
-    
+
     let content = UNMutableNotificationContent()
     content.title = "Time to Focus In!"
     content.body = "Rule #1. Never skip a Monday workout!"
     content.sound = UNNotificationSound.default
-    
+
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
-    
+
     dateComponents.weekday = 2
     dateComponents.hour = 8
-    
-    
+
+
     // Create the trigger as a repeating event.
     let trigger = UNCalendarNotificationTrigger(
         dateMatching: dateComponents, repeats: true)
-    
+
     let request = UNNotificationRequest(identifier: "MFocus", content: content, trigger: trigger)
-    
+
+    notificationCenter.add(request) { (error) in
+        if error != nil {
+            // Handle any errors.
+        }
+    }
+}
+//
+func prepareRelaxNotification() {
+
+    let content = UNMutableNotificationContent()
+    content.title = "How will you spend your Saturday?"
+    content.body = "Go outside for a walk or run, take a yoga class, recover for next week!"
+    content.sound = UNNotificationSound.default
+
+    var dateComponents = DateComponents()
+    dateComponents.calendar = Calendar.current
+
+    dateComponents.weekday = 7
+    dateComponents.hour = 9
+
+
+    // Create the trigger as a repeating event.
+    let trigger = UNCalendarNotificationTrigger(
+        dateMatching: dateComponents, repeats: true)
+
+    let request = UNNotificationRequest(identifier: "RelaxSat", content: content, trigger: trigger)
+
     notificationCenter.add(request) { (error) in
         if error != nil {
             // Handle any errors.
@@ -295,80 +312,25 @@ func prepareMFNotification() {
     }
 }
 
-func prepareRelaxNotification() {
-    
-    let content = UNMutableNotificationContent()
-    content.title = "How will you spend your Saturday?"
-    content.body = "Go outside for a walk or run, take a yoga class, recover for next week!"
-    content.sound = UNNotificationSound.default
-    
-    var dateComponents = DateComponents()
-    dateComponents.calendar = Calendar.current
-    
-    dateComponents.weekday = 7
-    dateComponents.hour = 9
-    
-    
-    // Create the trigger as a repeating event.
-    let trigger = UNCalendarNotificationTrigger(
-        dateMatching: dateComponents, repeats: true)
-    
-    let request = UNNotificationRequest(identifier: "RelaxSat", content: content, trigger: trigger)
-    
-    notificationCenter.add(request) { (error) in
-        if error != nil {
-            // Handle any errors.
-        }
-    }
-}
-    
-    func prepareThurNotification() {
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Hard Work beats Talent!"
-        content.body = "Get it Done!"
-        content.sound = UNNotificationSound.default
-        
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        
-        dateComponents.weekday = 5
-        dateComponents.hour = 19
-        
-        
-        // Create the trigger as a repeating event.
-        let trigger = UNCalendarNotificationTrigger(
-            dateMatching: dateComponents, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: "ThurN", content: content, trigger: trigger)
-        
-        notificationCenter.add(request) { (error) in
-            if error != nil {
-                // Handle any errors.
-            }
-        }
-    }
-    
     func prepareFriNotification() {
-        
+
         let content = UNMutableNotificationContent()
         content.title = "Eat Clean!"
         content.body = "Don't throw out all your hardwork with junk this weekend!"
         content.sound = UNNotificationSound.default
-        
+
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
-        
+
         dateComponents.weekday = 6
         dateComponents.hour = 19
-        
         
         // Create the trigger as a repeating event.
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: dateComponents, repeats: true)
-        
+
         let request = UNNotificationRequest(identifier: "FriN", content: content, trigger: trigger)
-        
+
         notificationCenter.add(request) { (error) in
             if error != nil {
                 // Handle any errors.
@@ -397,6 +359,7 @@ struct NotificationIDs {
                
                dateComponents.weekday = weekday
                dateComponents.hour = hour
+               dateComponents.minute = minute
                
                
                // Create the trigger as a repeating event.
