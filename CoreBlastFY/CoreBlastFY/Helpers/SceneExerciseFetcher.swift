@@ -15,8 +15,6 @@ struct SceneExerciseFetcher {
     
     func fetchExercises(completion: @escaping(Bool?) -> Void) {
         if !SceneExerciseFetcher.inProgress {
-            DispatchQueue.global(qos: .userInitiated).async {
-                
                 SceneExerciseFetcher.inProgress = true
                 ExerciseStorage.fetchCoreExercises { (success) in
                     
@@ -35,7 +33,6 @@ struct SceneExerciseFetcher {
                             return
                         }
                     }
-                }
             }
         }
     }

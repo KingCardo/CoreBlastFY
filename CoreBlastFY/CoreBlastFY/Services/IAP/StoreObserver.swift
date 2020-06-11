@@ -75,7 +75,10 @@ class StoreObserver: NSObject {
         guard let id = id else {
             return
         }
-        NotificationCenter.default.post(Notification(name: PurchaseSuccess))
+        DispatchQueue.main.async {
+             NotificationCenter.default.post(Notification(name: PurchaseSuccess))
+        }
+       
         UserDefaults.standard.set(true, forKey: id)
         
         print("\(Messages.deliverContent) \(transaction.payment.productIdentifier).")
@@ -92,7 +95,9 @@ class StoreObserver: NSObject {
             message += "\n\(Messages.error) \(error.localizedDescription)"
             print("\(Messages.error) \(error.localizedDescription)")
         }
+         DispatchQueue.main.async {
          NotificationCenter.default.post(Notification(name: PurchaseCancelled))
+        }
 
         // Do not send any notifications when the user cancels the purchase.
         if (transaction.error as? SKError)?.code != .paymentCancelled {
@@ -131,7 +136,7 @@ extension StoreObserver: SKPaymentTransactionObserver {
             case .failed: handleFailed(transaction)
             // There are restored products.
             case .restored: handleRestored(transaction)
-            @unknown default: fatalError("\(Messages.unknownDefault)")
+            @unknown default: break
             }
         }
     }
@@ -154,7 +159,6 @@ extension StoreObserver: SKPaymentTransactionObserver {
 
     /// Called when all restorable transactions have been processed by the payment queue.
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        print(Messages.restorable)
 
         if !hasRestorablePurchases {
             DispatchQueue.main.async {

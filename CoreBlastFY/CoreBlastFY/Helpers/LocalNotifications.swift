@@ -35,9 +35,9 @@ func registerForNotifications() {
             if granted {
                 mealPrepNotification()
                 prepareProgressionPicNotification()
-                prepareMFNotification()
-                prepareRelaxNotification()
                 prepareFriNotification()
+                prepareRelaxNotification()
+                prepareMFNotification()
                 timeToWorkoutMNotification()
                 timeToWorkoutTNotification()
                 timeToWorkoutWNotification()
