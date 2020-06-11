@@ -44,8 +44,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
             }
         }
         
-        
-        self.window = self.window ?? UIWindow()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
         
         DispatchQueue.main.async {
             if !UserDefaults.standard.bool(forKey: onboardingKey) {

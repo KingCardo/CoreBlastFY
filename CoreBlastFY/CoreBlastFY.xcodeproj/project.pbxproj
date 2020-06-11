@@ -41,7 +41,6 @@
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
 		7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */; };
-		7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABF23E9120600D0D6BD /* Main.storyboard */; };
 		7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */; };
 		7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */; };
 		7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC923E9122500D0D6BD /* UserAPI.swift */; };
@@ -202,7 +201,6 @@
 		7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A8CBABE23E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7A8CBAC023E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A8CBAC923E9122500D0D6BD /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -431,7 +429,6 @@
 			children = (
 				7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */,
 				7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */,
-				7A8CBABF23E9120600D0D6BD /* Main.storyboard */,
 				7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */,
 				7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */,
 			);
@@ -827,7 +824,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Riccardo Washington";
 				TargetAttributes = {
 					7A8CBA8F23E9109800D0D6BD = {
@@ -864,7 +861,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2E4E052492F49C007427D2 /* open close.mov in Resources */,
-				7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
 				7A2E4E012492F489007427D2 /* pendulums.mov in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
@@ -1049,14 +1045,6 @@
 				7A8CBABE23E9120600D0D6BD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		7A8CBABF23E9120600D0D6BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A8CBAC023E9120600D0D6BD /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
