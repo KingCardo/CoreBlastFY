@@ -16,14 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    func retryHandler(alertAction: UIAlertAction) {
-        
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises { (success) in
-            
-        }
-    }
-    
     @objc func sendExerciseNotification() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             workoutsReadyNotification()
@@ -31,47 +23,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     
-    @objc func handleFailedFetch() {
-        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
-        alertController.overrideUserInterfaceStyle = .dark
-        
-        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
-        
-        alertController.addAction(retry)
-        
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        self.window!.makeKeyAndVisible()
-    }
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(sendExerciseNotification), name: exerciseLoadedNotification, object: nil)
-        let _ = ExerciseStorage.loadExercises()
-               ProgressionPicController.shared.loadFromFile()
-               EntryController.shared.loadFromFile()
-               UserAPI.user = UserManager.loadUserFromFile()
         
-        if !UserDefaults.standard.bool(forKey: exercisesLoaded) {
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises() { (success) in
-            
-        }
-        }
-        self.window = self.window ?? UIWindow()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
         
         if !UserDefaults.standard.bool(forKey: onboardingKey) {
             let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
             self.window!.rootViewController = pageViewController
             self.window!.makeKeyAndVisible()
+            
         } else {
             self.window!.rootViewController = HomeViewController()
             self.window!.makeKeyAndVisible()
         }
-    }
-    
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -91,11 +57,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserManager.save()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

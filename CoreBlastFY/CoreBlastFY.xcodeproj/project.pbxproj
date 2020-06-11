@@ -15,34 +15,16 @@
 		7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */; };
 		7A0D67702479C97F00A6E766 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */; };
 		7A0D677224804B9900A6E766 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D677124804B9900A6E766 /* LoadingViewController.swift */; };
+		7A2E4DFB2492E5E2007427D2 /* AboutMeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E4DFA2492E5E2007427D2 /* AboutMeData.swift */; };
 		7A2F4A1C2483399400223E54 /* SceneExerciseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */; };
 		7A2F4A1E24834EE600223E54 /* ExercisesLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */; };
 		7A2F4A2024835F5C00223E54 /* ExercisePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */; };
 		7A2F4A222485D43000223E54 /* LocalExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A212485D43000223E54 /* LocalExercises.swift */; };
-		7A2F4A362485D54800223E54 /* open close a skip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A232485D52500223E54 /* open close a skip.mov */; };
-		7A2F4A372485D54800223E54 /* right side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A242485D52700223E54 /* right side plank hipdip.mov */; };
 		7A2F4A382485D54800223E54 /* leg raises.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A252485D52900223E54 /* leg raises.mov */; };
-		7A2F4A392485D54800223E54 /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A262485D52B00223E54 /* left side plank wrap.mov */; };
-		7A2F4A3A2485D54800223E54 /* kneedrives.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A272485D52C00223E54 /* kneedrives.mov */; };
-		7A2F4A3B2485D54800223E54 /* plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A282485D52E00223E54 /* plank.mov */; };
-		7A2F4A3C2485D54800223E54 /* iron mikes.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A292485D53000223E54 /* iron mikes.mov */; };
 		7A2F4A3D2485D54800223E54 /* open close.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2A2485D53200223E54 /* open close.mov */; };
-		7A2F4A3E2485D54800223E54 /* up dog.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2B2485D53400223E54 /* up dog.mov */; };
-		7A2F4A3F2485D54800223E54 /* plank shoulder tap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2C2485D53600223E54 /* plank shoulder tap.mov */; };
-		7A2F4A402485D54800223E54 /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2D2485D53800223E54 /* right side plank wrap.mov */; };
 		7A2F4A412485D54800223E54 /* pendulums.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2E2485D53B00223E54 /* pendulums.mov */; };
-		7A2F4A422485D54800223E54 /* left side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A2F2485D53C00223E54 /* left side plank hipdip.mov */; };
-		7A2F4A432485D54800223E54 /* right side plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A302485D53E00223E54 /* right side plank.mov */; };
-		7A2F4A442485D54800223E54 /* pushup t plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A312485D54100223E54 /* pushup t plank.mov */; };
 		7A2F4A452485D54800223E54 /* reverse plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A322485D54200223E54 /* reverse plank.mov */; };
-		7A2F4A462485D54800223E54 /* squat jumps.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A332485D54400223E54 /* squat jumps.mov */; };
 		7A2F4A472485D54800223E54 /* t plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A342485D54600223E54 /* t plank.mov */; };
-		7A2F4A482485D54800223E54 /* left side plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A352485D54800223E54 /* left side plank.mov */; };
-		7A2F4A4C2485D81000223E54 /* in outs.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A492485D80C00223E54 /* in outs.mov */; };
-		7A2F4A4D2485D81000223E54 /* in outs advanced.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A4A2485D80E00223E54 /* in outs advanced.mov */; };
-		7A2F4A4E2485D81000223E54 /* dynamic deadbug.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A4B2485D81000223E54 /* dynamic deadbug.mov */; };
-		7A2F4A512485D9AF00223E54 /* single leg toe touch left.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A4F2485D9AE00223E54 /* single leg toe touch left.mov */; };
-		7A2F4A522485D9AF00223E54 /* single leg toe touch right.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2F4A502485D9AE00223E54 /* single leg toe touch right.mov */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -51,7 +33,6 @@
 		7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */; };
 		7A7E9B24246737D400DA8808 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */; };
 		7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */; };
-		7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFA92473568200F2FC35 /* Program Overview.swift */; };
 		7A86DFB2247436A700F2FC35 /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFAC247436A700F2FC35 /* ExercisePresenter.swift */; };
 		7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */; };
 		7A86DFB6247436A700F2FC35 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */; };
@@ -59,7 +40,6 @@
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
 		7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */; };
-		7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABF23E9120600D0D6BD /* Main.storyboard */; };
 		7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */; };
 		7A8CBAC723E9120600D0D6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */; };
 		7A8CBAD023E9122500D0D6BD /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBAC923E9122500D0D6BD /* UserAPI.swift */; };
@@ -110,7 +90,6 @@
 		7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6223EFA50A00D0D6BD /* EntryViewController.swift */; };
 		7A8CBB6823EFA50B00D0D6BD /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6323EFA50A00D0D6BD /* Entry.swift */; };
 		7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6423EFA50B00D0D6BD /* JournalViewController.swift */; };
-		7A8CBB6C23EFA57B00D0D6BD /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6B23EFA57B00D0D6BD /* AboutMeViewController.swift */; };
 		7A8CBB6F23EFA5C100D0D6BD /* ParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6D23EFA5C000D0D6BD /* ParksTableViewController.swift */; };
 		7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB6E23EFA5C000D0D6BD /* ParksDetailController.swift */; };
 		7A8CBB7223EFA5F600D0D6BD /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBB7123EFA5F600D0D6BD /* Animations.swift */; };
@@ -190,34 +169,16 @@
 		7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		7A0D677124804B9900A6E766 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = SOURCE_ROOT; };
+		7A2E4DFA2492E5E2007427D2 /* AboutMeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeData.swift; sourceTree = "<group>"; };
 		7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneExerciseFetcher.swift; sourceTree = "<group>"; };
 		7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesLoadingView.swift; sourceTree = "<group>"; };
 		7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlayerViewController.swift; sourceTree = "<group>"; };
 		7A2F4A212485D43000223E54 /* LocalExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalExercises.swift; sourceTree = "<group>"; };
-		7A2F4A232485D52500223E54 /* open close a skip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close a skip.mov"; sourceTree = "<group>"; };
-		7A2F4A242485D52700223E54 /* right side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank hipdip.mov"; sourceTree = "<group>"; };
 		7A2F4A252485D52900223E54 /* leg raises.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "leg raises.mov"; sourceTree = "<group>"; };
-		7A2F4A262485D52B00223E54 /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
-		7A2F4A272485D52C00223E54 /* kneedrives.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = kneedrives.mov; sourceTree = "<group>"; };
-		7A2F4A282485D52E00223E54 /* plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = plank.mov; sourceTree = "<group>"; };
-		7A2F4A292485D53000223E54 /* iron mikes.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "iron mikes.mov"; sourceTree = "<group>"; };
 		7A2F4A2A2485D53200223E54 /* open close.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close.mov"; sourceTree = "<group>"; };
-		7A2F4A2B2485D53400223E54 /* up dog.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "up dog.mov"; sourceTree = "<group>"; };
-		7A2F4A2C2485D53600223E54 /* plank shoulder tap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "plank shoulder tap.mov"; sourceTree = "<group>"; };
-		7A2F4A2D2485D53800223E54 /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
 		7A2F4A2E2485D53B00223E54 /* pendulums.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pendulums.mov; sourceTree = "<group>"; };
-		7A2F4A2F2485D53C00223E54 /* left side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank hipdip.mov"; sourceTree = "<group>"; };
-		7A2F4A302485D53E00223E54 /* right side plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank.mov"; sourceTree = "<group>"; };
-		7A2F4A312485D54100223E54 /* pushup t plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "pushup t plank.mov"; sourceTree = "<group>"; };
 		7A2F4A322485D54200223E54 /* reverse plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "reverse plank.mov"; sourceTree = "<group>"; };
-		7A2F4A332485D54400223E54 /* squat jumps.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "squat jumps.mov"; sourceTree = "<group>"; };
 		7A2F4A342485D54600223E54 /* t plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "t plank.mov"; sourceTree = "<group>"; };
-		7A2F4A352485D54800223E54 /* left side plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank.mov"; sourceTree = "<group>"; };
-		7A2F4A492485D80C00223E54 /* in outs.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "in outs.mov"; sourceTree = "<group>"; };
-		7A2F4A4A2485D80E00223E54 /* in outs advanced.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "in outs advanced.mov"; sourceTree = "<group>"; };
-		7A2F4A4B2485D81000223E54 /* dynamic deadbug.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "dynamic deadbug.mov"; sourceTree = "<group>"; };
-		7A2F4A4F2485D9AE00223E54 /* single leg toe touch left.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "single leg toe touch left.mov"; sourceTree = "<group>"; };
-		7A2F4A502485D9AE00223E54 /* single leg toe touch right.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "single leg toe touch right.mov"; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -226,7 +187,6 @@
 		7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericDetailViewController.swift; path = CoreBlastFY/Helpers/GenericDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		7A7E9B23246737D400DA8808 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
-		7A86DFA92473568200F2FC35 /* Program Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program Overview.swift"; sourceTree = "<group>"; };
 		7A86DFAC247436A700F2FC35 /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
 		7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModels.swift; sourceTree = "<group>"; };
 		7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +199,6 @@
 		7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A8CBABE23E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7A8CBAC023E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A8CBAC923E9122500D0D6BD /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -290,7 +249,6 @@
 		7A8CBB6223EFA50A00D0D6BD /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		7A8CBB6323EFA50A00D0D6BD /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		7A8CBB6423EFA50B00D0D6BD /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
-		7A8CBB6B23EFA57B00D0D6BD /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		7A8CBB6D23EFA5C000D0D6BD /* ParksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksTableViewController.swift; sourceTree = "<group>"; };
 		7A8CBB6E23EFA5C000D0D6BD /* ParksDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksDetailController.swift; sourceTree = "<group>"; };
 		7A8CBB7123EFA5F600D0D6BD /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
@@ -431,30 +389,11 @@
 				7A8CBAF623E912C700D0D6BD /* Scenes */,
 				7A8CBAE423E9129700D0D6BD /* User */,
 				7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */,
-				7A2F4A4B2485D81000223E54 /* dynamic deadbug.mov */,
-				7A2F4A4A2485D80E00223E54 /* in outs advanced.mov */,
-				7A2F4A492485D80C00223E54 /* in outs.mov */,
-				7A2F4A292485D53000223E54 /* iron mikes.mov */,
-				7A2F4A272485D52C00223E54 /* kneedrives.mov */,
-				7A2F4A2F2485D53C00223E54 /* left side plank hipdip.mov */,
-				7A2F4A262485D52B00223E54 /* left side plank wrap.mov */,
-				7A2F4A352485D54800223E54 /* left side plank.mov */,
 				7A2F4A252485D52900223E54 /* leg raises.mov */,
-				7A2F4A232485D52500223E54 /* open close a skip.mov */,
 				7A2F4A2A2485D53200223E54 /* open close.mov */,
 				7A2F4A2E2485D53B00223E54 /* pendulums.mov */,
-				7A2F4A2C2485D53600223E54 /* plank shoulder tap.mov */,
-				7A2F4A282485D52E00223E54 /* plank.mov */,
-				7A2F4A312485D54100223E54 /* pushup t plank.mov */,
 				7A2F4A322485D54200223E54 /* reverse plank.mov */,
-				7A2F4A242485D52700223E54 /* right side plank hipdip.mov */,
-				7A2F4A2D2485D53800223E54 /* right side plank wrap.mov */,
-				7A2F4A302485D53E00223E54 /* right side plank.mov */,
-				7A2F4A4F2485D9AE00223E54 /* single leg toe touch left.mov */,
-				7A2F4A502485D9AE00223E54 /* single leg toe touch right.mov */,
-				7A2F4A332485D54400223E54 /* squat jumps.mov */,
 				7A2F4A342485D54600223E54 /* t plank.mov */,
-				7A2F4A2B2485D53400223E54 /* up dog.mov */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFY;
@@ -488,7 +427,6 @@
 			children = (
 				7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */,
 				7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */,
-				7A8CBABF23E9120600D0D6BD /* Main.storyboard */,
 				7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */,
 				7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */,
 			);
@@ -506,10 +444,10 @@
 				7AC36D2624562C5B002764F5 /* MealPlanData.swift */,
 				7A0116502471C86E0070EB5F /* IAP */,
 				7A7E9B25246A1B4500DA8808 /* TermsOfUse.swift */,
-				7A86DFA92473568200F2FC35 /* Program Overview.swift */,
 				7A0D676B2475B18E00A6E766 /* SpeechSynthesizer.swift */,
 				7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */,
 				7A2F4A212485D43000223E54 /* LocalExercises.swift */,
+				7A2E4DFA2492E5E2007427D2 /* AboutMeData.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -662,7 +600,6 @@
 		7A8CBB4323EFA3C400D0D6BD /* AboutFYF */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBB6B23EFA57B00D0D6BD /* AboutMeViewController.swift */,
 				7A7E9B212467250D00DA8808 /* GenericDetailViewController.swift */,
 			);
 			path = AboutFYF;
@@ -920,32 +857,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A2F4A432485D54800223E54 /* right side plank.mov in Resources */,
-				7A8CBAC523E9120600D0D6BD /* Main.storyboard in Resources */,
-				7A2F4A522485D9AF00223E54 /* single leg toe touch right.mov in Resources */,
-				7A2F4A362485D54800223E54 /* open close a skip.mov in Resources */,
 				7A2F4A412485D54800223E54 /* pendulums.mov in Resources */,
-				7A2F4A392485D54800223E54 /* left side plank wrap.mov in Resources */,
 				7A2F4A472485D54800223E54 /* t plank.mov in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
-				7A2F4A3F2485D54800223E54 /* plank shoulder tap.mov in Resources */,
 				7A2F4A382485D54800223E54 /* leg raises.mov in Resources */,
-				7A2F4A482485D54800223E54 /* left side plank.mov in Resources */,
-				7A2F4A4C2485D81000223E54 /* in outs.mov in Resources */,
-				7A2F4A3E2485D54800223E54 /* up dog.mov in Resources */,
-				7A2F4A442485D54800223E54 /* pushup t plank.mov in Resources */,
-				7A2F4A3C2485D54800223E54 /* iron mikes.mov in Resources */,
-				7A2F4A3B2485D54800223E54 /* plank.mov in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
 				7A2F4A452485D54800223E54 /* reverse plank.mov in Resources */,
-				7A2F4A3A2485D54800223E54 /* kneedrives.mov in Resources */,
-				7A2F4A372485D54800223E54 /* right side plank hipdip.mov in Resources */,
-				7A2F4A462485D54800223E54 /* squat jumps.mov in Resources */,
-				7A2F4A4E2485D81000223E54 /* dynamic deadbug.mov in Resources */,
-				7A2F4A512485D9AF00223E54 /* single leg toe touch left.mov in Resources */,
-				7A2F4A4D2485D81000223E54 /* in outs advanced.mov in Resources */,
-				7A2F4A402485D54800223E54 /* right side plank wrap.mov in Resources */,
-				7A2F4A422485D54800223E54 /* left side plank hipdip.mov in Resources */,
 				7A2F4A3D2485D54800223E54 /* open close.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -981,7 +898,6 @@
 				7A8CBAE023E9122D00D0D6BD /* SnapLayout.swift in Sources */,
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
 				7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */,
-				7A8CBB6C23EFA57B00D0D6BD /* AboutMeViewController.swift in Sources */,
 				7AC2C6902445363700B3BFC8 /* NotificationsRouter.swift in Sources */,
 				7AC36D0D244E221E002764F5 /* MealPlanView.swift in Sources */,
 				7A8CBB3F23EF936700D0D6BD /* SettingsModels.swift in Sources */,
@@ -992,6 +908,7 @@
 				7A8CBB3623EF49A300D0D6BD /* PulsingView.swift in Sources */,
 				7A8CBB2823E912C700D0D6BD /* WorkoutModels.swift in Sources */,
 				7AC36D192454A783002764F5 /* MealDetailsRouter.swift in Sources */,
+				7A2E4DFB2492E5E2007427D2 /* AboutMeData.swift in Sources */,
 				7AC2C6C8244A5C9E00B3BFC8 /* MealPlan.swift in Sources */,
 				7A8CBADF23E9122D00D0D6BD /* Colors.swift in Sources */,
 				7A8CBAD123E9122500D0D6BD /* PlayerLooper.swift in Sources */,
@@ -1032,7 +949,6 @@
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */,
-				7A86DFAA2473568200F2FC35 /* Program Overview.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */,
 				7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */,
@@ -1125,14 +1041,6 @@
 				7A8CBABE23E9120600D0D6BD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		7A8CBABF23E9120600D0D6BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A8CBAC023E9120600D0D6BD /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1264,7 +1172,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.106;
+				MARKETING_VERSION = 1.0.126;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1284,7 +1192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.106;
+				MARKETING_VERSION = 1.0.126;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

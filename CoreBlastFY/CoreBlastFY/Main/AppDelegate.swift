@@ -37,6 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let _ = ExerciseStorage.loadExercises()
+            ProgressionPicController.shared.loadFromFile()
+            EntryController.shared.loadFromFile()
+            UserAPI.user = UserManager.loadUserFromFile()
+            if !UserDefaults.standard.bool(forKey: exercisesLoaded) {
+            let exerciseFetcher = SceneExerciseFetcher()
+            exerciseFetcher.fetchExercises() { (success) in
+                
+            }
+            }
+        }
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
