@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct Exercise: Codable {
     var name: String
@@ -42,33 +41,12 @@ struct Exercise: Codable {
         case explosive
     }
     
-    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, videoURL: URL) {
+    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement) {
         self.name = name
         self.tip = tip
-        self.videoURL = videoURL
+        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
+        self.videoURL = path
         self.level = level
     }
     
-    init?(record: CKRecord) {
-        self.name = record["name"] as? String ?? ""
-        self.tip = record["tip"] as? String ?? ""
-        let level = record["level"] as? String ?? ""
-        self.level = Exercise.Level(rawValue: level) ?? .beginner
-        let movement = record["type"] as? String ?? ""
-        self.movement = Exercise.Movement(rawValue: movement) ?? .stationary
-        let exerciseType = record["exerciseType"] as? String ?? ""
-        self.type = Exercise.ExerciseType(rawValue: exerciseType) ?? .core
-        if let asset = record["video"] as? CKAsset {
-            self.videoURL = asset.fileURL!
-            do {
-                let data = try Data(contentsOf: self.videoURL!)
-                self.videoData = data
-                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                videoURL = documentsDirectory.appendingPathComponent("\(self.name)").appendingPathExtension("mov")
-                try? videoData?.write(to: videoURL!)
-            } catch let error {
-                print(error)
-            }
-        }
-    }
 }

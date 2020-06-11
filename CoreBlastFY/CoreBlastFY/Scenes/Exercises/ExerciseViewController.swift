@@ -92,7 +92,7 @@ class ExerciseViewController: UIViewController, ExerciseDisplayLogic
     
     private func setUpTableView() {
         view.backgroundColor = .black
-        navigationItem.title = "Exercises Available for Current Level"
+        navigationItem.title = "Exercises Library"
         view.addSubview(tableView)
         tableView.fillSuperview()
         tableView.dataSource = self

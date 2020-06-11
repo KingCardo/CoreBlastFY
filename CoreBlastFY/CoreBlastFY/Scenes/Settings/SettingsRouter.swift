@@ -18,7 +18,6 @@ import UIKit
     func routeToFoodLogScene()
     func routeToParksScene()
     func routeToTermsOfUse()
-    func routeToProgramOverview()
 }
 
 protocol SettingsDataPassing
@@ -34,7 +33,8 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
   // MARK: Routing
     
     func routeToAboutScene() {
-        let destination = AboutMeViewController()
+        let destination = GenericDetailViewController()
+        destination.data = aboutMeData
         navigateTo(source: viewController!, destination: destination)
         
     }
@@ -58,12 +58,6 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
     func routeToTermsOfUse() {
         let destination = GenericDetailViewController()
         destination.data = termsOfUse
-        navigateTo(source: viewController!, destination: destination)
-    }
-    
-    func routeToProgramOverview() {
-        let destination = GenericDetailViewController()
-        destination.data = programOverview
         navigateTo(source: viewController!, destination: destination)
     }
 

@@ -24,36 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
            completionHandler([.alert, .badge, .sound])
        }
     
-    func retryHandler(alertAction: UIAlertAction) {
-        
-        let exerciseFetcher = SceneExerciseFetcher()
-        exerciseFetcher.fetchExercises { (success) in
-            DispatchQueue.main.async {
-                if success == true, (ExerciseStorage.exercises.count <= 7) {
-                    workoutsReadyNotification()
-                } else if success == false {
-                    NotificationCenter.default.post(name: FetchingExercisesFailedNotification, object: self)
-                    workoutsFailedNotification()
-                }
-            }
-        }
-    }
-    
-    @objc func handleFailedFetch() {
-        let alertController = UIAlertController(title: "Network Download Error", message: "Network connectivity not strong enough. Please try again when connected to WiFi", preferredStyle: .alert)
-        alertController.overrideUserInterfaceStyle = .dark
-        
-        let retry = UIAlertAction(title: "Try Again", style: .default, handler: retryHandler)
-        
-        alertController.addAction(retry)
-        
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        self.window!.makeKeyAndVisible()
-    }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         UNUserNotificationCenter.current().delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(handleFailedFetch), name: FetchingExercisesFailedNotification, object: nil)
         
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
@@ -97,10 +70,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         }
     }
     
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-    }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
@@ -119,11 +88,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         UserManager.save()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

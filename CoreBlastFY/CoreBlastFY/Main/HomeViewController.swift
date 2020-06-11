@@ -64,8 +64,8 @@ class HomeViewController: UITabBarController {
         let settingsViewController = SettingsViewController()
         settingsNavController = UINavigationController(rootViewController: settingsViewController)
         settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "setting"), selectedImage: nil)
-        settingsNavController.navigationBar.prefersLargeTitles = true
-        settingsNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        settingsNavController.navigationBar.barStyle = .black
+        settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
         self.setupExerciseVC()

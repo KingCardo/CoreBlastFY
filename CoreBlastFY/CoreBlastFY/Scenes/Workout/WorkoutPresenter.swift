@@ -39,7 +39,7 @@ class WorkoutPresenter: WorkoutPresentationLogic {
             timeString(time: workout.workoutDuration),
             workoutDurationDouble: workout.workoutDuration,
             numberOfSets: "\(workout.numberOfSets)",
-            exercises: workout.exercisesToReturn)
+            exercises: workout.exercises)
         let viewModel = WorkoutInfo.FetchWorkout.ViewModel(workoutDetails: workoutDetails)
         viewController?.displayWorkout(viewModel: viewModel)
     }

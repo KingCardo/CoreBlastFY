@@ -18,32 +18,6 @@ struct Workout: Codable {
     var user: User
     var exercises: [Exercise]
     
-    var exercisesToReturn: [Exercise] {
-        var exercises: [Exercise]
-        
-        let rest = self.exercises.filter({ $0.name == "up-dog"})
-        
-        switch user.coreLevel {
-        case .beginner:
-            exercises = self.exercises.filter({$0.level == .beginner })
-        case .novice:
-            exercises = self.exercises.filter({$0.level == .novice })
-            exercises += rest
-        case .solid:
-            exercises = self.exercises.filter({$0.level == .solid })
-            exercises += rest
-        case .advanced:
-            exercises = self.exercises.filter({$0.level == .advanced })
-            exercises += rest
-        case .rockstar:
-            exercises = self.exercises.filter({$0.level == .rockstar })
-            exercises += self.exercises.filter({$0.level == .advanced })
-            exercises += rest
-        }
-        return exercises
-    }
-    
-    
     var numberOfSets: Int {
         switch user.coreLevel {
         case .beginner: return 4
@@ -55,7 +29,7 @@ struct Workout: Codable {
     }
     
     var numberOfExercises: Int {
-        return exercisesToReturn.count
+        return exercises.count
     }
     
     var workoutDuration: Double {
