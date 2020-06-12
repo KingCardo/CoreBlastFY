@@ -24,6 +24,10 @@ class User: Codable {
         return selectedTime.addingTimeInterval(86400)
     }
     
+    var isPlankDay: Bool {
+        return totalPoints % 2 == 0
+    }
+    
     var selectedHour: Int?
     var selectedMinute: Int?
     

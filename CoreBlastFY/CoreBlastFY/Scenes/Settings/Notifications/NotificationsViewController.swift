@@ -74,12 +74,12 @@ class NotificationsViewController: UIViewController, NotificationsDisplayLogic {
         UserAPI.user.selectedTime = datePicker.date
         UserManager.save()
         NotificationIDs.removeNotification(ids: NotificationIDs.allIDs)
-        let user = UserManager.loadUserFromFile()
-        NotificationIDs.prepareNotification(id: NotificationIDs.mondayID, weekday: 2, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: mondayTitle, body: mondayBody)
-        NotificationIDs.prepareNotification(id: NotificationIDs.tuesdayID, weekday: 3, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: tuesdayBody, body: tuesdayBody)
-        NotificationIDs.prepareNotification(id: NotificationIDs.wednesdayID, weekday: 4, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: wednesdayTitle, body: wednesdayBody)
-        NotificationIDs.prepareNotification(id: NotificationIDs.thursdayID, weekday: 5, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: thursdayTitle, body: thursdayBody)
-        NotificationIDs.prepareNotification(id: NotificationIDs.fridayID, weekday: 6, hour: user.selectedHour ?? 12, minute: user.selectedMinute ?? 0, title: fridayTitle, body: fridayBody)
+        UserAPI.user = UserManager.loadUserFromFile()
+        NotificationIDs.prepareNotification(id: NotificationIDs.mondayID, weekday: 2, hour: UserAPI.user.selectedHour ?? 12, minute: UserAPI.user.selectedMinute ?? 0, title: mondayTitle, body: mondayBody)
+        NotificationIDs.prepareNotification(id: NotificationIDs.tuesdayID, weekday: 3, hour: UserAPI.user.selectedHour ?? 12, minute: UserAPI.user.selectedMinute ?? 0, title: tuesdayBody, body: tuesdayBody)
+        NotificationIDs.prepareNotification(id: NotificationIDs.wednesdayID, weekday: 4, hour: UserAPI.user.selectedHour ?? 12, minute: UserAPI.user.selectedMinute ?? 0, title: wednesdayTitle, body: wednesdayBody)
+        NotificationIDs.prepareNotification(id: NotificationIDs.thursdayID, weekday: 5, hour: UserAPI.user.selectedHour ?? 12, minute: UserAPI.user.selectedMinute ?? 0, title: thursdayTitle, body: thursdayBody)
+        NotificationIDs.prepareNotification(id: NotificationIDs.fridayID, weekday: 6, hour: UserAPI.user.selectedHour ?? 12, minute: UserAPI.user.selectedMinute ?? 0, title: fridayTitle, body: fridayBody)
         navigationController?.popViewController(animated: true)
     }
     

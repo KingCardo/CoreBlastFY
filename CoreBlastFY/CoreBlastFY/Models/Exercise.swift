@@ -16,6 +16,7 @@ struct Exercise: Codable {
     var videoURL: URL?
     var videoData: Data?
     var type: ExerciseType = .core
+    var isSide: Bool
     
     enum ExerciseType: String, Codable {
         case core
@@ -41,12 +42,13 @@ struct Exercise: Codable {
         case explosive
     }
     
-    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement) {
+    init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, isSide: Bool = false) {
         self.name = name
         self.tip = tip
         let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
         self.videoURL = path
         self.level = level
+        self.isSide = isSide
     }
     
 }

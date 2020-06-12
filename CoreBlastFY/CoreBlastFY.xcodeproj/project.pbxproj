@@ -26,6 +26,10 @@
 		7A2F4A1C2483399400223E54 /* SceneExerciseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */; };
 		7A2F4A1E24834EE600223E54 /* ExercisesLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */; };
 		7A2F4A2024835F5C00223E54 /* ExercisePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */; };
+		7A56E88E24940D7B004AA193 /* left side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */; };
+		7A56E89024940D89004AA193 /* right side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E88F24940D89004AA193 /* right side plank hipdip.mov */; };
+		7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89124940D99004AA193 /* left side plank wrap.mov */; };
+		7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89324940DA4004AA193 /* right side plank wrap.mov */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -181,6 +185,10 @@
 		7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneExerciseFetcher.swift; sourceTree = "<group>"; };
 		7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesLoadingView.swift; sourceTree = "<group>"; };
 		7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlayerViewController.swift; sourceTree = "<group>"; };
+		7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank hipdip.mov"; sourceTree = "<group>"; };
+		7A56E88F24940D89004AA193 /* right side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank hipdip.mov"; sourceTree = "<group>"; };
+		7A56E89124940D99004AA193 /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
+		7A56E89324940DA4004AA193 /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -198,7 +206,6 @@
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAAC23E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAB623E9113100D0D6BD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A8CBABE23E9120600D0D6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -392,6 +399,10 @@
 				7A8CBAE423E9129700D0D6BD /* User */,
 				7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
+				7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */,
+				7A56E88F24940D89004AA193 /* right side plank hipdip.mov */,
+				7A56E89124940D99004AA193 /* left side plank wrap.mov */,
+				7A56E89324940DA4004AA193 /* right side plank wrap.mov */,
 				7A2E4E022492F493007427D2 /* t plank.mov */,
 				7A2E4E042492F49C007427D2 /* open close.mov */,
 				7A2E4E082492F4B9007427D2 /* leg raises.mov */,
@@ -418,7 +429,6 @@
 		7A8CBAB523E9113100D0D6BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A8CBAB923E9113D00D0D6BD /* CloudKit.framework */,
 				7A8CBAB623E9113100D0D6BD /* StoreKit.framework */,
 			);
 			name = Frameworks;
@@ -860,12 +870,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */,
 				7A2E4E052492F49C007427D2 /* open close.mov in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
 				7A2E4E012492F489007427D2 /* pendulums.mov in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
 				7A2E4E092492F4B9007427D2 /* leg raises.mov in Resources */,
 				7A2E4E032492F493007427D2 /* t plank.mov in Resources */,
+				7A56E89024940D89004AA193 /* right side plank hipdip.mov in Resources */,
+				7A56E88E24940D7B004AA193 /* left side plank hipdip.mov in Resources */,
+				7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */,
 				7A2E4E072492F4A7007427D2 /* reverse plank.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1176,7 +1190,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.125;
+				MARKETING_VERSION = 1.0.127;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1196,7 +1210,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.125;
+				MARKETING_VERSION = 1.0.127;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

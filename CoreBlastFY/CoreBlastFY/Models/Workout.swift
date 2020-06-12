@@ -18,6 +18,15 @@ struct Workout: Codable {
     var user: User
     var exercises: [Exercise]
     
+    var exercisesToReturn: [Exercise] {
+    var exercises: [Exercise]
+        switch user.isPlankDay {
+        case true: exercises = self.exercises.filter( { $0.isSide == false })
+        case false: exercises = self.exercises.filter( { $0.isSide == true })
+        }
+        return exercises
+    }
+    
     var numberOfSets: Int {
         switch user.coreLevel {
         case .beginner: return 4
@@ -29,7 +38,7 @@ struct Workout: Codable {
     }
     
     var numberOfExercises: Int {
-        return exercises.count
+        return exercisesToReturn.count
     }
     
     var workoutDuration: Double {
