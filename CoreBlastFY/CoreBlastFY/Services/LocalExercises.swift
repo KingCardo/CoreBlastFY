@@ -19,12 +19,12 @@ struct LocalExercises: ExerciseInfoStoreProtocol {
 //Exercises
 let legRaises = Exercise(name: "leg raises", tip: "slow controlled movement", level: .beginner, movement: .dynamic)
 let openClose = Exercise(name: "open close", tip: "slow and under control", level: .novice, movement: .dynamic)
-let pendulums = Exercise(name: "pendulums", tip: "slow and under control, core engaged", level: .advanced, movement: .dynamic)
-let reversePlank = Exercise(name: "reverse plank", tip: "core engaged, keep back flat", level: .beginner, movement: .stationary)
-let tPlank = Exercise(name: "t plank", tip: "core engaged - deep breaths", level: .solid, movement: .dynamic)
+let pendulums = Exercise(name: "pendulums", tip: "slow and under control, core engaged", level: .advanced, movement: .dynamic, totalBody: true)
+let reversePlank = Exercise(name: "reverse plank", tip: "core engaged, keep back flat", level: .beginner, movement: .stationary, totalBody: true)
+let tPlank = Exercise(name: "t plank", tip: "core engaged - deep breaths", level: .solid, movement: .dynamic, totalBody: true)
 
-let leftSidePlankHipDip = Exercise(name: "left side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
-let rightSidePlankHipDip = Exercise(name: "right side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
+let leftSidePlankHipDip = Exercise(name: "left side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true, totalBody: true)
+let rightSidePlankHipDip = Exercise(name: "right side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true, totalBody: true)
 let leftSidePlankWrap = Exercise(name: "left side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
 let rightSidePlankWrap = Exercise(name: "right side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
 

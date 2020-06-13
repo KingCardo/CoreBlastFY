@@ -30,6 +30,7 @@
 		7A56E89024940D89004AA193 /* right side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E88F24940D89004AA193 /* right side plank hipdip.mov */; };
 		7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89124940D99004AA193 /* left side plank wrap.mov */; };
 		7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89324940DA4004AA193 /* right side plank wrap.mov */; };
+		7A56E896249469D2004AA193 /* ProgramOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E895249469D2004AA193 /* ProgramOverview.swift */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -189,6 +190,7 @@
 		7A56E88F24940D89004AA193 /* right side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank hipdip.mov"; sourceTree = "<group>"; };
 		7A56E89124940D99004AA193 /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
 		7A56E89324940DA4004AA193 /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
+		7A56E895249469D2004AA193 /* ProgramOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramOverview.swift; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				7A0D67732481D2EF00A6E766 /* Reachability.swift */,
 				7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */,
 				7A2E4DFC2492F321007427D2 /* LocalExercises.swift */,
+				7A56E895249469D2004AA193 /* ProgramOverview.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
+				7A56E896249469D2004AA193 /* ProgramOverview.swift in Sources */,
 				7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */,
 				7A7E9B222467250D00DA8808 /* GenericDetailViewController.swift in Sources */,
 				7A8CBB6923EFA50B00D0D6BD /* JournalViewController.swift in Sources */,
@@ -1190,7 +1194,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.127;
+				MARKETING_VERSION = 1.0.129;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1210,7 +1214,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.127;
+				MARKETING_VERSION = 1.0.129;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

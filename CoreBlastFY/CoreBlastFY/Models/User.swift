@@ -24,8 +24,20 @@ class User: Codable {
         return selectedTime.addingTimeInterval(86400)
     }
     
-    var isPlankDay: Bool {
-        return totalPoints % 2 == 0
+    var mode: Mode {
+        if totalPoints % 3 == 0 {
+            return .totalBody
+        } else if totalPoints % 2 == 0 {
+            return .side
+        } else {
+            return .front
+        }
+    }
+    
+    enum Mode: String, Codable {
+        case totalBody
+        case front
+        case side
     }
     
     var selectedHour: Int?

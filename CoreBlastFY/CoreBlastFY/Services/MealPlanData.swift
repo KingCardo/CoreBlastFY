@@ -174,9 +174,12 @@ let franchizLunchInstructions: [String] = ["Fill a medium pot about halfway with
 
 //dinner
 
-let franchizDinnerMealName = "Salmon, Sweet Potato Mash & Veggies"
-let franchizDinnerIngredients: [Recipe.Ingredient] = [salmon, garlic, salt, pepper, extraVirginOliveOil, sweetPotato, broccoli]
-let franchizDinnerInstructions: [String] = ["Fill a medium pot about halfway with water, cover.", "Wash, and peel sweet potatoes, then add to pot. Once the water is boiling, cook until the potatoes are very tender when pierced with a fork, 20-30 minutes. Drain and return to saucepan.", "Preheat oven to 375 F.", "Drizzle broccoli with olive oil, salt, pepper, and onion powder.", "Spread veggies on aluminum foil on baking sheet in single layer.", "Place the salmon fillets, skin-side down, rub with olive oil and season with salt, pepper, garlic and onion powder.", "Place on cooking sheet with aluminum foil and bake until salmon is opaque and broccoli is tender, 18-23 minutes.", "Add cinnamon, salt and brown sugar to sweet potatoes. Mash with a potato masher (or a fork) until smooth.", "Transfer food to plate and enjoy!"]
+let turkey = Recipe.Ingredient(name: "Grass Fed Turkey Meat", amount: "2 slices")
+let guacamole = Recipe.Ingredient(name: "Guacamole", amount: "1 Tbsp")
+
+let franchizDinnerMealName = "Turkey Salad"
+let franchizDinnerIngredients: [Recipe.Ingredient] = [spinach, pepper, eggs, turkey, guacamole, cucumber, redOnion, cilantro]
+let franchizDinnerInstructions: [String] = ["Grab a bowl and add one big handful of fresh spinach to bowl.", "Boil water in seperate pot", "Add eggs and let boil for 10 minutes", "Slice up cucumbers, turkey meat, onions, and cilantro into small bitze sizes and add on top of spinach.", "Dump hot water out and run cold water over eggs until cool enough to peel shells", "Slice eggs and add on top, sprinkle with pepper, and scoop of guacamole and choice of dressing and Enjoy!"]
 
 //dinner2
 
@@ -199,7 +202,7 @@ let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franc
 
 let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
-let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmon"))
+let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "dinnerSalad"))
 
 let franchizMealPlanTitle = "My Personal Plan"
 let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."
