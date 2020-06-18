@@ -33,7 +33,7 @@ class WorkoutView: UIView {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.pauseLabel.isHidden = self.timerIsRunning
-                self.setNeedsDisplay()
+                self.pauseLabel.setNeedsDisplay()
             }
         }
     }
@@ -248,12 +248,6 @@ class WorkoutView: UIView {
         exerciseStackView.spacing = Style.stackViewSpacing
         exerciseStackView.backgroundColor = .clear
         
-        addSubview(exerciseStackView)
-        exerciseStackView.translatesAutoresizingMaskIntoConstraints = false
-        exerciseStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
-        exerciseStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
-       
-        
         
         timeLeftLabel.text = "Time Remaining"
         timeLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
@@ -269,11 +263,16 @@ class WorkoutView: UIView {
         durationStackView.spacing = Style.stackViewSpacing
         durationStackView.backgroundColor = .clear
         
-        addSubview(durationStackView)
-        durationStackView.translatesAutoresizingMaskIntoConstraints = false
-        durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
-        durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
-        exerciseStackView.trailingAnchor.constraint(equalTo: durationStackView.leadingAnchor, constant: -4).isActive = true
+        let containerStackView = UIStackView(arrangedSubviews: [exerciseStackView, durationStackView])
+        containerStackView.distribution = .fillEqually
+        containerStackView.backgroundColor = .clear
+    
+        addSubview(containerStackView)
+        containerStackView.translatesAutoresizingMaskIntoConstraints = false
+        containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
+        containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
+        containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
+               
         
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 protocol PreWorkoutDisplayLogic: class {
     func displayPreWorkoutViewModel(viewModel: PreWorkout.FetchUser.ViewModel)
@@ -29,6 +30,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private var loadingView: LoadingView?
     private var loadingSpinner: UIActivityIndicatorView?
     private var exerciseLoadingView: ExercisesLoadingView?
+    private
     
     // MARK: Object lifecycle
     
@@ -79,11 +81,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         super.viewDidLoad()
         registerObservers()
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTipIcon()
+       // setupMusicButton()
         fetchUserInfo()
 
         self.tabBarController?.tabBar.isHidden = false
@@ -106,7 +108,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         
     }
     
-    let tipIcon = UIButton(type: .detailDisclosure)
+    private let tipIcon = UIButton(type: .detailDisclosure)
     
     private func setupTipIcon() {
         tipIcon.tintColor = .goatBlue
@@ -116,6 +118,22 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         
         addTipIcon()
     }
+    
+   // private let musicButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playMusic))
+    
+//    private func setupMusicButton() {
+//        musicButton.tintColor = .goatBlue
+//        addMusicButton()
+//
+//    }
+    
+//    @objc func playMusic(_ sender: UIButton) {
+//        let controller = MPMediaPickerController(mediaTypes: .music)
+//        controller.delegate = self
+//        controller.allowsPickingMultipleItems = true
+//        controller.popoverPresentationController?.sourceView = sender
+//        present(controller, animated: true)
+//    }
     
     @objc private func workoutComplete() {
         AlertController.createAlert(errorMessage: "Keep up the hard work!\nConsistency is key!", title: "Congratulations 💪", viewController: self, actionTitle: "🎯")
@@ -151,6 +169,21 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         
     }
     
+//    private func removeItemsFromNavBar() {
+//        DispatchQueue.main.async {
+//            self.navigationItem.leftBarButtonItem = nil
+//            self.navigationController?.navigationBar.setNeedsDisplay()
+//
+//        }
+//    }
+//
+//    private func addMusicButton() {
+//        if navigationItem.leftBarButtonItem == nil {
+//        navigationItem.leftBarButtonItem = musicButton
+//
+//        }
+//    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Workout"
         view.backgroundColor = .black
@@ -158,6 +191,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     @objc private func startWorkout() {
             displayLoadingView()
+           // removeItemsFromNavBar()
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
@@ -228,3 +262,23 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         interactor?.fetchUserInfo(request: request)
     }
 }
+
+//extension PreWorkoutViewController: MPMediaPickerControllerDelegate {
+//
+//
+//
+//    func mediaPicker(_ mediaPicker: MPMediaPickerController,
+//                     didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+//        // Get the system music player.
+//
+//        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
+//        musicPlayer.setQueue(with: mediaItemCollection)
+//        mediaPicker.dismiss(animated: true)
+//        // Begin playback.
+//        musicPlayer.play()
+//    }
+//
+//    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+//        mediaPicker.dismiss(animated: true)
+//    }
+//}

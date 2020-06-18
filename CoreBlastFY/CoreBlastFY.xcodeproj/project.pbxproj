@@ -31,6 +31,8 @@
 		7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89124940D99004AA193 /* left side plank wrap.mov */; };
 		7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89324940DA4004AA193 /* right side plank wrap.mov */; };
 		7A56E896249469D2004AA193 /* ProgramOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E895249469D2004AA193 /* ProgramOverview.swift */; };
+		7A56E89A249BE739004AA193 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E899249BE739004AA193 /* AppInfo.swift */; };
+		7A56E89C249BE7E5004AA193 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E89B249BE7E5004AA193 /* MusicPlayer.swift */; };
 		7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */; };
 		7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */; };
 		7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */; };
@@ -191,6 +193,8 @@
 		7A56E89124940D99004AA193 /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
 		7A56E89324940DA4004AA193 /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
 		7A56E895249469D2004AA193 /* ProgramOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramOverview.swift; sourceTree = "<group>"; };
+		7A56E899249BE739004AA193 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		7A56E89B249BE7E5004AA193 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		7A5CEDCB2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCD2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		7A5CEDCF245DEA2C0066B0D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 				7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */,
 				7A2E4DFC2492F321007427D2 /* LocalExercises.swift */,
 				7A56E895249469D2004AA193 /* ProgramOverview.swift */,
+				7A56E89B249BE7E5004AA193 /* MusicPlayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 				7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */,
 				7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */,
 				7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */,
+				7A56E899249BE739004AA193 /* AppInfo.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -903,6 +909,7 @@
 			files = (
 				7A8CBB6823EFA50B00D0D6BD /* Entry.swift in Sources */,
 				7AC36D0B244E2213002764F5 /* MealPlanCell.swift in Sources */,
+				7A56E89C249BE7E5004AA193 /* MusicPlayer.swift in Sources */,
 				7AC2C6C42449183C00B3BFC8 /* MealPlansModels.swift in Sources */,
 				7A8CBB2A23E912C700D0D6BD /* VideoView.swift in Sources */,
 				7A8CBAD323E9122500D0D6BD /* Looper.swift in Sources */,
@@ -942,6 +949,7 @@
 				7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */,
 				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
 				7AC36D1C2454A783002764F5 /* MealDetailsInteractor.swift in Sources */,
+				7A56E89A249BE739004AA193 /* AppInfo.swift in Sources */,
 				7A8CBB2623E912C700D0D6BD /* WorkoutWorker.swift in Sources */,
 				7AC36D2A24563192002764F5 /* IngredientsTableViewCell.swift in Sources */,
 				7AC36D0F244E22FF002764F5 /* RecipeCell.swift in Sources */,

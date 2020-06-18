@@ -93,6 +93,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         
     }
     
+    
     @objc private func preventScreenRecording() {
         let isRecording = UIScreen.main.isCaptured
         
