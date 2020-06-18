@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>&quot;com.Franchiz.CoreBlast.refresh&quot;</string>
+		<string>"com.Franchiz.CoreBlast.refresh"</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -26,6 +26,8 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need access to your music library to let you play your tunes during your workout!</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to your camera to help you stay on track with progression!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -70,7 +72,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>We need access to your music library to let you play your tunes during your workout!</string>
 </dict>
 </plist>

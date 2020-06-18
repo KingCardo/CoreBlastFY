@@ -17,14 +17,19 @@ func isPassedMoreThan(days: Int, fromDate date : Date, toDate date2 : Date) -> B
 
 class UserManager {
     
+    static let workoutDateKey = "WorkoutDate"
+    static let totalPointsKey = "TotalPoints"
+    
     static func decrementPoint() -> Bool {
         let today = Date()
         guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return false }
         if isPassedMoreThan(days: 2, fromDate: lastWorkout, toDate: today) {
             if UserAPI.user.totalPoints > 0 {
             UserAPI.user.totalPoints -= 1
+            UserDefaults.standard.setValue(UserAPI.user.totalPoints, forKey: UserManager.totalPointsKey)
+            save()
             }
-        save()
+            
             return true
         } else {
             return false
@@ -34,6 +39,7 @@ class UserManager {
     static func incrementPoint() {
         UserAPI.user.lastWorkoutComplete = Date()
         UserAPI.user.totalPoints += 1
+        UserDefaults.standard.setValue(UserAPI.user.totalPoints, forKey: UserManager.totalPointsKey)
         save()
     }
     
@@ -47,6 +53,7 @@ class UserManager {
     }
     
     static func save() {
+
              let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
              let archiveURL = documentsDirectory.appendingPathComponent("User").appendingPathExtension("json")
              

@@ -70,6 +70,7 @@ class OnboardingViewController: UIViewController {
     @objc func grabInputFromUser(_ sender: UIDatePicker) {
         UserAPI.user.selectedTime = sender.date
         UserManager.save()
+        UserDefaults.standard.setValue(UserAPI.user.selectedTime, forKey: UserManager.workoutDateKey)
         
     }
  

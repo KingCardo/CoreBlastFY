@@ -85,7 +85,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTipIcon()
-       // setupMusicButton()
+        //setupMusicButton()
         fetchUserInfo()
 
         self.tabBarController?.tabBar.isHidden = false
@@ -119,21 +119,26 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         addTipIcon()
     }
     
-   // private let musicButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playMusic))
+    private func addTipIcon() {
+           if !(navigationController?.navigationBar.subviews.contains(tipIcon))!  {
+           navigationController?.navigationBar.addSubview(tipIcon)
+           tipIcon.centerYInSuperview()
+           tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
+           tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+           tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+           }
+           
+       }
     
-//    private func setupMusicButton() {
-//        musicButton.tintColor = .goatBlue
-//        addMusicButton()
-//
-//    }
     
-//    @objc func playMusic(_ sender: UIButton) {
-//        let controller = MPMediaPickerController(mediaTypes: .music)
-//        controller.delegate = self
-//        controller.allowsPickingMultipleItems = true
-//        controller.popoverPresentationController?.sourceView = sender
-//        present(controller, animated: true)
-//    }
+    @objc private func showTip() {
+        AlertController.createAlert(errorMessage: "Warming up or jogging for 10 minutes prior to workout will greatly increase productivity of workout!", title: "Workout Tip", viewController: self)
+    }
+    
+    private func registerObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
+    }
     
     @objc private func workoutComplete() {
         AlertController.createAlert(errorMessage: "Keep up the hard work!\nConsistency is key!", title: "Congratulations 💪", viewController: self, actionTitle: "🎯")
@@ -149,40 +154,40 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         }
     }
     
-    @objc private func showTip() {
-        AlertController.createAlert(errorMessage: "Warming up or jogging for 10 minutes prior to workout will greatly increase productivity of workout!", title: "Workout Tip", viewController: self)
-    }
     
-    private func registerObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showWorkoutVC), name: exerciseLoadedNotification, object: nil)
-    }
+    private let musicButton = UIButton(type: .detailDisclosure)
+        //UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playMusic))
+     
+     private func setupMusicButton() {
+         musicButton.tintColor = .goatBlue
+        musicButton.addTarget(self, action: #selector(playMusic), for: .touchDown)
+         addMusicButton()
+
+     }
+     
     
-    private func addTipIcon() {
-        if !(navigationController?.navigationBar.subviews.contains(tipIcon))!  {
-        navigationController?.navigationBar.addSubview(tipIcon)
-        tipIcon.centerYInSuperview()
-        tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
-        tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+    
+    private func removeItemsFromNavBar() {
+        DispatchQueue.main.async {
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationController?.navigationBar.setNeedsDisplay()
+
         }
-        
     }
-    
-//    private func removeItemsFromNavBar() {
-//        DispatchQueue.main.async {
-//            self.navigationItem.leftBarButtonItem = nil
-//            self.navigationController?.navigationBar.setNeedsDisplay()
-//
-//        }
-//    }
-//
-//    private func addMusicButton() {
+
+    private func addMusicButton() {
+        if !(navigationController?.navigationBar.subviews.contains(musicButton))!  {
+        navigationController?.navigationBar.addSubview(musicButton)
+        musicButton.centerYInSuperview()
+        musicButton.leadingAnchor.constraint(equalTo:  (navigationController?.navigationBar.leadingAnchor)!, constant: 8).isActive = true
+        musicButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        musicButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        }
 //        if navigationItem.leftBarButtonItem == nil {
-//        navigationItem.leftBarButtonItem = musicButton
+//            navigationItem.leftBarButtonItem = musicButton
 //
 //        }
-//    }
+    }
     
     private func setupNavigationBar() {
         navigationItem.title = "Workout"
@@ -191,7 +196,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     @objc private func startWorkout() {
             displayLoadingView()
-           // removeItemsFromNavBar()
+            removeItemsFromNavBar()
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
@@ -263,22 +268,27 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
 }
 
-//extension PreWorkoutViewController: MPMediaPickerControllerDelegate {
-//
-//
-//
-//    func mediaPicker(_ mediaPicker: MPMediaPickerController,
-//                     didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-//        // Get the system music player.
-//
-//        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
-//        musicPlayer.setQueue(with: mediaItemCollection)
-//        mediaPicker.dismiss(animated: true)
-//        // Begin playback.
-//        musicPlayer.play()
-//    }
-//
-//    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
-//        mediaPicker.dismiss(animated: true)
-//    }
-//}
+extension PreWorkoutViewController: MPMediaPickerControllerDelegate {
+    
+    @objc func playMusic(_ sender: UIButton) {
+        print("button tapped")
+        let controller = MPMediaPickerController(mediaTypes: .music)
+        controller.delegate = self
+        controller.allowsPickingMultipleItems = true
+        controller.popoverPresentationController?.sourceView = sender
+        present(controller, animated: true)
+    }
+    
+    func mediaPicker(_ mediaPicker: MPMediaPickerController,
+                     didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        
+        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
+        musicPlayer.setQueue(with: .songs())
+        mediaPicker.dismiss(animated: true)
+        musicPlayer.play()
+    }
+    
+    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        mediaPicker.dismiss(animated: true)
+    }
+}
