@@ -30,7 +30,11 @@ class WorkoutView: UIView {
     private var workoutTimer = Timer()
     var timerIsRunning = false {
         didSet {
-            pauseLabel.isHidden = timerIsRunning
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.pauseLabel.isHidden = self.timerIsRunning
+                self.setNeedsDisplay()
+            }
         }
     }
     
@@ -248,6 +252,7 @@ class WorkoutView: UIView {
         exerciseStackView.translatesAutoresizingMaskIntoConstraints = false
         exerciseStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         exerciseStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
+       
         
         
         timeLeftLabel.text = "Time Remaining"
@@ -268,7 +273,7 @@ class WorkoutView: UIView {
         durationStackView.translatesAutoresizingMaskIntoConstraints = false
         durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
         durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
-        
+        exerciseStackView.trailingAnchor.constraint(equalTo: durationStackView.leadingAnchor, constant: -4).isActive = true
         
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -277,8 +282,7 @@ class WorkoutView: UIView {
         videoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
-        //videoView.createShadowLayerTop()
-        //videoView.createShadowLayerBottom()
+       
         SpeechSynthesizer.shared.textToSpeak(text: tipsText)
         
         videoView.addSubview(pauseLabel)

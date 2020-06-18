@@ -32,8 +32,8 @@ struct Workout: Codable {
     var numberOfSets: Int {
         switch user.coreLevel {
         case .beginner: return 4
-        case .novice: return 5
-        case .solid: return 6
+        case .novice: return 4
+        case .solid: return 5
         case .advanced: return 6
         case .rockstar: return 6
         }

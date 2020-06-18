@@ -9,14 +9,11 @@
 import Foundation
 import UserNotifications
 
-let center = UNUserNotificationCenter.current()
 let notificationsAllowedKey = "notificationsAllowed"
 var notificationsAllowed = UserDefaults.standard.bool(forKey: notificationsAllowedKey)
 
 func sendPointDecrementNotification() {
-    var dateComponents = DateComponents(calendar: Calendar(identifier: .gregorian))
-    dateComponents.hour = 12
-    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     
     let content = UNMutableNotificationContent()
     content.title = "It's been over 3 days since completed last workout!"
@@ -25,13 +22,13 @@ func sendPointDecrementNotification() {
     content.sound = UNNotificationSound.default
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-    center.add(request)
+    notificationCenter.add(request)
 }
 
 func registerForNotifications() {
     
     if !notificationsAllowed {
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if granted {
                 mealPrepNotification()
                 prepareProgressionPicNotification()

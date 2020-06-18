@@ -63,9 +63,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
                 }
                 
             } else {
+                DispatchQueue.global(qos: .userInitiated).sync {
+                    UserAPI.user = UserManager.loadUserFromFile()
+                    if UserAPI.user != nil {
+                        DispatchQueue.main.async {
+                            self.window!.rootViewController = HomeViewController()
+                            self.window!.makeKeyAndVisible()
+                        }
+                    }
+                }
                 
-                self.window!.rootViewController = HomeViewController()
-                self.window!.makeKeyAndVisible()
                 
             }
         }

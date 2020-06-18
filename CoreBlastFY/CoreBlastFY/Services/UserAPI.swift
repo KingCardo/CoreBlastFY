@@ -12,7 +12,7 @@ class UserAPI: UserInfoStoreProtocol {
     static var user: User!        
     
     func fetchUserInfo(completion: @escaping(User?, UserInfoStoreError?) -> Void) {
-          let user = UserManager.loadUserFromFile()
-            completion(user, nil)
+        UserAPI.user = UserManager.loadUserFromFile()
+        completion(UserAPI.user, nil)
     }
 }

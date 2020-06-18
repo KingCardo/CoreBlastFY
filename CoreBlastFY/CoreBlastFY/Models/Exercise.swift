@@ -46,7 +46,8 @@ struct Exercise: Codable {
     init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, isSide: Bool = false, totalBody: Bool = false) {
         self.name = name
         self.tip = tip
-        let path = URL(fileURLWithPath:Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!)
+        let s = Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!
+        let path = URL(fileURLWithPath: s)
         self.videoURL = path
         self.level = level
         self.isSide = isSide
