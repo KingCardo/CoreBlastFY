@@ -28,53 +28,14 @@ class ExerciseStorage {
         }
     }
     
-    static func save() {
-        
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("Exercises").appendingPathExtension("json")
-        
-        let jsonEncoder = JSONEncoder()
-        
-        do {
-            let encodedData = try jsonEncoder.encode(exercises)
-            try encodedData.write(to: archiveURL)
-        } catch let error {
-            print(error)
-        }
-        
-    }
-    @discardableResult
-    static func loadExercises() -> Bool {
-        
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("Exercises").appendingPathExtension("json")
-        
-        let jsonDecoder = JSONDecoder()
-        guard let decodedData = try? Data(contentsOf: archiveURL) else { return false }
-        
-        do {
-            self.exercises = try jsonDecoder.decode([Exercise].self, from: decodedData)
-            return exercises.count > 0 ? true : false
-        } catch {
-            return false
-        }
-    }
-    
     static func fetchExercises(completion: @escaping(Bool) -> Void) {
-        if !UserDefaults.standard.bool(forKey: exercisesLoaded) {
             let worker = ExerciseWorker(exerciseInfoDataStore: LocalExercises())
             worker.fetchExercises { (exercises, error) in
                 if !exercises.isEmpty {
                     ExerciseStorage.exercises += exercises
-                    ExerciseStorage.save()
-                    UserDefaults.standard.set(true, forKey: exercisesLoaded)
                     completion(true)
                     return
-                } else {
-                    completion(false)
-                    return
                 }
-            }
         }
     }
     

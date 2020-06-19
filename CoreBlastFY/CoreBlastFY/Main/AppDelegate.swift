@@ -41,8 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
         DispatchQueue.global(qos: .userInitiated).async {
-        
-        let _ = ExerciseStorage.loadExercises()
                ProgressionPicController.shared.loadFromFile()
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()

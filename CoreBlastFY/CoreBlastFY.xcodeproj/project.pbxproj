@@ -156,6 +156,7 @@
 		7AC36D2724562C5B002764F5 /* MealPlanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2624562C5B002764F5 /* MealPlanData.swift */; };
 		7AC36D2A24563192002764F5 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2924563192002764F5 /* IngredientsTableViewCell.swift */; };
 		7AC36D2C24563526002764F5 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC36D2B24563526002764F5 /* InstructionsTableViewCell.swift */; };
+		7ADB0E63249C496C00681589 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB0E62249C496C00681589 /* UserManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +323,7 @@
 		7AC36D2624562C5B002764F5 /* MealPlanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanData.swift; sourceTree = "<group>"; };
 		7AC36D2924563192002764F5 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		7AC36D2B24563526002764F5 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		7ADB0E62249C496C00681589 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 		7A8CBAA923E9109B00D0D6BD /* CoreBlastFYTests */ = {
 			isa = PBXGroup;
 			children = (
+				7ADB0E61249C494900681589 /* UserManagerTests */,
 				7AC2C69F2449077200B3BFC8 /* PreWorkoutTests */,
 				7AC2C6A82449108F00B3BFC8 /* WorkoutTests */,
 				7A0D67622474485800A6E766 /* ExerciseTests */,
@@ -798,6 +801,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7ADB0E61249C494900681589 /* UserManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7ADB0E62249C496C00681589 /* UserManagerTests.swift */,
+			);
+			path = UserManagerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1036,6 +1047,7 @@
 				7AC2C6AF244910B100B3BFC8 /* WorkoutWorkerTests.swift in Sources */,
 				7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */,
 				7AC36D252454A7E0002764F5 /* MealDetailPresenterTests.swift in Sources */,
+				7ADB0E63249C496C00681589 /* UserManagerTests.swift in Sources */,
 				7AC2C6AD244910B100B3BFC8 /* WorkoutViewControllerTests.swift in Sources */,
 				7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */,
 				7AC36D02244B9AEE002764F5 /* MealPlanDetailsInteractorTests.swift in Sources */,
