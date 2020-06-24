@@ -30,7 +30,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private var loadingView: LoadingView?
     private var loadingSpinner: UIActivityIndicatorView?
     private var exerciseLoadingView: ExercisesLoadingView?
-    private
+    private let musicPlayer = MPMusicPlayerController.systemMusicPlayer
     
     // MARK: Object lifecycle
     
@@ -87,7 +87,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         setupTipIcon()
         //setupMusicButton()
         fetchUserInfo()
-
+        
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -120,15 +120,15 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func addTipIcon() {
-           if !(navigationController?.navigationBar.subviews.contains(tipIcon))!  {
-           navigationController?.navigationBar.addSubview(tipIcon)
-           tipIcon.centerYInSuperview()
-           tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
-           tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-           tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
-           }
-           
-       }
+        if !(navigationController?.navigationBar.subviews.contains(tipIcon))!  {
+            navigationController?.navigationBar.addSubview(tipIcon)
+            tipIcon.centerYInSuperview()
+            tipIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
+            tipIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            tipIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        }
+        
+    }
     
     
     @objc private func showTip() {
@@ -145,8 +145,8 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     @objc private func showWorkoutVC() {
-            fetchUserInfo()
-            DispatchQueue.main.async { [weak self] in
+        fetchUserInfo()
+        DispatchQueue.main.async { [weak self] in
             self?.exerciseLoadingView?.removeFromSuperview()
             self?.exerciseLoadingView = nil
             self?.preworkoutView?.isUserInteractionEnabled = true
@@ -156,37 +156,37 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     
     private let musicButton = UIButton(type: .detailDisclosure)
-        //UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playMusic))
-     
-     private func setupMusicButton() {
-         musicButton.tintColor = .goatBlue
+    //UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playMusic))
+    
+    private func setupMusicButton() {
+        musicButton.tintColor = .goatBlue
         musicButton.addTarget(self, action: #selector(playMusic), for: .touchDown)
-         addMusicButton()
-
-     }
-     
+        addMusicButton()
+        
+    }
+    
     
     
     private func removeItemsFromNavBar() {
         DispatchQueue.main.async {
             self.navigationItem.leftBarButtonItem = nil
             self.navigationController?.navigationBar.setNeedsDisplay()
-
+            
         }
     }
-
+    
     private func addMusicButton() {
         if !(navigationController?.navigationBar.subviews.contains(musicButton))!  {
-        navigationController?.navigationBar.addSubview(musicButton)
-        musicButton.centerYInSuperview()
-        musicButton.leadingAnchor.constraint(equalTo:  (navigationController?.navigationBar.leadingAnchor)!, constant: 8).isActive = true
-        musicButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        musicButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            navigationController?.navigationBar.addSubview(musicButton)
+            musicButton.centerYInSuperview()
+            musicButton.leadingAnchor.constraint(equalTo:  (navigationController?.navigationBar.leadingAnchor)!, constant: 8).isActive = true
+            musicButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            musicButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         }
-//        if navigationItem.leftBarButtonItem == nil {
-//            navigationItem.leftBarButtonItem = musicButton
-//
-//        }
+        //        if navigationItem.leftBarButtonItem == nil {
+        //            navigationItem.leftBarButtonItem = musicButton
+        //
+        //        }
     }
     
     private func setupNavigationBar() {
@@ -195,8 +195,8 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     @objc private func startWorkout() {
-            displayLoadingView()
-            removeItemsFromNavBar()
+        displayLoadingView()
+        removeItemsFromNavBar()
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {
@@ -219,10 +219,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         preworkoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         //TO DO: - use reusable version
-//        if let user = UserAPI.user, user.totalPoints > user.la
+        //        if let user = UserAPI.user, user.totalPoints > user.la
         UIView.animate(withDuration: 1.0) { [weak self] in
-        self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
-        self?.preworkoutView?.totalPointsLevel.transform = .identity
+            self?.preworkoutView?.totalPointsLevel.transform = CGAffineTransform(scaleX: 5, y: 5)
+            self?.preworkoutView?.totalPointsLevel.transform = .identity
         }
         
         if ExerciseStorage.exercises.count <= 0 {
@@ -234,7 +234,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
                 self.preworkoutView?.isUserInteractionEnabled = false
             }
         }
-
+        
     }
     
     // MARK: Do something
@@ -272,18 +272,22 @@ extension PreWorkoutViewController: MPMediaPickerControllerDelegate {
     
     @objc func playMusic(_ sender: UIButton) {
         print("button tapped")
+        sender.isUserInteractionEnabled = false
         let controller = MPMediaPickerController(mediaTypes: .music)
+        controller.overrideUserInterfaceStyle = .dark
         controller.delegate = self
         controller.allowsPickingMultipleItems = true
         controller.popoverPresentationController?.sourceView = sender
+        sender.isUserInteractionEnabled = true
         present(controller, animated: true)
     }
     
     func mediaPicker(_ mediaPicker: MPMediaPickerController,
                      didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         
-        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
+//        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
         musicPlayer.setQueue(with: .songs())
+        musicPlayer.prepareToPlay()
         mediaPicker.dismiss(animated: true)
         musicPlayer.play()
     }

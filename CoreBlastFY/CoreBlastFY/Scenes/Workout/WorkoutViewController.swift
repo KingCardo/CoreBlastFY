@@ -43,6 +43,10 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         workoutView = nil
     }
     
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return .portrait
+//    }
+    
     // MARK: Setup
     
     private func setup() {

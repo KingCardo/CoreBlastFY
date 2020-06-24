@@ -29,15 +29,6 @@ class WorkoutView: UIView {
     private let exerciseLabel = UILabel()
     private var workoutTimer = Timer()
     var timerIsRunning = false
-//    {
-//        didSet {
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                self.pauseLabel.isHidden = self.timerIsRunning
-//                self.pauseLabel.setNeedsDisplay()
-//            }
-//        }
-  //  }
     
     var loadingView: LoadingView?
     
@@ -97,8 +88,8 @@ class WorkoutView: UIView {
     
     func resumeWorkout() {
         DispatchQueue.main.async { [weak self] in
-            self?.runTimer()
             self?.pauseLabel.isHidden = true
+            self?.runTimer()
             self?.videoView?.resume()
             self?.setNeedsDisplay()
             self?.setNeedsLayout()
@@ -107,7 +98,7 @@ class WorkoutView: UIView {
     
     func pauseWorkout() {
         DispatchQueue.main.async { [weak self] in
-            self?.pauseLabel.isHidden = false
+            self?.pauseLabel.isHidden = false 
             self?.invalidateTimers()
             self?.videoView?.pauseVideo()
             self?.setNeedsDisplay()
@@ -117,7 +108,6 @@ class WorkoutView: UIView {
     
     private func pauseWorkoutForTransition() {
         DispatchQueue.main.async { [weak self] in
-            self?.pauseLabel.isHidden = false
             self?.hideLabelsForTransition()
             self?.videoView?.advanceToNextItem()
             self?.setNeedsDisplay()
@@ -132,7 +122,6 @@ class WorkoutView: UIView {
     
     private func resumeWorkoutForTransition() {
         DispatchQueue.main.async { [weak self] in
-            self?.pauseLabel.isHidden = true 
             self?.showLabelsAfterTransition()
             self?.setNeedsDisplay()
             self?.setNeedsLayout()
@@ -262,7 +251,7 @@ class WorkoutView: UIView {
         durationLeftLabel.textColor = .white
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
-        durationStackView.alignment = .center
+        durationStackView.alignment = .trailing
         durationStackView.distribution = .fillEqually
         durationStackView.axis = .vertical
         durationStackView.spacing = Style.stackViewSpacing
@@ -276,7 +265,7 @@ class WorkoutView: UIView {
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
-        containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
+        containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.bottom).isActive = true
                
         
         videoView.translatesAutoresizingMaskIntoConstraints = false

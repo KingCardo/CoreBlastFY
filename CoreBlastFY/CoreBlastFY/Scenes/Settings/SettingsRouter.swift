@@ -19,6 +19,7 @@ import UIKit
     func routeToParksScene()
     func routeToTermsOfUse()
     func routeToProgramOverview()
+    func routeToCustomWorkoutScene()
 }
 
 protocol SettingsDataPassing
@@ -66,6 +67,12 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
         let destination = GenericDetailViewController()
         destination.data = programOverview
         navigateTo(source: viewController!, destination: destination)
+    }
+    
+    func routeToCustomWorkoutScene() {
+        let destination = CustomWorkoutViewController()
+        navigateTo(source: viewController!, destination: destination)
+        
     }
 
   }

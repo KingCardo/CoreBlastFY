@@ -44,12 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                ProgressionPicController.shared.loadFromFile()
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()
-        }
-        
-        // MARK: Registering Launch Handlers for Tasks
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
-            // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            let shouldDecrement = UserManager.decrementPoint()
+            if shouldDecrement {
+                sendPointDecrementNotification()
+            }
         }
         
         return true

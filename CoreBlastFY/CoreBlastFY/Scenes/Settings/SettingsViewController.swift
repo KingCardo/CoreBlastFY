@@ -75,6 +75,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         StoreObserver.shared.restore()
         
     }
+    
+    private func routeToCustomWorkoutScene() {
+        router?.routeToCustomWorkoutScene()
+    }
 
     // MARK: View lifecycle
     
@@ -152,6 +156,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
         case .termsOfUse: routToTermsOfUse()
+        case .customWorkout: routeToCustomWorkoutScene()
         default: break
         }
     }

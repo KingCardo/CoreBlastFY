@@ -23,6 +23,7 @@ enum Settings {
                   case about = "About FYF"
                   case programOverview = "Program Overview"
                   case notifications = "Notifications"
+                  case customWorkout = "Custom WOrkout"
                   case foodLog = "Food Log"
                   case parks = "Nearby Parks"
                   case extras = "Extras"
@@ -35,6 +36,7 @@ enum Settings {
         .programOverview,
         .notifications,
         .foodLog,
+        //.customWorkout,
         .reportAProblem,
         .inAppPurchase,
         .termsOfUse

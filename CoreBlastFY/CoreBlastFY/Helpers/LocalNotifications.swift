@@ -12,6 +12,8 @@ import UserNotifications
 let notificationsAllowedKey = "notificationsAllowed"
 var notificationsAllowed = UserDefaults.standard.bool(forKey: notificationsAllowedKey)
 
+let decrementNotifId = UUID().uuidString
+
 func sendPointDecrementNotification() {
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     
@@ -21,7 +23,7 @@ func sendPointDecrementNotification() {
     content.categoryIdentifier = "lostPointNotification"
     content.sound = UNNotificationSound.default
     
-    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: decrementNotifId, content: content, trigger: trigger)
     notificationCenter.add(request)
 }
 

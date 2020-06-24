@@ -23,7 +23,7 @@ class UserManager {
     static func decrementPoint() -> Bool {
         let today = Date()
         guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return false }
-        if isPassedMoreThan(days: 2, fromDate: lastWorkout, toDate: today) {
+        if isPassedMoreThan(days: 3, fromDate: lastWorkout, toDate: today) {
             if UserAPI.user.totalPoints > 0 {
             UserAPI.user.totalPoints -= 1
             UserDefaults.standard.setValue(UserAPI.user.totalPoints, forKey: UserManager.totalPointsKey)
