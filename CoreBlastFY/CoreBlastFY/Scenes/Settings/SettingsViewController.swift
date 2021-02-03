@@ -79,6 +79,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
     private func routeToCustomWorkoutScene() {
         router?.routeToCustomWorkoutScene()
     }
+    
+    private func routeToExercises() {
+        router?.routeToExercises()
+    }
 
     // MARK: View lifecycle
     
@@ -152,11 +156,13 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         case .about: routeToAboutScene()
         case .programOverview: routeToProgramOverview()
         case .notifications: routeToNotificationsScene()
+        case .review: leaveAReview()
         case .foodLog: routeToFoodLogScene()
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
         case .termsOfUse: routToTermsOfUse()
         case .customWorkout: routeToCustomWorkoutScene()
+        case .exercises: routeToExercises()
         default: break
         }
     }
@@ -179,18 +185,32 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
- func contactUsButtonTapped() {
+    func leaveAReview() {
         
-        guard MFMailComposeViewController.canSendMail() else { return }
+            let goToAppStore: (() -> Void)? = {
+                if let url = URL(string: "https://apps.apple.com/us/app/coreblast-6-pack-blueprint/id1511323845") {
+                    UIApplication.shared.open(url)
+                }
+            }
+        
+        goToAppStore?()
+        
+    }
+    
+    
+    func contactUsButtonTapped() {
+        
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
         mailComposer.setToRecipients(["foreveryoungfitnessX@gmail.com"])
-        mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?") 
+        mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?")
         
-        present(mailComposer, animated: true)
+        self.present(mailComposer, animated: true)
         if !MFMailComposeViewController.canSendMail() {
             AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
             return
         }
     }
+    
+   
 }

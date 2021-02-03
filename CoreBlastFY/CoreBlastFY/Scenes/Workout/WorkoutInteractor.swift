@@ -13,29 +13,35 @@
 import Foundation
 
 protocol WorkoutBusinessLogic {
-  func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request)
+    func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request)
+    func createCustomWorkout(workout: Workout)
 }
 
 protocol WorkoutDataStore {
-  var workout: Workout? { get set }
-  var exercises: [Exercise] { get set }
+    var workout: Workout? { get set }
+    var exercises: [Exercise] { get set }
 }
 
 class WorkoutInteractor: WorkoutBusinessLogic, WorkoutDataStore {
     
-  var presenter: WorkoutPresentationLogic?
-  var worker: WorkoutWorker?
-  var workout: Workout?
-  var exercises: [Exercise] = []
+    var presenter: WorkoutPresentationLogic?
+    var worker: WorkoutWorker?
+    var workout: Workout?
+    var exercises: [Exercise] = []
     
-  
-  // MARK: Do something
-  
-  func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
-    worker = WorkoutWorker(dataStore: exercises)
-    worker?.fetchWorkout(completion: { (workout) in
+    
+    // MARK: Do something
+    
+    func createCustomWorkout(workout: Workout) {
         let response = WorkoutInfo.FetchWorkout.Response(workout: workout)
-        self.presenter?.presentWorkout(response: response)
-    })
-  }
+        presenter?.presentCustomWorkout(response: response)
+    }
+    
+    func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
+        worker = WorkoutWorker(dataStore: exercises)
+        worker?.fetchWorkout(completion: { (workout) in
+            let response = WorkoutInfo.FetchWorkout.Response(workout: workout)
+            self.presenter?.presentWorkout(response: response)
+        })
+    }
 }

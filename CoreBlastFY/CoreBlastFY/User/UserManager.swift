@@ -8,10 +8,49 @@
 
 import Foundation
 
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    static var fourDaysAgo: Date { return Date().fourDaysAgo }
+    static var threeDaysAgo: Date { return Date().threeDaysAgo }
+    
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var fourDaysAgo: Date {
+          return Calendar.current.date(byAdding: .day, value: -4, to: noon)!
+    }
+    var threeDaysAgo: Date {
+          return Calendar.current.date(byAdding: .day, value: -3, to: noon)!
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
+    }
+    
+    func daysAgo(_ days: Int) -> Date {
+         return Calendar.current.date(byAdding: .day, value: days, to: noon)!
+    }
+}
+
 func isPassedMoreThan(days: Int, fromDate date : Date, toDate date2 : Date) -> Bool {
     let unitFlags: Set<Calendar.Component> = [.day]
     let deltaD = Calendar.current.dateComponents( unitFlags, from: date, to: date2)
     return deltaD.day! > days
+}
+
+func missedWorkoutdaysCount(days: Int, fromDate date : Date, toDate date2 : Date) -> Int {
+    let unitFlags: Set<Calendar.Component> = [.day]
+    let deltaD = Calendar.current.dateComponents(unitFlags, from: date, to: date2)
+    return deltaD.day! - days
 }
 
 
@@ -19,20 +58,23 @@ class UserManager {
     
     static let workoutDateKey = "WorkoutDate"
     static let totalPointsKey = "TotalPoints"
+    static var missedWorkouts = 0
     
-    static func decrementPoint() -> Bool {
+    static func decrementPoint() -> (Bool, Int?) {
         let today = Date()
-        guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return false }
-        if isPassedMoreThan(days: 3, fromDate: lastWorkout, toDate: today) {
-            if UserAPI.user.totalPoints > 0 {
-            UserAPI.user.totalPoints -= 1
+        guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return (false, nil) }
+        if isPassedMoreThan(days: 3, fromDate: lastWorkout, toDate: today), UserAPI.user.totalPoints > 0 {
+            let days = missedWorkoutdaysCount(days: 0, fromDate: lastWorkout, toDate: today)
+            UserAPI.user.totalPoints -= days - 2
+            if UserAPI.user.totalPoints < 0 {
+                 UserAPI.user.totalPoints = 0
+            }
+            UserManager.missedWorkouts = days
             UserDefaults.standard.setValue(UserAPI.user.totalPoints, forKey: UserManager.totalPointsKey)
             save()
-            }
-            
-            return true
+            return (true, UserManager.missedWorkouts)
         } else {
-            return false
+            return (false, nil)
         }
     }
     

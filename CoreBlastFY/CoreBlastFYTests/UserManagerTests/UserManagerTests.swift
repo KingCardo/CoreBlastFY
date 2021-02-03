@@ -37,7 +37,16 @@ class UserManagerTests: XCTestCase {
     }
     
     func test_Decrement_Point() {
+        sut.totalPoints += 10
         
+        let fourDaysAgo = Date.fourDaysAgo
+        
+        sut.lastWorkoutComplete = fourDaysAgo
+        
+        let (success, numberOfDays) = UserManager.decrementPoint()
+        
+        XCTAssertEqual(success, true)
+        XCTAssertEqual(numberOfDays, 4)
     }
     
     func test_Calculate_Level() {

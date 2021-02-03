@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Exercise: Codable {
+struct Exercise: Codable, Equatable {
     var name: String
     var tip: String
     var movement: Movement = .stationary

@@ -16,6 +16,7 @@ class WorkoutView: UIView {
     private var setNumber = 1
     private var iteration = 0
     private var workoutDuration: TimeInterval
+    var timerIsRunning = false
     
     weak var rootViewController: WorkoutViewController?
     private var workoutViewModel: WorkoutInfo.FetchWorkout.ViewModel
@@ -28,7 +29,7 @@ class WorkoutView: UIView {
     private let timeLeftLabel = UILabel()
     private let exerciseLabel = UILabel()
     private var workoutTimer = Timer()
-    var timerIsRunning = false
+   
     
     var loadingView: LoadingView?
     
@@ -70,20 +71,22 @@ class WorkoutView: UIView {
     }
     
     @objc private func fireTimer() {
-        if workoutDuration > 1 {
-            workoutDuration -= 1
-            durationLeftLabel.text = timeString(time: workoutDuration)
-            
-            if workoutDuration.truncatingRemainder(dividingBy: setDuration) == 0 {
-                fireRestTimer()
+        //while timerIsRunning {
+            if workoutDuration > 1 {
+                workoutDuration -= 1
+                durationLeftLabel.text = timeString(time: workoutDuration)
+                
+                if workoutDuration.truncatingRemainder(dividingBy: setDuration) == 0 {
+                    fireRestTimer()
+                }
+                if workoutDuration.truncatingRemainder(dividingBy: exerciseDuration) == 0 {
+                    fireExerciseTimer()
+                }
+                
+            } else {
+                workoutFinished()
             }
-            if workoutDuration.truncatingRemainder(dividingBy: exerciseDuration) == 0 {
-                fireExerciseTimer()
-            }
-            
-        } else {
-            workoutFinished()
-        }
+       // }
     }
     
     func resumeWorkout() {
@@ -108,6 +111,7 @@ class WorkoutView: UIView {
     
     private func pauseWorkoutForTransition() {
         DispatchQueue.main.async { [weak self] in
+            self?.invalidateTimers()
             self?.hideLabelsForTransition()
             self?.videoView?.advanceToNextItem()
             self?.setNeedsDisplay()
@@ -123,6 +127,7 @@ class WorkoutView: UIView {
     private func resumeWorkoutForTransition() {
         DispatchQueue.main.async { [weak self] in
             self?.showLabelsAfterTransition()
+            self?.runTimer()
             self?.setNeedsDisplay()
             self?.setNeedsLayout()
         }
@@ -260,22 +265,22 @@ class WorkoutView: UIView {
         let containerStackView = UIStackView(arrangedSubviews: [exerciseStackView, durationStackView])
         containerStackView.distribution = .fillEqually
         containerStackView.backgroundColor = .clear
-    
+        
         addSubview(containerStackView)
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.bottom).isActive = true
-               
+        
         
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        videoView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        videoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
+        videoView.topAnchor.constraint(equalTo: topAnchor, constant: -(frame.height * 0.2)).isActive = true
+        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -(frame.height * 0.03) /*Style.Dimension.edgeInsets.right*/).isActive = true
         videoView.bounds = videoView.frame
         videoView.playVideo()
-       
+        
         SpeechSynthesizer.shared.textToSpeak(text: tipsText)
         
         videoView.addSubview(pauseLabel)
@@ -293,6 +298,10 @@ class WorkoutView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        
     }
 }
 

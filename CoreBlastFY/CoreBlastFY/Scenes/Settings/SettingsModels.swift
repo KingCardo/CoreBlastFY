@@ -22,19 +22,23 @@ enum Settings {
          enum SettingsItem: String {
                   case about = "About FYF"
                   case programOverview = "Program Overview"
+                  case exercises = "Exercises"
                   case notifications = "Notifications"
-                  case customWorkout = "Custom WOrkout"
+                  case review = "Leave a 5 star review!"
+                  case customWorkout = "Custom Workout"
                   case foodLog = "Food Log"
                   case parks = "Nearby Parks"
                   case extras = "Extras"
                   case inAppPurchase = "Restore In-App Purchase"
-                  case reportAProblem = "Contact Us"
+                  case reportAProblem = "Report a Problem"
                   case termsOfUse = "Terms of Use"
               }
         var items: [SettingsItem] = [
         .about,
         .programOverview,
+        .exercises,
         .notifications,
+        .review,
         .foodLog,
         //.customWorkout,
         .reportAProblem,

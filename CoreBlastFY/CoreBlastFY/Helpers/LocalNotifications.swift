@@ -18,8 +18,8 @@ func sendPointDecrementNotification() {
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     
     let content = UNMutableNotificationContent()
-    content.title = "It's been over 3 days since completed last workout!"
-    content.body = "A point has been deducted for missing 3 consecutive days, complete a workout to gain your point back!"
+    content.title = "It's been over \(UserManager.missedWorkouts) days since completed last workout!"
+    content.body = "\(UserManager.missedWorkouts - 2) points has been deducted for missing \(UserManager.missedWorkouts) consecutive days, complete a workout to gain your points back!"
     content.categoryIdentifier = "lostPointNotification"
     content.sound = UNNotificationSound.default
     

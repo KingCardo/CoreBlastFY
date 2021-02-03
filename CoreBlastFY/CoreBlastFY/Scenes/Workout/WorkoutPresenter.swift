@@ -14,6 +14,7 @@ import UIKit
 
 protocol WorkoutPresentationLogic {
     func presentWorkout(response: WorkoutInfo.FetchWorkout.Response)
+    func presentCustomWorkout(response: WorkoutInfo.FetchWorkout.Response)
 }
 
 class WorkoutPresenter: WorkoutPresentationLogic {
@@ -40,6 +41,21 @@ class WorkoutPresenter: WorkoutPresentationLogic {
             workoutDurationDouble: workout.workoutDuration,
             numberOfSets: "\(workout.numberOfSets)",
             exercises: workout.exercisesToReturn)
+        let viewModel = WorkoutInfo.FetchWorkout.ViewModel(workoutDetails: workoutDetails)
+        viewController?.displayWorkout(viewModel: viewModel)
+    }
+    
+    func presentCustomWorkout(response: WorkoutInfo.FetchWorkout.Response) {
+        let workout = response.workout
+        
+        let workoutDetails = WorkoutInfo.FetchWorkout.ViewModel.WorkoutDetails(
+            secondsOfExercise: Double(workout.customSecondsOfExercise!),
+            setDuration: workout.customSetDuration,
+            workoutDuration:
+            timeString(time: workout.customWorkoutDuration),
+            workoutDurationDouble: workout.customWorkoutDuration,
+            numberOfSets: "\(String(describing: workout.customNumberOfSets!))",
+            exercises: workout.exercises)
         let viewModel = WorkoutInfo.FetchWorkout.ViewModel(workoutDetails: workoutDetails)
         viewController?.displayWorkout(viewModel: viewModel)
     }

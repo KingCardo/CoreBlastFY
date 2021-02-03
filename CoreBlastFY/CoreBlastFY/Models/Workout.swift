@@ -15,6 +15,13 @@ struct Workout: Codable {
         self.exercises = exercises
     }
     
+    init(exercises: [Exercise], numberOfSets: Int, duration: Int) {
+        customNumberOfSets = numberOfSets
+        customSecondsOfExercise = duration
+        self.exercises = exercises
+        self.user = UserManager.loadUserFromFile()
+    }
+    
     var user: User
     var exercises: [Exercise]
     
@@ -39,6 +46,15 @@ struct Workout: Codable {
         }
     }
     
+    var numberOfCustomExercises: Int {
+        return exercises.count
+    }
+    
+    var customWorkoutDuration: Double {
+        guard let seconds = customSecondsOfExercise, let sets = customNumberOfSets else { return 0.0}
+        return Double(((numberOfCustomExercises) * seconds) * sets)
+    }
+    
     var numberOfExercises: Int {
         return exercisesToReturn.count
     }
@@ -47,22 +63,35 @@ struct Workout: Codable {
         return Double(((numberOfExercises) * secondsOfExercise) * numberOfSets)
     }
     
+    var customSetDuration: Double {
+        guard let sets = customNumberOfSets else { return 0.0 }
+         return customWorkoutDuration / Double(sets)
+    }
+    
     var setDuration: Double {
         return workoutDuration / Double(numberOfSets)
     }
     
+    var customSecondsOfExercise: Int?
+    var customNumberOfSets: Int?
+    
     var secondsOfExercise: Int {
         switch user.totalPoints {
-        case 0...4: return 23
-        case 5...15: return 28
-        case 16...20: return 33
-        case 21...25: return 38
-        case 26...30: return 43
-        case 31...35: return 48
-        case 36...40: return 53
-        case 41...45: return 58
-        case 46...50: return 63
-        default: return 70
+        case 0...4: return 15
+        case 5...15: return 18
+        case 16...20: return 23
+        case 21...25: return 28
+        case 26...30: return 33
+        case 31...35: return 38
+        case 36...40: return 43
+        case 41...45: return 48
+        case 46...50: return 53
+        case 51...55: return 58
+        case 56...60: return 63
+        case 61...65: return 68
+        case 66...70: return 73
+        case 71...75: return 78
+        default: return 90
         }
     }
 }

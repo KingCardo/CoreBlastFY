@@ -20,6 +20,7 @@ import UIKit
     func routeToTermsOfUse()
     func routeToProgramOverview()
     func routeToCustomWorkoutScene()
+    func routeToExercises()
 }
 
 protocol SettingsDataPassing
@@ -73,6 +74,15 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
         let destination = CustomWorkoutViewController()
         navigateTo(source: viewController!, destination: destination)
         
+    }
+    func routeToExercises() {
+        let destination = ExerciseViewController()
+         navigateTo(source: viewController!, destination: destination)
+//        self.exercisesNavVC = UINavigationController(rootViewController: exerciseVC)
+//        self.exercisesNavVC.navigationBar.barStyle = .black
+//        self.exercisesNavVC.navigationBar.tintColor = .white
+//        self.exercisesNavVC.tabBarItem = UITabBarItem(title: "Exercises", image: #imageLiteral(resourceName: "exercises"), selectedImage: nil)
+//        self.exercisesNavVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
   }
