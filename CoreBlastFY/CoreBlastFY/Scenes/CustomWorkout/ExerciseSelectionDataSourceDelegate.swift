@@ -25,9 +25,13 @@ class ExerciseSelectionDataSourceDelegate: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseSelectionView.cellID, for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name.capitalized
-        cell.backgroundColor = .clear
+        cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 18)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.goatBlue
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
 }

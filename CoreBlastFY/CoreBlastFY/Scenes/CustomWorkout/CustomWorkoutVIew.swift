@@ -105,7 +105,7 @@ class CustomWorkoutView: UIView {
         button.setTitle("Select Exercises", for: .normal)
         button.isUserInteractionEnabled = true
         button.backgroundColor = .goatBlue
-        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 18)
+        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 38) : UIFont.makeAvenirNext(size: 28)
         button.addTarget(self, action: #selector(selectExercises(_:)), for: .touchDown)
         button.layer.cornerRadius = UIDevice.isIpad ? 24 : 14 
         button.layer.masksToBounds = true
