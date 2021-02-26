@@ -202,7 +202,7 @@ let franchizSnackRecipe = Recipe(name: franchizSnackMealName, ingredients: franc
 
 let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shreddedDinnerIngredients, instructions: shreddedDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "salmonveggies"))
 
-let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "dinnerSalad"))
+let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "chickensalad"))
 
 let franchizMealPlanTitle = "My Personal Plan"
 let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."

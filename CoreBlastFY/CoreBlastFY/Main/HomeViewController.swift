@@ -76,7 +76,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
-        setViewControllers([progressionNavController, workoutNavController, /*nutritionVC,*/ customNavWorkoutViewController, settingsNavController], animated: true)
+        setViewControllers([progressionNavController, workoutNavController, nutritionVC, customNavWorkoutViewController, settingsNavController], animated: true)
         self.customizableViewControllers = []
         
         selectedViewController = viewControllers?[0]

@@ -15,7 +15,7 @@ class AppFullscreenHeaderCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(programCell)
+        contentView.addSubview(programCell)
         contentView.backgroundColor = .black
         programCell.isForDetail = true
         programCell.fillSuperview()

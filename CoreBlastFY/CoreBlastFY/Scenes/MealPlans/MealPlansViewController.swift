@@ -158,16 +158,8 @@ extension MealPlansViewController {
         let plans = InAppIds.all[indexPath.item]
         StoreObserver.shared.productId = plans
         
-        if let productId = StoreObserver.shared.productId, StoreManager.shared.isPurchased(with: productId) {
-            routeToMealPlanDetails()
-        } else if let productId = StoreObserver.shared.productId {
-            displayLoadingSpinner()
-            StoreManager.shared.startProductRequest(with: productId)
-        }
-
-        if StoreObserver.shared.productId == nil {
-            routeToMealPlanDetails()
-        }
+        routeToMealPlanDetails()
+        
     }
 }
 

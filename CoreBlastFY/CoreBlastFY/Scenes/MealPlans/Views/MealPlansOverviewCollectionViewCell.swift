@@ -69,7 +69,8 @@ class MealPlansOverviewCollectionViewCell: UICollectionViewCell {
     }
     
     private func imageViewSetup() {
-        addSubview(imageView)
+        contentView.addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageView.fillSuperview()
         
     }

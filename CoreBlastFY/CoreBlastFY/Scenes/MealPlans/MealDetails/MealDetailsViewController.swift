@@ -69,27 +69,11 @@ class MealDetailsViewController: UIViewController, MealDetailsDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(preventScreenRecording), name: UIScreen.capturedDidChangeNotification, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setupViews()
         configure()
         setupHeaderView()
     }
     
-    // MARK: Do something
-    
-    @objc private func preventScreenRecording() {
-        let isRecording = UIScreen.main.isCaptured
-        
-        if isRecording {
-            recipeTableView.isHidden = true
-        } else {
-            recipeTableView.isHidden = false
-        }
-    }
     
     private lazy var recipeTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
@@ -157,6 +141,7 @@ extension MealDetailsViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: RecipeOptionsTableViewCell.id, for: indexPath) as! RecipeOptionsTableViewCell
+            cell.backgroundColor = .clear
             cell.option1Buttonhandler = { [weak self] in
                 self?.mode = .ingredients
                 self?.recipeTableView.reloadSections(IndexSet(integer: 2), with: .automatic)

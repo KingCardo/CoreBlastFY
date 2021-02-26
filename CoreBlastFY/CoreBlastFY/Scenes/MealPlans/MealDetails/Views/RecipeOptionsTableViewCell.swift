@@ -70,8 +70,8 @@ class RecipeOptionsTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        addSubview(optionsStackView)
-        contentView.backgroundColor = .black
+        contentView.addSubview(optionsStackView)
+        //contentView.backgroundColor = .black
         optionsStackView.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0))
     }
     

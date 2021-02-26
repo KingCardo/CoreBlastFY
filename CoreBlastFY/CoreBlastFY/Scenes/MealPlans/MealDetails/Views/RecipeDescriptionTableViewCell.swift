@@ -23,6 +23,7 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        contentView.backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +35,7 @@ class RecipeDescriptionTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        addSubview(descriptionLabel)
+        contentView.addSubview(descriptionLabel)
         contentView.backgroundColor = .black
         descriptionLabel.fillSuperview(padding: UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8))
     }
