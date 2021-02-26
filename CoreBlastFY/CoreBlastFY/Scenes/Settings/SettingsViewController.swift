@@ -206,11 +206,13 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         mailComposer.setToRecipients(["foreveryoungfitnessX@gmail.com"])
         mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?")
         
-        self.present(mailComposer, animated: true)
         if !MFMailComposeViewController.canSendMail() {
-            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
+            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)'
             return
         }
+        
+        self.present(mailComposer, animated: true)
+        
     }
     
     func sendADonation() {
