@@ -9,6 +9,13 @@
 import UIKit
 
 struct Fonts {
+    enum FontNames: String {
+        case title = "AvenirNext-Heavy"
+        case titleBold = "AvenirNext-Demibold"
+        case regular = "Avenir Next"
+        case condensed = "Avenir Next Condensed"
+        
+    }
     static var mainFont: UIFont? {
         return UIFont(name: "Avenir Next", size: 30)
     }
@@ -51,6 +58,14 @@ extension UIFont {
     
     static func makeFontSet(size: CGFloat) -> UIFont {
         return UIFont(name: "Avenir Next", size: size)!
+    }
+    
+    // use this one from now on refactor away rest
+    
+    static func makeFont(size: CGFloat, name: String = "Avenir Next") -> UIFont {
+        let font = UIFont(name: name, size: size)!
+               let fontMetrics = UIFontMetrics(forTextStyle: .body)
+               return fontMetrics.scaledFont(for: font)
     }
     
 }

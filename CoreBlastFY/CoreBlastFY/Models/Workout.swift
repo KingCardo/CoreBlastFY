@@ -15,43 +15,44 @@ struct Workout: Codable {
         self.exercises = exercises
     }
     
+    init(exercises: [Exercise], numberOfSets: Int, duration: Int) {
+        customNumberOfSets = numberOfSets
+        customSecondsOfExercise = duration
+        self.exercises = exercises
+        self.user = UserManager.loadUserFromFile()
+    }
+    
     var user: User
     var exercises: [Exercise]
     
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]
-        
-        let rest = self.exercises.filter({ $0.name == "up-dog"})
-        
-        switch user.coreLevel {
-        case .beginner:
-            exercises = self.exercises.filter({$0.level == .beginner })
-        case .novice:
-            exercises = self.exercises.filter({$0.level == .novice })
-            exercises += rest
-        case .solid:
-            exercises = self.exercises.filter({$0.level == .solid })
-            exercises += rest
-        case .advanced:
-            exercises = self.exercises.filter({$0.level == .advanced })
-            exercises += rest
-        case .rockstar:
-            exercises = self.exercises.filter({$0.level == .rockstar })
-            exercises += self.exercises.filter({$0.level == .advanced })
-            exercises += rest
+        switch user.totalPoints {
+        case 0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87: exercises = self.exercises.filter( { $0.isSide == false })
+        case 1,4,7,10,13,16,19,22,25,28,31,34,37,40,43,46,49,52,55,58,61,64,67,70,73,76,79,82,85,88: exercises = self.exercises.filter( { $0.isSide == true })
+        case 2,5,8,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89: exercises = self.exercises.filter( { $0.totalBody == true })
+        default: exercises = self.exercises
         }
         return exercises
     }
     
-    
     var numberOfSets: Int {
         switch user.coreLevel {
-        case .beginner: return 4
-        case .novice: return 5
-        case .solid: return 6
-        case .advanced: return 6
+        case .beginner: return 2
+        case .novice: return 3
+        case .solid: return 4
+        case .advanced: return 5
         case .rockstar: return 6
         }
+    }
+    
+    var numberOfCustomExercises: Int {
+        return exercises.count
+    }
+    
+    var customWorkoutDuration: Double {
+        guard let seconds = customSecondsOfExercise, let sets = customNumberOfSets else { return 0.0}
+        return Double(((numberOfCustomExercises) * seconds) * sets)
     }
     
     var numberOfExercises: Int {
@@ -62,22 +63,35 @@ struct Workout: Codable {
         return Double(((numberOfExercises) * secondsOfExercise) * numberOfSets)
     }
     
+    var customSetDuration: Double {
+        guard let sets = customNumberOfSets else { return 0.0 }
+         return customWorkoutDuration / Double(sets)
+    }
+    
     var setDuration: Double {
         return workoutDuration / Double(numberOfSets)
     }
     
+    var customSecondsOfExercise: Int?
+    var customNumberOfSets: Int?
+    
     var secondsOfExercise: Int {
         switch user.totalPoints {
-        case 0...4: return 23
-        case 5...15: return 28
-        case 16...20: return 33
-        case 21...25: return 38
-        case 26...30: return 43
-        case 31...35: return 48
-        case 36...40: return 53
-        case 41...45: return 58
-        case 46...50: return 63
-        default: return 70
+        case 0...4: return 15
+        case 5...15: return 18
+        case 16...20: return 23
+        case 21...25: return 28
+        case 26...30: return 33
+        case 31...35: return 38
+        case 36...40: return 43
+        case 41...45: return 48
+        case 46...50: return 53
+        case 51...55: return 58
+        case 56...60: return 63
+        case 61...65: return 68
+        case 66...70: return 73
+        case 71...75: return 78
+        default: return 90
         }
     }
 }

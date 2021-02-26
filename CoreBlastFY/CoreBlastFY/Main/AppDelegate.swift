@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        func handleAppRefresh(task: BGAppRefreshTask) {
           scheduleAppRefresh()
         
-        let shouldDecrement = UserManager.decrementPoint()
+        let (shouldDecrement, _) = UserManager.decrementPoint()
         
         guard notificationsAllowed else {  return }
         
@@ -40,18 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SKPaymentQueue.default().add(StoreObserver.shared)
         
-        DispatchQueue.global(qos: .userInitiated).async {
-        
-        let _ = ExerciseStorage.loadExercises()
+        DispatchQueue.global(qos: .userInitiated).sync {
                ProgressionPicController.shared.loadFromFile()
                EntryController.shared.loadFromFile()
                UserAPI.user = UserManager.loadUserFromFile()
-        }
-        
-        // MARK: Registering Launch Handlers for Tasks
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshId, using: nil) { task in
-            // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            let (shouldDecrement, _) = UserManager.decrementPoint()
+            if shouldDecrement {
+                sendPointDecrementNotification()
+            }
         }
         
         return true

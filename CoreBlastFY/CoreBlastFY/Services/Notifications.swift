@@ -71,6 +71,7 @@ func timeToWorkoutMNotification() {
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
        
        dateComponents.weekday = 2
        dateComponents.hour = UserAPI.user.selectedHour
@@ -100,6 +101,7 @@ func timeToWorkoutTNotification() {
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
        
        dateComponents.weekday = 3
        dateComponents.hour = UserAPI.user.selectedHour
@@ -129,6 +131,7 @@ func timeToWorkoutWNotification() {
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
        
        dateComponents.weekday = 4
        dateComponents.hour = UserAPI.user.selectedHour
@@ -158,6 +161,7 @@ func timeToWorkoutTHNotification() {
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
+       dateComponents.timeZone = TimeZone.current
        
        dateComponents.weekday = 5
        dateComponents.hour = UserAPI.user.selectedHour
@@ -187,6 +191,7 @@ func timeToWorkoutFNotification() {
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
+       dateComponents.timeZone = TimeZone.current
        
        dateComponents.weekday = 6
        dateComponents.hour = UserAPI.user.selectedHour
@@ -214,6 +219,7 @@ func mealPrepNotification() {
     
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
     
     dateComponents.weekday = 1
     dateComponents.hour = 14
@@ -240,6 +246,7 @@ func prepareProgressionPicNotification() {
     
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
     
     dateComponents.weekday = 7
     dateComponents.hour = 12
@@ -267,6 +274,7 @@ func prepareMFNotification() {
 
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
 
     dateComponents.weekday = 2
     dateComponents.hour = 8
@@ -294,6 +302,7 @@ func prepareRelaxNotification() {
 
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
 
     dateComponents.weekday = 7
     dateComponents.hour = 9
@@ -321,6 +330,7 @@ func prepareRelaxNotification() {
 
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
+        dateComponents.timeZone = TimeZone.current
 
         dateComponents.weekday = 6
         dateComponents.hour = 19
@@ -356,6 +366,7 @@ struct NotificationIDs {
                
                var dateComponents = DateComponents()
                dateComponents.calendar = Calendar.current
+               dateComponents.timeZone = TimeZone.current
                
                dateComponents.weekday = weekday
                dateComponents.hour = hour

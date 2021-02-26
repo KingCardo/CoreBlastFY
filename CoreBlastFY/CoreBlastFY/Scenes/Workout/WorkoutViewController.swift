@@ -26,14 +26,12 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     // MARK: Object lifecycle
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -41,6 +39,9 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     deinit {
         viewModel = nil
         workoutView = nil
+        //interactor?.workout = nil
+        interactor = nil
+        print(workoutView == nil)
     }
     
     // MARK: Setup
@@ -81,7 +82,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         super.viewDidLoad()
         setupNavigationBar()
         
-        fetchWorkout()
+        fetchCustomWorkout()
         registerObservers()
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleStateOfWorkout))
         view.addGestureRecognizer(tapGesture!)
@@ -92,6 +93,20 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
         }
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func fetchCustomWorkout() {
+        if let workout = interactor?.workout {
+            interactor?.createCustomWorkout(workout: workout)
+        } else {
+            fetchWorkout()
+        }
+    }
+    
     
     @objc private func preventScreenRecording() {
         let isRecording = UIScreen.main.isCaptured

@@ -46,9 +46,9 @@ final class LoadingView: UIView {
         return label
     }()
     
-     init(frame: CGRect, nextExercise: String = "Get ready first exercise") {
+    init(frame: CGRect, nextExercise: String = "Get ready first exercise", backgroundColor: UIColor = .clear) {
         super.init(frame: frame)
-        backgroundColor = .clear
+        self.backgroundColor = backgroundColor
         addSubview(countDownLabel)
         countDownLabel.fillSuperview(padding: UIEdgeInsets(top: UIDevice.isIpad ? 100 : 50, left: 0, bottom: 0, right: 0))
         

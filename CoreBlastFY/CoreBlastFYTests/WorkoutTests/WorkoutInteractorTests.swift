@@ -52,7 +52,7 @@ class WorkoutInteractorTests: XCTestCase {
     // Given
     let spy = WorkoutPresentationLogicSpy()
     sut.presenter = spy
-    let mockExercises = [Exercise(name: "squat", level: .beginner, movement: .dynamic, videoURL: URL(string: "www.apple.com")!)]
+    let mockExercises = [Exercise(name: "squat", level: .beginner, movement: .dynamic)]
     let request = WorkoutInfo.FetchWorkout.Request(exercises: mockExercises)
     
     // When

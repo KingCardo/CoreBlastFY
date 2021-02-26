@@ -53,7 +53,7 @@ class ExercisePresenterTests: XCTestCase {
     // Given
     let spy = ExerciseDisplayLogicSpy()
     sut.viewController = spy
-    let response = Exercises.Videos.Response(exercises: [Exercise(name: "a", level: .rockstar, movement: .dynamic, videoURL: URL(string: "www.apple.com")!)])
+    let response = Exercises.Videos.Response(exercises: [Exercise(name: "a", level: .rockstar, movement: .dynamic)])
     
     // When
     sut.presentExercises(response: response)

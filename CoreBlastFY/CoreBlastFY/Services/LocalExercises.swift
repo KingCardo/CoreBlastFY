@@ -1,0 +1,30 @@
+//
+//  LocalExercises.swift
+//  CoreBlastFY
+//
+//  Created by Riccardo Washington on 6/11/20.
+//  Copyright © 2020 Riccardo Washington. All rights reserved.
+//
+
+import Foundation
+
+struct LocalExercises: ExerciseInfoStoreProtocol {
+    func fetchExercises(completion: @escaping ([Exercise], ExerciseInfoStoreError?) -> Void) {
+        completion(LocalExercises.exercises, nil)
+        return
+    }
+    static let exercises: [Exercise] = [reversePlank, legRaises, openClose, pendulums, tPlank, leftSidePlankHipDip, rightSidePlankHipDip, leftSidePlankWrap, rightSidePlankWrap]
+}
+
+//Exercises
+let legRaises = Exercise(name: "leg raises", tip: "slow controlled movement", level: .beginner, movement: .dynamic)
+let openClose = Exercise(name: "open close", tip: "slow and under control", level: .novice, movement: .dynamic)
+let pendulums = Exercise(name: "pendulums", tip: "slow and under control, core engaged", level: .advanced, movement: .dynamic, totalBody: true)
+let reversePlank = Exercise(name: "reverse plank", tip: "core engaged, keep back flat", level: .beginner, movement: .stationary, totalBody: true)
+let tPlank = Exercise(name: "t plank", tip: "core engaged - deep breaths", level: .solid, movement: .dynamic, totalBody: true)
+
+let leftSidePlankHipDip = Exercise(name: "left side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true, totalBody: true)
+let rightSidePlankHipDip = Exercise(name: "right side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true, totalBody: true)
+let leftSidePlankWrap = Exercise(name: "left side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
+let rightSidePlankWrap = Exercise(name: "right side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
+

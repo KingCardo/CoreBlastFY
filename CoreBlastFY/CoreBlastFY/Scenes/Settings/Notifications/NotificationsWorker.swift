@@ -15,7 +15,8 @@ import UIKit
 class NotificationsWorker {
     
     func fetchSelectedTime(completion: @escaping(Date) -> Void) {
-        let user = UserManager.loadUserFromFile()
-        completion(user.selectedTime ?? Date())
+       // let user = UserManager.loadUserFromFile()
+        let userDate = UserDefaults.standard.object(forKey: UserManager.workoutDateKey) as? Date
+        completion(userDate ?? Date())
   }
 }

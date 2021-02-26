@@ -10,12 +10,41 @@ import UIKit
 
 struct AlertController {
     
-    static func createAlert(errorMessage: String, title: String = "Oops", viewController: UIViewController, actionTitle: String = "OK", handler: ((UIAlertAction) -> Void)? = nil) {
+    static func createAlert(message: String,
+                            title: String,
+                            handler1Title: String,
+                            handler2Title: String? = nil,
+                            handler1: ((UIAlertAction) -> Void)?,
+                            handler2: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+        
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.overrideUserInterfaceStyle = .dark
+        
+        let handler1 = UIAlertAction(title: handler1Title, style: .default, handler: handler1)
+        let handler2 = UIAlertAction(title: handler2Title, style: .default, handler: handler2)
+        
+        ac.addAction(handler1)
+        ac.addAction(handler2)
+        
+        return ac
+        
+    }
+    
+    static func createAlert(errorMessage: String, title: String = "Oops", viewController: UIViewController, actionTitle: String = "OK", secondActionTitle: String? = nil, handler: ((UIAlertAction) -> Void)? = nil, secondhandler: ((UIAlertAction) -> Void)? = nil) {
+        
         let ac = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
         ac.overrideUserInterfaceStyle = .dark
+        
         let okAction = UIAlertAction(title: actionTitle, style: .default, handler: handler)
+        
+        if let secondAction = secondActionTitle {
+             let secondAction = UIAlertAction(title: secondAction, style: .default, handler: secondhandler)
+            ac.addAction(secondAction)
+        }
         ac.addAction(okAction)
+        
         viewController.present(ac, animated: true)
+    
     }
     
     /// Creates and displays an alert.

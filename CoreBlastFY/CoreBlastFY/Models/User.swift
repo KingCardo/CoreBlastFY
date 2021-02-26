@@ -24,6 +24,22 @@ class User: Codable {
         return selectedTime.addingTimeInterval(86400)
     }
     
+    var mode: Mode {
+        if totalPoints % 3 == 0 {
+            return .totalBody
+        } else if totalPoints % 2 == 0 {
+            return .side
+        } else {
+            return .front
+        }
+    }
+    
+    enum Mode: String, Codable {
+        case totalBody
+        case front
+        case side
+    }
+    
     var selectedHour: Int?
     var selectedMinute: Int?
     
@@ -43,10 +59,19 @@ class User: Codable {
         case advanced = "Advanced"
         case rockstar = "Rockstar"
     }
-    
+    var currentLevel: Level {
+        switch totalPoints {
+        case 0...14: return .beginner
+        case 15...29: return .novice
+        case 30...44: return .solid
+        case 45...59: return .advanced
+        case 60...: return .rockstar
+        default: return .beginner
+        }
+    }
     
     var nextLevelUp: Int {
-        switch coreLevel {
+        switch currentLevel {
         case .beginner: return 15
         case .novice: return 30
         case .solid: return 45
