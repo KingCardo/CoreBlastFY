@@ -207,7 +207,7 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?")
         
         if !MFMailComposeViewController.canSendMail() {
-            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)'
+            AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
             return
         }
         
