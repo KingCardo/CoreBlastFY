@@ -157,9 +157,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         case .programOverview: routeToProgramOverview()
         case .notifications: routeToNotificationsScene()
         case .review: leaveAReview()
+        case .donation: sendADonation()
         case .foodLog: routeToFoodLogScene()
         case .reportAProblem: contactUsButtonTapped()
-        case .inAppPurchase: handleRestore()
+        //case .inAppPurchase: handleRestore()
         case .termsOfUse: routToTermsOfUse()
         case .customWorkout: routeToCustomWorkoutScene()
         case .exercises: routeToExercises()
@@ -210,6 +211,11 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
             AlertController.createAlert(errorMessage: "Seems like your device can't send emails.", viewController: self)
             return
         }
+    }
+    
+    func sendADonation() {
+        let ac = AlertController.alert("Want to buy me a coffee? :)", message: "Cashapp @ $RiccardoWashington \nVenmo @Riccardo-Washington-1")
+        self.present(ac, animated: true, completion: nil)
     }
     
    
