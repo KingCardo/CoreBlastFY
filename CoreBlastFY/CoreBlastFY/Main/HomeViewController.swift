@@ -41,7 +41,6 @@ class HomeViewController: UITabBarController {
     private var progressionNavController: UINavigationController!
     private var workoutNavController: UINavigationController!
     private var journalNavViewController: UINavigationController!
-    //private var customNavWorkoutViewController: UINavigationController!
     private var nutritionVC: MealPlansViewController!
     private var exercisesNavVC: UINavigationController!
     private var settingsNavController: UINavigationController!
