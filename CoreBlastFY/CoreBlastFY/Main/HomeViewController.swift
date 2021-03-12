@@ -67,15 +67,11 @@ class HomeViewController: UITabBarController {
         journalNavViewController = UINavigationController(rootViewController: journalViewController)
         journalNavViewController.navigationBar.barStyle = .black
         journalNavViewController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: 22)]
-        journalNavViewController.tabBarItem = UITabBarItem(title: "Journal", image:#imageLiteral(resourceName: "adjustment") , selectedImage: nil)
+        let journalImage = UIImage(systemName: "list.dash")
+        journalNavViewController.tabBarItem = UITabBarItem(title: "Journal", image: journalImage, selectedImage: nil)
                 
         
-        
-//        let customWorkoutViewController = CustomWorkoutViewController()
-//        customNavWorkoutViewController = UINavigationController(rootViewController: customWorkoutViewController)
-//        customNavWorkoutViewController.navigationBar.barStyle = .black
-//        customNavWorkoutViewController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: 22)]
-//        customNavWorkoutViewController.tabBarItem = UITabBarItem(title: "Custom Workout", image:#imageLiteral(resourceName: "adjustment") , selectedImage: nil)
+
         
         let settingsViewController = SettingsViewController()
         settingsNavController = UINavigationController(rootViewController: settingsViewController)
