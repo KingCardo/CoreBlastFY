@@ -21,10 +21,13 @@ class JournalViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                if EntryController.shared.entries.count > 0 {
-                    journalTableView.reloadData()
-                }
+        if EntryController.shared.entries.count > 0 {
+            journalTableView.reloadData()
+        } else {
+            let ac = AlertController.alert("Journal Time 📝", message: "Log what you ate or how your feeling to  track the highs and lows!")
+            present(ac, animated: true, completion: nil)
     }
+}
     
     //MARK: - Methods
     
@@ -42,7 +45,7 @@ class JournalViewController: UIViewController {
     }
     
     func setupNavBar() {
-        navigationItem.title = "Food Log"
+        navigationItem.title = "Journal"
     }
     
     var createEntryButton = UIButton()
