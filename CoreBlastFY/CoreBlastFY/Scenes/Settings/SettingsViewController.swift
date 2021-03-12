@@ -216,7 +216,12 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
     }
     
     func sendADonation() {
-        let ac = AlertController.alert("Want to buy me a coffee? :)", message: "Cashapp @ $RiccardoWashington \nVenmo @Riccardo-Washington-1")
+        let ac = AlertController.createAlert(message: "Donations are truly appreciated! Thank you! \nVenmo - @Riccardo-Washington-1", title: "Want to buy me a coffee? :)", handler1Title: "CashApp") { (cashAppHandler) in
+            if let url = URL(string: "https://cash.app/$RiccardoWashington") {
+                UIApplication.shared.open(url)
+            }
+        }
+
         self.present(ac, animated: true, completion: nil)
     }
     
