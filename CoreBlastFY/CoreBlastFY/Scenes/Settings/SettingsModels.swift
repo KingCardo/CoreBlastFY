@@ -38,11 +38,11 @@ enum Settings {
         .about,
         .programOverview,
         .exercises,
+        .customWorkout,
         .notifications,
         .review,
         .donation,
         .foodLog,
-        //.customWorkout,
         .reportAProblem,
         //.inAppPurchase,
         .termsOfUse
