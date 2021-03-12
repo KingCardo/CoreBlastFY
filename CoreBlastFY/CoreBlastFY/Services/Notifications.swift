@@ -348,6 +348,32 @@ func prepareRelaxNotification() {
         }
     }
 
+func prepareJournalEntryNotification() {
+
+    let content = UNMutableNotificationContent()
+    content.title = "Entry time!"
+    content.body = "Time to enter today's meals and how your feeling!"
+    content.sound = UNNotificationSound.default
+
+    var dateComponents = DateComponents()
+    dateComponents.calendar = Calendar.current
+    dateComponents.timeZone = TimeZone.current
+
+    dateComponents.hour = 20
+    
+    // Create the trigger as a repeating event.
+    let trigger = UNCalendarNotificationTrigger(
+        dateMatching: dateComponents, repeats: true)
+
+    let request = UNNotificationRequest(identifier: "JournalEntry", content: content, trigger: trigger)
+
+    notificationCenter.add(request) { (error) in
+        if error != nil {
+            // Handle any errors.
+        }
+    }
+}
+
 
 
 struct NotificationIDs {

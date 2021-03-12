@@ -42,6 +42,7 @@ func registerForNotifications() {
                 timeToWorkoutWNotification()
                 timeToWorkoutTHNotification()
                 timeToWorkoutFNotification()
+                prepareJournalEntryNotification()
                 notificationsAllowed = true
                 UserDefaults.standard.set(notificationsAllowed, forKey: notificationsAllowedKey)
             }

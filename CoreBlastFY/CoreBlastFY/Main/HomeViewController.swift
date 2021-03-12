@@ -40,7 +40,7 @@ class HomeViewController: UITabBarController {
     
     private var progressionNavController: UINavigationController!
     private var workoutNavController: UINavigationController!
-    private var customNavWorkoutViewController: UINavigationController!
+    private var journalNavViewController: UINavigationController!
     private var nutritionVC: MealPlansViewController!
     private var exercisesNavVC: UINavigationController!
     private var settingsNavController: UINavigationController!
@@ -62,11 +62,15 @@ class HomeViewController: UITabBarController {
         nutritionVC = MealPlansViewController()
         nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
         
-        let customWorkoutViewController = CustomWorkoutViewController()
-        customNavWorkoutViewController = UINavigationController(rootViewController: customWorkoutViewController)
-        customNavWorkoutViewController.navigationBar.barStyle = .black
-        customNavWorkoutViewController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: 22)]
-        customNavWorkoutViewController.tabBarItem = UITabBarItem(title: "Custom Workout", image:#imageLiteral(resourceName: "adjustment") , selectedImage: nil)
+        let journalViewController = JournalViewController()
+        journalNavViewController = UINavigationController(rootViewController: journalViewController)
+        journalNavViewController.navigationBar.barStyle = .black
+        journalNavViewController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.makeTitleFont(size: 22)]
+        let journalImage = UIImage(systemName: "list.dash")
+        journalNavViewController.tabBarItem = UITabBarItem(title: "Journal", image: journalImage, selectedImage: nil)
+                
+        
+
         
         let settingsViewController = SettingsViewController()
         settingsNavController = UINavigationController(rootViewController: settingsViewController)
@@ -76,7 +80,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
-        setViewControllers([progressionNavController, workoutNavController, nutritionVC, customNavWorkoutViewController, settingsNavController], animated: true)
+        setViewControllers([progressionNavController, workoutNavController, nutritionVC, journalNavViewController, settingsNavController], animated: true)
         self.customizableViewControllers = []
         
         selectedViewController = viewControllers?[0]

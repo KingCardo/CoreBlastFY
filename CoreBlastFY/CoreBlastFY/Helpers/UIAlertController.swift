@@ -21,10 +21,16 @@ struct AlertController {
         ac.overrideUserInterfaceStyle = .dark
         
         let handler1 = UIAlertAction(title: handler1Title, style: .default, handler: handler1)
-        let handler2 = UIAlertAction(title: handler2Title, style: .default, handler: handler2)
+        
+        
         
         ac.addAction(handler1)
-        ac.addAction(handler2)
+        
+        if handler2 != nil {
+            let handler = UIAlertAction(title: handler2Title, style: .default, handler: handler2)
+            
+            ac.addAction(handler)
+        }
         
         return ac
         

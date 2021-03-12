@@ -27,7 +27,7 @@ enum Settings {
                   case review = "Leave a 5 star review!"
                   case donation = "Want to buy me a coffee? :)"
                   case customWorkout = "Custom Workout"
-                  case foodLog = "Food Log"
+                  case foodLog = "Journal"
                   case parks = "Nearby Parks"
                   case extras = "Extras"
                   case inAppPurchase = "Restore In-App Purchase"
@@ -38,11 +38,11 @@ enum Settings {
         .about,
         .programOverview,
         .exercises,
+        .customWorkout,
         .notifications,
         .review,
         .donation,
         .foodLog,
-        //.customWorkout,
         .reportAProblem,
         //.inAppPurchase,
         .termsOfUse

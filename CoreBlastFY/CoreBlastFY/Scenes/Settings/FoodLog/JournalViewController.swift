@@ -21,10 +21,13 @@ class JournalViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                if EntryController.shared.entries.count > 0 {
-                    journalTableView.reloadData()
-                }
+        if EntryController.shared.entries.count > 0 {
+            journalTableView.reloadData()
+        } else {
+            let ac = AlertController.alert("Journal Time 📝", message: "Log what you ate or how your feeling to  track the highs and lows!")
+            present(ac, animated: true, completion: nil)
     }
+}
     
     //MARK: - Methods
     
@@ -42,7 +45,7 @@ class JournalViewController: UIViewController {
     }
     
     func setupNavBar() {
-        navigationItem.title = "Food Log"
+        navigationItem.title = "Journal"
     }
     
     var createEntryButton = UIButton()
@@ -50,7 +53,7 @@ class JournalViewController: UIViewController {
     func setupButton() {
         createEntryButton.contentVerticalAlignment = .fill
         createEntryButton.contentHorizontalAlignment = .fill
-        let image = #imageLiteral(resourceName: "Subtract").withRenderingMode(.alwaysTemplate)
+        let image = UIImage(systemName: "plus.circle.fill")?.withRenderingMode(.alwaysTemplate)
         createEntryButton.setImage(image, for: .normal)
         createEntryButton.addTarget(self, action: #selector(createNewEntry), for: .touchDown)
         createEntryButton.tintColor = .goatBlue
@@ -59,8 +62,8 @@ class JournalViewController: UIViewController {
         createEntryButton.translatesAutoresizingMaskIntoConstraints = false
         createEntryButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         createEntryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        createEntryButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        createEntryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createEntryButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        createEntryButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
     @objc func createNewEntry() {
