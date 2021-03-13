@@ -26,18 +26,19 @@ class EntryController {
     
     var entriesUpdateHandler: (() -> ())?
     
-    func createEntry(title: String, bodyText: String) {
-        let entry = Entry(title: title, body: bodyText, timeStamp: Date())
+    func createEntry(title: String, bodyText: String, entryType: Entry.EntryType) {
+        let entry = Entry(title: title, body: bodyText, timeStamp: Date(), entryType: entryType)
         self.entries.append(entry)
         saveToFile()
     }
     
-    func updateEntry(entry: Entry, title: String?, bodyText: String?) {
+    func updateEntry(entry: Entry, title: String?, bodyText: String?, entryType: Entry.EntryType) {
         if let title = title, let bodyText = bodyText {
             if let index = entries.firstIndex(of: entry) {
                 self.entries[index].title = title
                 self.entries[index].body = bodyText
                 self.entries[index].timeStamp = Date()
+                self.entries[index].entryType = entryType
                 saveToFile()
             }
         }
