@@ -544,7 +544,6 @@
 				7A8CBB3B23EF936700D0D6BD /* SettingsInteractor.swift */,
 				7A8CBB4323EFA3C400D0D6BD /* AboutFYF */,
 				7A8CBB5D23EFA49E00D0D6BD /* Notifications */,
-				7A8CBB5E23EFA4B400D0D6BD /* FoodLog */,
 				7A8CBB5F23EFA4C600D0D6BD /* NearbyParks */,
 			);
 			path = Settings;
@@ -576,6 +575,7 @@
 				7A8CBB0123E912C700D0D6BD /* Progression */,
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
 				7A8CBB0623E912C700D0D6BD /* Workout */,
+				7A8CBB5E23EFA4B400D0D6BD /* FoodLog */,
 				7A19B2CA24C66F12008A5485 /* CustomWorkout */,
 				7AC2C6B12449165C00B3BFC8 /* MealPlans */,
 				7A86DFAB2474368900F2FC35 /* Exercises */,
@@ -1243,7 +1243,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1251,7 +1251,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1264,7 +1264,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1272,7 +1272,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;

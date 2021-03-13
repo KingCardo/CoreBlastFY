@@ -22,9 +22,17 @@ class EntryViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .black
+        
+        view.addSubview(entryTypePicker)
+        entryTypePicker.translatesAutoresizingMaskIntoConstraints = false
+        entryTypePicker.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Dimensions.topAnchor).isActive = true
+        entryTypePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Dimensions.topAnchor).isActive = true
+        entryTypePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
+        entryTypePicker.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
         view.addSubview(titleTextField)
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
-        titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Dimensions.topAnchor).isActive = true
+        titleTextField.topAnchor.constraint(equalTo: entryTypePicker.bottomAnchor, constant: Dimensions.topAnchor).isActive = true
         titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Dimensions.topAnchor).isActive = true
         titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
         titleTextField.heightAnchor.constraint(equalToConstant: Dimensions.titleTextFieldHeightAnchor).isActive = true
@@ -50,14 +58,16 @@ class EntryViewController: UIViewController {
         guard let entry = entry else { return }
         titleTextField.text = entry.title
         bodyTextView.text = entry.body
+        let row = entry.entryTypeIndex ?? 0
+        entryTypePicker.selectRow(row, inComponent: 0, animated: true)
     }
     
     @objc func entryUpdate() {
-        guard let title = titleTextField.text, let bodyText = bodyTextView.text else { return }
+        guard let title = titleTextField.text, let bodyText = bodyTextView.text, let selectedEntryType = selectedEntryType else { return }
         if let entry = entry {
-            EntryController.shared.updateEntry(entry: entry, title: title, bodyText: bodyText)
+            EntryController.shared.updateEntry(entry: entry, title: title, bodyText: bodyText, entryType: selectedEntryType)
         } else {
-            EntryController.shared.createEntry(title: title, bodyText: bodyText)
+            EntryController.shared.createEntry(title: title, bodyText: bodyText, entryType: selectedEntryType)
         }
         
         navigationController?.popViewController(animated: true)
@@ -88,6 +98,18 @@ class EntryViewController: UIViewController {
         return tv
     }()
     
+    private lazy var entryTypePicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.backgroundColor = .goatBlue
+        picker.dataSource = entryTypePickerDataSource
+        picker.delegate = entryTypePickerDelegate
+        return picker
+    }()
+    
+    private let entryTypePickerDataSource = EntryTypePickerDataSource()
+    private lazy var entryTypePickerDelegate = EntryTypePickerDelegate(callback: { [weak self] entryType in
+                                                                        self?.selectedEntryType = entryType})
+    
     
     //MARK: - Properties
     
@@ -103,6 +125,8 @@ class EntryViewController: UIViewController {
             updateViews()
         }
     }
+    
+    private var selectedEntryType: Entry.EntryType?
 }
 
 extension EntryViewController: UITextFieldDelegate {
@@ -119,4 +143,41 @@ extension EntryViewController: UITextViewDelegate {
     }
     
 }
+
+class EntryTypePickerDataSource: NSObject, UIPickerViewDataSource {
+    
+    private var count = Entry.EntryType.allString.count
+    
+    func numberOfComponents(in: UIPickerView) -> Int {
+        return  1
+    }
+    
+    func pickerView(_: UIPickerView, numberOfRowsInComponent: Int) -> Int {
+        return count
+    }
+
+}
+
+class EntryTypePickerDelegate: NSObject, UIPickerViewDelegate {
+    
+    init(callback: @escaping (Entry.EntryType) -> Void?) {
+        self.callback = callback
+    }
+    
+    var callback: (Entry.EntryType) -> Void?
+    
+    func pickerView(_: UIPickerView, rowHeightForComponent: Int) -> CGFloat {
+        return 25
+    }
+    
+    func pickerView(_: UIPickerView, titleForRow: Int, forComponent: Int) -> String? {
+        return Entry.EntryType.allString[titleForRow]
+    }
+    
+    func pickerView(_: UIPickerView, didSelectRow: Int, inComponent: Int) {
+        callback(Entry.EntryType.all[didSelectRow])
+    }
+
+}
+
 

@@ -29,11 +29,11 @@ class EntryCell: UITableViewCell {
     
     func setup() {
         backgroundColor = .black
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Dimensions.titleLabelLeadingAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: Dimensions.titleLabelHeight).isActive = true
+        addSubview(labelStack)
+        labelStack.translatesAutoresizingMaskIntoConstraints = false
+        labelStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Dimensions.titleLabelLeadingAnchor).isActive = true
+        labelStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        //titleLabel.heightAnchor.constraint(equalToConstant: Dimensions.titleLabelHeight).isActive = true
         
         addSubview(timeStampLabel)
         timeStampLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +44,7 @@ class EntryCell: UITableViewCell {
     func updateViews() {
         if let entry = entry {
             titleLabel.text = entry.title
+            subtitleLabel.text = entry.entryType.rawValue
             timeStampLabel.text = dateFormatter.string(from: entry.timeStamp) 
         }
     }
@@ -62,6 +63,19 @@ class EntryCell: UITableViewCell {
         label.font = UIFont.makeAvenirNext(size: 24)
         label.textColor = .white
         return label
+    }()
+    
+    private lazy var subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.makeAvenirNext(size: 16)
+        label.textColor = .goatBlue
+        return label
+    }()
+    
+    private lazy var labelStack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
+        sv.axis = .vertical
+        return sv
     }()
     
     private lazy var timeStampLabel: UILabel = {

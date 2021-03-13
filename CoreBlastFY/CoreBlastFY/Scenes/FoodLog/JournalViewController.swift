@@ -44,13 +44,13 @@ class JournalViewController: UIViewController {
         setupButton()
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         navigationItem.title = "Journal"
     }
     
     var createEntryButton = UIButton()
     
-    func setupButton() {
+    private func setupButton() {
         createEntryButton.contentVerticalAlignment = .fill
         createEntryButton.contentHorizontalAlignment = .fill
         let image = UIImage(systemName: "plus.circle.fill")?.withRenderingMode(.alwaysTemplate)
