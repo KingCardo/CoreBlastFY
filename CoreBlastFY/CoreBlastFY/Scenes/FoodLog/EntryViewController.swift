@@ -63,7 +63,10 @@ class EntryViewController: UIViewController {
     }
     
     @objc func entryUpdate() {
-        guard let title = titleTextField.text, let bodyText = bodyTextView.text, let selectedEntryType = selectedEntryType else { return }
+        guard let title = titleTextField.text, let bodyText = bodyTextView.text else { return }
+        
+        let selectedEntryType = entry?.entryType ?? .foodLog
+        
         if let entry = entry {
             EntryController.shared.updateEntry(entry: entry, title: title, bodyText: bodyText, entryType: selectedEntryType)
         } else {
@@ -100,6 +103,8 @@ class EntryViewController: UIViewController {
     
     private lazy var entryTypePicker: UIPickerView = {
         let picker = UIPickerView()
+        picker.clipsToBounds = true
+        picker.layer.cornerRadius = 8
         picker.backgroundColor = .goatBlue
         picker.dataSource = entryTypePickerDataSource
         picker.delegate = entryTypePickerDelegate
@@ -108,7 +113,7 @@ class EntryViewController: UIViewController {
     
     private let entryTypePickerDataSource = EntryTypePickerDataSource()
     private lazy var entryTypePickerDelegate = EntryTypePickerDelegate(callback: { [weak self] entryType in
-                                                                        self?.selectedEntryType = entryType})
+                                                                        self?.entry?.entryType = entryType})
     
     
     //MARK: - Properties
@@ -125,8 +130,6 @@ class EntryViewController: UIViewController {
             updateViews()
         }
     }
-    
-    private var selectedEntryType: Entry.EntryType?
 }
 
 extension EntryViewController: UITextFieldDelegate {
