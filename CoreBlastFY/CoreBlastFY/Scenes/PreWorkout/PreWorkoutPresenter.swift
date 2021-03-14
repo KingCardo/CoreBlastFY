@@ -35,7 +35,7 @@ let dateFormatter: DateFormatter = {
     let userDate = UserDefaults.standard.object(forKey: UserManager.workoutDateKey) as? Date
     let totalPoints = UserDefaults.standard.integer(forKey: UserManager.totalPointsKey)
     
-    let displayedUserInfo = PreWorkout.FetchUser.ViewModel.UserDetails(name: user.name, coreLevel: user.currentLevel.rawValue, totalPoints: "\(/*user.*/totalPoints)", nextLevel: "\(user.nextLevelUp)", nextWorkoutDate: dateFormatter.string(from: userDate ?? user.nextWorkout))
+    let displayedUserInfo = PreWorkout.FetchUser.ViewModel.UserDetails(name: user.name, coreLevel: user.currentLevel.rawValue, totalPoints: "\(totalPoints)", nextLevel: "\(user.nextLevelUp)", nextWorkoutDate: dateFormatter.string(from: userDate ?? user.nextWorkout))
     let viewModel = PreWorkout.FetchUser.ViewModel(userDetails: displayedUserInfo)
     viewController?.displayPreWorkoutViewModel(viewModel: viewModel)
   }
