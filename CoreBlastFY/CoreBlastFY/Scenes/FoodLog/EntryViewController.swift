@@ -46,7 +46,7 @@ class EntryViewController: UIViewController {
         
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(entryUpdate))
         doneButton.tintColor = .goatBlue
         navigationItem.rightBarButtonItem = doneButton
@@ -60,12 +60,11 @@ class EntryViewController: UIViewController {
         bodyTextView.text = entry.body
         let row = entry.entryTypeIndex ?? 0
         entryTypePicker.selectRow(row, inComponent: 0, animated: true)
+        selectedEntryType = entry.entryType
     }
     
     @objc func entryUpdate() {
         guard let title = titleTextField.text, let bodyText = bodyTextView.text else { return }
-        
-        let selectedEntryType = entry?.entryType ?? .foodLog
         
         if let entry = entry {
             EntryController.shared.updateEntry(entry: entry, title: title, bodyText: bodyText, entryType: selectedEntryType)
@@ -113,7 +112,7 @@ class EntryViewController: UIViewController {
     
     private let entryTypePickerDataSource = EntryTypePickerDataSource()
     private lazy var entryTypePickerDelegate = EntryTypePickerDelegate(callback: { [weak self] entryType in
-                                                                        self?.entry?.entryType = entryType})
+                                                                        self?.selectedEntryType = entryType})
     
     
     //MARK: - Properties
@@ -130,6 +129,8 @@ class EntryViewController: UIViewController {
             updateViews()
         }
     }
+    
+    private var selectedEntryType: Entry.EntryType = .foodLog
 }
 
 extension EntryViewController: UITextFieldDelegate {

@@ -9,6 +9,6 @@
 import Foundation
 
 class AppInfo {
-    static let versionNumber = 1.1
-    static let previousVersion = 1.0
+    static let versionNumber = "1.2.3"
+    static let previousVersion = "1.2.2"
 }
