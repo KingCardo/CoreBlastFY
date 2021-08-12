@@ -23,6 +23,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     var router: (NSObjectProtocol & PreWorkoutRoutingLogic & PreWorkoutDataPassing)?
     
     var displayedPreWorkoutData: PreWorkout.FetchUser.ViewModel.UserDetails?
+    var firstWorkout: String?
     
     // MARK: Views
     
@@ -58,7 +59,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero)
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "")
         view.addSubview(loadingView!)
         self.tabBarController?.tabBar.isHidden = true
         preworkoutView?.alpha = 0
@@ -80,6 +81,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         registerObservers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +89,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         setupTipIcon()
         //setupMusicButton()
         fetchUserInfo()
+        setFirstWorkout()
         
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -106,6 +109,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         router.preWorkoutDataStore = interactor
         setupNavigationBar()
         
+    }
+    
+    private func setFirstWorkout() {
+        let firstWorkout = interactor?.exercises.first
+        self.firstWorkout = firstWorkout?.name.capitalized
     }
     
     private let tipIcon = UIButton(type: .detailDisclosure)

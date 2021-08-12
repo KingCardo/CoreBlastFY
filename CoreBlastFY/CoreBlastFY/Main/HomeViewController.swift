@@ -41,7 +41,7 @@ class HomeViewController: UITabBarController {
     private var progressionNavController: UINavigationController!
     private var workoutNavController: UINavigationController!
     private var journalNavViewController: UINavigationController!
-    private var nutritionVC: MealPlansViewController!
+   // private var nutritionVC: MealPlansViewController!
     private var exercisesNavVC: UINavigationController!
     private var settingsNavController: UINavigationController!
     
@@ -59,8 +59,8 @@ class HomeViewController: UITabBarController {
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         
-        nutritionVC = MealPlansViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
+//        nutritionVC = MealPlansViewController()
+//        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
         
         let journalViewController = JournalViewController()
         journalNavViewController = UINavigationController(rootViewController: journalViewController)
@@ -70,8 +70,6 @@ class HomeViewController: UITabBarController {
         journalNavViewController.tabBarItem = UITabBarItem(title: "Journal", image: journalImage, selectedImage: nil)
                 
         
-
-        
         let settingsViewController = SettingsViewController()
         settingsNavController = UINavigationController(rootViewController: settingsViewController)
         settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "setting"), selectedImage: nil)
@@ -80,7 +78,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
-        setViewControllers([progressionNavController, workoutNavController, nutritionVC, journalNavViewController, settingsNavController], animated: true)
+        setViewControllers([progressionNavController, workoutNavController,/*, nutritionVC,*/ journalNavViewController, settingsNavController], animated: true)
         self.customizableViewControllers = []
         
         selectedViewController = viewControllers?[0]

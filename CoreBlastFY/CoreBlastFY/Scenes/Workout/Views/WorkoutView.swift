@@ -229,7 +229,8 @@ class WorkoutView: UIView {
         addSubview(setCountLabelStackView)
         setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
-        setCountLabelStackView.topAnchor.constraint(equalTo: topAnchor, constant: Style.stackViewTop).isActive = true
+        setCountLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
+        setCountLabelStackView.topAnchor.constraint(equalTo: topAnchor /*constant: Style.stackViewTop*/).isActive = true
         
         
         exerciseLabel.text = "Exercise"
@@ -272,6 +273,12 @@ class WorkoutView: UIView {
         containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.bottom).isActive = true
         
+//        addSubview(setCountLabelStackView)
+//        setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+//        setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
+//        setCountLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
+//        setCountLabelStackView.bottomAnchor.constraint(equalTo: containerStackView.topAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
+        
         
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -298,10 +305,6 @@ class WorkoutView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        
     }
 }
 

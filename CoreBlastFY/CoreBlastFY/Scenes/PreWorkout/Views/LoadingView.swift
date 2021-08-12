@@ -9,7 +9,7 @@
 import UIKit
 
 final class LoadingView: UIView {
-    private var seconds = 3
+    private var seconds = 5
     private var timer = Timer()
     private var isRunning = false
     private var nextExerciseLabel = UILabel(text: "", font: UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 36) : UIFont.makeTitleFontDB(size: 26), numberOfLines: 0)

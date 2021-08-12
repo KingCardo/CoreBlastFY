@@ -13,7 +13,7 @@ struct LocalExercises: ExerciseInfoStoreProtocol {
         completion(LocalExercises.exercises, nil)
         return
     }
-    static let exercises: [Exercise] = [reversePlank, legRaises, openClose, pendulums, tPlank, leftSidePlankHipDip, rightSidePlankHipDip, leftSidePlankWrap, rightSidePlankWrap]
+    static let exercises: [Exercise] = [reversePlank, legRaises, openClose, pendulums, tPlank, leftSidePlankHipDip, rightSidePlankHipDip, leftSidePlankWrap, rightSidePlankWrap/*, rest*/]
 }
 
 //Exercises
@@ -27,4 +27,5 @@ let leftSidePlankHipDip = Exercise(name: "left side plank hipdip", tip: "engage 
 let rightSidePlankHipDip = Exercise(name: "right side plank hipdip", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true, totalBody: true)
 let leftSidePlankWrap = Exercise(name: "left side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
 let rightSidePlankWrap = Exercise(name: "right side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
+let rest = Exercise(name: "rest", tip: "Deep breathes", level: .beginner, movement: .stationary)
 
