@@ -12,7 +12,7 @@ import Foundation
 
 //shredded - gains - vegan - franchiz
 
-let allMPs = [veganMP, franchizMP, shreddedMP, gainsMP, mockMP1]
+let allMPs = [veganMP,/* franchizMP,*/ shreddedMP, gainsMP, mockMP1]
 
 //Shredded MP
 //Breakfast Ingredients

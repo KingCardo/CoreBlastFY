@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol MealPlansDisplayLogic: class {
+protocol MealPlansDisplayLogic: AnyObject {
     func displayPlans(viewModel: MealPlans.GetPlan.ViewModel)
 }
 
@@ -33,7 +33,7 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     // MARK: Setup
@@ -75,11 +75,13 @@ class MealPlansViewController: UICollectionViewController, MealPlansDisplayLogic
     
     @objc private func purchaseSuccess() {
         removeLoadingSpinner()
+        collectionView.isUserInteractionEnabled = true
         routeToMealPlanDetails()
     }
     
     @objc private func purchaseCancelled() {
         removeLoadingSpinner()
+        collectionView.isUserInteractionEnabled = true
     }
     
     private var loadingSpinner: UIActivityIndicatorView?
@@ -155,11 +157,20 @@ extension MealPlansViewController {
 
 extension MealPlansViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let plans = InAppIds.all[indexPath.item]
-        StoreObserver.shared.productId = plans
+        let plan = InAppIds.all[indexPath.item]
+        StoreObserver.shared.productId = plan
         
-        routeToMealPlanDetails()
-        
+        if let productId = StoreObserver.shared.productId, StoreManager.shared.isPurchased(with: productId) {
+            routeToMealPlanDetails()
+        } else if let productId = StoreObserver.shared.productId {
+            displayLoadingSpinner()
+            collectionView.isUserInteractionEnabled = false
+            StoreManager.shared.startProductRequest(with: productId)
+        }
+
+        if StoreObserver.shared.productId == nil {
+            routeToMealPlanDetails()
+        }
     }
 }
 
