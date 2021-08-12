@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-protocol SettingsDisplayLogic: class {
+protocol SettingsDisplayLogic: AnyObject {
     func displayItems(viewModel: [Settings.Items.ViewModel.DisplayItem])
 }
 

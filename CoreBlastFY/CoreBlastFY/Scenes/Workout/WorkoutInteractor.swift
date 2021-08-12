@@ -38,10 +38,8 @@ class WorkoutInteractor: WorkoutBusinessLogic, WorkoutDataStore {
     }
     
     func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
-        worker = WorkoutWorker(dataStore: exercises)
-        worker?.fetchWorkout(completion: { (workout) in
+        guard let workout = self.workout else { return }
             let response = WorkoutInfo.FetchWorkout.Response(workout: workout)
             self.presenter?.presentWorkout(response: response)
-        })
     }
 }

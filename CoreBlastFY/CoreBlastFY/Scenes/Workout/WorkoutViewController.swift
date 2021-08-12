@@ -100,7 +100,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     }
     
     private func fetchCustomWorkout() {
-        if let workout = interactor?.workout {
+        if let workout = interactor?.workout, workout.isCustom {
             interactor?.createCustomWorkout(workout: workout)
         } else {
             fetchWorkout()

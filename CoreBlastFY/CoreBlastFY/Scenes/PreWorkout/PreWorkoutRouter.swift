@@ -49,6 +49,7 @@ class PreWorkoutRouter: NSObject, PreWorkoutRoutingLogic, PreWorkoutDataPassing 
 
  private func passExercisesToWorkoutScene(source: PreWorkoutDataStore, destination: inout WorkoutDataStore) {
       destination.exercises = source.exercises
+      destination.workout = source.workout
   }
 }
 

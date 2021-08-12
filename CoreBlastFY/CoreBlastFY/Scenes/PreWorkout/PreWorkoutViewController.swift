@@ -13,7 +13,7 @@
 import UIKit
 import MediaPlayer
 
-protocol PreWorkoutDisplayLogic: class {
+protocol PreWorkoutDisplayLogic: AnyObject {
     func displayPreWorkoutViewModel(viewModel: PreWorkout.FetchUser.ViewModel)
 }
 
@@ -81,6 +81,8 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         registerObservers()
+        interactor?.exercises = ExerciseStorage.exercises
+        interactor?.fetchWorkout(request: WorkoutInfo.FetchWorkout.Request(exercises: interactor!.exercises))
         
     }
     
@@ -112,7 +114,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func setFirstWorkout() {
-        let firstWorkout = interactor?.exercises.first
+        let firstWorkout = interactor?.workout?.exercisesToReturn.first
         self.firstWorkout = firstWorkout?.name.capitalized
     }
     

@@ -13,7 +13,7 @@
 import UIKit
 import AVKit
 
-protocol ExerciseDisplayLogic: class {
+protocol ExerciseDisplayLogic: AnyObject {
     func displayExercises(viewModel: Exercises.Videos.ViewModel)
 }
 

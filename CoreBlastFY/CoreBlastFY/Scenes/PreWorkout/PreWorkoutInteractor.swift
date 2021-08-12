@@ -13,23 +13,26 @@
 import Foundation
 
 protocol PreWorkoutBusinessLogic {
-  func fetchUserInfo(request: PreWorkout.FetchUser.Request)
+    func fetchUserInfo(request: PreWorkout.FetchUser.Request)
+    func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request)
 }
 
 protocol PreWorkoutDataStore {
-  var exercises: [Exercise] { get set }
+    var exercises: [Exercise] { get set }
+    var workout: Workout? { get set }
 }
 
 class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
     
-  var presenter: PreWorkoutPresentationLogic?
-  var userInfoWorker: PreWorkoutWorker?
-  var exercises: [Exercise] = []
+    var presenter: PreWorkoutPresentationLogic?
+    var userInfoWorker: PreWorkoutWorker?
+    var exercises: [Exercise] = []
+    var worker: WorkoutWorker?
+    var workout: Workout?
   
   // MARK: Do something
   
   func fetchUserInfo(request: PreWorkout.FetchUser.Request) {
-    self.exercises = ExerciseStorage.exercises
     userInfoWorker = PreWorkoutWorker(userInfoStore: UserAPI())
     userInfoWorker?.fetchUserInfo() { user, error in
         if let error = error {
@@ -41,4 +44,12 @@ class PreWorkoutInteractor: PreWorkoutBusinessLogic, PreWorkoutDataStore {
         }
     }
   }
+    
+    func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
+        worker = WorkoutWorker(dataStore: exercises)
+        worker?.fetchWorkout(completion: { (workout) in
+            self.workout = workout
+            self.exercises = workout.exercises
+        })
+    }
 }

@@ -15,15 +15,17 @@ struct Workout: Codable {
         self.exercises = exercises
     }
     
-    init(exercises: [Exercise], numberOfSets: Int, duration: Int) {
+    init(exercises: [Exercise], numberOfSets: Int, duration: Int, isCustom: Bool = false) {
         customNumberOfSets = numberOfSets
         customSecondsOfExercise = duration
         self.exercises = exercises
         self.user = UserManager.loadUserFromFile()
+        self.isCustom = isCustom
     }
     
     var user: User
     var exercises: [Exercise]
+    var isCustom = false
     
     var exercisesToReturn: [Exercise] {
         var exercises: [Exercise]

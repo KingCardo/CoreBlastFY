@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CreateWorkoutDelegate: class {
+protocol CreateWorkoutDelegate: AnyObject {
     func createWorkout(duration: Int, numberOfSets: Int)
 }
 

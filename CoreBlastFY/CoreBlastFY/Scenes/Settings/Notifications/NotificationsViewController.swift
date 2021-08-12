@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol NotificationsDisplayLogic: class {
+protocol NotificationsDisplayLogic: AnyObject {
   func displaySelectedTime(viewModel: Notifications.SelectedTime.ViewModel)
 }
 

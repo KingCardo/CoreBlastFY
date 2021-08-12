@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol MealPlanDetailDisplayLogic: class {
+protocol MealPlanDetailDisplayLogic: AnyObject {
     func displayMealPlanDetails(viewModel: MealPlanDetail.FetchDetails.ViewModel)
 }
 
