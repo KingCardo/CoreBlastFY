@@ -46,9 +46,11 @@ struct Exercise: Codable, Equatable {
     init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, isSide: Bool = false, totalBody: Bool = false) {
         self.name = name
         self.tip = tip
-        let s = Bundle.main.path(forResource: "\(self.name)", ofType: "mov")!
-        let path = URL(fileURLWithPath: s)
-        self.videoURL = path
+        if let s = Bundle.main.path(forResource: "\(self.name)", ofType: "mov") {
+            let path = URL(fileURLWithPath: s)
+            self.videoURL = path
+        }
+       
         self.level = level
         self.isSide = isSide
         self.totalBody = totalBody

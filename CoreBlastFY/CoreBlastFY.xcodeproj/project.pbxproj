@@ -16,6 +16,12 @@
 		7A0D67702479C97F00A6E766 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */; };
 		7A0D677224804B9900A6E766 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D677124804B9900A6E766 /* LoadingViewController.swift */; };
 		7A0D67742481D2EF00A6E766 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67732481D2EF00A6E766 /* Reachability.swift */; };
+		7A173C7426C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C6E26C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift */; };
+		7A173C7526C099E000EDCE70 /* WorkoutOfTheDayWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C6F26C099E000EDCE70 /* WorkoutOfTheDayWorker.swift */; };
+		7A173C7626C099E000EDCE70 /* WorkoutOfTheDayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C7026C099E000EDCE70 /* WorkoutOfTheDayRouter.swift */; };
+		7A173C7726C099E000EDCE70 /* WorkoutOfTheDayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C7126C099E000EDCE70 /* WorkoutOfTheDayModels.swift */; };
+		7A173C7826C099E000EDCE70 /* WorkoutOfTheDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C7226C099E000EDCE70 /* WorkoutOfTheDayViewController.swift */; };
+		7A173C7926C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A173C7326C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift */; };
 		7A19B2CC24C66F34008A5485 /* CustomWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19B2CB24C66F34008A5485 /* CustomWorkoutViewController.swift */; };
 		7A2E4DFD2492F321007427D2 /* LocalExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E4DFC2492F321007427D2 /* LocalExercises.swift */; };
 		7A2E4DFF2492F3A1007427D2 /* AboutMeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E4DFE2492F3A1007427D2 /* AboutMeData.swift */; };
@@ -186,6 +192,12 @@
 		7A0D676F2479C97F00A6E766 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		7A0D677124804B9900A6E766 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = SOURCE_ROOT; };
 		7A0D67732481D2EF00A6E766 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7A173C6E26C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayPresenter.swift; sourceTree = "<group>"; };
+		7A173C6F26C099E000EDCE70 /* WorkoutOfTheDayWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayWorker.swift; sourceTree = "<group>"; };
+		7A173C7026C099E000EDCE70 /* WorkoutOfTheDayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayRouter.swift; sourceTree = "<group>"; };
+		7A173C7126C099E000EDCE70 /* WorkoutOfTheDayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayModels.swift; sourceTree = "<group>"; };
+		7A173C7226C099E000EDCE70 /* WorkoutOfTheDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayViewController.swift; sourceTree = "<group>"; };
+		7A173C7326C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfTheDayInteractor.swift; sourceTree = "<group>"; };
 		7A19B2CB24C66F34008A5485 /* CustomWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutViewController.swift; sourceTree = "<group>"; };
 		7A2E4DFC2492F321007427D2 /* LocalExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalExercises.swift; sourceTree = "<group>"; };
 		7A2E4DFE2492F3A1007427D2 /* AboutMeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeData.swift; sourceTree = SOURCE_ROOT; };
@@ -377,6 +389,19 @@
 				7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */,
 			);
 			path = ExerciseTests;
+			sourceTree = "<group>";
+		};
+		7A173C6D26C091DB00EDCE70 /* WorkoutOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				7A173C6E26C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift */,
+				7A173C6F26C099E000EDCE70 /* WorkoutOfTheDayWorker.swift */,
+				7A173C7026C099E000EDCE70 /* WorkoutOfTheDayRouter.swift */,
+				7A173C7126C099E000EDCE70 /* WorkoutOfTheDayModels.swift */,
+				7A173C7226C099E000EDCE70 /* WorkoutOfTheDayViewController.swift */,
+				7A173C7326C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift */,
+			);
+			path = WorkoutOfTheDay;
 			sourceTree = "<group>";
 		};
 		7A19B2CA24C66F12008A5485 /* CustomWorkout */ = {
@@ -571,6 +596,7 @@
 		7A8CBAF623E912C700D0D6BD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7A173C6D26C091DB00EDCE70 /* WorkoutOfTheDay */,
 				7A8CBB1323E912C700D0D6BD /* Onboarding */,
 				7A8CBB0123E912C700D0D6BD /* Progression */,
 				7A8CBAF723E912C700D0D6BD /* PreWorkout */,
@@ -959,6 +985,7 @@
 				7AC2C6C52449183C00B3BFC8 /* MealPlansViewController.swift in Sources */,
 				7A8CBB1623E912C700D0D6BD /* PreWorkoutInteractor.swift in Sources */,
 				7A8CBAF523E912BA00D0D6BD /* ExerciseWorker.swift in Sources */,
+				7A173C7826C099E000EDCE70 /* WorkoutOfTheDayViewController.swift in Sources */,
 				7AC2C6952445486400B3BFC8 /* CustomDatePicker.swift in Sources */,
 				7A7E9B26246A1B4500DA8808 /* TermsOfUse.swift in Sources */,
 				7A0D67742481D2EF00A6E766 /* Reachability.swift in Sources */,
@@ -989,6 +1016,7 @@
 				7A8CBB1823E912C700D0D6BD /* PreWorkoutModels.swift in Sources */,
 				7A8CBB2023E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift in Sources */,
 				7A8CBB1923E912C700D0D6BD /* PreWorkoutRouter.swift in Sources */,
+				7A173C7626C099E000EDCE70 /* WorkoutOfTheDayRouter.swift in Sources */,
 				7A8CBAF223E912B100D0D6BD /* Exercise.swift in Sources */,
 				7AC36D1C2454A783002764F5 /* MealDetailsInteractor.swift in Sources */,
 				7A56E89A249BE739004AA193 /* AppInfo.swift in Sources */,
@@ -1017,6 +1045,7 @@
 				7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */,
 				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
+				7A173C7926C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7AADDAE024CCA70C00C1E181 /* ExerciseSelectionView.swift in Sources */,
 				7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */,
@@ -1035,6 +1064,7 @@
 				7AADDA9624C681CD00C1E181 /* CustomWorkoutViewModel.swift in Sources */,
 				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
 				7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */,
+				7A173C7426C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift in Sources */,
 				7AC36D172454A783002764F5 /* MealDetailsPresenter.swift in Sources */,
 				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
 				7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */,
@@ -1052,6 +1082,7 @@
 				7A5CEDCC2457C0450066B0D5 /* RecipeDescriptionTableViewCell.swift in Sources */,
 				7A5CEDD0245DEA2C0066B0D5 /* InAppPurchases.swift in Sources */,
 				7AC2C6DA244B8F1800B3BFC8 /* MealPlanDetailModels.swift in Sources */,
+				7A173C7726C099E000EDCE70 /* WorkoutOfTheDayModels.swift in Sources */,
 				7A8CBAE823E9129700D0D6BD /* UserManager.swift in Sources */,
 				7A8CBB7023EFA5C100D0D6BD /* ParksDetailController.swift in Sources */,
 				7AC2C6CF244A86C800B3BFC8 /* Extensions+.swift in Sources */,
@@ -1070,6 +1101,7 @@
 				7AC36D2C24563526002764F5 /* InstructionsTableViewCell.swift in Sources */,
 				7A8CBB7223EFA5F600D0D6BD /* Animations.swift in Sources */,
 				7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */,
+				7A173C7526C099E000EDCE70 /* WorkoutOfTheDayWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,7 +1283,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
@@ -1272,7 +1304,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = CoreBlastFY;
 				SWIFT_VERSION = 5.0;
