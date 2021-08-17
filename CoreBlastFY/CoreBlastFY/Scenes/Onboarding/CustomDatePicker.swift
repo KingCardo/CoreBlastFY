@@ -9,7 +9,13 @@
 import UIKit
 
 class CustomDatePicker: UIDatePicker {
+    
+    // MARK: - Properties
+    
      let titleLabel = UILabel()
+    
+    // MARK: - Init(s)
+    
 
      override init(frame: CGRect) {
          super.init(frame: frame)

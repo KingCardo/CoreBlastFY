@@ -47,6 +47,10 @@ class WorkoutViewControllerTests: XCTestCase {
   // MARK: Test doubles
   
     class WorkoutBusinessLogicSpy: WorkoutBusinessLogic, WorkoutDataStore {
+        func createCustomWorkout(workout: Workout) {
+            
+        }
+        
         var workout: Workout? = nil
         
         var exercises: [Exercise] = []

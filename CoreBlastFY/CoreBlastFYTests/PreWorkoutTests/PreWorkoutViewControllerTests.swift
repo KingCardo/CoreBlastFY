@@ -14,59 +14,67 @@
 import XCTest
 
 class PreWorkoutViewControllerTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: PreWorkoutViewController!
-  var window: UIWindow!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    window = UIWindow()
-    setupPreWorkoutViewController()
-  }
-  
-  override func tearDown() {
-    window = nil
-    sut = nil
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupPreWorkoutViewController() {
-    sut = PreWorkoutViewController()
-  }
-  
-  func loadView() {
-    window.addSubview(sut.view)
-    RunLoop.current.run(until: Date())
-  }
-  
-  // MARK: Test doubles
-  
-    class PreWorkoutBusinessLogicSpy: PreWorkoutBusinessLogic, PreWorkoutDataStore {
-    var exercises: [Exercise] = []
-        
-    var doSomethingCalled = false
+    // MARK: Subject under test
     
-    func fetchUserInfo(request: PreWorkout.FetchUser.Request) {
-      doSomethingCalled = true
+    var sut: PreWorkoutViewController!
+    var window: UIWindow!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp() {
+        super.setUp()
+        window = UIWindow()
+        setupPreWorkoutViewController()
     }
-  }
-  
-  // MARK: Tests
-  
-  func testShouldDoSomethingWhenViewIsLoaded() {
-    // Given
-    let spy = PreWorkoutBusinessLogicSpy()
-    sut.interactor = spy
     
-    // When
-    loadView()
+    override func tearDown() {
+        window = nil
+        sut = nil
+        super.tearDown()
+    }
     
-    // Then
-    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-  }
+    // MARK: Test setup
+    
+    func setupPreWorkoutViewController() {
+        sut = PreWorkoutViewController()
+    }
+    
+    func loadView() {
+        window.addSubview(sut.view)
+        RunLoop.current.run(until: Date())
+    }
+    
+    // MARK: Test doubles
+    
+    class PreWorkoutBusinessLogicSpy: PreWorkoutBusinessLogic, PreWorkoutDataStore {
+        
+        
+        var workout: Workout?
+        
+        var exercises: [Exercise] = []
+        
+        var doSomethingCalled = false
+        
+        func fetchUserInfo(request: PreWorkout.FetchUser.Request) {
+            doSomethingCalled = true
+        }
+        
+        func fetchWorkout(request: WorkoutInfo.FetchWorkout.Request) {
+            
+        }
+    }
+    
+    // MARK: Tests
+    
+    func testShouldDoSomethingWhenViewIsLoaded() {
+        // Given
+        let spy = PreWorkoutBusinessLogicSpy()
+        sut.interactor = spy
+        
+        // When
+        loadView()
+        
+        // Then
+        XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
+    }
 }

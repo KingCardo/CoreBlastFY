@@ -20,17 +20,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
-        -> Void) {
+            -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         UNUserNotificationCenter.current().delegate = self
-                    guard let windowScene = (scene as? UIWindowScene) else { return }
-                    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-                    window?.windowScene = windowScene
-
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        
+        
+        // MARK: TO DP clean up
+        
         let exerciseFetcher = SceneExerciseFetcher()
         exerciseFetcher.fetchExercises() { (success) in
             DispatchQueue.main.async {
@@ -59,34 +62,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
                 }
             }
         }
-            
+        
+    }
+    
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        // Called when the scene has moved from an inactive state to an active state.
+        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
+        }
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
         }
         
-        
-        func sceneDidBecomeActive(_ scene: UIScene) {
-            // Called when the scene has moved from an inactive state to an active state.
-            // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
-            }
-        }
-        
-        func sceneWillResignActive(_ scene: UIScene) {
-            
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: PauseWorkoutNotification, object: self)
-            }
-            
-            UserManager.save()
-            // Called when the scene will move from an active state to an inactive state.
-            // This may occur due to temporary interruptions (ex. an incoming phone call).
-        }
-        
-        func sceneDidEnterBackground(_ scene: UIScene) {
-            UserManager.save()
-            // Called as the scene transitions from the foreground to the background.
-            // Use this method to save data, release shared resources, and store enough scene-specific state information
-            // to restore the scene back to its current state.
-        }
+        UserManager.save()
+        // Called when the scene will move from an active state to an inactive state.
+        // This may occur due to temporary interruptions (ex. an incoming phone call).
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        UserManager.save()
+        // Called as the scene transitions from the foreground to the background.
+        // Use this method to save data, release shared resources, and store enough scene-specific state information
+        // to restore the scene back to its current state.
+    }
 }
 

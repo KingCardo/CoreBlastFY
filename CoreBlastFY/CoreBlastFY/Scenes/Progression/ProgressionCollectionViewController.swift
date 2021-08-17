@@ -95,21 +95,6 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
        
     }
     
-//    private func presentAlertController() {
-//        let alertController = UIAlertController(title: "FLEXX!", message: "Does this pic represent the best version of yourself?", preferredStyle: .alert)
-//        let yesAction = UIAlertAction(title: "Yes", style: .default) { (congrats) in
-//            //MARK: TO DO - display animation
-//            print("Congrats")
-//        }
-//
-//        let noAction = UIAlertAction(title: "No", style: .default) { (action) in
-//
-//        }
-//        alertController.addAction(yesAction)
-//        alertController.addAction(noAction)
-//
-//        self.present(alertController, animated: true)
-//    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
