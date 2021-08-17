@@ -101,6 +101,10 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         interactor?.buildItems(request: request)
     }
     
+    private func showVersionNumber() {
+        
+    }
+    
     func displayItems(viewModel: [Settings.Items.ViewModel.DisplayItem]) {
         displayItems = viewModel
         tableView.reloadData()

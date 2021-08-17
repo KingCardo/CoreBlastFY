@@ -52,6 +52,7 @@
 		7A86DFB5247436A700F2FC35 /* ExerciseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */; };
 		7A86DFB6247436A700F2FC35 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */; };
 		7A86DFB7247436A700F2FC35 /* ExerciseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */; };
+		7A8A6BB926C53D63004EB83F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8A6BB826C53D63004EB83F /* AppManager.swift */; };
 		7A8CBAB723E9113100D0D6BD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CBAB623E9113100D0D6BD /* StoreKit.framework */; };
 		7A8CBAC323E9120600D0D6BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CBABC23E9120600D0D6BD /* HomeViewController.swift */; };
 		7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */; };
@@ -228,6 +229,7 @@
 		7A86DFAF247436A700F2FC35 /* ExerciseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModels.swift; sourceTree = "<group>"; };
 		7A86DFB0247436A700F2FC35 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7A86DFB1247436A700F2FC35 /* ExerciseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractor.swift; sourceTree = "<group>"; };
+		7A8A6BB826C53D63004EB83F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		7A8CBA9023E9109800D0D6BD /* CoreBlastFY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBlastFY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8CBAA123E9109B00D0D6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8CBAA623E9109B00D0D6BD /* CoreBlastFYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBlastFYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,6 +505,7 @@
 				7A8CBABD23E9120600D0D6BD /* LaunchScreen.storyboard */,
 				7A8CBAC123E9120600D0D6BD /* AppDelegate.swift */,
 				7A8CBAC223E9120600D0D6BD /* SceneDelegate.swift */,
+				7A8A6BB826C53D63004EB83F /* AppManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				7AC2C6D7244B8F1800B3BFC8 /* MealPlanDetailPresenter.swift in Sources */,
 				7AC2C6C12449183C00B3BFC8 /* MealPlansPresenter.swift in Sources */,
 				7A8CBAC623E9120600D0D6BD /* AppDelegate.swift in Sources */,
+				7A8A6BB926C53D63004EB83F /* AppManager.swift in Sources */,
 				7AC2C6CA244A5D9A00B3BFC8 /* MealPlanAPI.swift in Sources */,
 				7A173C7926C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,

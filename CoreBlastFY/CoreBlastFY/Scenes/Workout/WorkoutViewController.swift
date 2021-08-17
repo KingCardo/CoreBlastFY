@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol WorkoutDisplayLogic: class {
+protocol WorkoutDisplayLogic: AnyObject {
     func displayWorkout(viewModel: WorkoutInfo.FetchWorkout.ViewModel)
 }
 
