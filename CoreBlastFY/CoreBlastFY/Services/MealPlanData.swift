@@ -10,9 +10,8 @@ import Foundation
 
 // Meal Plans
 
-//shredded - gains - vegan - franchiz
 
-let allMPs = [veganMP,/* franchizMP,*/ shreddedMP, gainsMP, mockMP1]
+let allMPs = [veganMP, franchizMP, shreddedMP, gainsMP, mockMP1]
 
 //Shredded MP
 //Breakfast Ingredients
@@ -204,8 +203,8 @@ let franchizDinnerRecipe = Recipe(name: shreddedDinnerName, ingredients: shredde
 
 let franchizDinner2Recipe = Recipe(name: franchizDinnerMealName, ingredients: franchizDinnerIngredients, instructions: franchizDinnerInstructions, mealType: Recipe.MealType.dinner, image: #imageLiteral(resourceName: "chickensalad"))
 
-let franchizMealPlanTitle = "My Personal Plan"
-let franchizMealPlanSummary = "This is my current meal plan that gives me the balance I need at simplest form."
+let franchizMealPlanTitle = "Chisel Away"
+let franchizMealPlanSummary = "Time to chisel your way into the best version of you!"
 let franchizMealDescription = "Abs are made in the kitchen! Time to get right!"
 let franchizMealTip = "To be successful you have to plan ahead or you will fail! "
 
