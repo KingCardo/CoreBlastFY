@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - TO DO look into refactoring/more robust
+
 struct Fonts {
     enum FontNames: String {
         case title = "AvenirNext-Heavy"

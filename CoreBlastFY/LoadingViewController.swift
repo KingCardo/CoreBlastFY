@@ -9,6 +9,14 @@
 import UIKit
 
 class LoadingViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    let loadingLabel = UILabel()
+    let loadingIV = UIImageView(image: #imageLiteral(resourceName: "inapppromopic"))
+    private var loadingSpinner: UIActivityIndicatorView?
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +25,8 @@ class LoadingViewController: UIViewController {
         setUpLoadingLabel()
     }
     
-    let loadingLabel = UILabel()
-    let loadingIV = UIImageView(image: #imageLiteral(resourceName: "inapppromopic"))
-    private var loadingSpinner: UIActivityIndicatorView?
+    
+    // MARK: - Private methods
 
     private func displayLoadingSpinner() {
         loadingSpinner = UIActivityIndicatorView(style: .large)
