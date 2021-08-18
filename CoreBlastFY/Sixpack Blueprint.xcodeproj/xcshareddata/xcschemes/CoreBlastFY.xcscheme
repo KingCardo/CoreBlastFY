@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A8CBA8F23E9109800D0D6BD"
-               BuildableName = "CoreBlastFY.app"
-               BlueprintName = "CoreBlastFY"
-               ReferencedContainer = "container:CoreBlastFY.xcodeproj">
+               BuildableName = "Sixpack Blueprint.app"
+               BlueprintName = "Sixpack Blueprint"
+               ReferencedContainer = "container:Sixpack Blueprint.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,9 +41,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A8CBAA523E9109B00D0D6BD"
-               BuildableName = "CoreBlastFYTests.xctest"
-               BlueprintName = "CoreBlastFYTests"
-               ReferencedContainer = "container:CoreBlastFY.xcodeproj">
+               BuildableName = "Sixpack BlueprintTests.xctest"
+               BlueprintName = "Sixpack BlueprintTests"
+               ReferencedContainer = "container:Sixpack Blueprint.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A8CBA8F23E9109800D0D6BD"
-            BuildableName = "CoreBlastFY.app"
-            BlueprintName = "CoreBlastFY"
-            ReferencedContainer = "container:CoreBlastFY.xcodeproj">
+            BuildableName = "Sixpack Blueprint.app"
+            BlueprintName = "Sixpack Blueprint"
+            ReferencedContainer = "container:Sixpack Blueprint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A8CBA8F23E9109800D0D6BD"
-            BuildableName = "CoreBlastFY.app"
-            BlueprintName = "CoreBlastFY"
-            ReferencedContainer = "container:CoreBlastFY.xcodeproj">
+            BuildableName = "Sixpack Blueprint.app"
+            BlueprintName = "Sixpack Blueprint"
+            ReferencedContainer = "container:Sixpack Blueprint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
