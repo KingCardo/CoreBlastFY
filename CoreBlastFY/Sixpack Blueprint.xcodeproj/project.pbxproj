@@ -25,18 +25,9 @@
 		7A19B2CC24C66F34008A5485 /* CustomWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19B2CB24C66F34008A5485 /* CustomWorkoutViewController.swift */; };
 		7A2E4DFD2492F321007427D2 /* LocalExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E4DFC2492F321007427D2 /* LocalExercises.swift */; };
 		7A2E4DFF2492F3A1007427D2 /* AboutMeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E4DFE2492F3A1007427D2 /* AboutMeData.swift */; };
-		7A2E4E012492F489007427D2 /* pendulums.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2E4E002492F489007427D2 /* pendulums.mov */; };
-		7A2E4E032492F493007427D2 /* t plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2E4E022492F493007427D2 /* t plank.mov */; };
-		7A2E4E052492F49C007427D2 /* open close.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2E4E042492F49C007427D2 /* open close.mov */; };
-		7A2E4E072492F4A7007427D2 /* reverse plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2E4E062492F4A7007427D2 /* reverse plank.mov */; };
-		7A2E4E092492F4B9007427D2 /* leg raises.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A2E4E082492F4B9007427D2 /* leg raises.mov */; };
 		7A2F4A1C2483399400223E54 /* SceneExerciseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */; };
 		7A2F4A1E24834EE600223E54 /* ExercisesLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */; };
 		7A2F4A2024835F5C00223E54 /* ExercisePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */; };
-		7A56E88E24940D7B004AA193 /* left side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */; };
-		7A56E89024940D89004AA193 /* right side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E88F24940D89004AA193 /* right side plank hipdip.mov */; };
-		7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89124940D99004AA193 /* left side plank wrap.mov */; };
-		7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7A56E89324940DA4004AA193 /* right side plank wrap.mov */; };
 		7A56E896249469D2004AA193 /* ProgramOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E895249469D2004AA193 /* ProgramOverview.swift */; };
 		7A56E89A249BE739004AA193 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E899249BE739004AA193 /* AppInfo.swift */; };
 		7A56E89C249BE7E5004AA193 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A56E89B249BE7E5004AA193 /* MusicPlayer.swift */; };
@@ -115,6 +106,17 @@
 		7AADDA9824C684C900C1E181 /* CustomWorkoutVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADDA9724C684C900C1E181 /* CustomWorkoutVIew.swift */; };
 		7AADDAE024CCA70C00C1E181 /* ExerciseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADDADF24CCA70C00C1E181 /* ExerciseSelectionView.swift */; };
 		7AADDAE224CCA92C00C1E181 /* ExerciseSelectionDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADDAE124CCA92C00C1E181 /* ExerciseSelectionDataSourceDelegate.swift */; };
+		7AB74B9426CE05200068FD4E /* in outs.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8626CE05080068FD4E /* in outs.mov */; };
+		7AB74B9526CE05200068FD4E /* updog.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8726CE050A0068FD4E /* updog.mov */; };
+		7AB74B9626CE05200068FD4E /* right side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8826CE050B0068FD4E /* right side plank hipdip.mov */; };
+		7AB74B9826CE05200068FD4E /* left side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8A26CE050E0068FD4E /* left side plank wrap.mov */; };
+		7AB74B9A26CE05200068FD4E /* t plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8C26CE05110068FD4E /* t plank.mov */; };
+		7AB74B9B26CE05200068FD4E /* reverse plank.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B8D26CE05120068FD4E /* reverse plank.mov */; };
+		7AB74B9E26CE05200068FD4E /* right side plank wrap.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B9026CE05180068FD4E /* right side plank wrap.mov */; };
+		7AB74B9F26CE05200068FD4E /* pendulums.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B9126CE051C0068FD4E /* pendulums.mov */; };
+		7AB74BA126CE05200068FD4E /* left side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B9326CE05200068FD4E /* left side plank hipdip.mov */; };
+		7AB74BA526CE069F0068FD4E /* open close.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74BA426CE069F0068FD4E /* open close.mov */; };
+		7AB74BA726CE32500068FD4E /* leg raises.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74BA626CE32500068FD4E /* leg raises.mov */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
 		7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */; };
 		7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */; };
@@ -201,18 +203,9 @@
 		7A19B2CB24C66F34008A5485 /* CustomWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutViewController.swift; sourceTree = "<group>"; };
 		7A2E4DFC2492F321007427D2 /* LocalExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalExercises.swift; sourceTree = "<group>"; };
 		7A2E4DFE2492F3A1007427D2 /* AboutMeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeData.swift; sourceTree = SOURCE_ROOT; };
-		7A2E4E002492F489007427D2 /* pendulums.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pendulums.mov; sourceTree = "<group>"; };
-		7A2E4E022492F493007427D2 /* t plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "t plank.mov"; sourceTree = "<group>"; };
-		7A2E4E042492F49C007427D2 /* open close.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close.mov"; sourceTree = "<group>"; };
-		7A2E4E062492F4A7007427D2 /* reverse plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "reverse plank.mov"; sourceTree = "<group>"; };
-		7A2E4E082492F4B9007427D2 /* leg raises.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "leg raises.mov"; sourceTree = "<group>"; };
 		7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneExerciseFetcher.swift; sourceTree = "<group>"; };
 		7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesLoadingView.swift; sourceTree = "<group>"; };
 		7A2F4A1F24835F5C00223E54 /* ExercisePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlayerViewController.swift; sourceTree = "<group>"; };
-		7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank hipdip.mov"; sourceTree = "<group>"; };
-		7A56E88F24940D89004AA193 /* right side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank hipdip.mov"; sourceTree = "<group>"; };
-		7A56E89124940D99004AA193 /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
-		7A56E89324940DA4004AA193 /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
 		7A56E895249469D2004AA193 /* ProgramOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramOverview.swift; sourceTree = "<group>"; };
 		7A56E899249BE739004AA193 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		7A56E89B249BE7E5004AA193 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
@@ -295,6 +288,17 @@
 		7AADDA9724C684C900C1E181 /* CustomWorkoutVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutVIew.swift; sourceTree = "<group>"; };
 		7AADDADF24CCA70C00C1E181 /* ExerciseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionView.swift; sourceTree = "<group>"; };
 		7AADDAE124CCA92C00C1E181 /* ExerciseSelectionDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionDataSourceDelegate.swift; sourceTree = "<group>"; };
+		7AB74B8626CE05080068FD4E /* in outs.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "in outs.mov"; sourceTree = "<group>"; };
+		7AB74B8726CE050A0068FD4E /* updog.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = updog.mov; sourceTree = "<group>"; };
+		7AB74B8826CE050B0068FD4E /* right side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank hipdip.mov"; sourceTree = "<group>"; };
+		7AB74B8A26CE050E0068FD4E /* left side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank wrap.mov"; sourceTree = "<group>"; };
+		7AB74B8C26CE05110068FD4E /* t plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "t plank.mov"; sourceTree = "<group>"; };
+		7AB74B8D26CE05120068FD4E /* reverse plank.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "reverse plank.mov"; sourceTree = "<group>"; };
+		7AB74B9026CE05180068FD4E /* right side plank wrap.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "right side plank wrap.mov"; sourceTree = "<group>"; };
+		7AB74B9126CE051C0068FD4E /* pendulums.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pendulums.mov; sourceTree = "<group>"; };
+		7AB74B9326CE05200068FD4E /* left side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank hipdip.mov"; sourceTree = "<group>"; };
+		7AB74BA426CE069F0068FD4E /* open close.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close.mov"; sourceTree = "<group>"; };
+		7AB74BA626CE32500068FD4E /* leg raises.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "leg raises.mov"; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
 		7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsWorker.swift; sourceTree = "<group>"; };
@@ -459,16 +463,18 @@
 				7A8CBAF623E912C700D0D6BD /* Scenes */,
 				7A8CBAE423E9129700D0D6BD /* User */,
 				7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */,
+				7AB74BA626CE32500068FD4E /* leg raises.mov */,
+				7AB74BA426CE069F0068FD4E /* open close.mov */,
+				7AB74B9126CE051C0068FD4E /* pendulums.mov */,
+				7AB74B8D26CE05120068FD4E /* reverse plank.mov */,
+				7AB74B8C26CE05110068FD4E /* t plank.mov */,
+				7AB74B9326CE05200068FD4E /* left side plank hipdip.mov */,
+				7AB74B8826CE050B0068FD4E /* right side plank hipdip.mov */,
+				7AB74B8A26CE050E0068FD4E /* left side plank wrap.mov */,
+				7AB74B9026CE05180068FD4E /* right side plank wrap.mov */,
+				7AB74B8726CE050A0068FD4E /* updog.mov */,
+				7AB74B8626CE05080068FD4E /* in outs.mov */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
-				7A56E88D24940D7B004AA193 /* left side plank hipdip.mov */,
-				7A56E88F24940D89004AA193 /* right side plank hipdip.mov */,
-				7A56E89124940D99004AA193 /* left side plank wrap.mov */,
-				7A56E89324940DA4004AA193 /* right side plank wrap.mov */,
-				7A2E4E022492F493007427D2 /* t plank.mov */,
-				7A2E4E042492F49C007427D2 /* open close.mov */,
-				7A2E4E082492F4B9007427D2 /* leg raises.mov */,
-				7A2E4E062492F4A7007427D2 /* reverse plank.mov */,
-				7A2E4E002492F489007427D2 /* pendulums.mov */,
 			);
 			path = CoreBlastFY;
 			sourceTree = "<group>";
@@ -945,17 +951,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A56E89424940DA4004AA193 /* right side plank wrap.mov in Resources */,
-				7A2E4E052492F49C007427D2 /* open close.mov in Resources */,
+				7AB74B9526CE05200068FD4E /* updog.mov in Resources */,
+				7AB74BA726CE32500068FD4E /* leg raises.mov in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,
-				7A2E4E012492F489007427D2 /* pendulums.mov in Resources */,
+				7AB74B9826CE05200068FD4E /* left side plank wrap.mov in Resources */,
+				7AB74BA526CE069F0068FD4E /* open close.mov in Resources */,
 				7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */,
-				7A2E4E092492F4B9007427D2 /* leg raises.mov in Resources */,
-				7A2E4E032492F493007427D2 /* t plank.mov in Resources */,
-				7A56E89024940D89004AA193 /* right side plank hipdip.mov in Resources */,
-				7A56E88E24940D7B004AA193 /* left side plank hipdip.mov in Resources */,
-				7A56E89224940D99004AA193 /* left side plank wrap.mov in Resources */,
-				7A2E4E072492F4A7007427D2 /* reverse plank.mov in Resources */,
+				7AB74B9426CE05200068FD4E /* in outs.mov in Resources */,
+				7AB74B9B26CE05200068FD4E /* reverse plank.mov in Resources */,
+				7AB74B9F26CE05200068FD4E /* pendulums.mov in Resources */,
+				7AB74B9626CE05200068FD4E /* right side plank hipdip.mov in Resources */,
+				7AB74B9E26CE05200068FD4E /* right side plank wrap.mov in Resources */,
+				7AB74BA126CE05200068FD4E /* left side plank hipdip.mov in Resources */,
+				7AB74B9A26CE05200068FD4E /* t plank.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1275,7 +1283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1296,7 +1304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

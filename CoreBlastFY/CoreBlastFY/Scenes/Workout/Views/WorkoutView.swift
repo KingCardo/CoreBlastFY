@@ -215,7 +215,7 @@ class WorkoutView: UIView {
         tipsLabel.text = tipsText
         tipsLabel.numberOfLines = 0
         tipsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
-        tipsLabel.textColor = .white
+        tipsLabel.textColor = .goatBlue
         
         let setCountLabelStackView = UIStackView(arrangedSubviews: [setCountLabel, tipsLabel])
         setCountLabelStackView.alignment = .leading
@@ -226,11 +226,13 @@ class WorkoutView: UIView {
         
         guard let videoView = videoView else { return }
         addSubview(videoView)
-        addSubview(setCountLabelStackView)
-        setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
-        setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
-        setCountLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
-        setCountLabelStackView.topAnchor.constraint(equalTo: topAnchor /*constant: Style.stackViewTop*/).isActive = true
+        
+        videoView.translatesAutoresizingMaskIntoConstraints = false
+        videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        videoView.topAnchor.constraint(equalTo: topAnchor, constant: -(frame.height * 0.2)).isActive = true
+        videoView.heightAnchor.constraint(equalToConstant: frame.height * 0.83).isActive = true
+        videoView.bounds = videoView.frame
         
         
         exerciseLabel.text = "Exercise"
@@ -239,7 +241,8 @@ class WorkoutView: UIView {
         
         exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
         exerciseNameLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) : UIFont.makeTitleFontDB(size: Style.dataFontSize)
-        exerciseNameLabel.textColor = .white
+        exerciseNameLabel.textColor = .goatBlue
+        exerciseNameLabel.numberOfLines = 0
         
         let exerciseStackView = UIStackView(arrangedSubviews: [exerciseLabel, exerciseNameLabel])
         exerciseStackView.alignment = .leading
@@ -254,7 +257,7 @@ class WorkoutView: UIView {
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
         durationLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) : UIFont.makeTitleFontDB(size: Style.dataFontSize)
-        durationLeftLabel.textColor = .white
+        durationLeftLabel.textColor = .goatBlue
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
         durationStackView.alignment = .trailing
@@ -267,25 +270,23 @@ class WorkoutView: UIView {
         containerStackView.distribution = .fillEqually
         containerStackView.backgroundColor = .clear
         
+        
+        
+        addSubview(setCountLabelStackView)
+        setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
+        setCountLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
+        setCountLabelStackView.topAnchor.constraint(equalTo: videoView.bottomAnchor, constant: 4).isActive = true
+        
+        setCountLabelStackView.heightAnchor.constraint(equalToConstant: (frame.height * 0.10)).isActive = true
+        
         addSubview(containerStackView)
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.bottom).isActive = true
         containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.bottom).isActive = true
+        containerStackView.topAnchor.constraint(equalTo: setCountLabelStackView.bottomAnchor, constant: 4).isActive = true
         
-//        addSubview(setCountLabelStackView)
-//        setCountLabelStackView.translatesAutoresizingMaskIntoConstraints = false
-//        setCountLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
-//        setCountLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
-//        setCountLabelStackView.bottomAnchor.constraint(equalTo: containerStackView.topAnchor/*, constant: Style.Dimension.edgeInsets.bottom*/).isActive = true
-        
-        
-        videoView.translatesAutoresizingMaskIntoConstraints = false
-        videoView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        videoView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        videoView.topAnchor.constraint(equalTo: topAnchor, constant: -(frame.height * 0.2)).isActive = true
-        videoView.bottomAnchor.constraint(equalTo: durationStackView.topAnchor, constant: -(frame.height * 0.03) /*Style.Dimension.edgeInsets.right*/).isActive = true
-        videoView.bounds = videoView.frame
         videoView.playVideo()
         
         SpeechSynthesizer.shared.textToSpeak(text: tipsText)
@@ -304,7 +305,7 @@ class WorkoutView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 }
 

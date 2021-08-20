@@ -164,7 +164,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         case .donation: sendADonation()
         case .foodLog: routeToFoodLogScene()
         case .reportAProblem: contactUsButtonTapped()
-        //case .inAppPurchase: handleRestore()
+        case .inAppPurchase: handleRestore()
         case .termsOfUse: routToTermsOfUse()
         case .customWorkout: routeToCustomWorkoutScene()
         case .exercises: routeToExercises()

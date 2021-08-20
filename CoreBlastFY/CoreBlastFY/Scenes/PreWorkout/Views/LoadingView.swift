@@ -42,7 +42,7 @@ final class LoadingView: UIView {
         label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 300) : UIFont.makeAvenirNext(size: 200)
         label.textAlignment = .center
         label.backgroundColor = .clear
-        label.textColor = .white
+        label.textColor = .goatBlue
         return label
     }()
     
@@ -60,14 +60,14 @@ final class LoadingView: UIView {
             nextExerciseLabel.textAlignment = .center
             addSubview(nextExerciseLabel)
             nextExerciseLabel.translatesAutoresizingMaskIntoConstraints = false
-            nextExerciseLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+            nextExerciseLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -100).isActive = true
             nextExerciseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
             nextExerciseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         }
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
 }

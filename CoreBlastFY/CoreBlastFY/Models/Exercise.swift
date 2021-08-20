@@ -46,7 +46,7 @@ struct Exercise: Codable, Equatable {
     init(name: String, tip: String = "", level: Exercise.Level, movement: Movement, isSide: Bool = false, totalBody: Bool = false) {
         self.name = name
         self.tip = tip
-        if let s = Bundle.main.path(forResource: "\(self.name)", ofType: "mov") {
+        if let s = Bundle.main.path(forResource: "\(self.name.lowercased())", ofType: "mov") {
             let path = URL(fileURLWithPath: s)
             self.videoURL = path
         }
