@@ -256,7 +256,7 @@ class WorkoutView: UIView {
         timeLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
         timeLeftLabel.textColor = .white
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
-        durationLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) : UIFont.makeTitleFontDB(size: Style.dataFontSize)
+        durationLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 42) : UIFont.makeTitleFontDB(size: 32)
         durationLeftLabel.textColor = .goatBlue
         
         let durationStackView = UIStackView(arrangedSubviews: [timeLeftLabel, durationLeftLabel])
