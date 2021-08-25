@@ -78,7 +78,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         super.viewDidLoad()
         registerObservers()
         interactor?.exercises = ExerciseStorage.exercises
-        interactor?.fetchWorkout(request: WorkoutInfo.FetchWorkout.Request(exercises: interactor!.exercises))
+        
         
     }
     
@@ -87,6 +87,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         setupTipIcon()
         //setupMusicButton()
         fetchUserInfo()
+        interactor?.fetchWorkout(request: WorkoutInfo.FetchWorkout.Request(exercises: interactor!.exercises))
         setFirstWorkout()
         
         self.tabBarController?.tabBar.isHidden = false
