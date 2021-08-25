@@ -117,6 +117,7 @@
 		7AB74BA126CE05200068FD4E /* left side plank hipdip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74B9326CE05200068FD4E /* left side plank hipdip.mov */; };
 		7AB74BA526CE069F0068FD4E /* open close.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74BA426CE069F0068FD4E /* open close.mov */; };
 		7AB74BA726CE32500068FD4E /* leg raises.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74BA626CE32500068FD4E /* leg raises.mov */; };
+		7AB74BA926D5D73E0068FD4E /* kneedrives.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7AB74BA826D5D73E0068FD4E /* kneedrives.mov */; };
 		7ABC86EB240C8C1B008DCDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */; };
 		7AC2C68E2445363700B3BFC8 /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */; };
 		7AC2C68F2445363700B3BFC8 /* NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */; };
@@ -299,6 +300,7 @@
 		7AB74B9326CE05200068FD4E /* left side plank hipdip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "left side plank hipdip.mov"; sourceTree = "<group>"; };
 		7AB74BA426CE069F0068FD4E /* open close.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close.mov"; sourceTree = "<group>"; };
 		7AB74BA626CE32500068FD4E /* leg raises.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "leg raises.mov"; sourceTree = "<group>"; };
+		7AB74BA826D5D73E0068FD4E /* kneedrives.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = kneedrives.mov; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
 		7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsWorker.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				7AB74B9026CE05180068FD4E /* right side plank wrap.mov */,
 				7AB74B8726CE050A0068FD4E /* updog.mov */,
 				7AB74B8626CE05080068FD4E /* in outs.mov */,
+				7AB74BA826D5D73E0068FD4E /* kneedrives.mov */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFY;
@@ -951,6 +954,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB74BA926D5D73E0068FD4E /* kneedrives.mov in Resources */,
 				7AB74B9526CE05200068FD4E /* updog.mov in Resources */,
 				7AB74BA726CE32500068FD4E /* leg raises.mov in Resources */,
 				7A8CBAC423E9120600D0D6BD /* LaunchScreen.storyboard in Resources */,

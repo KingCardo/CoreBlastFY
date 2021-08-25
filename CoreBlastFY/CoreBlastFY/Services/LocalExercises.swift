@@ -13,7 +13,7 @@ struct LocalExercises: ExerciseInfoStoreProtocol {
         completion(LocalExercises.exercises, nil)
         return
     }
-    static let exercises: [Exercise] = [reversePlank,legRaises, openClose, pendulums, tPlank, leftSidePlankHipDip, rightSidePlankHipDip, leftSidePlankWrap, rightSidePlankWrap, inOuts]
+    static let exercises: [Exercise] = [reversePlank,legRaises, openClose, pendulums, tPlank, leftSidePlankHipDip, rightSidePlankHipDip, leftSidePlankWrap, rightSidePlankWrap, inOuts, kneeDrives]
 }
 
 //Exercises
@@ -29,7 +29,7 @@ let leftSidePlankWrap = Exercise(name: "left side plank wrap", tip: "engage lowe
 let rightSidePlankWrap = Exercise(name: "right side plank wrap", tip: "engage lower oblique", level: .solid, movement: .dynamic, isSide: true)
 let updog = Exercise(name: "updog", tip: "Breathe and stretch abs", level: .beginner, movement: .stationary)
 let inOuts = Exercise(name: "in outs", tip: "core engaged - deep breaths", level: .beginner, movement: .dynamic)
-let kneeDrives = Exercise(name: "kneedrives", tip: "core engaged - deep breaths", level: .novice, movement: .dynamic)
+let kneeDrives = Exercise(name: "kneedrives", tip: "core engaged - deep breaths", level: .novice, movement: .dynamic, totalBody: true)
 let leftObliqueStretch = Exercise(name: "left oblique stretch", tip: "Breathe and stretch abs", level: .beginner, movement: .stationary)
 let rightObliqueStretch = Exercise(name: "right oblique stretch", tip: "Breathe and stretch abs", level: .beginner, movement: .stationary)
 
