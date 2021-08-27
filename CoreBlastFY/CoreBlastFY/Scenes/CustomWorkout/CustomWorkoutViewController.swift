@@ -43,6 +43,7 @@ class CustomWorkoutViewController: UIViewController {
     
     @objc func workoutComplete() {
         workoutViewController = nil
+        //self = nil
         view.setNeedsDisplay()
     }
     
