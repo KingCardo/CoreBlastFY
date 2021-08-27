@@ -85,12 +85,15 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTipIcon()
+        setupCustomWorkoutIcon()
         //setupMusicButton()
         fetchUserInfo()
         interactor?.fetchWorkout(request: WorkoutInfo.FetchWorkout.Request(exercises: interactor!.exercises))
         setFirstWorkout()
         
         self.tabBarController?.tabBar.isHidden = false
+        
+        customWorkoutIcon.isHidden = false
     }
     
     // MARK: Setup
@@ -117,6 +120,18 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     private let tipIcon = UIButton(type: .detailDisclosure)
     
+    private let customWorkoutIcon = UIButton(title: "Custom Workout")
+    
+    private func setupCustomWorkoutIcon() {
+        customWorkoutIcon.tintColor = .goatBlue
+        customWorkoutIcon.addTarget(self, action: #selector(customWorkout), for: .touchDown)
+        customWorkoutIcon.contentVerticalAlignment = .fill
+        customWorkoutIcon.contentHorizontalAlignment = .fill
+        
+        addCustomWorkoutIcon()
+        
+    }
+    
     private func setupTipIcon() {
         tipIcon.tintColor = .goatBlue
         tipIcon.addTarget(self, action: #selector(showTip), for: .touchDown)
@@ -137,6 +152,25 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         
     }
     
+    private func addCustomWorkoutIcon() {
+        if !(navigationController?.navigationBar.subviews.contains(customWorkoutIcon))!  {
+            navigationController?.navigationBar.addSubview(customWorkoutIcon)
+            customWorkoutIcon.centerYInSuperview()
+            customWorkoutIcon.leadingAnchor.constraint(equalTo:  (navigationController?.navigationBar.leadingAnchor)!, constant: 8).isActive = true
+            //customWorkoutIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            //customWorkoutIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        }
+    }
+    
+    @objc private func customWorkout() {
+        
+        let destination = CustomWorkoutViewController()
+        navigationController?.pushViewController(destination, animated: true)
+        customWorkoutIcon.isHidden = true
+       // self.show(destination, sender: nil)
+    
+    }
+    
     
     @objc private func showTip() {
         AlertController.createAlert(errorMessage: "Warming up or jogging for 10 minutes prior to workout will greatly increase productivity of workout!", title: "Workout Tip", viewController: self)
@@ -148,6 +182,9 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     @objc private func workoutComplete() {
+        navigationController?.popToViewController(self, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.setNeedsDisplay()
         AlertController.createAlert(errorMessage: "Keep up the hard work!\nConsistency is key!", title: "Congratulations 💪", viewController: self, actionTitle: "🎯")
     }
     
@@ -204,6 +241,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     @objc private func startWorkout() {
         displayLoadingView()
         removeItemsFromNavBar()
+        customWorkoutIcon.isHidden = true
     }
     
     private func setupPreWorkoutUI(viewModel: PreWorkout.FetchUser.ViewModel) {

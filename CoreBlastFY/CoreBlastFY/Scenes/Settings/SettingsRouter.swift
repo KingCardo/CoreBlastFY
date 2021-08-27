@@ -75,6 +75,7 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
         navigateTo(source: viewController!, destination: destination)
         
     }
+    
     func routeToExercises() {
         let destination = ExerciseViewController()
          navigateTo(source: viewController!, destination: destination)
