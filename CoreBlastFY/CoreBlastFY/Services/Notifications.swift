@@ -67,7 +67,7 @@ func timeToWorkoutMNotification() {
        let content = UNMutableNotificationContent()
        content.title = mondayTitle
        content.body = mondayBody
-       content.sound = UNNotificationSound.default
+       content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
@@ -97,7 +97,7 @@ func timeToWorkoutTNotification() {
        let content = UNMutableNotificationContent()
        content.title = tuesdayTitle
        content.body = tuesdayBody
-       content.sound = UNNotificationSound.default
+       content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
@@ -127,7 +127,7 @@ func timeToWorkoutWNotification() {
        let content = UNMutableNotificationContent()
        content.title = wednesdayTitle
        content.body = wednesdayBody
-       content.sound = UNNotificationSound.default
+       content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
@@ -157,7 +157,7 @@ func timeToWorkoutTHNotification() {
        let content = UNMutableNotificationContent()
        content.title = thursdayTitle
        content.body = thursdayBody
-       content.sound = UNNotificationSound.default
+       content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
@@ -187,7 +187,7 @@ func timeToWorkoutFNotification() {
        let content = UNMutableNotificationContent()
        content.title = fridayTitle
        content.body = fridayBody
-       content.sound = UNNotificationSound.default
+       content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
        
        var dateComponents = DateComponents()
        dateComponents.calendar = Calendar.current
@@ -374,9 +374,14 @@ func prepareJournalEntryNotification() {
     }
 }
 
-
+struct Sounds {
+    static let timeForWorkout = "workoutTime"
+    static let dontBeLazy = "cantbelazy"
+    static let backOnTrack = "backontrack"
+}
 
 struct NotificationIDs {
+    
     static let mondayID = "mondayID"
     static let tuesdayID = "tuesdayID"
     static let wednesdayID = "wednesdayID"
@@ -388,7 +393,7 @@ struct NotificationIDs {
         let content = UNMutableNotificationContent()
                content.title = title
                content.body = body
-               content.sound = UNNotificationSound.default
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.dontBeLazy))
                
                var dateComponents = DateComponents()
                dateComponents.calendar = Calendar.current

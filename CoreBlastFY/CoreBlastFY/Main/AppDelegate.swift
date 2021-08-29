@@ -13,29 +13,29 @@ import StoreKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-     func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: refreshId)
-            request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // Fetch no earlier than 15 minutes from now
-            
-            do {
-                try BGTaskScheduler.shared.submit(request)
-            } catch {
-                print("Could not schedule app refresh: \(error)")
-            }
-    }
-    
-    // Fetch the latest feed entries from server.
-       func handleAppRefresh(task: BGAppRefreshTask) {
-          scheduleAppRefresh()
-        
-        let (shouldDecrement, _) = UserManager.decrementPoint()
-        
-        guard notificationsAllowed else {  return }
-        
-        if shouldDecrement {
-            sendPointDecrementNotification()
-        }
-      }
+//     func scheduleAppRefresh() {
+//        let request = BGAppRefreshTaskRequest(identifier: refreshId)
+//            request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // Fetch no earlier than 15 minutes from now
+//
+//            do {
+//                try BGTaskScheduler.shared.submit(request)
+//            } catch {
+//                print("Could not schedule app refresh: \(error)")
+//            }
+//    }
+//
+//    // Fetch the latest feed entries from server.
+//       func handleAppRefresh(task: BGAppRefreshTask) {
+//          scheduleAppRefresh()
+//
+//        let (shouldDecrement, _) = UserManager.decrementPoint()
+//
+//        guard notificationsAllowed else {  return }
+//
+//        if shouldDecrement {
+//            sendPointDecrementNotification()
+//        }
+//      }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

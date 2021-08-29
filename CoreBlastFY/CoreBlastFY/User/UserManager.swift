@@ -26,6 +26,16 @@ extension Date {
     var month: Int {
         return Calendar.current.component(.month,  from: self)
     }
+    var day: Int {
+        return Calendar.current.component(.day,  from: self)
+    }
+    var year: Int {
+        return Calendar.current.component(.year,  from: self)
+    }
+    
+    var ymd: String {
+        return "\(month)\(day)\(year)"
+    }
     var fourDaysAgo: Date {
           return Calendar.current.date(byAdding: .day, value: -4, to: noon)!
     }
@@ -58,14 +68,19 @@ class UserManager {
     
     static let workoutDateKey = "WorkoutDate"
     static let totalPointsKey = "TotalPoints"
+    static let lastDecrement = "LastDecrement"
     static var missedWorkouts = 0
     
     static func decrementPoint() -> (Bool, Int?) {
         let today = Date()
+        let todayString = today.ymd
+    
         guard let lastWorkout = UserAPI.user.lastWorkoutComplete else { return (false, nil) }
-        if isPassedMoreThan(days: 3, fromDate: lastWorkout, toDate: today), UserAPI.user.totalPoints > 0 {
+        let lastDecrement = UserDefaults.standard.string(forKey: UserManager.lastDecrement)
+        if isPassedMoreThan(days: 3, fromDate: lastWorkout, toDate: today), UserAPI.user.totalPoints > 0, lastDecrement != todayString {
             let days = missedWorkoutdaysCount(days: 0, fromDate: lastWorkout, toDate: today)
             UserAPI.user.totalPoints -= days - 2
+            UserDefaults.standard.setValue(todayString, forKey: UserManager.lastDecrement)
             if UserAPI.user.totalPoints < 0 {
                  UserAPI.user.totalPoints = 0
             }

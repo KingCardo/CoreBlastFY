@@ -21,7 +21,7 @@ func sendPointDecrementNotification() {
     content.title = "It's been over \(UserManager.missedWorkouts) days since completed last workout!"
     content.body = "\(UserManager.missedWorkouts - 2) points has been deducted for missing \(UserManager.missedWorkouts) consecutive days, complete a workout to gain your points back!"
     content.categoryIdentifier = "lostPointNotification"
-    content.sound = UNNotificationSound.default
+    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.backOnTrack))
     
     let request = UNNotificationRequest(identifier: decrementNotifId, content: content, trigger: trigger)
     notificationCenter.add(request)
