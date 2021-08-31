@@ -43,7 +43,6 @@ class CustomWorkoutViewController: UIViewController {
     
     @objc func workoutComplete() {
         workoutViewController = nil
-        //self = nil
         view.setNeedsDisplay()
     }
     
@@ -69,6 +68,7 @@ class CustomWorkoutViewController: UIViewController {
     func createWorkout() {
         let exercises = exerciseSelectionView.exerciseSelectionViewDataSource.selectedExercises
         customWorkoutVM.addExercises(exercises: exercises)
+        setFirstWorkout()
         workoutViewController = WorkoutViewController()
         workoutViewController!.interactor?.workout = customWorkoutVM.workout
         displayLoadingView()
@@ -91,8 +91,15 @@ class CustomWorkoutViewController: UIViewController {
         loadingView = nil
     }
     
+    private func setFirstWorkout() {
+        let firstWorkout = customWorkoutVM.workout?.exercises.first
+        self.firstWorkout = firstWorkout?.name.capitalized
+    }
+    
+    var firstWorkout: String?
+    
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero, backgroundColor: .black)
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", backgroundColor: .black)
         view.addSubview(loadingView!)
         self.tabBarController?.tabBar.isHidden = true
         loadingView!.translatesAutoresizingMaskIntoConstraints = false
