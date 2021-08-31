@@ -375,9 +375,9 @@ func prepareJournalEntryNotification() {
 }
 
 struct Sounds {
-    static let timeForWorkout = "workoutTime"
-    static let dontBeLazy = "cantbelazy"
-    static let backOnTrack = "backontrack"
+    static let timeForWorkout = "workoutTime.m4a"
+    static let dontBeLazy = "cantbelazy.m4a"
+    static let backOnTrack = "backontrack.m4a"
 }
 
 struct NotificationIDs {
