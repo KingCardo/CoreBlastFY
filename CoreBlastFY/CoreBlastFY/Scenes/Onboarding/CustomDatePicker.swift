@@ -19,7 +19,7 @@ class CustomDatePicker: UIDatePicker {
 
      override init(frame: CGRect) {
          super.init(frame: frame)
-         
+         preferredDatePickerStyle = .wheels
          setValue(UIColor.white, forKeyPath: "textColor")
          addSubview(titleLabel)
       

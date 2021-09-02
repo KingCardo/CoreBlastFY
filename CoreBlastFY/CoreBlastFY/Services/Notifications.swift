@@ -375,7 +375,7 @@ func prepareJournalEntryNotification() {
 }
 
 struct Sounds {
-    static let timeForWorkout = "workoutTime.m4a"
+    static let timeForWorkout = "workoutTime.wav"
     static let dontBeLazy = "cantbelazy.m4a"
     static let backOnTrack = "backontrack.m4a"
 }
@@ -393,7 +393,7 @@ struct NotificationIDs {
         let content = UNMutableNotificationContent()
                content.title = title
                content.body = body
-        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.dontBeLazy))
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: Sounds.timeForWorkout))
                
                var dateComponents = DateComponents()
                dateComponents.calendar = Calendar.current

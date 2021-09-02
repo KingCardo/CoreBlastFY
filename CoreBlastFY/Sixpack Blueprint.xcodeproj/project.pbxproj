@@ -301,9 +301,6 @@
 		7AB74BA426CE069F0068FD4E /* open close.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "open close.mov"; sourceTree = "<group>"; };
 		7AB74BA626CE32500068FD4E /* leg raises.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "leg raises.mov"; sourceTree = "<group>"; };
 		7AB74BA826D5D73E0068FD4E /* kneedrives.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = kneedrives.mov; sourceTree = "<group>"; };
-		7AB74BAA26DC02A20068FD4E /* cantbelazy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = cantbelazy.m4a; sourceTree = "<group>"; };
-		7AB74BAB26DC0C8B0068FD4E /* backontrack.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = backontrack.m4a; sourceTree = "<group>"; };
-		7AB74BAC26DC0DD40068FD4E /* workoutTime.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutTime.m4a; sourceTree = "<group>"; };
 		7ABC86EA240C8C1A008DCDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CoreBlastFY/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7AC2C6882445363700B3BFC8 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
 		7AC2C6892445363700B3BFC8 /* NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsWorker.swift; sourceTree = "<group>"; };
@@ -480,9 +477,6 @@
 				7AB74B8726CE050A0068FD4E /* updog.mov */,
 				7AB74B8626CE05080068FD4E /* in outs.mov */,
 				7AB74BA826D5D73E0068FD4E /* kneedrives.mov */,
-				7AB74BAA26DC02A20068FD4E /* cantbelazy.m4a */,
-				7AB74BAB26DC0C8B0068FD4E /* backontrack.m4a */,
-				7AB74BAC26DC0DD40068FD4E /* workoutTime.m4a */,
 				7A8CBAA123E9109B00D0D6BD /* Info.plist */,
 			);
 			path = CoreBlastFY;
@@ -1293,19 +1287,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "Sixpack Blueprint";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1314,19 +1308,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Franchiz.CoreBlast;
 				PRODUCT_NAME = "Sixpack Blueprint";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
