@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 private let reuseIdentifier = "ProgressionPicsCell"
 
@@ -17,17 +18,20 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     var screenWidth: CGFloat?
     var screenHeight: CGFloat?
     
+    private var hostingController:  UIHostingController<ProgressionNoPicView>?
+    
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        hostingController = UIHostingController(rootView: ProgressionNoPicView())
         view.backgroundColor = .black
         collectionView.backgroundColor = .black
         screenWidth = view.frame.width
         screenHeight = view.frame.height
-         collectionView.decelerationRate = .fast
+        collectionView.decelerationRate = .fast
         // Register cell classes
         self.collectionView!.register(ProgressionPicsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressPicTV(_:)), name: ProgressionPicController.progressNotification, object: nil)
@@ -51,6 +55,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
            // cameraBarButtonItem.wiggle(duration: 2.0)
             self.collectionView?.isHidden = true
             setupProgressionView()
+            setupSwiftUIProgressionView()
             view.setNeedsLayout()
         }
         
@@ -65,6 +70,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         ProgressionPicController.shared.saveToFile()
+        imagePicker.delegate = nil
     }
     
     //MARK: - Methods
@@ -205,6 +211,15 @@ This is where we hold ourselves accountable.
         pgLabel.centerXAnchor.constraint(equalTo: progressionView.centerXAnchor).isActive = true
         pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -24).isActive = true
         
+    }
+    
+    private func setupSwiftUIProgressionView() {
+        guard let hostingView = hostingController?.view else { return }
+        view.addSubview(hostingView)
+        hostingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        hostingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        hostingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        hostingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     

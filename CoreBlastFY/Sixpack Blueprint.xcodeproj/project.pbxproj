@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A0116522471C8840070EB5F /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116512471C8840070EB5F /* StoreObserver.swift */; };
 		7A0116542471C8900070EB5F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116532471C8900070EB5F /* StoreManager.swift */; };
+		7A04A1C42888CC990018FE38 /* Progression+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04A1C32888CC990018FE38 /* Progression+SwiftUI.swift */; };
 		7A0D67672474487C00A6E766 /* ExerciseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */; };
 		7A0D67682474487C00A6E766 /* ExerciseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */; };
 		7A0D676A2474487C00A6E766 /* ExercisePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */; };
@@ -188,6 +189,7 @@
 /* Begin PBXFileReference section */
 		7A0116512471C8840070EB5F /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
 		7A0116532471C8900070EB5F /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		7A04A1C32888CC990018FE38 /* Progression+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progression+SwiftUI.swift"; sourceTree = "<group>"; };
 		7A0D67632474487C00A6E766 /* ExerciseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewControllerTests.swift; sourceTree = "<group>"; };
 		7A0D67642474487C00A6E766 /* ExerciseInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInteractorTests.swift; sourceTree = "<group>"; };
 		7A0D67662474487C00A6E766 /* ExercisePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenterTests.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 				7A8CBB0323E912C700D0D6BD /* ProgressionPic.swift */,
 				7A8CBB0423E912C700D0D6BD /* ProgressionPicCollectionViewCell.swift */,
 				7A8CBB0523E912C700D0D6BD /* ProgressionCollectionViewController.swift */,
+				7A04A1C32888CC990018FE38 /* Progression+SwiftUI.swift */,
 			);
 			path = Progression;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				7AADDA9624C681CD00C1E181 /* CustomWorkoutViewModel.swift in Sources */,
 				7A8CBAD623E9122500D0D6BD /* LocalPersistence+Exercises.swift in Sources */,
 				7A5CEDCE2457C2060066B0D5 /* RecipeOptionsTableViewCell.swift in Sources */,
+				7A04A1C42888CC990018FE38 /* Progression+SwiftUI.swift in Sources */,
 				7A173C7426C099E000EDCE70 /* WorkoutOfTheDayPresenter.swift in Sources */,
 				7AC36D172454A783002764F5 /* MealDetailsPresenter.swift in Sources */,
 				7A8CBB1B23E912C700D0D6BD /* PreWorkoutWorker.swift in Sources */,
@@ -1290,7 +1294,7 @@
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1311,7 +1315,7 @@
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1332,7 +1336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFYTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1354,7 +1358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFYTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

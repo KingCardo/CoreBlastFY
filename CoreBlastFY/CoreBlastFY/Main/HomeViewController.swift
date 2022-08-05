@@ -26,6 +26,7 @@ class HomeViewController: UITabBarController {
         self.workoutNavController.navigationBar.barStyle = .black
         self.workoutNavController.navigationBar.tintColor = .white
         self.workoutNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.workoutNavController.navigationBar.prefersLargeTitles = true
         self.workoutNavController.tabBarItem = UITabBarItem(title: "Workout", image: #imageLiteral(resourceName: "muscleflex"), selectedImage: nil)
     }
     
@@ -78,7 +79,7 @@ class HomeViewController: UITabBarController {
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
-        setViewControllers([progressionNavController, workoutNavController, nutritionVC, journalNavViewController, settingsNavController], animated: true)
+        setViewControllers([ workoutNavController, nutritionVC,progressionNavController,settingsNavController], animated: true)
         self.customizableViewControllers = []
         
         selectedViewController = viewControllers?[0]

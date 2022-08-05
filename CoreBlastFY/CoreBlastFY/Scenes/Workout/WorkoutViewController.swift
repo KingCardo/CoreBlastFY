@@ -35,7 +35,6 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     deinit {
         viewModel = nil
         workoutView = nil
-        //interactor?.workout = nil
         interactor = nil
         print(workoutView == nil)
     }
