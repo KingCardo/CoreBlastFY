@@ -26,9 +26,8 @@ class WorkoutView: UIView {
     private let tipsLabel = UILabel()
     private let instructionsLabel = UILabel()
     private let durationLeftLabel = UILabel()
-    private let exerciseNameLabel = UILabel()
+    private let exerciseNameButton = UIButton()
     private let timeLeftLabel = UILabel()
-    private let exerciseLabel = UILabel()
     private var workoutTimer = Timer()
    
     
@@ -72,7 +71,6 @@ class WorkoutView: UIView {
     }
     
     @objc private func fireTimer() {
-        //while timerIsRunning {
             if workoutDuration > 1 {
                 workoutDuration -= 1
                 durationLeftLabel.text = timeString(time: workoutDuration)
@@ -87,12 +85,13 @@ class WorkoutView: UIView {
             } else {
                 workoutFinished()
             }
-       // }
     }
     
     func resumeWorkout() {
         DispatchQueue.main.async { [weak self] in
             self?.pauseLabel.isHidden = true
+            self?.durationLeftLabel.isHidden = false
+            self?.timeLeftLabel.isHidden = false
             self?.runTimer()
             self?.videoView?.resume()
             self?.setNeedsDisplay()
@@ -102,7 +101,9 @@ class WorkoutView: UIView {
     
     func pauseWorkout() {
         DispatchQueue.main.async { [weak self] in
-            self?.pauseLabel.isHidden = false 
+            self?.pauseLabel.isHidden = false
+            self?.durationLeftLabel.isHidden = true
+            self?.timeLeftLabel.isHidden = true
             self?.invalidateTimers()
             self?.videoView?.pauseVideo()
             self?.setNeedsDisplay()
@@ -138,20 +139,18 @@ class WorkoutView: UIView {
         tipsLabel.isHidden = true
         instructionsLabel.isHidden = true
         setCountLabel.isHidden = true
-        exerciseNameLabel.isHidden = true
+        exerciseNameButton.isHidden = true
         timeLeftLabel.isHidden = true
         durationLeftLabel.isHidden = true
-        exerciseLabel.isHidden = true
     }
     
     private func showLabelsAfterTransition() {
         tipsLabel.isHidden = false
         instructionsLabel.isHidden = false
         setCountLabel.isHidden = false
-        exerciseNameLabel.isHidden = false
+        exerciseNameButton.isHidden = false
         timeLeftLabel.isHidden = false
         durationLeftLabel.isHidden = false
-        exerciseLabel.isHidden = false
     }
     
     private func invalidateTimers() {
@@ -172,7 +171,7 @@ class WorkoutView: UIView {
         let nextExercise = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
         let tipsText = workoutViewModel.workoutDetails.exercises[iteration].tip.capitalized
         tipsLabel.text = tipsText
-        exerciseNameLabel.text = nextExercise
+        exerciseNameButton.setTitle(nextExercise, for: .normal)
         
         loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
         
@@ -216,14 +215,21 @@ class WorkoutView: UIView {
         setCountLabel.textColor = .white
         
         setCountLabel.text = "Set \(setNumber) of \(workoutViewModel.workoutDetails.numberOfSets)"
+
+        
+        let icon = #imageLiteral(resourceName: "muscleflex").withRenderingMode(.alwaysTemplate)
+        
        
+        exerciseNameButton.setImage(icon, for: .normal)
+        exerciseNameButton.imageView?.tintColor = UIColor.goatBlue
+        exerciseNameButton.backgroundColor = UIColor.goatBlack.withAlphaComponent(0.7)
+        exerciseNameButton.imageView?.layer.transform = CATransform3DMakeScale(0.7, 0.7, 0.7)
+        exerciseNameButton.contentEdgeInsets  = UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8)
+        exerciseNameButton.layer.cornerRadius = 9
+        exerciseNameButton.setTitle(workoutViewModel.workoutDetails.exercises[iteration].name.capitalized, for: .normal)
+        exerciseNameButton.titleLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 32) : UIFont.makeAvenirNext(size: Style.titleFontSize)
         
-        exerciseNameLabel.text = workoutViewModel.workoutDetails.exercises[iteration].name.capitalized
-        exerciseNameLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 32) : UIFont.makeAvenirNext(size: Style.dataFontSize)
-        exerciseNameLabel.textColor = .white
-        exerciseNameLabel.numberOfLines = 0
-        
-        let setAndExerciseContainerStackView = UIStackView(arrangedSubviews: [setCountLabel, exerciseNameLabel])
+        let setAndExerciseContainerStackView = UIStackView(arrangedSubviews: [setCountLabel, exerciseNameButton])
         setAndExerciseContainerStackView.distribution = .equalSpacing
         setAndExerciseContainerStackView.backgroundColor = .clear
         
@@ -238,7 +244,7 @@ class WorkoutView: UIView {
         videoView.heightAnchor.constraint(equalToConstant: frame.height * 0.83).isActive = true
         videoView.bounds = videoView.frame
         
-        let instructions = "Instructions"
+        let instructions = "Tips for success"
         instructionsLabel.text = instructions
         instructionsLabel.numberOfLines = 0
         instructionsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
@@ -248,7 +254,7 @@ class WorkoutView: UIView {
         tipsLabel.text = tipsText
         tipsLabel.numberOfLines = 0
         tipsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 28) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
-        tipsLabel.textColor = .white.withAlphaComponent(0.7)
+        tipsLabel.textColor = .white.withAlphaComponent(0.8)
         
         
         let tipsStackView = UIStackView(arrangedSubviews: [instructionsLabel, tipsLabel])
@@ -261,7 +267,7 @@ class WorkoutView: UIView {
         
         timeLeftLabel.text = "Time Remaining"
         timeLeftLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: Style.titleFontSize)
-        timeLeftLabel.textColor = .white.withAlphaComponent(0.7)
+        timeLeftLabel.textColor = .white.withAlphaComponent(0.8)
         durationLeftLabel.text = workoutViewModel.workoutDetails.workoutDuration
         durationLeftLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 52) : UIFont.makeTitleFontDB(size: 42)
         durationLeftLabel.textColor = .white
@@ -293,20 +299,6 @@ class WorkoutView: UIView {
         durationStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.left).isActive = true
         durationStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
         durationStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
-        
-//        let containerStack = UIStackView(arrangedSubviews: [setAndExerciseContainerStackView, tipsStackView,  durationStackView])
-//        containerStack.alignment = .leading
-//        containerStack.distribution = .fill
-//        containerStack.axis = .vertical
-//        containerStack.spacing = Style.stackViewSpacing
-//        containerStack.backgroundColor = .clear
-//
-//        addSubview(containerStack)
-//        containerStack.translatesAutoresizingMaskIntoConstraints = false
-//        containerStack.topAnchor.constraint(equalTo: videoView.bottomAnchor, constant: 12).isActive = true
-//        containerStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Style.Dimension.edgeInsets.left).isActive = true
-//        containerStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Style.Dimension.edgeInsets.left).isActive = true
-//        containerStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Style.Dimension.edgeInsets.right).isActive = true
     
         
         
