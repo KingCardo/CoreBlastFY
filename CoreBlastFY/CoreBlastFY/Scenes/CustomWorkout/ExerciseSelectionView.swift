@@ -17,13 +17,16 @@ class ExerciseSelectionView: UIView {
     
     private lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Start Workout".uppercased(), for: .normal)
+        button.setTitle("Start Workout".capitalized, for: .normal)
+        button.setTitleColor(UIColor.gray, for: .normal)
         button.isUserInteractionEnabled = true
-        button.backgroundColor = .goatBlue
-        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 38) : UIFont.makeAvenirNext(size: 28)
+        button.backgroundColor = .goatBlack
+        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 38) : UIFont.makeTitleFontDB(size: 20)
         button.addTarget(self, action: #selector(selectExercises(_:)), for: .touchDown)
-        button.layer.cornerRadius = UIDevice.isIpad ? 30 : 20 //self.frame.height * 0.2
+        button.layer.cornerRadius = UIDevice.isIpad ? 40 : 30
         button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 60).isActive =  true
         return button
     }()
     
@@ -42,6 +45,7 @@ class ExerciseSelectionView: UIView {
     private lazy var container: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [tableView, doneButton])
         sv.axis = .vertical
+        sv.spacing = 4
         return sv
     }()
     
@@ -58,6 +62,16 @@ class ExerciseSelectionView: UIView {
         tableView.allowsMultipleSelection = true
         tableView.backgroundColor = .clear
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: ExerciseSelectionView.cellID)
+        tableView.separatorStyle  = .none
+    }
+    
+    private func setupBind()   {
+        exerciseSelectionViewDataSource.hasEnoughExercisesSelected =  { [weak self] success in
+            self?.doneButton.isEnabled = success
+            self?.doneButton.backgroundColor = success ? .goatBlue : .goatBlack
+            self?.doneButton.setTitleColor(success ? UIColor.goatBlack : .gray, for: .normal)
+            self?.doneButton.setNeedsDisplay()
+        }
     }
     
     
@@ -67,6 +81,7 @@ class ExerciseSelectionView: UIView {
         backgroundColor = .black
         setupContainer()
         setUpTableView()
+        setupBind()
     }
     
     required init?(coder: NSCoder) {

@@ -84,8 +84,8 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        setupTipIcon()
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupCustomWorkoutIcon()
-        //setupMusicButton()
         self.navigationController?.navigationBar.isHidden = false
         fetchUserInfo()
         interactor?.fetchWorkout(request: WorkoutInfo.FetchWorkout.Request(exercises: interactor!.exercises))
@@ -163,8 +163,6 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
             navigationController?.navigationBar.addSubview(customWorkoutIcon)
             customWorkoutIcon.centerYInSuperview()
             customWorkoutIcon.trailingAnchor.constraint(equalTo:  (navigationController?.navigationBar.trailingAnchor)!, constant: -8).isActive = true
-            //customWorkoutIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-            //customWorkoutIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
         }
     }
     

@@ -12,7 +12,17 @@ class ExerciseSelectionDataSourceDelegate: NSObject, UITableViewDataSource {
     
     private let exercises: [Exercise] = LocalExercises.exercises
     
-    private(set) var selectedExercises: [Exercise] = []
+    private(set) var selectedExercises: [Exercise] = [] {
+        didSet  {
+            if selectedExercises.count >= 2 {
+                hasEnoughExercisesSelected?(true)
+            } else {
+                hasEnoughExercisesSelected?(false)
+            }
+        }
+    }
+    
+    var hasEnoughExercisesSelected: ((Bool) ->  Void)?
     
     func resetSelectedExercises() {
         selectedExercises = []
@@ -27,10 +37,11 @@ class ExerciseSelectionDataSourceDelegate: NSObject, UITableViewDataSource {
         cell.textLabel?.text = exercises[indexPath.row].name.capitalized
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
-        cell.textLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 18)
+        cell.tintColor = UIColor.goatBlue
+        cell.textLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 16)
         
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.goatBlue
+        backgroundView.backgroundColor = UIColor.goatBlack
         cell.selectedBackgroundView = backgroundView
         return cell
     }
@@ -41,6 +52,9 @@ extension ExerciseSelectionDataSourceDelegate: UITableViewDelegate {
         let exercise = exercises[indexPath.row]
         if !selectedExercises.contains(exercise) {
             selectedExercises.append(exercise)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+            }
         }
     }
     
@@ -48,6 +62,9 @@ extension ExerciseSelectionDataSourceDelegate: UITableViewDelegate {
         
         let exercise = exercises[indexPath.row]
         if selectedExercises.contains(exercise) {
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .none
+            }
             selectedExercises.removeAll { (sexercise) -> Bool in
                 sexercise == exercise
             }

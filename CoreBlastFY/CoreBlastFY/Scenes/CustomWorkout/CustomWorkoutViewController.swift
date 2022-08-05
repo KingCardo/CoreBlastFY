@@ -20,6 +20,7 @@ class CustomWorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
+        navigationController?.navigationBar.prefersLargeTitles  =  false
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -38,19 +38,6 @@ class CustomWorkoutView: UIView {
         }
     }
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Custom Workout!"
-        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 32) : UIFont.makeAvenirNext(size: 22)
-        label.textColor = .black
-        label.numberOfLines = 2
-        return label
-    }()
-    
-    private lazy var titleLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel])
-        return stackView
-    }()
     
     
     private let setPicker = SetPicker()
@@ -75,7 +62,7 @@ class CustomWorkoutView: UIView {
     private let setPickerLabel: UILabel = {
         let label = UILabel()
         label.text = "Select a number of sets!"
-        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 18)
+        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeTitleFontDB(size: 22)
         label.textColor = .white
         return label
         
@@ -84,7 +71,7 @@ class CustomWorkoutView: UIView {
     private let durationPickerLabel: UILabel = {
         let label = UILabel()
         label.text = "Select duration of each exercise!"
-        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeAvenirNext(size: 18)
+        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeTitleFontDB(size: 22)
         label.textColor = .white
         label.backgroundColor = .black
         return label
@@ -103,12 +90,15 @@ class CustomWorkoutView: UIView {
     private lazy var createWorkoutButton: UIButton = {
         let button = UIButton()
         button.setTitle("Select Exercises", for: .normal)
+        button.setTitleColor(UIColor.goatBlack, for: .normal)
         button.isUserInteractionEnabled = true
         button.backgroundColor = .goatBlue
-        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 38) : UIFont.makeAvenirNext(size: 28)
+        button.titleLabel?.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 30) : UIFont.makeTitleFontDB(size: 20)
         button.addTarget(self, action: #selector(selectExercises(_:)), for: .touchDown)
-        button.layer.cornerRadius = UIDevice.isIpad ? 24 : 14 
+        button.layer.cornerRadius = UIDevice.isIpad ? 40 : 30
         button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 60).isActive =  true
         return button
     }()
     
