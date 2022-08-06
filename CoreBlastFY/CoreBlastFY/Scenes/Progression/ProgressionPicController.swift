@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProgressionPicController {
+final class ProgressionPicController {
     static let progressNotification = NSNotification.Name("ProgressPicNotification")
     private let KprogressionFile = "ProgressionPics"
     private let format = "json"
@@ -17,6 +17,7 @@ class ProgressionPicController {
     
     var progressionPics: [ProgressionPic] = [] {
         didSet {
+            ProgressionPicController.shared.saveToFile()
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: ProgressionPicController.progressNotification, object: self)
             }
@@ -37,7 +38,6 @@ class ProgressionPicController {
         
         if let index = progressionPics.firstIndex(of: progressionPic) {
             progressionPics.remove(at: index)
-            saveToFile()
         }
     }
     

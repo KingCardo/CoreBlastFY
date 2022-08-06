@@ -80,10 +80,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
         registerObservers()
         interactor?.exercises = ExerciseStorage.exercises
     }
+
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        setupTipIcon()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
         setupCustomWorkoutIcon()
         self.navigationController?.navigationBar.isHidden = false

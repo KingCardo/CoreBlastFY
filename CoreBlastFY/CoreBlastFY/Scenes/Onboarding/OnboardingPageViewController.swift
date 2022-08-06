@@ -10,11 +10,12 @@ import UIKit
 
 class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Programs!", "Simplicity", ""]
+    var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Simplicity", ""]
+    
+    var pageImages: [UIImage?] = [UIImage(named: "chiptle"),  UIImage(named: "flexonboard"), UIImage(named: "IMG_7194"), nil]
    
     var pageContent = ["Forever Young is a mentality, lifestyle, and choice!",
                        "Consistency is key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",
-                       "All programs are Goal Oriented to get you the results you're looking for as safely and efficiently as possible! \nIf you're ready for change, work hard, be consistent and have fun!",
                       "Workouts slowly increase in intensity as you complete daily workouts, so you don't have to think, just hit start and put in the work!", ""
         ]
     
@@ -60,6 +61,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         let pageContentViewController = OnboardingViewController()
            
             pageContentViewController.heading = pageHeadings[index]
+            pageContentViewController.imageView.image = pageImages[index]
             pageContentViewController.content = pageContent[index]
             pageContentViewController.index = index
             return pageContentViewController

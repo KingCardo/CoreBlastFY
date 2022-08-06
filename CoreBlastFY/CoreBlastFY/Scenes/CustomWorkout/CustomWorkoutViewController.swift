@@ -59,7 +59,7 @@ class CustomWorkoutViewController: UIViewController {
     private func setupViews() {
         setBackgroundColor()
         setupMainView()
-        navigationItem.title = "Custom Workout!"
+        navigationItem.title = "Custom Workout"
     }
     
     func removeView(_ view: UIView) {

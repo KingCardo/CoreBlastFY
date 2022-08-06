@@ -11,13 +11,14 @@ import AVFoundation
 
 let onboardingKey = "hasViewedWalkThrough"
 
-class OnboardingViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
  
     var headingLabel = UILabel()
     var contentLabel = UILabel()
     let infoLabel = UILabel()
     var pageControl = UIPageControl()
     var forwardButton = UIButton()
+    var stackView = UIStackView()
     
     var index = 0
     var heading = ""
@@ -43,18 +44,6 @@ class OnboardingViewController: UIViewController {
         
     }
     
-    private func configureNameTextField() {
-        nameTextField.placeholder = "Name"
-       // nameTextField.delegate = self
-        nameTextField.backgroundColor = .white
-        view.addSubview(nameTextField)
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        nameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
     
     private func configureImageView() {
         view.addSubview(imageView)
@@ -63,8 +52,7 @@ class OnboardingViewController: UIViewController {
         imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = #imageLiteral(resourceName: "IMG_2308")
+        imageView.contentMode = .redraw
     }
     
     @objc func grabInputFromUser(_ sender: UIDatePicker) {
@@ -81,14 +69,13 @@ class OnboardingViewController: UIViewController {
         headingLabel.text = heading
         contentLabel.text = content
         infoLabel.text = "Swipe right to proceed"
-        pageControl.numberOfPages = 5
+        pageControl.numberOfPages = 4
         pageControl.currentPage = index
-        //nameTextField.delegate = self
         
         
         switch index {
-        case 0...3: forwardButton.setTitle("NEXT", for: .normal)
-        case 4: forwardButton.setTitle("DONE", for: .normal)
+        case 0...2: forwardButton.setTitle("NEXT", for: .normal)
+        case 3: forwardButton.setTitle("DONE", for: .normal)
         default: break
         }
         
@@ -99,7 +86,7 @@ class OnboardingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.index == 4 {
+        if self.index == 3 {
             self.configureDatePicker()
             infoLabel.alpha = 0
             forwardButton.alpha = 1
@@ -112,7 +99,7 @@ class OnboardingViewController: UIViewController {
         headingLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 50) :  UIFont.makeTitleFontDB(size: 40)
         headingLabel.numberOfLines = 0
         contentLabel.textColor = .white
-        contentLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) :  UIFont.makeTitleFontDB(size: 22)
+        contentLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: 32) :  UIFont.makeAvenirNext(size: 20)
         contentLabel.numberOfLines = 0
         
         
@@ -139,7 +126,36 @@ class OnboardingViewController: UIViewController {
     
     private func setupUI() {
         setupLabels()
-        view.backgroundColor = .goatBlack
+        view.backgroundColor = .black
+        
+        
+        view.addSubview(infoLabel)
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        infoLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        
+        let spacer = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 30))
+        spacer.backgroundColor = .clear
+        
+        let containerStack = UIStackView(arrangedSubviews: [headingLabel,contentLabel, spacer])
+        containerStack.translatesAutoresizingMaskIntoConstraints = false
+        containerStack.axis = .vertical
+        containerStack.distribution =  .fillEqually
+        containerStack.alignment  = .leading
+        containerStack.layoutMargins  = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        containerStack.isLayoutMarginsRelativeArrangement = true
+        //containerStack.spacing = 8
+        
+        stackView.distribution = .fillEqually
+        stackView.axis  = .vertical
+        
+        stackView.addArrangedSubview(imageView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(containerStack)
+        
+        view.addSubview(stackView)
+        stackView.fillSuperview()
         
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -156,40 +172,19 @@ class OnboardingViewController: UIViewController {
         forwardButton.widthAnchor.constraint(equalToConstant: 74).isActive = true
         forwardButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        
-        view.addSubview(headingLabel)
-        headingLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        headingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 220).isActive = true
-        headingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        headingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
-        
-        view.addSubview(contentLabel)
-        contentLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: 40).isActive = true
-        contentLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        contentLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
-        view.addSubview(infoLabel)
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
-        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    
-        infoLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
-        
     }
     
     static var completion: (() -> Void)?
     
     @objc func nextButtonTapped() {
         switch index {
-        case 0...3:
+        case 0...2:
             break
-        case 4: //Done Button
+        case 3: //Done Button
             
             grabInputFromUser(datePicker)
             UserDefaults.standard.set(true, forKey: onboardingKey)
-                OnboardingViewController.completion?()
+            OnboardingViewController.completion?()
            
         default: break
         }

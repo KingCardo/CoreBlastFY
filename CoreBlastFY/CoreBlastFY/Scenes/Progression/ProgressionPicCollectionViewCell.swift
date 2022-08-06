@@ -35,7 +35,7 @@ final class ProgressionPicsCollectionViewCell: UICollectionViewCell {
             static let titleFontColor = UIColor.cyan
         }
         enum Font {
-            static let labelFont = UIFont.makeAvenirCondensed(size: 40)
+            static let labelFont = UIFont.makeAvenirNext(size: 16)
         }
     }
     
@@ -59,7 +59,7 @@ final class ProgressionPicsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Style.Font.labelFont
-        label.textColor = .goatBlue
+        label.textColor = .white
         return label
     }()
     

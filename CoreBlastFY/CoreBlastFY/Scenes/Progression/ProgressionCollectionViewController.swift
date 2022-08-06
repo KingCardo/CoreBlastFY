@@ -18,20 +18,17 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     var screenWidth: CGFloat?
     var screenHeight: CGFloat?
     
-    private var hostingController:  UIHostingController<ProgressionNoPicView>?
-    
-    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        hostingController = UIHostingController(rootView: ProgressionNoPicView())
         view.backgroundColor = .black
         collectionView.backgroundColor = .black
         screenWidth = view.frame.width
         screenHeight = view.frame.height
         collectionView.decelerationRate = .fast
+        imagePicker.delegate = self
         // Register cell classes
         self.collectionView!.register(ProgressionPicsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressPicTV(_:)), name: ProgressionPicController.progressNotification, object: nil)
@@ -39,6 +36,7 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        imagePicker.delegate = nil
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -46,16 +44,16 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         view.setNeedsLayout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setUpCameraButton()
+       
         
         if ProgressionPicController.shared.noProgressionPics {
             cameraBarButtonItem.bounce(duration: 2.0)
-           // cameraBarButtonItem.wiggle(duration: 2.0)
             self.collectionView?.isHidden = true
             setupProgressionView()
-            setupSwiftUIProgressionView()
             view.setNeedsLayout()
         }
         
@@ -66,22 +64,16 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         }
     }
     
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        ProgressionPicController.shared.saveToFile()
-        imagePicker.delegate = nil
-    }
+
     
     //MARK: - Methods
     
     let imagePicker = UIImagePickerController()
     
     @objc func takePicture() {
-        imagePicker.delegate = self
+       
         //TO DO: FIX memory leaks
       
-        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
             self.present(imagePicker, animated: true, completion: nil)
@@ -93,7 +85,9 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let picture = info[.originalImage] as? UIImage else { return }
+        guard let picture = info[.originalImage] as? UIImage else {
+            return
+        }
         let data = picture.jpegData(compressionQuality: 0.5)
         let progressionPic = ProgressionPic(timestamp: Date(), progressionPicData: data)
         ProgressionPicController.shared.progressionPics.append(progressionPic)
@@ -178,7 +172,6 @@ class ProgressionCollectionViewController: UICollectionViewController, UIImagePi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = """
-This is where we hold ourselves accountable.
         \nGo ahead and take your first Progression Pic!
         \nWe'll do weekly progression pics to stay motivated and on track to reach your goals!
 """
@@ -211,15 +204,6 @@ This is where we hold ourselves accountable.
         pgLabel.centerXAnchor.constraint(equalTo: progressionView.centerXAnchor).isActive = true
         pgLabel.trailingAnchor.constraint(equalTo: progressionView.trailingAnchor, constant: -24).isActive = true
         
-    }
-    
-    private func setupSwiftUIProgressionView() {
-        guard let hostingView = hostingController?.view else { return }
-        view.addSubview(hostingView)
-        hostingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        hostingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        hostingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        hostingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     
@@ -275,7 +259,7 @@ extension ProgressionCollectionViewController: UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         guard let screenWidth = screenWidth, let screenHeight = screenHeight else { return CGSize(width: 300, height: 500)}
-        let screenSize = CGSize(width: screenWidth, height: screenHeight * 0.80)
+        let screenSize = CGSize(width: screenWidth * 0.85, height: screenHeight * 0.60)
         return CGSize(width: screenSize.width, height: screenSize.height)
     }
 }
