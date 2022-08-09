@@ -35,7 +35,7 @@ enum Settings {
                   case termsOfUse = "Terms of Use"
               }
         var items: [SettingsItem] = [
-        .about,
+        //.about,
         .programOverview,
         .exercises,
         //.customWorkout,
