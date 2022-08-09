@@ -21,6 +21,7 @@ enum Settings {
     struct Response {
          enum SettingsItem: String {
                   case about = "About FYF"
+                  case thirtyDayChallenge  = "30 Day Challenge 💪"
                   case programOverview = "Program Overview"
                   case exercises = "Exercises"
                   case notifications = "Notifications"
@@ -36,6 +37,7 @@ enum Settings {
               }
         var items: [SettingsItem] = [
         //.about,
+        .thirtyDayChallenge,
         .programOverview,
         .exercises,
         //.customWorkout,

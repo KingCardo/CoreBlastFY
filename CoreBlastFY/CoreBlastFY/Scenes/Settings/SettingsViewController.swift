@@ -71,9 +71,12 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         router?.routeToProgramOverview()
     }
     
+    private func routeToChallenge() {
+        router?.routeToThirtyDayChallenge()
+    }
+    
     private func handleRestore() {
         StoreObserver.shared.restore()
-        
     }
     
     private func routeToCustomWorkoutScene() {
@@ -158,6 +161,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         let item = interactor?.items[indexPath.row]
         switch item {
         case .about: routeToAboutScene()
+        case .thirtyDayChallenge: routeToChallenge()
         case .programOverview: routeToProgramOverview()
         case .notifications: routeToNotificationsScene()
         case .review: leaveAReview()

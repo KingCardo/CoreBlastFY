@@ -19,6 +19,7 @@ import UIKit
     func routeToParksScene()
     func routeToTermsOfUse()
     func routeToProgramOverview()
+    func routeToThirtyDayChallenge()
     func routeToCustomWorkoutScene()
     func routeToExercises()
 }
@@ -67,6 +68,12 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing
     func routeToProgramOverview() {
         let destination = GenericDetailViewController()
         destination.data = programOverview
+        navigateTo(source: viewController!, destination: destination)
+    }
+    
+    func routeToThirtyDayChallenge() {
+        let destination = GenericDetailViewController()
+        destination.data = thirtyDayChallenge
         navigateTo(source: viewController!, destination: destination)
     }
     
