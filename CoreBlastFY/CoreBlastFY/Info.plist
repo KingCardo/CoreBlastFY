@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>&quot;com.Franchiz.CoreBlast.refresh&quot;</string>
+		<string>"com.Franchiz.CoreBlast.refresh"</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

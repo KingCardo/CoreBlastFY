@@ -43,7 +43,7 @@ enum Settings {
         //.customWorkout,
         .notifications,
         .review,
-        .donation,
+       // .donation,
         //.foodLog,
         .reportAProblem,
         //.inAppPurchase,
