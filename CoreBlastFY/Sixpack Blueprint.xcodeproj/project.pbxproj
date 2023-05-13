@@ -1294,7 +1294,7 @@
 				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Coreblast: 6 Pack Abs";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoreBlast: 6 Pack Abs";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1317,7 +1317,7 @@
 				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 652R6A63L8;
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Coreblast: 6 Pack Abs";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoreBlast: 6 Pack Abs";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
