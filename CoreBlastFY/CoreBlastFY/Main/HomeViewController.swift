@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import StoreKit
+import MessageUI
 
-class HomeViewController: UITabBarController {
+class HomeViewController: UITabBarController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,58 @@ class HomeViewController: UITabBarController {
         registerForNotifications()
         StoreManager.shared.delegate = self
         StoreObserver.shared.delegate = self
+       
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        requestReview()
+    }
+    
+    func requestReview() {
+        if UserAPI.user.totalPoints > 0, UserAPI.user.requestReview {
+            let alert = UIAlertController(title: "Are you enjoying the app?", message: nil, preferredStyle: .alert)
+                   
+                   alert.addAction(UIAlertAction(title: "Leave a 5 star review", style: .default, handler: { [weak self] _ in
+                       if let scene = self?.view.window?.windowScene {
+                                   SKStoreReviewController.requestReview(in: scene)
+                           UserAPI.user.requestReviewCount += 1
+                           UserManager.save()
+                               }
+                   }))
+                   
+                   alert.addAction(UIAlertAction(title: "Leave feedback", style: .destructive, handler: { _ in
+                       self.sendEmail()
+                       UserAPI.user.requestReviewCount += 3
+                       UserManager.save()
+                   }))
+                   
+                   self.present(alert, animated: true)
+        }
+
+    }
+    
+    func sendEmail() {
+           if MFMailComposeViewController.canSendMail() {
+               let mail = MFMailComposeViewController()
+               mail.mailComposeDelegate = self
+               mail.setToRecipients(["foreveryoungco@icloud.com"])
+               mail.setSubject("CoreBlast Feedback")
+               
+               present(mail, animated: true)
+           } else {
+               // show failure alert
+               let alert = UIAlertController(title: "Email Not Sent", message: "Your device could not send e-mail. Please check e-mail configuration and try again.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               present(alert, animated: true)
+           }
+       }
+
+       // MFMailComposeViewControllerDelegate
+
+       func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+           controller.dismiss(animated: true)
+       }
     
     
     private func setupPreworkoutVC() {

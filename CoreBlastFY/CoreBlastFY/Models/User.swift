@@ -18,6 +18,10 @@ class User: Codable {
     var coreLevel: Level = .beginner
     var totalPoints: Int = 0
     var lastWorkoutComplete: Date?
+    var requestReviewCount = 0
+    var requestReview: Bool {
+        requestReviewCount < 3
+    }
     var nextWorkout: Date {
         guard let selectedTime = selectedTime else { return Date() + 86400 }
         
