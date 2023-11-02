@@ -100,7 +100,7 @@ class CustomWorkoutViewController: UIViewController {
     var firstWorkout: String?
     
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", backgroundColor: .black)
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", backgroundColor: .black, secondsOfRest: customWorkoutVM.secondsOfRest)
         view.addSubview(loadingView!)
         self.tabBarController?.tabBar.isHidden = true
         loadingView!.translatesAutoresizingMaskIntoConstraints = false

@@ -43,3 +43,39 @@ extension DurationPicker: UIPickerViewDataSource {
         return dataSource.count
     }
 }
+
+class NumberOfSecondsRestPicker: NSObject, UIPickerViewDelegate {
+    private let dataSource = [5,10,15,20,30]
+    
+    var selectedValue: Int? {
+        didSet {
+            guard let value = selectedValue else { return }
+            valueSelected?(value)
+        }
+    }
+    
+    var valueSelected: ((Int) -> Void)?
+    
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: String(dataSource[row]), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        return attributedString
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let value = dataSource[row]
+        selectedValue = value
+    }
+    
+}
+
+extension NumberOfSecondsRestPicker: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataSource.count
+    }
+}

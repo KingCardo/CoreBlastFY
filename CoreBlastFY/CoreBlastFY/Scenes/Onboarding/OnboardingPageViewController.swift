@@ -12,7 +12,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
     
     var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Simplicity", ""]
     
-    var pageImages: [UIImage?] = [UIImage(named: "chiptle"),  UIImage(named: "flexonboard"), UIImage(named: "IMG_7194"), nil]
+    var pageImages: [UIImage?] = [UIImage(named: "chiptle"),  UIImage(named: "flexonboard3"), UIImage(named: "IMG_7194"), nil]
    
     var pageContent = ["Forever Young is a mentality, lifestyle, and choice!",
                        "Consistency is key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",

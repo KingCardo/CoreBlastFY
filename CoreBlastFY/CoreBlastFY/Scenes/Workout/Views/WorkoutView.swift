@@ -38,6 +38,7 @@ class WorkoutView: UIView {
     private var exercises: [Exercise]
     private let setDuration: TimeInterval
     private let exerciseDuration: TimeInterval
+    private let secondsOfRest: Int
     
     private var numberOfSets: Int {
         guard let number = Int(workoutViewModel.workoutDetails.numberOfSets) else { return 4 }
@@ -173,7 +174,7 @@ class WorkoutView: UIView {
         tipsLabel.text = tipsText
         exerciseNameButton.setTitle(nextExercise, for: .normal)
         
-        loadingView = LoadingView(frame: .zero, nextExercise: nextExercise)
+        loadingView = LoadingView(frame: .zero, nextExercise: nextExercise, secondsOfRest: secondsOfRest)
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             if let loadingView = self?.loadingView {
@@ -195,10 +196,11 @@ class WorkoutView: UIView {
         NotificationCenter.default.post(name: workoutCompleteNotification, object: nil)
     }
     
-    init(frame: CGRect, rootVC: UIViewController, viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
+    init(frame: CGRect, rootVC: UIViewController, viewModel: WorkoutInfo.FetchWorkout.ViewModel, secondsOfRest: Int) {
         rootViewController = rootVC as? WorkoutViewController
         workoutViewModel = viewModel
         workoutDuration = workoutViewModel.workoutDetails.workoutDurationDouble
+        self.secondsOfRest = secondsOfRest
         
         let screenHeight = UIScreen.main.bounds.height
         

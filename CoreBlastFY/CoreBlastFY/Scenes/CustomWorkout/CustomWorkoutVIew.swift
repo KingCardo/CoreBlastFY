@@ -36,18 +36,31 @@ class CustomWorkoutView: UIView {
         durationPicker.valueSelected = { [unowned self] duration in
             self.customWorkoutViewModel.durationOfExercise = duration
         }
+        
+        numberOfSecondsRestPicker.valueSelected = { [unowned self] seconds in
+            self.customWorkoutViewModel.secondsOfRest = seconds
+        }
     }
     
     
     
     private let setPicker = SetPicker()
     private let durationPicker = DurationPicker()
+    private let numberOfSecondsRestPicker = NumberOfSecondsRestPicker()
     
     private lazy var durationPickerView: UIPickerView = {
         let dPickerView = UIPickerView()
         dPickerView.backgroundColor = .clear
         dPickerView.delegate = durationPicker
         dPickerView.dataSource = durationPicker
+        return dPickerView
+    }()
+    
+    private lazy var numberOfSecondsPickerView: UIPickerView = {
+        let dPickerView = UIPickerView()
+        dPickerView.backgroundColor = .clear
+        dPickerView.delegate = numberOfSecondsRestPicker
+        dPickerView.dataSource = numberOfSecondsRestPicker
         return dPickerView
     }()
     
@@ -68,6 +81,15 @@ class CustomWorkoutView: UIView {
         
     }()
     
+    private let setNumberOfRestLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Number of seconds of rest between exercises!"
+        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeTitleFontDB(size: 22)
+        label.textColor = .white
+        return label
+        
+    }()
+    
     private let durationPickerLabel: UILabel = {
         let label = UILabel()
         label.text = "Select duration of each exercise!"
@@ -79,7 +101,7 @@ class CustomWorkoutView: UIView {
     }()
     
     private lazy var pickerStackView: UIStackView = {
-        let psv = UIStackView(arrangedSubviews: [setPickerLabel, setPickerView, durationPickerLabel, durationPickerView, createWorkoutButton])
+        let psv = UIStackView(arrangedSubviews: [setPickerLabel, setPickerView, durationPickerLabel, durationPickerView, createWorkoutButton, setNumberOfRestLabel, numberOfSecondsPickerView])
         psv.axis = .vertical
         psv.distribution = .fillProportionally
         psv.spacing = 4

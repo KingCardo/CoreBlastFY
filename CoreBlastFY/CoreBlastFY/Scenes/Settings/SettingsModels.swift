@@ -44,10 +44,10 @@ enum Settings {
         .notifications,
         .review,
        // .donation,
-        //.foodLog,
+        .foodLog,
         .reportAProblem,
-        //.inAppPurchase,
-        .termsOfUse
+        .inAppPurchase,
+        .termsOfUse,
         ]
     }
     struct ViewModel {

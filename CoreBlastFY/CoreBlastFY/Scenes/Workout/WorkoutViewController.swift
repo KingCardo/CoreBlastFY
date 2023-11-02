@@ -180,7 +180,7 @@ class WorkoutViewController: UIViewController, WorkoutDisplayLogic {
     
     private func showWorkoutUI(with viewModel: WorkoutInfo.FetchWorkout.ViewModel) {
         if workoutView == nil {
-            workoutView = WorkoutView(frame: view.frame, rootVC: self, viewModel: viewModel)
+            workoutView = WorkoutView(frame: view.frame, rootVC: self, viewModel: viewModel,  secondsOfRest: interactor?.workout?.secondsOfRest ?? 10)
         }
         guard let workoutView = workoutView else { return }
         view.addSubview(workoutView)

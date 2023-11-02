@@ -21,6 +21,7 @@ class CustomWorkoutViewModel {
     
     var numberOfSets: Int?
     var durationOfExercise: Int?
+    var secondsOfRest = 5
     
     func createWorkout(sets: Int?, duration: Int?, exercises: [Exercise]) -> Workout? {
         guard let numberOfSets = numberOfSets, let durationOfExercise = durationOfExercise else { return nil }

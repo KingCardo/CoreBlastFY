@@ -83,6 +83,20 @@ struct Workout: Codable {
     var customSecondsOfExercise: Int?
     var customNumberOfSets: Int?
     
+    var secondsOfRest: Int {
+        switch user.totalPoints {
+        case 0...4: return 10
+        case 5...15: return 10
+        case 16...20: return 10
+        case 21...25: return 5
+        case 26...30: return 5
+        case 31...35: return 5
+        case 36...70: return 5
+        case 71...75: return 3
+        default: return 20
+        }
+    }
+    
     var secondsOfExercise: Int {
         switch user.totalPoints {
         case 0...4: return 15

@@ -55,7 +55,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "")
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", secondsOfRest: interactor?.workout?.secondsOfRest ?? 10)
         view.addSubview(loadingView!)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
