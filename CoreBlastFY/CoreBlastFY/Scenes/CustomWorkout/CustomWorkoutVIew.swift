@@ -83,7 +83,7 @@ class CustomWorkoutView: UIView {
     
     private let setNumberOfRestLabel: UILabel = {
         let label = UILabel()
-        label.text = "Number of seconds of rest between exercises!"
+        label.text = "Select seconds of rest!"
         label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 28) : UIFont.makeTitleFontDB(size: 22)
         label.textColor = .white
         return label
@@ -101,7 +101,7 @@ class CustomWorkoutView: UIView {
     }()
     
     private lazy var pickerStackView: UIStackView = {
-        let psv = UIStackView(arrangedSubviews: [setPickerLabel, setPickerView, durationPickerLabel, durationPickerView, createWorkoutButton, setNumberOfRestLabel, numberOfSecondsPickerView])
+        let psv = UIStackView(arrangedSubviews: [setPickerLabel, setPickerView, durationPickerLabel, durationPickerView, setNumberOfRestLabel, numberOfSecondsPickerView, createWorkoutButton])
         psv.axis = .vertical
         psv.distribution = .fillProportionally
         psv.spacing = 4
