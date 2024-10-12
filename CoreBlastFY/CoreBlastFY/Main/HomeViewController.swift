@@ -108,13 +108,15 @@ class HomeViewController: UITabBarController, MFMailComposeViewControllerDelegat
         
         let progressionViewController = ProgressionCollectionViewController(collectionViewLayout: layout)
         progressionNavController = UINavigationController(rootViewController: progressionViewController)
-        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image:#imageLiteral(resourceName: "newcamera") , selectedImage: nil)
+        progressionNavController.tabBarItem = UITabBarItem(title: "Progression", image:UIImage(systemName: "camera"), selectedImage: nil)
         progressionNavController.navigationBar.prefersLargeTitles = true
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         
         nutritionVC = MealPlansViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: #imageLiteral(resourceName: "silverware"), selectedImage: nil)
+        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: UIImage(systemName: "fork.knife"), selectedImage: nil)
+        
+        
         
         let journalViewController = JournalViewController()
         journalNavViewController = UINavigationController(rootViewController: journalViewController)
@@ -126,7 +128,7 @@ class HomeViewController: UITabBarController, MFMailComposeViewControllerDelegat
         
         let settingsViewController = SettingsViewController()
         settingsNavController = UINavigationController(rootViewController: settingsViewController)
-        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "setting"), selectedImage: nil)
+        settingsNavController.tabBarItem = UITabBarItem(title: "More", image: UIImage(systemName: "gear" ), selectedImage: nil)
         settingsNavController.navigationBar.prefersLargeTitles = true
         settingsNavController.navigationBar.barStyle = .black
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]

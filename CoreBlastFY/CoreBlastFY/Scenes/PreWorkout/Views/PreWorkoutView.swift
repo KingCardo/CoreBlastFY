@@ -49,11 +49,11 @@ class PreWorkoutView: UIView {
         
         let nextWorkoutLabel = UILabel()
         nextWorkoutLabel.text = "Next Workout"
-        nextWorkoutLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
-        nextWorkoutLabel.textColor = .white
+        nextWorkoutLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .semibold)
+        nextWorkoutLabel.textColor = .lightGray
         
         nextWorkoutDateLabel.text = preWorkoutViewModel.userDetails.nextWorkoutDate
-        nextWorkoutDateLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        nextWorkoutDateLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 18, weight: .bold)//UIFont.makeTitleFontDB(size: Style.titleFontSize)
         nextWorkoutDateLabel.textColor = .white
         
         let nextWorkoutStackView = UIStackView(arrangedSubviews: [nextWorkoutLabel, nextWorkoutDateLabel])
@@ -68,11 +68,11 @@ class PreWorkoutView: UIView {
         nextWorkoutStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         coreLevelLabel.text = "Core Level"
-        coreLevelLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
-        coreLevelLabel.textColor = .white
+        coreLevelLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .regular)
+        coreLevelLabel.textColor = .lightGray
         
         coreLevelCountLabel.text = preWorkoutViewModel.userDetails.coreLevel
-        coreLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
+        coreLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .bold)//UIFont.makeAvenirNext(size: Style.titleFontSize)
         coreLevelCountLabel.textColor = .white
         
         
@@ -84,11 +84,11 @@ class PreWorkoutView: UIView {
         
         let totalPointsLabel = UILabel()
         totalPointsLabel.text = "Total Points"
-        totalPointsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
-        totalPointsLabel.textColor = .white
+        totalPointsLabel.font = UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) :UIFont.systemFont(ofSize: 16, weight: .regular)// UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        totalPointsLabel.textColor = .lightGray
         
         totalPointsLevel.text = preWorkoutViewModel.userDetails.totalPoints
-        totalPointsLevel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
+        totalPointsLevel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .bold)//UIFont.makeAvenirNext(size: Style.titleFontSize)
         totalPointsLevel.textColor = .white
         
         
@@ -100,11 +100,11 @@ class PreWorkoutView: UIView {
         
         let nextLevelLabel = UILabel()
         nextLevelLabel.text = "Next Level"
-        nextLevelLabel.font =  UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.makeTitleFontDB(size: Style.titleFontSize)
-        nextLevelLabel.textColor = .white
+        nextLevelLabel.font =  UIDevice.isIpad ? UIFont.makeTitleFontDB(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .regular)//UIFont.makeTitleFontDB(size: Style.titleFontSize)
+        nextLevelLabel.textColor = .lightGray
         
         nextLevelCountLabel.text = preWorkoutViewModel.userDetails.nextLevel
-        nextLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.makeAvenirNext(size: Style.titleFontSize)
+        nextLevelCountLabel.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: Style.ipadTitleFontSize) : UIFont.systemFont(ofSize: 16, weight: .bold)//UIFont.makeAvenirNext(size: Style.titleFontSize)
         nextLevelCountLabel.textColor = .white
         
         let nextLevelStackView = UIStackView(arrangedSubviews: [nextLevelLabel, nextLevelCountLabel])

@@ -125,10 +125,11 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private func setupCustomWorkoutIcon() {
         let image = UIImage(systemName: "plus")
         customWorkoutIcon.setImage(image, for: .normal)
-        customWorkoutIcon.backgroundColor = UIColor.goatBlack.withAlphaComponent(0.7)
+        customWorkoutIcon.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        customWorkoutIcon.backgroundColor = UIColor.goatBlack.withAlphaComponent(0.5)
         customWorkoutIcon.imageView?.layer.transform = CATransform3DMakeScale(0.7, 0.7, 0.7)
-        customWorkoutIcon.contentEdgeInsets  = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        customWorkoutIcon.layer.cornerRadius = 9
+        customWorkoutIcon.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        customWorkoutIcon.layer.cornerRadius = 12
         customWorkoutIcon.tintColor = .goatBlue
         customWorkoutIcon.addTarget(self, action: #selector(customWorkout), for: .touchDown)
         customWorkoutIcon.contentVerticalAlignment = .fill

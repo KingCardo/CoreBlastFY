@@ -10,13 +10,13 @@ import UIKit
 
 class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Simplicity", ""]
+    var pageHeadings = ["Welcome to Forever Young Fitness!", "Flexx Pics!", "Simplicity", "Review", "Unlock Premium"]
     
     var pageImages: [UIImage?] = [UIImage(named: "chiptle"),  UIImage(named: "flexonboard3"), UIImage(named: "IMG_7194"), nil]
    
     var pageContent = ["Forever Young is a mentality, lifestyle, and choice!",
                        "Consistency is key! \nTaking weekly pics will help us stay motivated and on track with our workouts and nutrition in-take!",
-                      "Workouts slowly increase in intensity as you complete daily workouts, so you don't have to think, just hit start and put in the work!", ""
+                      "Workouts slowly increase in intensity as you complete daily workouts, so you don't have to think, just hit start and put in the work!", "Leave us a review", "Subscription"
         ]
     
     override func viewDidLoad() {

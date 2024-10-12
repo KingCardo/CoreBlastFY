@@ -38,11 +38,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         exerciseFetcher.fetchExercises() { (success) in
             DispatchQueue.main.async {
                 if !UserDefaults.standard.bool(forKey: onboardingKey) {
-                    let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-                    self.window!.rootViewController = pageViewController
+                    let onboardingView = HostingViewController(view: OnboardingView())
+//                    let pageViewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+                    self.window!.rootViewController = onboardingView
                     self.window!.makeKeyAndVisible()
                     OnboardingViewController.completion = {
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            // add animation
                             let homeVC = HomeViewController()
                             homeVC.modalPresentationStyle = .fullScreen
                             self.window!.rootViewController = homeVC

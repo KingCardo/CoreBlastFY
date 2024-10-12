@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4529662B2CB906F5006AE282 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529662A2CB906F5006AE282 /* SubscriptionView.swift */; };
+		4529662E2CB90B74006AE282 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529662D2CB90B74006AE282 /* OnboardingView.swift */; };
+		452966302CB90D2F006AE282 /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529662F2CB90D2F006AE282 /* HostingViewController.swift */; };
 		7A0116522471C8840070EB5F /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116512471C8840070EB5F /* StoreObserver.swift */; };
 		7A0116542471C8900070EB5F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0116532471C8900070EB5F /* StoreManager.swift */; };
 		7A04A1C42888CC990018FE38 /* Progression+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04A1C32888CC990018FE38 /* Progression+SwiftUI.swift */; };
@@ -187,6 +190,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4529662A2CB906F5006AE282 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		4529662D2CB90B74006AE282 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		4529662F2CB90D2F006AE282 /* HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
 		7A0116512471C8840070EB5F /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
 		7A0116532471C8900070EB5F /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		7A04A1C32888CC990018FE38 /* Progression+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progression+SwiftUI.swift"; sourceTree = "<group>"; };
@@ -558,6 +564,7 @@
 				7A2F4A1B2483399400223E54 /* SceneExerciseFetcher.swift */,
 				7A2F4A1D24834EE600223E54 /* ExercisesLoadingView.swift */,
 				7A56E899249BE739004AA193 /* AppInfo.swift */,
+				4529662F2CB90D2F006AE282 /* HostingViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -685,6 +692,8 @@
 			children = (
 				7A8CBB1423E912C700D0D6BD /* OnboardingPageViewController.swift */,
 				7A8CBB1523E912C700D0D6BD /* OnboardingViewController.swift */,
+				4529662A2CB906F5006AE282 /* SubscriptionView.swift */,
+				4529662D2CB90B74006AE282 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1009,6 +1018,7 @@
 				7A8CBB2D23E912C700D0D6BD /* OnboardingPageViewController.swift in Sources */,
 				7A8CBADE23E9122D00D0D6BD /* Fonts.swift in Sources */,
 				7AC2C6902445363700B3BFC8 /* NotificationsRouter.swift in Sources */,
+				4529662E2CB90B74006AE282 /* OnboardingView.swift in Sources */,
 				7A19B2CC24C66F34008A5485 /* CustomWorkoutViewController.swift in Sources */,
 				7AC36D0D244E221E002764F5 /* MealPlanView.swift in Sources */,
 				7A8CBB3F23EF936700D0D6BD /* SettingsModels.swift in Sources */,
@@ -1063,6 +1073,7 @@
 				7A173C7926C099E000EDCE70 /* WorkoutOfTheDayInteractor.swift in Sources */,
 				7AC2C6C62449183C00B3BFC8 /* MealPlansInteractor.swift in Sources */,
 				7AADDAE024CCA70C00C1E181 /* ExerciseSelectionView.swift in Sources */,
+				4529662B2CB906F5006AE282 /* SubscriptionView.swift in Sources */,
 				7A0D676C2475B18E00A6E766 /* SpeechSynthesizer.swift in Sources */,
 				7A8CBB6723EFA50B00D0D6BD /* EntryViewController.swift in Sources */,
 				7A56E896249469D2004AA193 /* ProgramOverview.swift in Sources */,
@@ -1090,6 +1101,7 @@
 				7AADDA9224C675F300C1E181 /* SetPicker.swift in Sources */,
 				7A8CBB7823EFAF4D00D0D6BD /* UIView+Layout.swift in Sources */,
 				7A8CBB2E23E912C700D0D6BD /* OnboardingViewController.swift in Sources */,
+				452966302CB90D2F006AE282 /* HostingViewController.swift in Sources */,
 				7A0116522471C8840070EB5F /* StoreObserver.swift in Sources */,
 				7A8CBB2123E912C700D0D6BD /* ProgressionCollectionViewController.swift in Sources */,
 				7AC2C6C22449183C00B3BFC8 /* MealPlansWorker.swift in Sources */,
@@ -1222,7 +1234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1276,7 +1288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1296,7 +1308,7 @@
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sixpack Blueprint: Abs Trainer";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1319,7 +1331,7 @@
 				INFOPLIST_FILE = CoreBlastFY/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sixpack Blueprint: Abs Trainer";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

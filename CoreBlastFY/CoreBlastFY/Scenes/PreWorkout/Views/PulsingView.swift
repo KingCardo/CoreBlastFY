@@ -36,7 +36,7 @@ class PulsingView: UIView {
         let label = UILabel()
         label.text = "Start".capitalized
         label.textAlignment = .center
-        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 34) : UIFont.makeTitleFontDB(size: 24)
+        label.font = UIDevice.isIpad ? UIFont.makeAvenirNext(size: 34) : UIFont.systemFont(ofSize: 24, weight: .bold) //UIFont.makeTitleFontDB(size: 24)
         label.textColor = .white
         label.backgroundColor = UIColor.goatBlue
         label.isUserInteractionEnabled = true
