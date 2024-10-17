@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+import StoreKit
+
+let ratingKey = "ratingKey"
 
 struct OnboardingView: View {
     @State private var currentStep = 0
@@ -23,10 +26,12 @@ struct OnboardingView: View {
                 } else if currentStep == 3 {
                     BenefitsView(currentStep: $currentStep)
                 } else if currentStep == 4 {
-                    SubscriptionView(currentStep: $currentStep) {
-                        currentStep += 1
-                        OnboardingViewController.completion?()
-                        UserDefaults.standard.set(true, forKey: onboardingKey)
+                    SubscriptionView(currentStep: $currentStep) { success in
+                        if success {
+                          //  currentStep += 1
+                            OnboardingViewController.completion?()
+                            UserDefaults.standard.set(true, forKey: onboardingKey)
+                        }
                     }
                 }
             }
@@ -50,10 +55,6 @@ struct IntroView: View {
                 endPoint: .bottomTrailing
             )
             .edgesIgnoringSafeArea(.all)
-//            Image("inapppromopic")
-//                .resizable()
-//                .scaledToFit()
-//                .ignoresSafeArea()
            
             VStack {
                 Spacer()
@@ -61,7 +62,7 @@ struct IntroView: View {
                     .font(Font.custom("AppleSDGothicNeo-Bold", size: 32, relativeTo: .title))
                     .padding()
                 
-                Text("Achieve a stronger core and chiseled six pack with our customized workout plan.")
+                Text("Achieve a stronger core and chiseled six pack with our customized workout generator.")
                     .font(Font.custom("AppleSDGothicNeo-Regular", size: 20, relativeTo: .body))
                     .padding()
                 
@@ -130,6 +131,16 @@ struct NotificationsView: View {
                 Button(action: {
                     withAnimation {
                         currentStep += 1
+                        
+                        let center = UNUserNotificationCenter.current()
+                        center.getNotificationSettings { settings in
+                            guard (settings.authorizationStatus == .authorized) ||
+                                    (settings.authorizationStatus == .provisional) else {
+                                center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                                }
+                                return
+                            }
+                        }
                     }
                 }) {
                     Text("Allow Notifications")
@@ -153,11 +164,6 @@ struct ReviewRequestView: View {
 
     var body: some View {
         ZStack {
-//            Image("inapppromopic")
-//                .resizable()
-//                .scaledToFit()
-//                .ignoresSafeArea()
-            
             LinearGradient(
                 gradient: Gradient(colors: [
                     Color(red: 0.0, green: 0.75, blue: 0.85),  // Vibrant Cyan
@@ -183,6 +189,16 @@ struct ReviewRequestView: View {
                 Button(action: {
                     withAnimation {
                         currentStep += 1
+                        if !UserDefaults.standard.bool(forKey: ratingKey) {
+                            DispatchQueue.main.async {
+                                if let scene = UIApplication.shared.connectedScenes
+                                    .first(where: { $0.activationState == .foregroundActive })
+                                    as? UIWindowScene {
+                                    SKStoreReviewController.requestReview(in: scene)
+                                    UserDefaults.standard.setValue(true, forKey: ratingKey)
+                                }
+                            }
+                        }
                     }
                 }) {
                     Text("Rate us")

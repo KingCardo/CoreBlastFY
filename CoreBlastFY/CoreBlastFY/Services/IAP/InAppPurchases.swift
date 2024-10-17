@@ -14,6 +14,9 @@ struct InAppIds {
     static let gmpID = "com.Franchiz.CoreBlast.GainsMealPlan"
     static let fmpID = "com.Franchiz.CoreBlast.FranchizMealPlan"
     static let vegID = "com.Franchiz.CoreBlast.Vegetarian"
+    static let premiumWeekly = "SPBPWeekly6"
+    static let premiumMonthly = "SPBPMonthly13"
+    static let premiumAnnual = "SPBPAnnual60"
     static let tipsID: String? = nil
     static let all = [ vegID, fmpID, smpID, gmpID, tipsID]
 }
