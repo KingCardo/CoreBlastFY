@@ -47,7 +47,7 @@ enum Settings {
         .foodLog,
         .reportAProblem,
         .inAppPurchase,
-        .termsOfUse,
+       // .termsOfUse,
         ]
     }
     struct ViewModel {

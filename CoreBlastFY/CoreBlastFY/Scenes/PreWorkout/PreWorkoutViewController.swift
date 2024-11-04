@@ -20,6 +20,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     
     var displayedPreWorkoutData: PreWorkout.FetchUser.ViewModel.UserDetails?
     var firstWorkout: String?
+    var videoURL: URL?
     
     // MARK: Views
     
@@ -55,7 +56,7 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     }
     
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", secondsOfRest: interactor?.workout?.secondsOfRest ?? 10)
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", secondsOfRest: interactor?.workout?.secondsOfRest ?? 10, videoURL: videoURL, isFirstWorkout: true)
         view.addSubview(loadingView!)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
@@ -116,8 +117,10 @@ class PreWorkoutViewController: UIViewController, PreWorkoutDisplayLogic
     private func setFirstWorkout() {
         let firstWorkout = interactor?.workout?.exercisesToReturn.first
         self.firstWorkout = firstWorkout?.name.capitalized
+        self.videoURL = firstWorkout?.videoURL
+       
     }
-    
+        
     private let tipIcon = UIButton(type: .detailDisclosure)
     
     private let customWorkoutIcon = UIButton(title: "Custom Workout")

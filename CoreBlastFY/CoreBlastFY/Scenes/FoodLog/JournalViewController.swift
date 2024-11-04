@@ -24,7 +24,7 @@ class JournalViewController: UIViewController {
         if EntryController.shared.entries.count > 0 {
             journalTableView.reloadData()
         } else {
-            let ac = AlertController.alert("Journal Time 📝", message: "Log what you ate or how your feeling to  track the highs and lows!")
+            let ac = AlertController.alert("Journal Time 📝", message: "Log what you ate or how your feeling to track the highs and lows!")
             present(ac, animated: true, completion: nil)
     }
 }

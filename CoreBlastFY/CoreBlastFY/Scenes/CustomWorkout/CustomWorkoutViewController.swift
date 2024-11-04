@@ -21,6 +21,7 @@ class CustomWorkoutViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(workoutComplete), name: workoutCompleteNotification2, object: nil)
         navigationController?.navigationBar.prefersLargeTitles  =  false
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,12 +96,15 @@ class CustomWorkoutViewController: UIViewController {
     private func setFirstWorkout() {
         let firstWorkout = customWorkoutVM.workout?.exercises.first
         self.firstWorkout = firstWorkout?.name.capitalized
+        self.videoURL = customWorkoutVM.workout?.exercises.first?.videoURL
     }
     
     var firstWorkout: String?
+    var videoURL: URL?
     
     private func displayLoadingView() {
-        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", backgroundColor: .black, secondsOfRest: customWorkoutVM.secondsOfRest)
+        navigationItem.title = ""
+        loadingView = LoadingView(frame: .zero, nextExercise: firstWorkout ?? "", backgroundColor: .black, secondsOfRest: customWorkoutVM.secondsOfRest, videoURL: videoURL, isFirstWorkout: true)
         view.addSubview(loadingView!)
         self.tabBarController?.tabBar.isHidden = true
         loadingView!.translatesAutoresizingMaskIntoConstraints = false

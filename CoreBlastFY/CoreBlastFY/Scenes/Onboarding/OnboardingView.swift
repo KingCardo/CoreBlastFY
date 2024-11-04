@@ -28,7 +28,7 @@ struct OnboardingView: View {
                 } else if currentStep == 4 {
                     SubscriptionView(currentStep: $currentStep) { success in
                         if success {
-                          //  currentStep += 1
+                            currentStep += 1
                             OnboardingViewController.completion?()
                             UserDefaults.standard.set(true, forKey: onboardingKey)
                         }
@@ -45,15 +45,9 @@ struct IntroView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.0, green: 0.75, blue: 0.85),  // Vibrant Cyan
-                    Color(red: 0.0, green: 0.42, blue: 1.0),   // Strong Blue
-                    Color(red: 0.55, green: 0.0, blue: 1.0)    // Deep Purple
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Image("6packFY")
+                .resizable()
+                .scaledToFit()
             .edgesIgnoringSafeArea(.all)
            
             VStack {
@@ -92,20 +86,11 @@ struct NotificationsView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.0, green: 0.75, blue: 0.85),  // Vibrant Cyan
-                    Color(red: 0.0, green: 0.42, blue: 1.0),   // Strong Blue
-                    Color(red: 0.55, green: 0.0, blue: 1.0)    // Deep Purple
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .edgesIgnoringSafeArea(.all)
-//            Image("inapppromopic")
-//                .resizable()
-//                .scaledToFit()
-//                .ignoresSafeArea()
+            Image("inapppromopic")
+                .resizable()
+                .scaledToFit()
+                .edgesIgnoringSafeArea(.all)
+
             VStack {
                 Spacer()
                 Text("Enable Notifications")
@@ -137,6 +122,9 @@ struct NotificationsView: View {
                             guard (settings.authorizationStatus == .authorized) ||
                                     (settings.authorizationStatus == .provisional) else {
                                 center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                                    if granted {
+                                        UserDefaults.standard.set(notificationsAllowed, forKey: notificationsAllowedKey)
+                                    }
                                 }
                                 return
                             }
@@ -220,20 +208,10 @@ struct BenefitsView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.0, green: 0.75, blue: 0.85),  // Vibrant Cyan
-                    Color(red: 0.0, green: 0.42, blue: 1.0),   // Strong Blue
-                    Color(red: 0.55, green: 0.0, blue: 1.0)    // Deep Purple
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .edgesIgnoringSafeArea(.all)
-//            Image("inapppromopic")
-//                .resizable()
-//                .scaledToFit()
-//                .ignoresSafeArea()
+            Image("flexonboard3")
+                .resizable()
+                .scaledToFit()
+                .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 Text("Why Follow the Blueprint?")

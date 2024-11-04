@@ -113,8 +113,8 @@ class HomeViewController: UITabBarController, MFMailComposeViewControllerDelegat
         progressionNavController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         
-        nutritionVC = MealPlansViewController()
-        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: UIImage(systemName: "fork.knife"), selectedImage: nil)
+//        nutritionVC = MealPlansViewController()
+//        nutritionVC.tabBarItem = UITabBarItem(title: "Meal Plans", image: UIImage(systemName: "fork.knife"), selectedImage: nil)
         
         
         
@@ -134,7 +134,7 @@ class HomeViewController: UITabBarController, MFMailComposeViewControllerDelegat
         settingsNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.setupPreworkoutVC()
-        setViewControllers([ workoutNavController, nutritionVC,progressionNavController,settingsNavController], animated: true)
+        setViewControllers([ workoutNavController,progressionNavController,journalNavViewController, settingsNavController], animated: true)
         self.customizableViewControllers = []
         
         selectedViewController = viewControllers?[0]

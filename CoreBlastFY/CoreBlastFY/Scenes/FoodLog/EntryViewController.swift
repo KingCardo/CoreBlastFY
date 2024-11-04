@@ -30,16 +30,16 @@ class EntryViewController: UIViewController {
         entryTypePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
         entryTypePicker.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        view.addSubview(titleTextField)
-        titleTextField.translatesAutoresizingMaskIntoConstraints = false
-        titleTextField.topAnchor.constraint(equalTo: entryTypePicker.bottomAnchor, constant: Dimensions.topAnchor).isActive = true
-        titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Dimensions.topAnchor).isActive = true
-        titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
-        titleTextField.heightAnchor.constraint(equalToConstant: Dimensions.titleTextFieldHeightAnchor).isActive = true
+//        view.addSubview(titleTextField)
+//        titleTextField.translatesAutoresizingMaskIntoConstraints = false
+//        titleTextField.topAnchor.constraint(equalTo: entryTypePicker.bottomAnchor, constant: Dimensions.topAnchor).isActive = true
+//        titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Dimensions.topAnchor).isActive = true
+//        titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
+//        titleTextField.heightAnchor.constraint(equalToConstant: Dimensions.titleTextFieldHeightAnchor).isActive = true
         
         view.addSubview(bodyTextView)
         bodyTextView.translatesAutoresizingMaskIntoConstraints = false
-        bodyTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: Dimensions.topAnchor).isActive = true
+        bodyTextView.topAnchor.constraint(equalTo: entryTypePicker.bottomAnchor, constant: Dimensions.topAnchor).isActive = true
         bodyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Dimensions.topAnchor).isActive = true
         bodyTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Dimensions.bodyTextViewBottomAnchor).isActive = true
         bodyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Dimensions.topAnchor).isActive = true
@@ -85,6 +85,7 @@ class EntryViewController: UIViewController {
         titleTF.backgroundColor = .white
         titleTF.clipsToBounds = true
         titleTF.layer.cornerRadius = 8
+        titleTF.textColor = .white
         return titleTF
     }()
     

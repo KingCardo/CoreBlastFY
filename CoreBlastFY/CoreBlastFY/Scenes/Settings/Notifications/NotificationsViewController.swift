@@ -66,7 +66,7 @@ class NotificationsViewController: UIViewController, NotificationsDisplayLogic {
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .goatBlue
-        button.addTarget(NotificationsViewController.self, action: #selector(grabDate), for: .touchDown)
+        button.addTarget(self, action: #selector(grabDate), for: .touchDown)
         return button
     }()
         

@@ -72,14 +72,10 @@ class StoreObserver: NSObject {
 
     /// Handles successful purchase transactions.
     fileprivate func handlePurchased(_ transaction: SKPaymentTransaction, id: String?) {
-        guard let id = id else {
-            return
-        }
+
         DispatchQueue.main.async {
              NotificationCenter.default.post(Notification(name: PurchaseSuccess))
         }
-       
-        UserDefaults.standard.set(true, forKey: id)
         
         print("\(Messages.deliverContent) \(transaction.payment.productIdentifier).")
 

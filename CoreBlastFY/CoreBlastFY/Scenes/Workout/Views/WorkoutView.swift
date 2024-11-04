@@ -174,7 +174,8 @@ class WorkoutView: UIView {
         tipsLabel.text = tipsText
         exerciseNameButton.setTitle(nextExercise, for: .normal)
         
-        loadingView = LoadingView(frame: .zero, nextExercise: nextExercise, secondsOfRest: secondsOfRest)
+        let videoURL = workoutViewModel.workoutDetails.exercises[iteration].videoURL
+        loadingView = LoadingView(frame: .zero, nextExercise: nextExercise, secondsOfRest: secondsOfRest, videoURL: videoURL)
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             if let loadingView = self?.loadingView {

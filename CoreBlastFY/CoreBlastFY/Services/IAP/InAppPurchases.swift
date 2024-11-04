@@ -19,6 +19,7 @@ struct InAppIds {
     static let premiumAnnual = "SPBPAnnual60"
     static let tipsID: String? = nil
     static let all = [ vegID, fmpID, smpID, gmpID, tipsID]
+    static let subscriptions = [premiumWeekly, premiumMonthly, premiumAnnual]
 }
 
 struct Messages {

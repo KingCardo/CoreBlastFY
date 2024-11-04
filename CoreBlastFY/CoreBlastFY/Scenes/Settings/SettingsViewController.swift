@@ -169,7 +169,7 @@ class SettingsViewController: UITableViewController, SettingsDisplayLogic {
         case .foodLog: routeToFoodLogScene()
         case .reportAProblem: contactUsButtonTapped()
         case .inAppPurchase: handleRestore()
-        case .termsOfUse: routToTermsOfUse()
+       // case .termsOfUse: routToTermsOfUse()
         case .customWorkout: routeToCustomWorkoutScene()
         case .exercises: routeToExercises()
         default: break
@@ -211,7 +211,7 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
-        mailComposer.setToRecipients(["foreveryoungfitnessX@gmail.com"])
+        mailComposer.setToRecipients(["foreveryoungco@icloud.com"])
         mailComposer.setSubject("Request a Feature? / Have Feedback? / Report a Bug?")
         
         if !MFMailComposeViewController.canSendMail() {
